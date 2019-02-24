@@ -1570,7 +1570,7 @@
 <XPD:REF name="Owner">h1OkMDH2TkydrXQsX/WNIQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Operations[1]" type="UMLOperation" guid="lEcwuUU7TkulvS0rLdTl1gAA">
-<XPD:ATTR name="Name" type="string">setCatched</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">setCaught</XPD:ATTR>
 <XPD:REF name="Owner">h1OkMDH2TkydrXQsX/WNIQAA</XPD:REF>
 <XPD:ATTR name="#CallActions" type="integer">1</XPD:ATTR>
 <XPD:REF name="CallActions[0]">oPP/tTc3W0K6K6w014hb6gAA</XPD:REF>

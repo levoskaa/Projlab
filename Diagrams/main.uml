@@ -1827,7 +1827,7 @@
 <XPD:REF name="Instances[6]">4SnVURPuT0ujoG3KGxBjUgAA</XPD:REF>
 <XPD:REF name="Instances[7]">AM/RTGBWJ06fcCZYNP5QSwAA</XPD:REF>
 <XPD:REF name="Instances[8]">2VPcN/DME0KSXlqbkw2t9AAA</XPD:REF>
-<XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">16</XPD:ATTR>
+<XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">17</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="T6kHuRH3xk6ZFNlEXX3nPQAA">
 <XPD:ATTR name="Name" type="string">_old</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">h1OkMDH2TkydrXQsX/WNIQAA</XPD:REF>
@@ -13652,6 +13652,113 @@ t1 csemp&#233;n &#225;llt, &#250;gy d&#246;nt&#246;tt a v&#233;letlennel, hogy t
 <XPD:REF name="ReceivingStimuli[0]">LLrP7T+uJEi6TThVW7tpqwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
+<XPD:OBJ name="OwnedCollaborationInstanceSets[16]" type="UMLCollaborationInstanceSet" guid="UN8xzOf2GU+gSLl9cJfVRwAA">
+<XPD:ATTR name="Name" type="string">CollaborationInstanceSet16</XPD:ATTR>
+<XPD:REF name="RepresentedClassifier">h1OkMDH2TkydrXQsX/WNIQAA</XPD:REF>
+<XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="W8gpC7cz0kK43AgFvXWslQAA">
+<XPD:ATTR name="Name" type="string">InteractionInstanceSet1</XPD:ATTR>
+<XPD:REF name="Context">UN8xzOf2GU+gSLl9cJfVRwAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="7KNkb0+1bkWPIBBPHwUFJAAA">
+<XPD:ATTR name="Name" type="string">Orangutan catches panda</XPD:ATTR>
+<XPD:REF name="DiagramOwner">W8gpC7cz0kK43AgFvXWslQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="pIha0y5d30+Ao5qZPNQXpAAA">
+<XPD:REF name="Model">7KNkb0+1bkWPIBBPHwUFJAAA</XPD:REF>
+<XPD:REF name="Diagram">7KNkb0+1bkWPIBBPHwUFJAAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLFrameView" guid="CAbgQufG206gVf1DVn2EegAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">116</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">104</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">757</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">357</XPD:ATTR>
+<XPD:REF name="Model">jCe8PWsS+kKBs+XZIlpB9gAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="LabelView" guid="20Muq/ZuyEGhTqlhVnBosQAA">
+<XPD:ATTR name="Text" type="string">Orangutan catches panda</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="FrameTypeLabel" type="LabelView" guid="wJ/i3KEVPkOxzzZsBqFB/QAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">sd</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLSeqObjectView" guid="vs/jNsYTfkaQIUclzOLnnQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">12</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">108</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">70</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">350</XPD:ATTR>
+<XPD:REF name="Model">Medrlij6YUm3yR0QCmSGOwAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Ymme9fmyWUeZDzkP6X5DdgAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="8Luz66zvvk2DM5ZhPEgusQAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Object1</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="QDtJROeoN0ei4ZGw7CnY+QAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="IN1C58tEu0a5VITmRB1G8QAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="ZcDYMVpvB0KySby9vUmM4gAA">
+<XPD:REF name="Model">Medrlij6YUm3yR0QCmSGOwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLSeqObjectView" guid="OKvjUzRvJ0GsC7ZkX11UegAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">164</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">156</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">78</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">350</XPD:ATTR>
+<XPD:REF name="Model">PikGXIjx8E2IqnYzroUosAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="GBC3Weg/aUW1eewTvOb8PQAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="W7rk5Qpk6E6cqmOITbYqPgAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">o : Orangutan</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="sHt8/azZg0S5NYesa4W/kQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="1rFLac8yREC/4QsAXCW7CQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="lR4GH7V3w0SlTZwVBMmOmAAA">
+<XPD:REF name="Model">PikGXIjx8E2IqnYzroUosAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedFrames" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="jCe8PWsS+kKBs+XZIlpB9gAA">
+<XPD:ATTR name="Name" type="string">Orangutan catches panda</XPD:ATTR>
+<XPD:ATTR name="FrameKind" type="string">sd</XPD:ATTR>
+<XPD:REF name="InteractionInstanceSet">W8gpC7cz0kK43AgFvXWslQAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+<XPD:REF name="Views[0]">CAbgQufG206gVf1DVn2EegAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#ParticipatingInstances" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="ParticipatingInstances[0]" type="UMLObject" guid="Medrlij6YUm3yR0QCmSGOwAA">
+<XPD:ATTR name="Name" type="string">Object1</XPD:ATTR>
+<XPD:REF name="CollaborationInstanceSet">UN8xzOf2GU+gSLl9cJfVRwAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">vs/jNsYTfkaQIUclzOLnnQAA</XPD:REF>
+<XPD:REF name="Views[1]">ZcDYMVpvB0KySby9vUmM4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingInstances[1]" type="UMLObject" guid="PikGXIjx8E2IqnYzroUosAAA">
+<XPD:ATTR name="Name" type="string">o</XPD:ATTR>
+<XPD:REF name="Classifier">+SgZhYPpkECwFBHQqNHdiQAA</XPD:REF>
+<XPD:REF name="CollaborationInstanceSet">UN8xzOf2GU+gSLl9cJfVRwAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">OKvjUzRvJ0GsC7ZkX11UegAA</XPD:REF>
+<XPD:REF name="Views[1]">lR4GH7V3w0SlTZwVBMmOmAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[1]" type="UMLClass" guid="wYrZUAhK4E2lmxc/cg6hDwAA">
 <XPD:ATTR name="Name" type="string">ScarablePanda</XPD:ATTR>
@@ -14236,7 +14343,7 @@ t1 csemp&#233;n &#225;llt, &#250;gy d&#246;nt&#246;tt a v&#233;letlennel, hogy t
 <XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Associations[0]">PdLWSpQ3EUS+k26Fd06Y0QAA</XPD:REF>
 <XPD:REF name="Associations[1]">0jfk+hEknUigs9ui946bZgAA</XPD:REF>
-<XPD:ATTR name="#Instances" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="#Instances" type="integer">12</XPD:ATTR>
 <XPD:REF name="Instances[0]">hhZwGq4/skGN0rB8vSTi9gAA</XPD:REF>
 <XPD:REF name="Instances[1]">JApvI+Ofk0iYNupL7a1lMAAA</XPD:REF>
 <XPD:REF name="Instances[2]">UYolk26IPUSmp6afgv69sgAA</XPD:REF>
@@ -14248,6 +14355,7 @@ t1 csemp&#233;n &#225;llt, &#250;gy d&#246;nt&#246;tt a v&#233;letlennel, hogy t
 <XPD:REF name="Instances[8]">E1EOoCpcmU2KzeRpVP+tiwAA</XPD:REF>
 <XPD:REF name="Instances[9]">pNg9qpGBs0iYwrEZO2HGSgAA</XPD:REF>
 <XPD:REF name="Instances[10]">PrBWHdGT6kC26n6jfptjCAAA</XPD:REF>
+<XPD:REF name="Instances[11]">PikGXIjx8E2IqnYzroUosAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[8]" type="UMLInterface" guid="H0AMg6zmG0SuRBOaYg/w+wAA">
 <XPD:ATTR name="Name" type="string">IAnimal</XPD:ATTR>

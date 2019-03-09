@@ -16178,7 +16178,7 @@ t1 csemp&#233;n &#225;llt, &#250;gy d&#246;nt&#246;tt a v&#233;letlennel, hogy t
 <XPD:ATTR name="Height" type="integer">369</XPD:ATTR>
 <XPD:REF name="Model">854IvQ/NokWTus5qHErT/AAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="LabelView" guid="6riXzvWJcEqFRV6nBOLGwAAA">
-<XPD:ATTR name="Text" type="string">Panda steps O.B.T</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Panda steps on broken tile</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="FrameTypeLabel" type="LabelView" guid="9EQGkz1Q8Ey4y4DJkbk5cAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
@@ -16668,7 +16668,7 @@ t1 csemp&#233;n &#225;llt, &#250;gy d&#246;nt&#246;tt a v&#233;letlennel, hogy t
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedFrames" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="854IvQ/NokWTus5qHErT/AAA">
-<XPD:ATTR name="Name" type="string">Panda steps O.B.T</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Panda steps on broken tile</XPD:ATTR>
 <XPD:ATTR name="FrameKind" type="string">sd</XPD:ATTR>
 <XPD:REF name="InteractionInstanceSet">o459qvYMAUqzOExcDoqn0AAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>

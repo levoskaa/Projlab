@@ -12,7 +12,11 @@ public abstract class Animal {
     /**
      * Arra a csempere mutat, amelyiken az allat eppen all.
      */
-    private BaseTile currentTile;
+    protected BaseTile currentTile;
+    /**
+     * A jatek utemezeseert felelos objektum.
+     */
+    protected GameLogic GL;
 
     /**
      * Konstruktor.

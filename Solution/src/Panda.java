@@ -41,8 +41,13 @@ public abstract class Panda extends Animal {
         return 0;
     }
 
+    /**
+     * A panda halalakor eltavolitja azt a jatekterbol.
+     */
+    @Override
     public void die() {
-
+        currentTile.remove();
+        GL.remove(this);
     }
     
     public abstract void doYourThing();

@@ -1,5 +1,10 @@
-public abstract class Item
-{
-    private int Counter;
-    public void countDown(){}
+public abstract class Item {
+
+    protected int Counter;
+
+    public abstract void countDown();
+
+    public Item() {
+        Counter = 100;
+    }
 }

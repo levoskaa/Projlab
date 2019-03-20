@@ -5,6 +5,6 @@ public abstract class Item {
     public abstract void countDown();
 
     public Item() {
-        Counter = 100;
+
     }
 }

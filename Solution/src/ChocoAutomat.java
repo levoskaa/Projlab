@@ -1,20 +1,20 @@
-public class SlotMachine extends Item {
+public class ChocoAutomat extends Item {
 
     //Tile onTile;
 
     @Override
     public void countDown() {
         --Counter;
-        if(Counter <= 0){
-//            Tile[]Neighbours = onTile.getNeighbours();
+        if(Counter <= 0) {
+//            Tile[] Neighbours = onTile.getNeighbours();
 //            for(int i = 0; i < Neighbours.size(); ++i) {
-//                Neighbours[i].ring();
+//                Neighbours[i].beep();
 //            }
             Counter = 100;
         }
     }
 
-    public SlotMachine(/*Tile t*/) {
+    public ChocoAutomat(/*Tile t*/){
         //onTile = t;
         Counter = 100;
     }

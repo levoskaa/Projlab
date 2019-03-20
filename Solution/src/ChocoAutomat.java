@@ -1,7 +1,5 @@
 public class ChocoAutomat extends Item {
 
-    //Tile onTile;
-
     @Override
     public void countDown() {
         --Counter;

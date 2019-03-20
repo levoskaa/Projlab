@@ -1,24 +1,49 @@
 //  @ Project : Projlab
 //  @ File Name : Panda.java
 //  @ Date : 2019.03.20.
-//  @ Author : 
-//
-//
+//  @ Author : Laurinyecz
 
+/**
+ * Osztaly a Pandak viselkedesenek es tulajdonsagaiknak osszegyujtesere,
+ * a JumpingPanda, TiredPanda es ScarablePanda osztalyok ebbol az osztalybol szarmaznak.
+ * @author Laurinyecz
+ * @see Animal
+ */
+public abstract class Panda extends Animal {
+    /**
+     * Jelzi, ha a pandat az orangutan vezeti.
+     */
+    private boolean caught;
 
-
-
-public abstract class Panda extends Animal implements IAnimal, InteractiveThings {
-    public void checkPoints() {
+    /**
+     * Setter fuggveny a caught valtozo beallitasara.
+     * @param value A caught valtozo uj erteke.
+     */
+    public void setCaught(boolean value) {
+        caught = value;
     }
-    
-    public void setCaught() {
+
+    /**
+     * Konstruktor.
+     */
+    public Panda() {
+        caught = false;
     }
-    
+
+    /**
+     * Visszaadja a panda pontbeli erteket.
+     * @return Mennyi pontot er a panda a kijaratra lepeskor.
+     */
+    @Override
+    public int checkPoints() {
+        if (caught)
+            return 50;
+        return 0;
+    }
+
     public void die() {
+
     }
     
-    public void delegateTick();
-    
-    public void doYourThing();
+    public abstract void doYourThing();
 }

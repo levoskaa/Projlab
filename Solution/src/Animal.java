@@ -7,14 +7,19 @@
  * Osztaly az allatok viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * a Panda es Orangutan osztalyok ebbol az osztalybol szarmaznak.
  * @author Laurinyecz
- * @see Panda
- * @see Orangutan
  */
 public abstract class Animal {
     /**
      * Arra a csempere mutat, amelyiken az allat eppen all.
      */
     private BaseTile currentTile;
+
+    /**
+     * Konstruktor.
+     */
+    public Animal() {
+        currentTile = null;
+    }
 
     /**
      * Getter fuggveny a csempe lekerdezesere.
@@ -42,12 +47,10 @@ public abstract class Animal {
     
     public abstract void jump();
     
-    public abstract void checkPoints();
+    public abstract int checkPoints();
     
     public abstract void catchPanda();
     
     public void die() {
     }
-    
-    public abstract void delegateTick();
 }

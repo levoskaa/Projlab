@@ -13,6 +13,13 @@
 
 
 public abstract class Item implements ITimeable, InteractiveThings {
+
+    protected int Counter;
+
+    public Item() {
+
+    }
+
     public void countDown() {
     }
     

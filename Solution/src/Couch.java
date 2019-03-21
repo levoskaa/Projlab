@@ -13,10 +13,21 @@
 
 
 public class Couch extends Item {
-    public void countDown() {
-    }
+
+    Panda RestingPanda;
+
+    @Override
+    public void countDown() { }
     
     public void receive(Panda p) {
+        if(RestingPanda == null){
+            RestingPanda = p;
+            //RestingPanda.sit(onTile);
+        }
+    }
+
+    public Couch(Tile t) {
+        onTile = t;
     }
     
     public void delegateTick();

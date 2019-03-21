@@ -14,8 +14,8 @@ import java.util.*;
 
 
 public abstract class BaseTile {
-    public Animal localAnimal;
-    public List<BaseTile> Neighbours;
+    protected Animal localAnimal;
+    protected List<BaseTile> Neighbours;
 
     public List<BaseTile> getNeighbours() {
         return Neighbours;

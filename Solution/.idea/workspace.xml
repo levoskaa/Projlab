@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6165c45-d43c-4eb5-bcf3-19f5a5e03cf9" name="Default Changelist" comment="proba">
-      <change afterPath="$PROJECT_DIR$/src/Couch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChocoAutomat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChocoAutomat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SlotMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlotMachine.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -119,7 +115,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553083309518" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553083413922" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -166,7 +162,7 @@
       <workItem from="1549492993829" duration="48000" />
       <workItem from="1549902607664" duration="2984000" />
       <workItem from="1553080064346" duration="14000" />
-      <workItem from="1553080129302" duration="3172000" />
+      <workItem from="1553080129302" duration="3320000" />
     </task>
     <task id="LOCAL-00001" summary="proba">
       <created>1549493924222</created>
@@ -179,7 +175,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6218000" />
+    <option name="totallyTimeSpent" value="6366000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

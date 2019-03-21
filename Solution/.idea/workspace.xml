@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6165c45-d43c-4eb5-bcf3-19f5a5e03cf9" name="Default Changelist" comment="proba">
-      <change beforePath="$PROJECT_DIR$/src/ChocoAutomat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChocoAutomat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Couch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Couch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SlotMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlotMachine.java" afterDir="false" />
-    </list>
+    <list default="true" id="e6165c45-d43c-4eb5-bcf3-19f5a5e03cf9" name="Default Changelist" comment="proba" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +198,7 @@
       <workItem from="1549902607664" duration="2984000" />
       <workItem from="1553080064346" duration="14000" />
       <workItem from="1553080129302" duration="3320000" />
-      <workItem from="1553162358702" duration="626000" />
+      <workItem from="1553162358702" duration="682000" />
     </task>
     <task id="LOCAL-00001" summary="proba">
       <created>1549493924222</created>
@@ -216,7 +211,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6992000" />
+    <option name="totallyTimeSpent" value="7048000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

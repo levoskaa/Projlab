@@ -3,6 +3,8 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
+import java.util.ArrayList;
+
 /**
  * Osztaly a Pandak viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * a JumpingPanda, TiredPanda es ScarablePanda osztalyok ebbol az osztalybol szarmaznak.
@@ -13,7 +15,20 @@ public abstract class Panda extends Animal {
     /**
      * Jelzi, ha a pandat az orangutan vezeti.
      */
-    private boolean caught;
+    protected boolean caught;
+
+    /**
+     * Referencia az orangutanra.
+     */
+    protected Orangutan orangutan;
+
+    /**
+     * Konstruktor.
+     */
+    public Panda(Orangutan orangutan) {
+        caught = false;
+        this.orangutan = orangutan;
+    }
 
     /**
      * Setter fuggveny a caught valtozo beallitasara.
@@ -21,13 +36,6 @@ public abstract class Panda extends Animal {
      */
     public void setCaught(boolean value) {
         caught = value;
-    }
-
-    /**
-     * Konstruktor.
-     */
-    public Panda() {
-        caught = false;
     }
 
     /**
@@ -46,9 +54,33 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void die() {
+        if (caught)
+            orangutan.release(this);
+
         currentTile.remove();
-        GL.remove(this);
+        gameLogic.remove(this);
     }
-    
-    public abstract void doYourThing();
+
+    /**
+     * A GameLogic altal periodikusan meghivott fuggveny, ami hatasara a panda mozog.
+     * @see GameLogic
+     */
+    @Override
+    public void move() {
+        ArrayList<BaseTile> neighbours = currentTile.getNeighbours();
+        // A szomszedos csempek kozul veletlenszeruen valaszt egyet, amire megprobal ralepni.
+        // (Lehetseges, hogy egy helyben marad, ha foglalt csempere akar lepni.)
+        neighbours.get((int) (Math.random() * neighbours.size())).receive(this);
+    }
+
+    /**
+     * A panda elfogasakor hivodik meg.
+     */
+    @Override
+    public void catchPanda() {
+        orangutan.add(this);
+    }
+
+    @Override
+    public void collision(Animal a) {}
 }

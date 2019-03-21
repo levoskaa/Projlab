@@ -13,10 +13,27 @@ public abstract class Animal {
      * Arra a csempere mutat, amelyiken az allat eppen all.
      */
     protected BaseTile currentTile;
+
     /**
      * A jatek utemezeseert felelos objektum.
      */
-    protected GameLogic GL;
+    protected GameLogic gameLogic;
+
+    public abstract void move();
+
+    public abstract int checkPoints();
+
+    public abstract void collision(Animal a);
+
+    public void catchPanda() {}
+
+    public void die() {}
+
+    public void sit(Tile t) {}
+
+    public void scare() {}
+
+    public void jump() {}
 
     /**
      * Konstruktor.
@@ -39,22 +56,5 @@ public abstract class Animal {
      */
     public void setTile(BaseTile t) {
         currentTile = t;
-    }
-
-    public abstract void move();
-
-    public abstract void sit(Tile t);
-    
-    public abstract void collision(Animal a);
-    
-    public abstract void scare();
-    
-    public abstract void jump();
-    
-    public abstract int checkPoints();
-    
-    public abstract void catchPanda();
-    
-    public void die() {
     }
 }

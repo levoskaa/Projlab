@@ -7,14 +7,40 @@
  * Osztaly az allatok viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * a Panda es Orangutan osztalyok ebbol az osztalybol szarmaznak.
  * @author Laurinyecz
- * @see Panda
- * @see Orangutan
  */
 public abstract class Animal {
     /**
      * Arra a csempere mutat, amelyiken az allat eppen all.
      */
-    private BaseTile currentTile;
+    protected BaseTile currentTile;
+
+    /**
+     * A jatek utemezeseert felelos objektum.
+     */
+    protected GameLogic gameLogic;
+
+    public abstract void move();
+
+    public abstract int checkPoints();
+
+    public abstract void collision(Animal a);
+
+    public void catchPanda() {}
+
+    public void die() {}
+
+    public void sit(Tile t) {}
+
+    public void scare() {}
+
+    public void jump() {}
+
+    /**
+     * Konstruktor.
+     */
+    public Animal() {
+        currentTile = null;
+    }
 
     /**
      * Getter fuggveny a csempe lekerdezesere.
@@ -31,23 +57,4 @@ public abstract class Animal {
     public void setTile(BaseTile t) {
         currentTile = t;
     }
-
-    public abstract void move();
-
-    public abstract void sit(Tile t);
-    
-    public abstract void collision(Animal a);
-    
-    public abstract void scare();
-    
-    public abstract void jump();
-    
-    public abstract void checkPoints();
-    
-    public abstract void catchPanda();
-    
-    public void die() {
-    }
-    
-    public abstract void delegateTick();
 }

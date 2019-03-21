@@ -12,13 +12,38 @@
 
 import java.util.ArrayList;
 
+
 public class GameLogic{
     private int Points; //játékos megszerzett pointjait tárolja
+    private boolean running = false; //jelzi, hogy a program fut-e
     private ArrayList<Animal> AnimalsOnTheMap; //a mapen lévő pandákat tárolja
     private ArrayList<Item> ItemsOnTheMap; // a mapen lévő speciális funkcioalitással ellátott tárgyakat tárolja
+    private ArrayList<EntryWardrobe> TilesOnMap; //a mapen lévő szekrényeket tartalmazza
 
-    //jatek inicializalasa
+    //a játék inícializálását végző függvény VÁLTOZÁST FELVENNI AZ OSZTÁLY DIAGRAMMRA
+    public void initGame(){
+        running = true;
+    }
+
+
+    //a játék időzítését elvégző függvény
     public void game() {
+        long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
+        final double amountOfTicks = 2D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
+        double nanoSec = 1000000000 / amountOfTicks; //hány nanoszekudumonként kell tickelni
+        double delta = 0;
+
+        while(running){
+            long now =  System.nanoTime(); //aktuális rendszeridő nanoszekundumban
+            delta += (now - lastTime) / nanoSec;
+            lastTime = now;
+            if (delta >= 1){
+                tick(); //az állatok és tárgyak léptetése/üzemeltetése
+                delta--;
+            }
+
+        }
+
     }
 
     //minden egyes kijáraton átjuttatott panda után pontot ad a játékosnak
@@ -38,8 +63,9 @@ public class GameLogic{
         System.exit(0);
     }
     
-   //a játék időzítését elvégző függvény
+   //az állatok és tárgyak téptetését/ üzemeltetést ellátó fuggvény
     public void tick() {
+
         for(int i = 0; i != AnimalsOnTheMap.size(); ++i){
         AnimalsOnTheMap.get(i).move(); // mozgatja a mapen lévő állatokat
         }

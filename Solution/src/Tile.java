@@ -10,23 +10,43 @@
 //
 
 
+public class Tile extends BaseTile {
+    private Item localItem; //a csempén elhelyezkedő speciális funkcioalitással ellátott tárgy referenciája
+                            //ha nincs akkor null
 
-
-public class Tile extends BaseTile implements ITimeable {
+    //a csokiautomata sipolása ugrásra készteti az ugrópandát
     public void beep() {
+        for(int i = 0; i != Neighbours.size(); ++i) { //az összes szomszédos csempét ellenőrizzük
+            if (Neighbours.get(i).localAnimal != null){ //hogy áll e rajta panda és ha igen
+                localAnimal.jump();                     //meghívjuk a jump metódusát
+            }else{}
+        }
     }
     
     public void ring() {
+        for(int i = 0; i != Neighbours.size(); ++i) { //az összes szomszédos csempét ellenőrizzük
+            if (Neighbours.get(i).localAnimal != null){ //hogy áll e rajta panda és ha igen
+                localAnimal.scare();                    //meghívjuk a scare metódusát
+            }else{}
+        }
     }
     
     public void tire(Tile t) {
+        for(int i = 0; i != Neighbours.size(); ++i) { //az összes szomszédos csempét ellenőrizzük
+            if (Neighbours.get(i).localAnimal != null){ //hogy áll e rajta panda és ha igen
+                localAnimal.sit(t);                    //meghívjuk a sit metódusát a referenciaként megkapott fotelre
+            }else{}
+        }
     }
-    
+
+    //beállítunk a csempére egy tárgyat
     public void setItem(Item i) {
+        localItem = i;
     }
-    
+
+    //beállítunk a csempére egy állatot
     public void setAnimal(Animal a) {
+        localAnimal = a;
     }
-    
-    public void delegateTick();
+
 }

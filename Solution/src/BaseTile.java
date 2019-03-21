@@ -10,10 +10,15 @@
 //
 
 
+import java.util.*;
 
 
 public abstract class BaseTile {
+    public Animal localAnimal;
+    public List<BaseTile> Neighbours;
+
     public List<BaseTile> getNeighbours() {
+        return Neighbours;
     }
     
     public void receive(Animal a) {

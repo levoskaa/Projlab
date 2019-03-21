@@ -13,10 +13,11 @@
 
 
 public class BreakableTile extends Tile {
+    public int health; //csempe élettartama
+    public boolean broken; //töröt-e a csempe
 
-
+    //csökkentjük a törékeny csempe életét egyel
     public void decreaseHealth() {
+        health--;
     }
-    
-    public void delegateTick();
 }

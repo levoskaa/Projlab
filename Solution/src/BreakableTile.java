@@ -10,14 +10,14 @@
 //
 
 /**
- * A torekeny csempe viselkedeset megvalosito osztaly
+ * A torekeny csempe viselkedeset megvalosito osztaly.
  * @author Konczos
  */
 
 
 public class BreakableTile extends Tile {
     /**
-     * A csempe élettartamat tarolo int
+     * A csempe elettartamat tarolo int.
      */
     public int health;
     /**
@@ -26,7 +26,7 @@ public class BreakableTile extends Tile {
     public boolean broken;
 
     /**
-     * A fuggveny egyel csökkenti a törékeny csempe elettartamat
+     * A fuggveny egyel csökkenti a törékeny csempe elettartamat.
      */
     public void decreaseHealth() {
         health--;

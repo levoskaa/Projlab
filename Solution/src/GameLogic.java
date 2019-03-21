@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class GameLogic{
     /**
-     * A játékos megszerzett pointjait tarolo int.
+     * A jatekos megszerzett pointjait tarolo int.
      */
     private int Points;
     /**
@@ -33,11 +33,11 @@ public class GameLogic{
      */
     private ArrayList<Animal> AnimalsOnTheMap;
     /**
-     * A mapen lévő speciális funkcioalitással ellátott tárgyakat tarolo lista.
+     * A mapen levo speciális funkcioalitassal ellatott targyakat tarolo lista.
      */
     private ArrayList<Item> ItemsOnTheMap;
     /**
-     * A mapen lévő szekrényeket tarolo lista.
+     * A mapen levo szekrenyeket tarolo lista.
      */
     private ArrayList<EntryWardrobe> TilesOnMap;
 
@@ -47,7 +47,6 @@ public class GameLogic{
     public void initGame(){
         running = true;
     }
-
 
     /**
      * A jatek idoziteset elvegzo fuggveny.
@@ -80,7 +79,7 @@ public class GameLogic{
     }
 
     /**
-     * A fuggveny befejezi a jatekot es kilep belole
+     * A fuggveny befejezi a jatekot es kilep belole.
      */
     public void endGame() {
         if(AnimalsOnTheMap.isEmpty()) { //játék végetérésének okának ellenőrzése
@@ -94,7 +93,7 @@ public class GameLogic{
     }
 
     /**
-     * A fuggveny az állatok léptetését és tárgyak üzemeltetést latja el.
+     * A fuggveny az allatok lepteteset es targyak üzemeltetest latja el.
      */
     public void tick() {
 

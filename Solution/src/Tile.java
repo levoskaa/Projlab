@@ -10,14 +10,14 @@
 //
 
 /**
- * Egy csempe viselkedeset megvalosito osztaly
+ * Egy csempe viselkedeset megvalosito osztaly.
  * @author Konczos
  */
 
 
 public class Tile extends BaseTile {
     /**
-     * A csempén elhelyezkedő speciális funkcioalitással ellátott tárgy referenciajat tarolo Item.
+     * A csempén elhelyezkedo specialis funkcioalitással ellatott tárgy referenciajat tarolo Item.
      */
     private Item localItem;
 

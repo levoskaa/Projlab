@@ -12,21 +12,46 @@
 
 import java.util.ArrayList;
 
+/**
+ * Az osztaly amely a jatek motorjat kepezi, inicializalja a jatekot,
+ * illetve az allatok lepteteset es a targyak uzemelteteset vegzi.
+ * @author Konczos
+ */
+
 
 public class GameLogic{
-    private int Points; //játékos megszerzett pointjait tárolja
-    private boolean running = false; //jelzi, hogy a program fut-e
-    private ArrayList<Animal> AnimalsOnTheMap; //a mapen lévő pandákat tárolja
-    private ArrayList<Item> ItemsOnTheMap; // a mapen lévő speciális funkcioalitással ellátott tárgyakat tárolja
-    private ArrayList<EntryWardrobe> TilesOnMap; //a mapen lévő szekrényeket tartalmazza
+    /**
+     * A játékos megszerzett pointjait tarolo int.
+     */
+    private int Points;
+    /**
+     * A program futasat jelzo boolean.
+     */
+    private boolean running = false;
+    /**
+     * A mapen levo pandakat tarolo lista.
+     */
+    private ArrayList<Animal> AnimalsOnTheMap;
+    /**
+     * A mapen lévő speciális funkcioalitással ellátott tárgyakat tarolo lista.
+     */
+    private ArrayList<Item> ItemsOnTheMap;
+    /**
+     * A mapen lévő szekrényeket tarolo lista.
+     */
+    private ArrayList<EntryWardrobe> TilesOnMap;
 
-    //a játék inícializálását végző függvény VÁLTOZÁST FELVENNI AZ OSZTÁLY DIAGRAMMRA
+    /**
+     * A fuggveny a jatek inicializalasat vegzi.
+     */
     public void initGame(){
         running = true;
     }
 
 
-    //a játék időzítését elvégző függvény
+    /**
+     * A jatek idoziteset elvegzo fuggveny.
+     */
     public void game() {
         long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
         final double amountOfTicks = 2D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
@@ -46,12 +71,17 @@ public class GameLogic{
 
     }
 
-    //minden egyes kijáraton átjuttatott panda után pontot ad a játékosnak
+    /**
+     * A fuggveny szamolja a jatekos altal a kijaraton atjuttatott pandakat
+     * es ez alapjan noveli a pontszamlalot.
+     */
     public void addPoints() {
         Points++;
     }
 
-    //befejezi a játékot
+    /**
+     * A fuggveny befejezi a jatekot es kilep belole
+     */
     public void endGame() {
         if(AnimalsOnTheMap.isEmpty()) { //játék végetérésének okának ellenőrzése
             System.out.println("You caugth all pandas!\n"); //ha a játékos az össszes pandát kivezette a plázából győzött
@@ -62,16 +92,18 @@ public class GameLogic{
 
         System.exit(0);
     }
-    
-   //az állatok és tárgyak téptetését/ üzemeltetést ellátó fuggvény
+
+    /**
+     * A fuggveny az állatok léptetését és tárgyak üzemeltetést latja el.
+     */
     public void tick() {
 
         for(int i = 0; i != AnimalsOnTheMap.size(); ++i){
-        AnimalsOnTheMap.get(i).move(); // mozgatja a mapen lévő állatokat
+        AnimalsOnTheMap.get(i).move();
         }
 
         for(int j = 0; j != ItemsOnTheMap.size(); ++j){
-        ItemsOnTheMap.get(j).countDown(); //időzíti a mapen lévő, speciális funkcioalitással ellátott tárgyakat
+        ItemsOnTheMap.get(j).countDown();
         }
     }
 }

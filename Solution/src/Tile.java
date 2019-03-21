@@ -9,42 +9,64 @@
 //
 //
 
+/**
+ * Egy csempe viselkedeset megvalosito osztaly
+ * @author Konczos
+ */
+
 
 public class Tile extends BaseTile {
-    private Item localItem; //a csempén elhelyezkedő speciális funkcioalitással ellátott tárgy referenciája
-                            //ha nincs akkor null
+    /**
+     * A csempén elhelyezkedő speciális funkcioalitással ellátott tárgy referenciajat tarolo Item.
+     */
+    private Item localItem;
 
-    //a csokiautomata sipolása ugrásra készteti az ugrópandát
+    /**
+     * A fuggveny a csokiautomata sipolasan keresztul ugrasra keszteti az ugro pandakat.
+     */
     public void beep() {
-        for(int i = 0; i != Neighbours.size(); ++i) { //az összes szomszédos csempét ellenőrizzük
-            if (Neighbours.get(i).localAnimal != null){ //hogy áll e rajta panda és ha igen
-                localAnimal.jump();                     //meghívjuk a jump metódusát
-            }else{}
-        }
-    }
-    
-    public void ring() {
-        for(int i = 0; i != Neighbours.size(); ++i) { //az összes szomszédos csempét ellenőrizzük
-            if (Neighbours.get(i).localAnimal != null){ //hogy áll e rajta panda és ha igen
-                localAnimal.scare();                    //meghívjuk a scare metódusát
-            }else{}
-        }
-    }
-    
-    public void tire(Tile t) {
-        for(int i = 0; i != Neighbours.size(); ++i) { //az összes szomszédos csempét ellenőrizzük
-            if (Neighbours.get(i).localAnimal != null){ //hogy áll e rajta panda és ha igen
-                localAnimal.sit(t);                    //meghívjuk a sit metódusát a referenciaként megkapott fotelre
+        for(int i = 0; i != Neighbours.size(); ++i) {
+            if (Neighbours.get(i).localAnimal != null){
+                localAnimal.jump();
             }else{}
         }
     }
 
-    //beállítunk a csempére egy tárgyat
+    /**
+     * A fuggveny a jatekgep csilingelesen keresztul a szomszedai kezenek elengedesere keszteti az ijedos pandakat.
+     */
+    public void ring() {
+        for(int i = 0; i != Neighbours.size(); ++i) {
+            if (Neighbours.get(i).localAnimal != null){
+                localAnimal.scare();
+            }else{}
+        }
+    }
+
+    /**
+     * A fuggveny teszi lehetove a faradt pandak leulteteset egy fotelre.
+     * @param t A kanape helye amelyre a faradekony panda leulhet.
+     */
+    public void tire(Tile t) {
+        for(int i = 0; i != Neighbours.size(); ++i) {
+            if (Neighbours.get(i).localAnimal != null){
+                localAnimal.sit(t);
+            }else{}
+        }
+    }
+
+    /**
+     * A fuggevnnyel egy targyat helyezunk a csempere.
+     * @param i A targy amelyet a csempere helyezunk.
+     */
     public void setItem(Item i) {
         localItem = i;
     }
 
-    //beállítunk a csempére egy állatot
+    /**
+     * A fuggvennyel egy allatot helyezunk a csempere.
+     * @param a Az allat amelyet a csempere helyezunk.
+     */
     public void setAnimal(Animal a) {
         localAnimal = a;
     }

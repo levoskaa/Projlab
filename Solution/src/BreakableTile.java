@@ -9,14 +9,25 @@
 //
 //
 
-
+/**
+ * A torekeny csempe viselkedeset megvalosito osztaly
+ * @author Konczos
+ */
 
 
 public class BreakableTile extends Tile {
-    public int health; //csempe élettartama
-    public boolean broken; //töröt-e a csempe
+    /**
+     * A csempe élettartamat tarolo int
+     */
+    public int health;
+    /**
+     * A csempe allapotat(torott/ep) jelzo boolean.
+     */
+    public boolean broken;
 
-    //csökkentjük a törékeny csempe életét egyel
+    /**
+     * A fuggveny egyel csökkenti a törékeny csempe elettartamat
+     */
     public void decreaseHealth() {
         health--;
     }

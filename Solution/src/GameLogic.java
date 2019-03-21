@@ -10,20 +10,42 @@
 //
 
 
+import java.util.ArrayList;
 
+public class GameLogic{
+    private int Points; //játékos megszerzett pointjait tárolja
+    private ArrayList<Animal> AnimalsOnTheMap; //a mapen lévő pandákat tárolja
+    private ArrayList<Item> ItemsOnTheMap; // a mapen lévő speciális funkcioalitással ellátott tárgyakat tárolja
 
-public class GameLogic implements ITimeable {
+    //jatek inicializalasa
     public void game() {
     }
-    
+
+    //minden egyes kijáraton átjuttatott panda után pontot ad a játékosnak
     public void addPoints() {
+        Points++;
     }
-    
+
+    //befejezi a játékot
     public void endGame() {
+        if(AnimalsOnTheMap.isEmpty()) { //játék végetérésének okának ellenőrzése
+            System.out.println("You caugth all pandas!\n"); //ha a játékos az össszes pandát kivezette a plázából győzött
+            System.out.println("You caugt:" + Points + "pandas!");
+        }else{
+            System.out.println("You Lost!"); //ha az orángután meghalt a játékos vesztett
+        }
+
+        System.exit(0);
     }
     
+   //a játék időzítését elvégző függvény
     public void tick() {
+        for(int i = 0; i != AnimalsOnTheMap.size(); ++i){
+        AnimalsOnTheMap.get(i).move(); // mozgatja a mapen lévő állatokat
+        }
+
+        for(int j = 0; j != ItemsOnTheMap.size(); ++j){
+        ItemsOnTheMap.get(j).countDown(); //időzíti a mapen lévő, speciális funkcioalitással ellátott tárgyakat
+        }
     }
-    
-    public void delegateTick();
 }

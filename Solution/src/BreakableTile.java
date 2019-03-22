@@ -30,5 +30,9 @@ public class BreakableTile extends Tile {
      */
     public void decreaseHealth() {
         health--;
+        if(health == 0){
+            broken = true;
+            localAnimal.die();
+        }
     }
 }

@@ -1,3 +1,4 @@
+import javax.imageio.plugins.tiff.TIFFDirectory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,20 +11,87 @@ import java.io.InputStreamReader;
  */
 
 public class SkeletonMenu{
-    public void pandaStepsOnEmptyTile(){}
-    public void orangutanStepsOnEntryWardrobe(){}
-    public void orangutanStepsOnEmptyTile(){}
-    public void orangutanCatchesPanda(){}
+    public void pandaStepsOnEmptyTile(){
+        Orangutan orangutan = new Orangutan();
+        ScarablePanda panda = new ScarablePanda(orangutan);
+        Tile tile = new Tile();
+        tile.receive(panda);
+    }
+    public void orangutanStepsOnEntryWardrobe(){
+        Orangutan orangutan = new Orangutan();
+        EntryWardrobe entryWardrobe = new EntryWardrobe();
+        entryWardrobe.receive(orangutan);
+    }
+    public void orangutanStepsOnEmptyTile(){
+        Orangutan orangutan = new Orangutan();
+        Tile tile = new Tile();
+        tile.receive(orangutan);
+    }
+    public void orangutanCatchesPanda(){
+        Orangutan orangutan = new Orangutan();
+        ScarablePanda panda = new ScarablePanda(orangutan);
+        Tile tileOfPanda = new Tile();
+        Tile tileOfOrangutan = new Tile();
+        tileOfOrangutan.Neighbours.add(tileOfPanda);
+        tileOfPanda.Neighbours.add(tileOfOrangutan);
+        tileOfPanda.receive(panda);
+        tileOfOrangutan.receive(orangutan);
+
+    }
     public void orangutanGuidesPanda(){}
-    public void orangutanStepsOnBrokenTile(){}
+    public void orangutanStepsOnBrokenTile(){
+        Orangutan orangutan = new Orangutan();
+        BreakableTile breakableTile = new BreakableTile();
+        breakableTile.broken = true;
+        breakableTile.receive(orangutan);       //a BreakableTile receive-je felul lesz irva,
+                                                // ugy hogy megoli a rajtalevo allatot ha broken == true?
+                                                // ha igen akkor itt ennyi eleg
+
+    }
     public void pandaStepsOnBrokenTile(){}
     public void pandaFallsOff(){}
-    public void jumpingPandaJumps(){}
-    public void pandaGetsScared(){}
-    public void pandaStepsOnEntryWardrobe(){}
-    public void orangutanStepsOnExitPoint(){}
+    public void jumpingPandaJumps(){
+        Orangutan orangutan = new Orangutan();
+        JumpingPanda jumpingPanda = new JumpingPanda(orangutan);
+        Tile tileOfPanda = new Tile();
+        Tile tileOfSlotMachine = new Tile();
+        SlotMachine slotMachine = new SlotMachine(tileOfSlotMachine);
+        tileOfPanda.receive(jumpingPanda);
+        tileOfSlotMachine.setItem(slotMachine);
+        tileOfPanda.Neighbours.add(tileOfSlotMachine);
+        tileOfSlotMachine.Neighbours.add(tileOfPanda);
+        slotMachine.doYourThing();                  //a doYourThing csinalja az adott Item-re jellemzo esemenyt? ha igen akkor igy jo
+    }
+    public void pandaGetsScared(){
+        Orangutan orangutan = new Orangutan();
+        ScarablePanda scarablePanda = new ScarablePanda(orangutan);
+        Tile tileOfChocoAutomat = new Tile();
+        Tile tileOfPanda = new Tile();
+        ChocoAutomat chocoAutomat = new ChocoAutomat(tileOfChocoAutomat);
+        tileOfPanda.receive(scarablePanda);
+        tileOfChocoAutomat.Neighbours.add(tileOfPanda);
+        tileOfPanda.Neighbours.add(tileOfChocoAutomat);
+        tileOfChocoAutomat.setItem(chocoAutomat);
+        chocoAutomat.doYourThing();
+    }
+    public void pandaStepsOnEntryWardrobe(){
+        Orangutan orangutan = new Orangutan();
+        ScarablePanda scarablePanda = new ScarablePanda(orangutan);
+        EntryWardrobe entryWardrobe = new EntryWardrobe();
+        entryWardrobe.receive(scarablePanda);       //az EntryWardrobe receive-je felul lesz irva, ugy hogy atteleportalja az allatot
+                                                    //a destination tile-ra?
+                                                    // ha igen akkor itt ennyi eleg
+    }
+    public void orangutanStepsOnExitPoint(){
+        Orangutan orangutan = new Orangutan();
+        ExitPoint exitPoint = new ExitPoint();
+        exitPoint.receive(orangutan);
+    }
     public void tiredPandaTakesRest(){}
-    public void exit(){}
+    public void exit(){
+        GameLogic gameLogic = new GameLogic();
+        gameLogic.endGame();
+    }
 
     public void menuInit(){
         System.out.println("Valasszon a kovetkezo lehetosegek kozul:");

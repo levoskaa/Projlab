@@ -35,4 +35,6 @@ public abstract class BaseTile {
     
     public void decraseHealth() {
     }
+
+    //egy add neighbour fuggveny kene(vagy setNeighbours), hogy beallithassuk, hogy melyik csempe melyik szomszedja
 }

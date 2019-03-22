@@ -43,10 +43,7 @@ public class SkeletonMenu{
         Orangutan orangutan = new Orangutan();
         BreakableTile breakableTile = new BreakableTile();
         breakableTile.broken = true;
-        breakableTile.receive(orangutan);       //a BreakableTile receive-je felul lesz irva,
-                                                // ugy hogy megoli a rajtalevo allatot ha broken == true?
-                                                // ha igen akkor itt ennyi eleg
-
+        breakableTile.receive(orangutan);
     }
     public void pandaStepsOnBrokenTile(){}
     public void pandaFallsOff(){}
@@ -58,9 +55,11 @@ public class SkeletonMenu{
         SlotMachine slotMachine = new SlotMachine(tileOfSlotMachine);
         tileOfPanda.receive(jumpingPanda);
         tileOfSlotMachine.setItem(slotMachine);
-        tileOfPanda.Neighbours.add(tileOfSlotMachine);
-        tileOfSlotMachine.Neighbours.add(tileOfPanda);
-        slotMachine.doYourThing();                  //a doYourThing csinalja az adott Item-re jellemzo esemenyt? ha igen akkor igy jo
+        tileOfPanda.Neighbours.add(tileOfSlotMachine);  //itt ha lesz add neighbour akkor at kell irni
+        tileOfSlotMachine.Neighbours.add(tileOfPanda);  //itt ha lesz add neighbour akkor at kell irni
+        for(int i = 0; i<100;i++){              //itt ha lesz setter a counterhez akkor at kell irni
+            slotMachine.countDown();
+        }
     }
     public void pandaGetsScared(){
         Orangutan orangutan = new Orangutan();
@@ -69,18 +68,18 @@ public class SkeletonMenu{
         Tile tileOfPanda = new Tile();
         ChocoAutomat chocoAutomat = new ChocoAutomat(tileOfChocoAutomat);
         tileOfPanda.receive(scarablePanda);
-        tileOfChocoAutomat.Neighbours.add(tileOfPanda);
-        tileOfPanda.Neighbours.add(tileOfChocoAutomat);
+        tileOfChocoAutomat.Neighbours.add(tileOfPanda);     //itt ha lesz add neighbour akkor at kell irni
+        tileOfPanda.Neighbours.add(tileOfChocoAutomat);     //itt ha lesz add neighbour akkor at kell irni
         tileOfChocoAutomat.setItem(chocoAutomat);
-        chocoAutomat.doYourThing();
+        for(int i = 0; i<100;i++){                  //itt ha lesz setter a counterhez akkor at kell irni
+            chocoAutomat.countDown();
+        }
     }
     public void pandaStepsOnEntryWardrobe(){
         Orangutan orangutan = new Orangutan();
         ScarablePanda scarablePanda = new ScarablePanda(orangutan);
         EntryWardrobe entryWardrobe = new EntryWardrobe();
-        entryWardrobe.receive(scarablePanda);       //az EntryWardrobe receive-je felul lesz irva, ugy hogy atteleportalja az allatot
-                                                    //a destination tile-ra?
-                                                    // ha igen akkor itt ennyi eleg
+        entryWardrobe.receive(scarablePanda);
     }
     public void orangutanStepsOnExitPoint(){
         Orangutan orangutan = new Orangutan();

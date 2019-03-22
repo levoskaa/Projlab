@@ -10,30 +10,31 @@
 //
 
 
-
-
+/**
+ * A játékgépet megvalósító osztály.
+ * @author Cynolter
+ */
 public class SlotMachine extends Item {
 
-    private Tile onTile;
-
+    /**
+     * A countDown függvény csökkenti a Counter attribútumát az osztálynak, amint az eléri a 0-t,
+     * akkor csörög és reszetelődik a Counter.
+     */
     @Override
     public void countDown() {
         --Counter;
         if(Counter <= 0){
-//            Tile[]Neighbours = onTile.getNeighbours();
-//            for(int i = 0; i < Neighbours.size(); ++i) {
-//                Neighbours[i].ring();
-//            }
+            onTile.ring();
             Counter = 100;
         }
     }
 
+    /**
+     * A konstruktor, amelyikben meg kell adni, melyik csempére kerül a gép, és kezdőállapotba állítjuk a Counter attribútumot.
+     * @param t A csempe, amelyiken a játékgép található.
+     */
     public SlotMachine(Tile t) {
         onTile = t;
         Counter = 100;
     }
-    
-    public void delegateTick();
-    
-    public void doYourThing();
 }

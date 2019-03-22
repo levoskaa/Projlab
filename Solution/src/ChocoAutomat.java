@@ -10,30 +10,32 @@
 //
 
 
-
-
+/**
+ * A csokiautomatát megvalósító osztály.
+ * @author Cynolter
+ */
 public class ChocoAutomat extends Item {
 
-    private Tile onTile;
-
+    /**
+     * A countDown függvény csökkenti a Counter attribútumát az osztálynak, amint az eléri a 0-t,
+     * akkor sípol és reszetelődik a Counter.
+     */
     @Override
     public void countDown() {
         --Counter;
         if(Counter <= 0) {
-//            Tile[] Neighbours = onTile.getNeighbours();
-//            for(int i = 0; i < Neighbours.size(); ++i) {
-//                Neighbours[i].beep();
-//            }
+            onTile.beep();
             Counter = 100;
         }
     }
 
+    /**
+     * A konstruktor, amelyikben meg kell adni, melyik csempére kerül az automata, és kezdőállapotba állítjuk a Counter attribútumot.
+     * @param t A csempe amelyiken a Csokiautomata áll.
+     */
     public ChocoAutomat(Tile t){
         onTile = t;
         Counter = 100;
     }
-    
-    public void delegateTick();
-    
-    public void doYourThing();
+
 }

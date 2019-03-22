@@ -10,20 +10,24 @@
 //
 
 
+/**
+ * A poliformizmust támogató ősosztály a játékban megtalálható tárgyakhoz.
+ * @author Cynolter
+ */
+public abstract class Item {
 
-
-public abstract class Item implements ITimeable, InteractiveThings {
-
+    /**
+     * A számláló, amely ha lejár akkor a csokiautómata sípolhat és a játékgép csöröghet.
+     */
     protected int Counter;
+    /**
+     * A csempe, amelyiken a tárgy áll.
+     */
+    protected Tile onTile;
 
-    public Item() {
-
-    }
-
+    /**
+     * Leszármazott specifikus, hogy mit kell csinálnia countDown-ra, a leszármazottaknál van implementálva.
+     */
     public void countDown() {
     }
-    
-    public void delegateTick();
-    
-    public void doYourThing();
 }

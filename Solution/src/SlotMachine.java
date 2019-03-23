@@ -12,6 +12,7 @@
 
 /**
  * A játékgépet megvalósító osztály.
+ *
  * @author Cynolter
  */
 public class SlotMachine extends Item {
@@ -22,19 +23,24 @@ public class SlotMachine extends Item {
      */
     @Override
     public void countDown() {
+        System.out.println(">   countDown()");
         --Counter;
-        if(Counter <= 0){
+        if (Counter <= 0) {
             onTile.ring();
             Counter = 100;
         }
+        System.out.println("<   countDown()");
     }
 
     /**
      * A konstruktor, amelyikben meg kell adni, melyik csempére kerül a gép, és kezdőállapotba állítjuk a Counter attribútumot.
+     *
      * @param t A csempe, amelyiken a játékgép található.
      */
     public SlotMachine(Tile t) {
+        System.out.println(">   SlotMachine(Tile t)");
         onTile = t;
         Counter = 100;
+        System.out.println("<   SlotMachine(Tile t)");
     }
 }

@@ -12,6 +12,7 @@
 
 /**
  * A kanapét megvalósító osztály.
+ *
  * @author Cynolter
  */
 public class Couch extends Item {
@@ -26,26 +27,34 @@ public class Couch extends Item {
      */
     @Override
     public void countDown() {
+        System.out.println(">   countDown()");
         onTile.tire(onTile);
+        System.out.println("<   countDown()");
     }
 
     /**
      * Ha egy panda le akar ülni, a kanapé megnézi, hogy üres-e (azaz le tud-e ülni a panda), ha üres, akkor leülteti.
+     *
      * @param p A panda amelyet leültetünk a kanapére.
      */
     @Override
     public void receive(Panda p) {
-        if(RestingPanda == null){
+        System.out.println(">   receive(Panda p)");
+        if (RestingPanda == null) {
             RestingPanda = p;
         }
+        System.out.println("<   receive(Panda p)");
     }
 
     /**
      * A konstruktor, amelyben beállítjuk, hogy alapból nincs panda a kanapén.
+     *
      * @param t A csempe, amelyiken a kanapé található.
      */
     public Couch(Tile t) {
+        System.out.println(">   Couch(Tile t)");
         onTile = t;
         RestingPanda = null;
+        System.out.println("<   Couch(Tile t)");
     }
 }

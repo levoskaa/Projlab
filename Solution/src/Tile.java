@@ -68,7 +68,7 @@ public class Tile extends BaseTile {
      * A fuggvennyel lekerdezzuk, milyen targy van a csempen.
      * @return A targy ami a csempen van.
      */
-    public void getItem() {
+    public Item getItem() {
         return localItem;
     }
 

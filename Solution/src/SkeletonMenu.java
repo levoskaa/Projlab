@@ -220,44 +220,48 @@ public class SkeletonMenu{
         System.out.println("12: Orangutan steps on exit point");
         System.out.println("13: Tired panda takes a rest");
         System.out.println("14: Exit");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            String code = reader.readLine();
-            switch (code){
-                case "1": pandaStepsOnEmptyTile();
-                    break;
-                case "2": orangutanStepsOnEntryWardrobe();
-                    break;
-                case "3": orangutanStepsOnEmptyTile();
-                    break;
-                case "4": orangutanCatchesPanda();
-                    break;
-                case "5": orangutanGuidesPanda();
-                    break;
-                case "6": orangutanStepsOnBrokenTile();
-                    break;
-                case "7": pandaStepsOnBrokenTile();
-                    break;
-                case "8": pandaFallsOff();
-                    break;
-                case "9": jumpingPandaJumps();
-                    break;
-                case "10": pandaGetsScared();
-                    break;
-                case "11": pandaStepsOnEntryWardrobe();
-                    break;
-                case "12": orangutanStepsOnExitPoint();
-                    break;
-                case "13": tiredPandaTakesRest();
-                    break;
-                case "14": exit();
-                    break;
-                default:
-            }
-        }
-        catch(IOException e){
-            
-        }
-
+		
+		boolean run = true;
+		while(run){
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				String code = reader.readLine();
+				switch (code){
+					case "1": pandaStepsOnEmptyTile();
+						break;
+					case "2": orangutanStepsOnEntryWardrobe();
+						break;
+					case "3": orangutanStepsOnEmptyTile();
+						break;
+					case "4": orangutanCatchesPanda();
+						break;
+					case "5": orangutanGuidesPanda();
+						break;
+					case "6": orangutanStepsOnBrokenTile();
+						break;
+					case "7": pandaStepsOnBrokenTile();
+						break;
+					case "8": pandaFallsOff();
+						break;
+					case "9": jumpingPandaJumps();
+						break;
+					case "10": pandaGetsScared();
+						break;
+					case "11": pandaStepsOnEntryWardrobe();
+						break;
+					case "12": orangutanStepsOnExitPoint();
+						break;
+					case "13": tiredPandaTakesRest();
+						break;
+					case "14": exit();
+						break;
+					default: run = false;
+						break;
+				}
+			}
+			catch(IOException e){
+				
+			}
+		}
     }
 }

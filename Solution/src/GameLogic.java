@@ -45,6 +45,8 @@ public class GameLogic{
      * A fuggveny a jatek inicializalasat vegzi.
      */
     public void initGame(){
+        System.out.println(">   initGame()");
+        System.out.println("<   initGame()");
         running = true;
     }
 
@@ -52,6 +54,7 @@ public class GameLogic{
      * A jatek idoziteset elvegzo fuggveny.
      */
     public void game() {
+        System.out.println(">   game()");
         long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
         final double amountOfTicks = 2D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
         double nanoSec = 1000000000 / amountOfTicks; //hány nanoszekudumonként kell tickelni
@@ -67,7 +70,7 @@ public class GameLogic{
             }
 
         }
-
+        System.out.println("<   game()");
     }
 
     /**
@@ -75,20 +78,23 @@ public class GameLogic{
      * es ez alapjan noveli a pontszamlalot.
      */
     public void addPoints(int p) {
+        System.out.println(">   addPoints(int p)");
         Points += (p * 50);
+        System.out.println("<   addPoints(int p)");
     }
 
     /**
      * A fuggveny befejezi a jatekot es kilep belole.
      */
     public void endGame() {
-        if(AnimalsOnTheMap.isEmpty()) { //játék végetérésének okának ellenőrzése
-            System.out.println("You caugth all pandas!\n"); //ha a játékos az össszes pandát kivezette a plázából győzött
+        System.out.println(">   endGame()");
+        if(AnimalsOnTheMap.isEmpty()) {
+            System.out.println("You caugth all pandas!");
             System.out.println("You caugt:" + Points + "pandas!");
         }else{
-            System.out.println("You Lost!"); //ha az orángután meghalt a játékos vesztett
+            System.out.println("You Lost!");
         }
-
+        System.out.println("<   endGame()");
         System.exit(0);
     }
 
@@ -96,7 +102,7 @@ public class GameLogic{
      * A fuggveny az allatok lepteteset es targyak üzemeltetest latja el.
      */
     public void tick() {
-
+        System.out.println(">   tick()");
         for(int i = 0; i != AnimalsOnTheMap.size(); ++i){
         AnimalsOnTheMap.get(i).move();
         }
@@ -104,18 +110,16 @@ public class GameLogic{
         for(int j = 0; j != ItemsOnTheMap.size(); ++j){
         ItemsOnTheMap.get(j).countDown();
         }
+        System.out.println("<   tick()");
     }
 
     /**
      * Eltavolitja a halott allatot.
      */
     public void remove(Animal a){
+        System.out.println(">   remove(Animal a)");
         a = null;
+        System.out.println("<   remove(Animal a)");
     }
 
-    // egy getStartingTile(): Tile fuggveny kene, hogy az ExitPoint class tudja, hogy
-    // hova kell vinnie az Orangutant, miutan ralepett a kilepesi pontra
-
-    // az addPoints fuggvenynek lehetne egy int bemenete
-    // amit az ExitPoint tud hasznalni, igy az egybol megadja, mennyi pont kell
 }

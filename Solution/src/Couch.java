@@ -26,7 +26,7 @@ public class Couch extends Item {
      */
     @Override
     public void countDown() {
-        onTile.tire();
+        onTile.tire(this);
     }
 
     /**

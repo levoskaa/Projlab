@@ -13,7 +13,9 @@ public class TiredPanda extends Panda {
      * Konstruktor.
      */
     public TiredPanda(Orangutan orangutan) {
+		System.out.println(">   TiredPanda(Orangutan orangutan)");
         super(orangutan);
+        System.out.println("<   TiredPanda(Orangutan orangutan)");
     }
 
     /**
@@ -22,7 +24,11 @@ public class TiredPanda extends Panda {
      */
     @Override
     public void sit(Tile t) {
-        if (!caught)
+        System.out.println(">   sit(Tile t)");
+        if (!caught) {
             t.getItem().receive(this);
+		}
+        System.out.println("<   sit(Tile t)");
+		return;
     }
 }

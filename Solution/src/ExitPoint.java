@@ -32,7 +32,10 @@ public class ExitPoint extends EntryWardrobe {
      * @param sT a kezdo csempere vonatkozo referencia.
      */
     void setStartingTile(Tile sT){
+        System.out.println(">   setStartingTile(Tile sT)");
         startingTile = sT;
+        System.out.println("<   setStartingTile(Tile sT)");
+		return;
     }
 
     /**
@@ -42,6 +45,7 @@ public class ExitPoint extends EntryWardrobe {
      * @param a Az allat (orangutan) amely a kijaratra lepett.
      */
     public void receive(Animal a) {
+        System.out.println(">   receive(Animal a)");
         localAnimal.setTile(startingTile);
         int i = 0;
         for (Panda p: localAnimal.getCaughtPandas()) {
@@ -49,6 +53,7 @@ public class ExitPoint extends EntryWardrobe {
             ++i;
         }
         gameLogic.addPoints(i);
+        System.out.println("<   receive(Animal a)");
         return;
     }
 }

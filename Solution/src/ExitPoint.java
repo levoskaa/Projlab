@@ -17,9 +17,19 @@
 public class ExitPoint extends EntryWardrobe {
 
     /**
-     * A kijarati pont egy referencian kereszul eri el a GameLogicot
+     * A kijarati pont egy referencian kereszul eri el a GameLogicot.
      */
-    protected GameLogic gameLogic;
+    private GameLogic gameLogic;
+
+    /**
+     * Csempe amelyre az orangutan visszater, miutan kivezette a pandakat
+     * a kijaraton keresztul.
+     */
+    private Tile startingTile ;
+
+    void setStartingTile(Tile sT){
+        startingTile = sT;
+    }
 
     /**
      * Az ide lepo allatot a bejaratra teszi, levalasztja a pandakat, es
@@ -28,7 +38,7 @@ public class ExitPoint extends EntryWardrobe {
      * @param a Az allat (orangutan) amely a kijaratra lepett.
      */
     public void receive(Animal a) {
-        localAnimal.setTile(getStartingTile());
+        localAnimal.setTile(startingTile);
         int i = 0;
         for (Panda p: localAnimal.getCaughtPandas()) {
             gameLogic.remove(p);

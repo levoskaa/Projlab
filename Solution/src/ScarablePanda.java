@@ -13,7 +13,9 @@ public class ScarablePanda extends Panda {
      * Konstruktor.
      */
     public ScarablePanda(Orangutan orangutan) {
+		System.out.println(">   ScarablePanda(Orangutan orangutan)");
         super(orangutan);
+        System.out.println("<   ScarablePanda(Orangutan orangutan)");
     }
 
     /**
@@ -21,9 +23,13 @@ public class ScarablePanda extends Panda {
      */
     @Override
     public void scare() {
-        if (!caught)
+		System.out.println(">   scare()");
+        if (!caught){
+			System.out.println("<   scare()");
             return;
-
+		}
         orangutan.releaseBehind(this);
+        System.out.println("<   scare()");
+		return;
     }
 }

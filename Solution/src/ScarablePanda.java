@@ -14,7 +14,11 @@ public class ScarablePanda extends Panda {
      */
     public ScarablePanda(Orangutan orangutan) {
         super(orangutan);
+<<<<<<< HEAD
         System.out.println(">   ScarablePanda(Orangutan orangutan)");
+=======
+		System.out.println(">   ScarablePanda(Orangutan orangutan)");
+>>>>>>> 0d69d60b93824e1e2ad57ff347310d53f14393fe
         System.out.println("<   ScarablePanda(Orangutan orangutan)");
     }
 

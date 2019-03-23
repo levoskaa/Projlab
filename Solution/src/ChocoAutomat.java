@@ -12,6 +12,7 @@
 
 /**
  * A csokiautomatát megvalósító osztály.
+ *
  * @author Cynolter
  */
 public class ChocoAutomat extends Item {
@@ -22,20 +23,25 @@ public class ChocoAutomat extends Item {
      */
     @Override
     public void countDown() {
+        System.out.println(">   countDown()");
         --Counter;
-        if(Counter <= 0) {
+        if (Counter <= 0) {
             onTile.beep();
             Counter = 100;
         }
+        System.out.println("<   countDown()");
     }
 
     /**
      * A konstruktor, amelyikben meg kell adni, melyik csempére kerül az automata, és kezdőállapotba állítjuk a Counter attribútumot.
+     *
      * @param t A csempe amelyiken a Csokiautomata áll.
      */
-    public ChocoAutomat(Tile t){
+    public ChocoAutomat(Tile t) {
+        System.out.println(">   ChocoAutomat(Tile t)");
         onTile = t;
         Counter = 100;
+        System.out.println("<   ChocoAutomat(Tile t)");
     }
 
 }

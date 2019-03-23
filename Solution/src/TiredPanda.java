@@ -13,8 +13,8 @@ public class TiredPanda extends Panda {
      * Konstruktor.
      */
     public TiredPanda(Orangutan orangutan) {
-		System.out.println(">   TiredPanda(Orangutan orangutan)");
         super(orangutan);
+		System.out.println(">   TiredPanda(Orangutan orangutan)");
         System.out.println("<   TiredPanda(Orangutan orangutan)");
     }
 

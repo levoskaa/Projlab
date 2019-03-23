@@ -46,6 +46,9 @@ public abstract class BaseTile {
         if (localAnimal == null) {
             localAnimal = a;
         }
+        else{
+            a.collision(localAnimal);
+        }
         return;
     }
 

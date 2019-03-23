@@ -30,6 +30,8 @@ public class BreakableTile extends Tile {
      * @return A health valtozo, azaz a csempe elete.
      */
     public int getHealth() {
+        System.out.println(">   getHealth()");
+        System.out.println("<   getHealth()");
         return health;
     }
 
@@ -38,6 +40,8 @@ public class BreakableTile extends Tile {
      * @return A broken valtozo, azaz, hogy torott e a csempe.
      */
     public boolean isBroken() {
+        System.out.println(">   isBroken()");
+        System.out.println("<   isBroken()");
         return broken;
     }
 
@@ -46,7 +50,10 @@ public class BreakableTile extends Tile {
      * @param newHealth Az health valtozo uj erteke.
      */
     public void setHealth(int newHealth){
+        System.out.println(">   setHealth(int newHealth)");
         health = newHealth;
+        System.out.println("<   setHealth(int newHealth)");
+
     }
 
     /**
@@ -54,18 +61,25 @@ public class BreakableTile extends Tile {
      * @param newBroken A broken valtozo uj erteke.
      */
     public void  setBroken(boolean newBroken){
+        System.out.println(">   setBroken(boolean newBroken)");
         broken = newBroken;
+        System.out.println("<   setBroken(boolean newBroken)");
+
     }
 
     /**
      * A fuggveny egyel csökkenti a törékeny csempe elettartamat.
      */
     public void decreaseHealth() {
+        System.out.println(">   decreaseHealth()");
+
         health--;
         if(health == 0){
             broken = true;
             localAnimal.die();
         }
+        System.out.println("<   decreaseHealth()");
+
     }
 
     /**
@@ -74,6 +88,8 @@ public class BreakableTile extends Tile {
      * @param a Az allat, amely a csempere akar lepni.
      */
     public void receive (Animal a){
+        System.out.println(">   receive (Animal a)");
+
         if(broken) {
             a.die();
         }
@@ -81,5 +97,7 @@ public class BreakableTile extends Tile {
             localAnimal = a;
             decreaseHealth();
         }
+        System.out.println("<   receive (Animal a)");
+
     }
 }

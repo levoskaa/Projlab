@@ -25,18 +25,34 @@ public class BreakableTile extends Tile {
      */
     private boolean broken;
 
+    /**
+     * Getter fuggveny a health valtozohoz.
+     * @return A health valtozo, azaz a csempe elete.
+     */
     public int getHealth() {
         return health;
     }
 
+    /**
+     * Getter fuggveny a broken valtozohoz.
+     * @return A broken valtozo, azaz, hogy torott e a csempe.
+     */
     public boolean isBroken() {
         return broken;
     }
 
+    /**
+     * Setter fuggveny a health valtozohoz.
+     * @param newHealth Az health valtozo uj erteke.
+     */
     public void setHealth(int newHealth){
         health = newHealth;
     }
 
+    /**
+     * Setter fuggveny a broken valtozohoz.
+     * @param newBroken A broken valtozo uj erteke.
+     */
     public void  setBroken(boolean newBroken){
         broken = newBroken;
     }

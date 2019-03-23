@@ -3,6 +3,8 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
+import java.util.ArrayList;
+
 /**
  * Osztaly az allatok viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * a Panda es Orangutan osztalyok ebbol az osztalybol szarmaznak.
@@ -34,6 +36,10 @@ public abstract class Animal {
     public void scare() {}
 
     public void jump() {}
+
+    public void setCaughtPandas(ArrayList<Panda> caughtPandas){}
+
+    public ArrayList<Panda> getCaughtPandas(){return null;}
 
     /**
      * Konstruktor.

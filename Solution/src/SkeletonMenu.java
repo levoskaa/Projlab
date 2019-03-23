@@ -252,6 +252,7 @@ public class SkeletonMenu{
                     break;
                 case "14": exit();
                     break;
+                default:
             }
         }
         catch(IOException e){

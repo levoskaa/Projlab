@@ -27,6 +27,10 @@ public class ExitPoint extends EntryWardrobe {
      */
     private Tile startingTile ;
 
+    /**
+     * Beallitja a kezdo csempet.
+     * @param sT a kezdo csempere vonatkozo referencia.
+     */
     void setStartingTile(Tile sT){
         startingTile = sT;
     }

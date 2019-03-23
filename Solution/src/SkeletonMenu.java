@@ -84,9 +84,11 @@ public class SkeletonMenu{
         tile1.receive(panda);
         tile2.receive(orangutan);
 
-        //itt nem tudom beallitani hogy a panda mar el legyen kapva az orangutan altal
-        // mivel privat az orangutan caughtPandas listje es az add megcserenle a helyuket
-        //ami itt nem kivanatos, ezert kene egy setCaughtPandas
+        ArrayList<Panda> newCaughtPandas = new ArrayList<>();
+        newCaughtPandas.add(panda);
+        orangutan.setCaughtPandas(newCaughtPandas);
+
+        tile3.receive(orangutan);
     }
     /**
      * Az Orangutan steps on broken tile esemenyt szimulalo fuggveny.
@@ -118,7 +120,32 @@ public class SkeletonMenu{
      * A Panda falls off (in a queue) esemenyt szimulalo fuggveny.
      */
     public void pandaFallsOff(){
+        Orangutan orangutan = new Orangutan();
+        ScarablePanda panda = new ScarablePanda(orangutan);
+        Tile tile1 = new Tile();
+        BreakableTile tile2 = new BreakableTile();
+        Tile tile3 = new Tile();
 
+        tile2.setBroken(false);
+        tile2.setHealth(2);
+
+        ArrayList<BaseTile> neighboursOfTile1 = new ArrayList<>();
+        ArrayList<BaseTile> neighboursOfTile2 = new ArrayList<>();
+        ArrayList<BaseTile> neighboursOfTile3 = new ArrayList<>();
+
+        neighboursOfTile1.add(tile2);
+        neighboursOfTile2.add(tile1);
+        neighboursOfTile2.add(tile3);
+        neighboursOfTile3.add(tile2);
+
+        tile1.receive(panda);
+        tile2.receive(orangutan);
+
+        ArrayList<Panda> newCaughtPandas = new ArrayList<>();
+        newCaughtPandas.add(panda);
+        orangutan.setCaughtPandas(newCaughtPandas);
+
+        tile3.receive(orangutan);
     }
     /**
      * A Jumping panda jumps near a ChocoAutomat esemenyt szimulalo fuggveny.
@@ -191,7 +218,24 @@ public class SkeletonMenu{
      * A Tired panda takes a rest esemenyt szimulalo fuggveny.
      */
     public void tiredPandaTakesRest(){
+        Orangutan orangutan = new Orangutan();
+        TiredPanda tiredPanda = new TiredPanda(orangutan);
+        Tile tileOfPanda = new Tile();
+        Tile tileOfCouch = new Tile();
+        Couch couch = new Couch(tileOfCouch);
 
+        ArrayList<BaseTile> neighboursOfTileOfPanda = new ArrayList<>();
+        neighboursOfTileOfPanda.add(tileOfCouch);
+
+        ArrayList<BaseTile> neighboursOfTileOfCouch = new ArrayList<>();
+        neighboursOfTileOfCouch.add(tileOfPanda);
+
+        tileOfPanda.receive(tiredPanda);
+        tileOfCouch.setItem(couch);
+        tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
+        tileOfCouch.setNeighbours(neighboursOfTileOfCouch);
+
+        tileOfCouch.tire(tileOfCouch);
     }
     /**
      * Az exit esemenyt szimulalo fuggveny.
@@ -219,48 +263,49 @@ public class SkeletonMenu{
         System.out.println("12: Orangutan steps on exit point");
         System.out.println("13: Tired panda takes a rest");
         System.out.println("14: Exit");
-		
-		boolean run = true;
-		while(run){
-			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-			try {
-				String code = reader.readLine();
-				switch (code){
-					case "1": pandaStepsOnEmptyTile();
-						break;
-					case "2": orangutanStepsOnEntryWardrobe();
-						break;
-					case "3": orangutanStepsOnEmptyTile();
-						break;
-					case "4": orangutanCatchesPanda();
-						break;
-					case "5": orangutanGuidesPanda();
-						break;
-					case "6": orangutanStepsOnBrokenTile();
-						break;
-					case "7": pandaStepsOnBrokenTile();
-						break;
-					case "8": pandaFallsOff();
-						break;
-					case "9": jumpingPandaJumps();
-						break;
-					case "10": pandaGetsScared();
-						break;
-					case "11": pandaStepsOnEntryWardrobe();
-						break;
-					case "12": orangutanStepsOnExitPoint();
-						break;
-					case "13": tiredPandaTakesRest();
-						break;
-					case "14": exit();
-						break;
-					default: run = false;
-						break;
-				}
-			}
-			catch(IOException e){
-				
-			}
-		}
+
+        boolean run = true;
+        while(run){
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                String code = reader.readLine();
+                switch (code){
+                    case "1": pandaStepsOnEmptyTile();
+                        break;
+                    case "2": orangutanStepsOnEntryWardrobe();
+                        break;
+                    case "3": orangutanStepsOnEmptyTile();
+                        break;
+                    case "4": orangutanCatchesPanda();
+                        break;
+                    case "5": orangutanGuidesPanda();
+                        break;
+                    case "6": orangutanStepsOnBrokenTile();
+                        break;
+                    case "7": pandaStepsOnBrokenTile();
+                        break;
+                    case "8": pandaFallsOff();
+                        break;
+                    case "9": jumpingPandaJumps();
+                        break;
+                    case "10": pandaGetsScared();
+                        break;
+                    case "11": pandaStepsOnEntryWardrobe();
+                        break;
+                    case "12": orangutanStepsOnExitPoint();
+                        break;
+                    case "13": tiredPandaTakesRest();
+                        break;
+                    case "14": exit();
+                        break;
+                    default: run = false;
+                        break;
+                }
+            }
+            catch(IOException e){
+
+            }
+        }
+
     }
 }

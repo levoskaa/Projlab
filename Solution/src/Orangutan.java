@@ -24,6 +24,22 @@ public class Orangutan extends Animal {
     }
 
     /**
+     * Setter fuggveny a caughtPandas valtozohoz.
+     * @param caughtPandas Az uj lista, amely tartalmazza a pandakat.
+     */
+    public void setCaughtPandas(ArrayList<Panda> caughtPandas) {
+        this.caughtPandas = caughtPandas;
+    }
+
+    /**
+     * Visszaadja az orangutant koveto pandak listajat.
+     * @return Az orangutant koveto pandak listaja.
+     */
+    public ArrayList<Panda> getCaughtPandas() {
+        return caughtPandas;
+    }
+
+    /**
      * Pandaval valo utkozes eseten elfogja azt.
      * @param a Az allat, amelyikkel az utkozes tortent
      */

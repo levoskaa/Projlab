@@ -118,7 +118,9 @@ public class SkeletonMenu{
     /**
      * A Panda falls off (in a queue) esemenyt szimulalo fuggveny.
      */
-    public void pandaFallsOff(){}
+    public void pandaFallsOff(){
+
+    }
     /**
      * A Jumping panda jumps near a ChocoAutomat esemenyt szimulalo fuggveny.
      */
@@ -189,7 +191,9 @@ public class SkeletonMenu{
     /**
      * A Tired panda takes a rest esemenyt szimulalo fuggveny.
      */
-    public void tiredPandaTakesRest(){}
+    public void tiredPandaTakesRest(){
+
+    }
     /**
      * Az exit esemenyt szimulalo fuggveny.
      */

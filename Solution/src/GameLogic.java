@@ -105,4 +105,10 @@ public class GameLogic{
         ItemsOnTheMap.get(j).countDown();
         }
     }
+
+    // egy getStartingTile(): Tile fuggveny kene, hogy az ExitPoint class tudja, hogy
+    // hova kell vinnie az Orangutant, miutan ralepett a kilepesi pontra
+
+    // az addPoints fuggvenynek lehetne egy int bemenete
+    // amit az ExitPoint tud hasznalni, igy az egybol megadja, mennyi pont kell
 }

@@ -26,15 +26,15 @@ public abstract class BaseTile {
     /**
      * Tarolja, hogy egy csempenek mely mas csempek a szomszedai
      */
-    protected ArrayList<BaseTile> Neighbours;
+    protected ArrayList<BaseTile> neighbours;
 
     /**
-     * Getter fuggveny a Neighbours valtozo lekerdezesere.
+     * Getter fuggveny a neighbours valtozo lekerdezesere.
      *
      * @return A csempe szomszedai.
      */
     public ArrayList<BaseTile> getNeighbours() {
-        return Neighbours;
+        return neighbours;
     }
 
     /**
@@ -67,12 +67,12 @@ public abstract class BaseTile {
     }
 
     /**
-     * Setter fuggveny a Neighbours valtozo megvaltoztatasara.
+     * Setter fuggveny a neighbours valtozo megvaltoztatasara.
      *
      * @param nb A szomszedos csempek listaja.
      */
     public void setNeighbours(ArrayList<BaseTile> nb) {
-        Neighbours = nb;
+        neighbours = nb;
         return;
     }
 

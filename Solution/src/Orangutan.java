@@ -1,7 +1,7 @@
 //  @ Project : Projlab
 //  @ File Name : Orangutan.java
 //  @ Date : 2019.03.20.
-//  @ Author : Larinyecz
+//  @ Author : Laurinyecz
 
 import java.util.ArrayList;
 
@@ -47,7 +47,7 @@ public class Orangutan extends Animal {
      * Sor felbomlasa eseten hivodik meg.
      * <p>
      * Csak a parameterben panda utan allo pandakat engedi el.
-     * @param p A panda amelyik az elngedest kezdemenyezte.
+     * @param p A panda amelyik az elengedest kezdemenyezte.
      */
     public void releaseBehind(Panda p) {
         for (int i = caughtPandas.indexOf(p) + 1; i < caughtPandas.size(); i++) {
@@ -101,4 +101,7 @@ public class Orangutan extends Animal {
         return 0;
     }
     //------------------------------------------
+
+    // kene egy getCaughtPandas(): ArrayList<Panda> fuggveny, hogy az ExitPoint tudja,
+    // hogy kiknek hivja meg a die() fuggvenyet
 }

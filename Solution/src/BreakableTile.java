@@ -19,11 +19,27 @@ public class BreakableTile extends Tile {
     /**
      * A csempe elettartamat tarolo int.
      */
-    public int health;
+    private int health;
     /**
      * A csempe allapotat(torott/ep) jelzo boolean.
      */
-    public boolean broken;
+    private boolean broken;
+
+    public int getHealth() {
+        return health;
+    }
+
+    public boolean isBroken() {
+        return broken;
+    }
+
+    public void setHealth(int newHealth){
+        health = newHealth;
+    }
+
+    public void  setBroken(boolean newBroken){
+        broken = newBroken;
+    }
 
     /**
      * A fuggveny egyel csökkenti a törékeny csempe elettartamat.
@@ -33,6 +49,21 @@ public class BreakableTile extends Tile {
         if(health == 0){
             broken = true;
             localAnimal.die();
+        }
+    }
+
+    /**
+     * Amennyiben az allat a csempere akar lepni, ez a fuggveny hivodik meg.
+     *
+     * @param a Az allat, amely a csempere akar lepni.
+     */
+    public void receive (Animal a){
+        if(broken) {
+            a.die();
+        }
+        else{
+            localAnimal = a;
+            decreaseHealth();
         }
     }
 }

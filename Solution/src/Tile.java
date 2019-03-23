@@ -25,8 +25,8 @@ public class Tile extends BaseTile {
      * A fuggveny a csokiautomata sipolasan keresztul ugrasra keszteti az ugro pandakat.
      */
     public void beep() {
-        for(int i = 0; i != Neighbours.size(); ++i) {
-            if (Neighbours.get(i).localAnimal != null){
+        for(int i = 0; i != neighbours.size(); ++i) {
+            if (neighbours.get(i).localAnimal != null){
                 localAnimal.jump();
             }else{}
         }
@@ -36,8 +36,8 @@ public class Tile extends BaseTile {
      * A fuggveny a jatekgep csilingelesen keresztul a szomszedai kezenek elengedesere keszteti az ijedos pandakat.
      */
     public void ring() {
-        for(int i = 0; i != Neighbours.size(); ++i) {
-            if (Neighbours.get(i).localAnimal != null){
+        for(int i = 0; i != neighbours.size(); ++i) {
+            if (neighbours.get(i).localAnimal != null){
                 localAnimal.scare();
             }else{}
         }
@@ -48,8 +48,8 @@ public class Tile extends BaseTile {
      * @param t A kanape helye amelyre a faradekony panda leulhet.
      */
     public void tire(Tile t) {
-        for(int i = 0; i != Neighbours.size(); ++i) {
-            if (Neighbours.get(i).localAnimal != null){
+        for(int i = 0; i != neighbours.size(); ++i) {
+            if (neighbours.get(i).localAnimal != null){
                 localAnimal.sit(t);
             }else{}
         }

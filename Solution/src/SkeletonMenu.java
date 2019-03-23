@@ -16,6 +16,7 @@ public class SkeletonMenu{
      *  A Panda steps on empty tile esemenyt szimulalo fuggveny.
      */
     public void pandaStepsOnEmptyTile(){
+        GameLogic gameLogic = new GameLogic();
         Orangutan orangutan = new Orangutan();
         ScarablePanda panda = new ScarablePanda(orangutan);
         Tile tile = new Tile();
@@ -41,6 +42,7 @@ public class SkeletonMenu{
      * Az Orangutan catches panda esemenyt szimulalo fuggveny.
      */
     public void orangutanCatchesPanda(){
+        //Valtozok inicializalasa
         Orangutan orangutan = new Orangutan();
         ScarablePanda panda = new ScarablePanda(orangutan);
         Tile tileOfPanda = new Tile();
@@ -57,24 +59,62 @@ public class SkeletonMenu{
         tileOfPanda.receive(panda);
         tileOfOrangutan.receive(orangutan);
 
+       //Itt kapja el az orangutan a pandat.
+        tileOfPanda.receive(orangutan);
+
     }
     /**
      * Az Orangutan guides panda esemenyt szimulalo fuggveny.
      */
-    public void orangutanGuidesPanda(){}
+    public void orangutanGuidesPanda(){
+        Orangutan orangutan = new Orangutan();
+        ScarablePanda panda = new ScarablePanda(orangutan);
+        Tile tile1 = new Tile();
+        Tile tile2 = new Tile();
+        Tile tile3 = new Tile();
+
+        ArrayList<BaseTile> neighboursOfTile1 = new ArrayList<>();
+        ArrayList<BaseTile> neighboursOfTile2 = new ArrayList<>();
+        ArrayList<BaseTile> neighboursOfTile3 = new ArrayList<>();
+
+        neighboursOfTile1.add(tile2);
+        neighboursOfTile2.add(tile1);
+        neighboursOfTile2.add(tile3);
+        neighboursOfTile3.add(tile2);
+
+        tile1.receive(panda);
+        tile2.receive(orangutan);
+
+        //itt nem tudom beallitani hogy a panda mar el legyen kapva az orangutan altal
+        // mivel privat az orangutan caughtPandas listje es az add megcserenle a helyuket
+        //ami itt nem kivanatos, ezert kene egy setCaughtPandas
+    }
     /**
      * Az Orangutan steps on broken tile esemenyt szimulalo fuggveny.
      */
     public void orangutanStepsOnBrokenTile(){
         Orangutan orangutan = new Orangutan();
         BreakableTile breakableTile = new BreakableTile();
-        breakableTile.broken = true;
+
+        breakableTile.setBroken(true);
+        breakableTile.setHealth(0);
+
         breakableTile.receive(orangutan);
     }
     /**
      * A Panda steps on broken tile esemenyt szimulalo fuggveny.
      */
-    public void pandaStepsOnBrokenTile(){}
+    public void pandaStepsOnBrokenTile(){
+        Orangutan orangutan = new Orangutan();
+        ScarablePanda panda = new ScarablePanda(orangutan);
+        BreakableTile breakableTile = new BreakableTile();
+
+        breakableTile.setBroken(true);
+        breakableTile.setHealth(0);
+
+        breakableTile.receive(panda);
+
+    }
     /**
      * A Panda falls off (in a queue) esemenyt szimulalo fuggveny.
      */

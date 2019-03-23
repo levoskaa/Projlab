@@ -76,5 +76,4 @@ public abstract class BaseTile {
         return;
     }
 
-    //egy add neighbour fuggveny kene(vagy setNeighbours), hogy beallithassuk, hogy melyik csempe melyik szomszedja
 }

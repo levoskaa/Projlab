@@ -106,6 +106,13 @@ public class GameLogic{
         }
     }
 
+    /**
+     * Eltavolitja a halott allatot.
+     */
+    public void remove(Animal a){
+        a = null;
+    }
+
     // egy getStartingTile(): Tile fuggveny kene, hogy az ExitPoint class tudja, hogy
     // hova kell vinnie az Orangutant, miutan ralepett a kilepesi pontra
 

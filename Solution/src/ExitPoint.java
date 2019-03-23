@@ -26,10 +26,10 @@ public class ExitPoint extends EntryWardrobe {
         localAnimal.setTile(getStartingTile());
         int i = 0;
         for (Panda p: localAnimal.getCaughtPandas()) {
-            p.die();
+            gemaLogic.remove(p);
             ++i;
         }
-        addPoints(i);
+        gameLogic.addPoints(i);
         return;
     }
 }

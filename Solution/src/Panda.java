@@ -8,6 +8,7 @@ import java.util.ArrayList;
 /**
  * Osztaly a Pandak viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * a JumpingPanda, TiredPanda es ScarablePanda osztalyok ebbol az osztalybol szarmaznak.
+ *
  * @author Laurinyecz
  * @see Animal
  */
@@ -32,6 +33,7 @@ public abstract class Panda extends Animal {
 
     /**
      * Setter fuggveny a caught valtozo beallitasara.
+     *
      * @param value A caught valtozo uj erteke.
      */
     public void setCaught(boolean value) {
@@ -40,6 +42,7 @@ public abstract class Panda extends Animal {
 
     /**
      * Visszaadja a panda pontbeli erteket.
+     *
      * @return Mennyi pontot er a panda a kijaratra lepeskor.
      */
     @Override
@@ -63,6 +66,7 @@ public abstract class Panda extends Animal {
 
     /**
      * A GameLogic altal periodikusan meghivott fuggveny, ami hatasara a panda mozog.
+     *
      * @see GameLogic
      */
     @Override
@@ -82,5 +86,6 @@ public abstract class Panda extends Animal {
     }
 
     @Override
-    public void collision(Animal a) {}
+    public void collision(Animal a) {
+    }
 }

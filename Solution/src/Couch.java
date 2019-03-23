@@ -33,6 +33,7 @@ public class Couch extends Item {
      * Ha egy panda le akar ülni, a kanapé megnézi, hogy üres-e (azaz le tud-e ülni a panda), ha üres, akkor leülteti.
      * @param p A panda amelyet leültetünk a kanapére.
      */
+    @Override
     public void receive(Panda p) {
         if(RestingPanda == null){
             RestingPanda = p;

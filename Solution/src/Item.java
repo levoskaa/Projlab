@@ -30,4 +30,7 @@ public abstract class Item {
      */
     public void countDown() {
     }
+	
+	public void receive(Panda p){
+	}
 }

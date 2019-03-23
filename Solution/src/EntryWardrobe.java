@@ -39,4 +39,14 @@ public class EntryWardrobe extends BaseTile {
     public BaseTile getDestination() {
         return destination;
     }
+
+    /**
+     * Amennyiben egy allat a bemeneti szekrenyre akar lepni, ez a fuggveny hivodik meg.
+     *
+     * @param a Az allat, amely a szekrenyre akar lepni.
+     */
+    public void receive(Animal a) {
+        destination.setAnimal(a);
+        return;
+    }
 }

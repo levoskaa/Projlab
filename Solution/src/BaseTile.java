@@ -24,7 +24,7 @@ public abstract class BaseTile {
     protected Animal localAnimal;
 
     /**
-     * Tarolja, hogy egy csempenek mely mas csempek a szomszedai
+     * Tarolja, hogy egy csempenek mely mas csempek a szomszedai.
      */
     protected ArrayList<BaseTile> neighbours;
 

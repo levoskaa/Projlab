@@ -74,8 +74,8 @@ public class GameLogic{
      * A fuggveny szamolja a jatekos altal a kijaraton atjuttatott pandakat
      * es ez alapjan noveli a pontszamlalot.
      */
-    public void addPoints() {
-        Points++;
+    public void addPoints(int p) {
+        Points += (p * 50);
     }
 
     /**

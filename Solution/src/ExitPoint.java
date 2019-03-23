@@ -29,7 +29,7 @@ public class ExitPoint extends EntryWardrobe {
             p.die();
             ++i;
         }
-        addPoints();
+        addPoints(i);
         return;
     }
 }

@@ -56,11 +56,20 @@ public class Tile extends BaseTile {
     }
 
     /**
-     * A fuggevnnyel egy targyat helyezunk a csempere.
+     * A fuggvennyel egy targyat helyezunk a csempere.
      * @param i A targy amelyet a csempere helyezunk.
      */
     public void setItem(Item i) {
         localItem = i;
+    }
+
+
+    /**
+     * A fuggvennyel lekerdezzuk, milyen targy van a csempen.
+     * @return A targy ami a csempen van.
+     */
+    public void getItem() {
+        return localItem;
     }
 
     /**

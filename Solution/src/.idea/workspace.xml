@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="faed2d5f-eb0d-4651-b3e4-d5c24bc751cb" name="Default Changelist" comment="">
+    <list default="true" id="4ca12e51-d7bf-473f-afa7-c33308a8f2c7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../feladat.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Animal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/BaseTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/BreakableTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/ChocoAutomat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Couch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/EntryPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/EntryWardrobe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/ExitPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/ExitWardrobe.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/GameLogic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/IAnimal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/ITimeable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/InteractiveThings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/JumpingPanda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Map.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Orangutan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Panda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/ScarablePanda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/SkeletonMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/SlotMachine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Solution.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Tile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/Timer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../out/production/Solution/TiredPanda.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,51 +45,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GameLogic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="95" column="61" selection-start-line="95" selection-start-column="61" selection-end-line="95" selection-end-column="61" />
-              <folding>
-                <element signature="e#0#2831#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BreakableTile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-175">
-              <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/BreakableTile.java" />
-        <option value="$PROJECT_DIR$/GameLogic.java" />
-        <option value="$PROJECT_DIR$/Tile.java" />
-      </list>
-    </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="745" />
@@ -70,8 +60,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -83,6 +71,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -108,25 +98,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="faed2d5f-eb0d-4651-b3e4-d5c24bc751cb" name="Default Changelist" comment="" />
-      <created>1553195094789</created>
+      <changelist id="4ca12e51-d7bf-473f-afa7-c33308a8f2c7" name="Default Changelist" comment="" />
+      <created>1553381241962</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1553195094789</updated>
-      <workItem from="1553195100581" duration="125000" />
-      <workItem from="1553195662180" duration="210000" />
-      <workItem from="1553375229190" duration="491000" />
+      <updated>1553381241962</updated>
+      <workItem from="1553381245089" duration="206000" />
+      <workItem from="1553381537138" duration="29000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="826000" />
+    <option name="totallyTimeSpent" value="235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -158,32 +146,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="95" column="61" selection-start-line="95" selection-start-column="61" selection-end-line="95" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#2831#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BreakableTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

@@ -13,8 +13,8 @@ public class JumpingPanda extends Panda {
      * Konstruktor.
      */
     public JumpingPanda(Orangutan orangutan) {
-		System.out.println(">   JumpingPanda(Orangutan orangutan)");
         super(orangutan);
+        System.out.println(">   JumpingPanda(Orangutan orangutan)");
         System.out.println("<   JumpingPanda(Orangutan orangutan)");
     }
 

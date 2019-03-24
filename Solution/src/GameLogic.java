@@ -89,10 +89,10 @@ public class GameLogic{
     public void endGame() {
         System.out.println(">   GameLogic::endGame()");
         if(AnimalsOnTheMap.isEmpty()) {
-            System.out.println("You caugth all pandas!");
-            System.out.println("You caugt:" + Points + " pandas!");
+          //  System.out.println("You caugth all pandas!");
+          //  System.out.println("You caugt:" + Points + " pandas!");
         }else{
-            System.out.println("You Lost!");
+            // System.out.println("You Lost!");
         }
         System.out.println("<   GameLogic::endGame()");
         System.exit(0);

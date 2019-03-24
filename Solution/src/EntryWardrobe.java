@@ -51,7 +51,7 @@ public class EntryWardrobe extends BaseTile {
      */
     public void receive(Animal a) {
         System.out.println(">   receive(Animal a)");
-        destination.setAnimal(a);
+        destination.receive(a);
         System.out.println("<   receive(Animal a)");
         return;
     }

@@ -21,9 +21,7 @@ public class Orangutan extends Animal {
      * Konstruktor.
      */
     public Orangutan() {
-        System.out.println(">   Orangutan()");
         caughtPandas = new ArrayList<Panda>();
-        System.out.println("<   Orangutan()");
     }
 
     /**
@@ -32,9 +30,9 @@ public class Orangutan extends Animal {
      * @param caughtPandas Az uj lista, amely tartalmazza a pandakat.
      */
     public void setCaughtPandas(ArrayList<Panda> caughtPandas) {
-        System.out.println(">   setCaughtPandas(ArrayList<Panda> caughtPandas)");
+        System.out.println(">   Orangutan::setCaughtPandas(ArrayList<Panda> caughtPandas)");
         this.caughtPandas = caughtPandas;
-        System.out.println("<   setCaughtPandas(ArrayList<Panda> caughtPandas)");
+        System.out.println("<   Orangutan::setCaughtPandas(ArrayList<Panda> caughtPandas)");
     }
 
     /**
@@ -43,8 +41,8 @@ public class Orangutan extends Animal {
      * @return Az orangutant koveto pandak listaja.
      */
     public ArrayList<Panda> getCaughtPandas() {
-        System.out.println(">   getCaughtPandas()");
-        System.out.println("<   getCaughtPandas()");
+        System.out.println(">   Orangutan::getCaughtPandas()");
+        System.out.println("<   Orangutan::getCaughtPandas()");
         return caughtPandas;
     }
 
@@ -54,9 +52,9 @@ public class Orangutan extends Animal {
      * @param a Az allat, amelyikkel az utkozes tortent
      */
     public void collision(Animal a) {
-        System.out.println(">   collision(Animal a)");
+        System.out.println(">   Orangutan::collision(Animal a)");
         a.catchPanda();
-        System.out.println("<   collision(Animal a)");
+        System.out.println("<   Orangutan::collision(Animal a)");
     }
 
     /**
@@ -67,11 +65,11 @@ public class Orangutan extends Animal {
      * @param p A panda amelyik az elngedest kezdemenyezte.
      */
     public void release(Panda p) {
-        System.out.println(">   release(Panda p)");
+        System.out.println(">   Orangutan::release(Panda p)");
         releaseBehind(p);
         p.setCaught(false);
         caughtPandas.remove(p);
-        System.out.println("<   release(Panda p)");
+        System.out.println("<   Orangutan::release(Panda p)");
     }
 
     /**
@@ -82,21 +80,21 @@ public class Orangutan extends Animal {
      * @param p A panda amelyik az elengedest kezdemenyezte.
      */
     public void releaseBehind(Panda p) {
-        System.out.println(">   releaseBehind(Panda p)");
+        System.out.println(">   Orangutan::releaseBehind(Panda p)");
         for (int i = caughtPandas.indexOf(p) + 1; i < caughtPandas.size(); i++) {
             caughtPandas.get(i).setCaught(false);
             caughtPandas.remove(i);
         }
-        System.out.println("<   releaseBehind(Panda p)");
+        System.out.println("<   Orangutan::releaseBehind(Panda p)");
     }
 
     /**
      * Az orangutan halala eseten veget er a jatek.
      */
     public void die() {
-        System.out.println(">   die()");
+        System.out.println(">   Orangutan::die()");
         gameLogic.endGame();
-        System.out.println("<   die()");
+        System.out.println("<   Orangutan::die()");
     }
 
     /**
@@ -112,7 +110,7 @@ public class Orangutan extends Animal {
      * @param p A panda akit elfogott az orangutan.
      */
     public void add(Panda p) {
-        System.out.println(">   add(Panda p)");
+        System.out.println(">   Orangutan::add(Panda p)");
         // Panda csempeje az elfogas pillanataban.
         BaseTile pandaTile = p.getTile();
 
@@ -129,7 +127,7 @@ public class Orangutan extends Animal {
         // Elfogast jelzo valtozo beallitasa, es felfuzes a sorba.
         p.setCaught(true);
         caughtPandas.add(0, p);
-        System.out.println("<   add(Panda p)");
+        System.out.println("<   Orangutan::add(Panda p)");
     }
 
     //------------------------------------------
@@ -137,12 +135,9 @@ public class Orangutan extends Animal {
     // nincs szukseg rajuk.
     @Override
     public int checkPoints() {
-        System.out.println(">   checkPoints()");
-        System.out.println("<   checkPoints()");
+        System.out.println(">   Orangutan::checkPoints()");
+        System.out.println("<   Orangutan::checkPoints()");
         return 0;
     }
     //------------------------------------------
-
-    // kene egy getCaughtPandas(): ArrayList<Panda> fuggveny, hogy az ExitPoint tudja,
-    // hogy kiknek hivja meg a die() fuggvenyet
 }

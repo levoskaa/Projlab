@@ -27,7 +27,8 @@ public class SlotMachine extends Item {
         --Counter;
         if (Counter <= 0) {
             onTile.ring();
-            Counter = 100;
+            // TODO ezt randomizalni, csak atirtam 1-re debug miatt
+            Counter = 1;
         }
         System.out.println("<   countDown()");
     }

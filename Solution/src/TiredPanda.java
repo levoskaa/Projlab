@@ -14,12 +14,6 @@ public class TiredPanda extends Panda {
      */
     public TiredPanda(Orangutan orangutan) {
         super(orangutan);
-<<<<<<< HEAD
-        System.out.println(">   TiredPanda(Orangutan orangutan)");
-=======
-		System.out.println(">   TiredPanda(Orangutan orangutan)");
->>>>>>> 0d69d60b93824e1e2ad57ff347310d53f14393fe
-        System.out.println("<   TiredPanda(Orangutan orangutan)");
     }
 
     /**
@@ -28,11 +22,11 @@ public class TiredPanda extends Panda {
      */
     @Override
     public void sit(Tile t) {
-        System.out.println(">   sit(Tile t)");
+        System.out.println(">   TiredPanda::sit(Tile t)");
         if (!caught) {
             t.getItem().receive(this);
 		}
-        System.out.println("<   sit(Tile t)");
+        System.out.println("<   TiredPanda::sit(Tile t)");
 		return;
     }
 }

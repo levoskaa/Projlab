@@ -14,12 +14,6 @@ public class JumpingPanda extends Panda {
      */
     public JumpingPanda(Orangutan orangutan) {
         super(orangutan);
-<<<<<<< HEAD
-        System.out.println(">   JumpingPanda(Orangutan orangutan)");
-=======
-		System.out.println(">   JumpingPanda(Orangutan orangutan)");
->>>>>>> 0d69d60b93824e1e2ad57ff347310d53f14393fe
-        System.out.println("<   JumpingPanda(Orangutan orangutan)");
     }
 
     /**
@@ -27,9 +21,9 @@ public class JumpingPanda extends Panda {
      */
     @Override
     public void jump() {
-		System.out.println(">   jump()");
+		System.out.println(">   JumpingPanda::jump()");
         currentTile.decraseHealth();
-        System.out.println("<   jump()");
+        System.out.println("<   JumpingPanda::jump()");
 		return;
     }
 }

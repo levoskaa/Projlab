@@ -54,9 +54,7 @@ public abstract class Animal {
      * Konstruktor.
      */
     public Animal() {
-        System.out.println(">   Animal()");
         currentTile = null;
-        System.out.println("<   Animal()");
     }
 
     /**
@@ -65,8 +63,8 @@ public abstract class Animal {
      * @return Csempe(BaseTile objektum) amelyiken az allat eppen all.
      */
     public BaseTile getTile() {
-        System.out.println(">   getTile()");
-        System.out.println("<   getTile()");
+        System.out.println(">   Animal::getTile()");
+        System.out.println("<   Animal::getTile()");
         return currentTile;
     }
 
@@ -76,8 +74,16 @@ public abstract class Animal {
      * @param t Az uj csempe, amelyikre athelyezzuk az allatot.
      */
     public void setTile(BaseTile t) {
-        System.out.println(">   setTile(BaseTile t)");
+        System.out.println(">   Animal::setTile(BaseTile t)");
         currentTile = t;
-        System.out.println("<   setTile(BaseTile t)");
+        System.out.println("<   Animal::setTile(BaseTile t)");
+    }
+
+    /**
+     * Setter fuggveny a gameLogic beallitasara.
+     * @param gameLogic A jatek logikaert felelos objektum referenciaja.
+     */
+    public void setGameLogic(GameLogic gameLogic) {
+        this.gameLogic = gameLogic;
     }
 }

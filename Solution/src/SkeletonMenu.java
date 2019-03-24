@@ -7,40 +7,45 @@ import java.util.ArrayList;
  * Az osztaly a szkeleton menujeert felelos,
  * ezen keresztul tudja a felhasznalo kivalasztani
  * a kivant parancsot. A parancs a kivalasztas utan lefutasra kerul.
+ *
  * @author Schutz
  */
 
-public class SkeletonMenu{
+public class SkeletonMenu {
     /**
-     *  A Panda steps on empty tile esemenyt szimulalo fuggveny.
+     * A Panda steps on empty tile esemenyt szimulalo fuggveny.
      */
-    public void pandaStepsOnEmptyTile(){
+    public void pandaStepsOnEmptyTile() {
         GameLogic gameLogic = new GameLogic();
         Orangutan orangutan = new Orangutan();
         ScarablePanda panda = new ScarablePanda(orangutan);
         Tile tile = new Tile();
         tile.receive(panda);
     }
+
     /**
      * Az Orangutan steps on EntryWardrobe esemenyt szimulalo fuggveny.
      */
-    public void orangutanStepsOnEntryWardrobe(){
+    public void orangutanStepsOnEntryWardrobe() {
         Orangutan orangutan = new Orangutan();
         EntryWardrobe entryWardrobe = new EntryWardrobe();
+        entryWardrobe.setDestination(new Tile());
         entryWardrobe.receive(orangutan);
     }
+
     /**
      * Az Orangutan steps on empty tile esemenyt szimulalo fuggveny.
      */
-    public void orangutanStepsOnEmptyTile(){
+    public void orangutanStepsOnEmptyTile() {
         Orangutan orangutan = new Orangutan();
         Tile tile = new Tile();
         tile.receive(orangutan);
     }
+
     /**
      * Az Orangutan catches panda esemenyt szimulalo fuggveny.
      */
-    public void orangutanCatchesPanda(){
+    public void orangutanCatchesPanda() {
         //Valtozok inicializalasa
         Orangutan orangutan = new Orangutan();
         ScarablePanda panda = new ScarablePanda(orangutan);
@@ -58,14 +63,15 @@ public class SkeletonMenu{
         tileOfPanda.receive(panda);
         tileOfOrangutan.receive(orangutan);
 
-       //Itt kapja el az orangutan a pandat.
+        //Itt kapja el az orangutan a pandat.
         tileOfPanda.receive(orangutan);
 
     }
+
     /**
      * Az Orangutan guides panda esemenyt szimulalo fuggveny.
      */
-    public void orangutanGuidesPanda(){
+    public void orangutanGuidesPanda() {
         Orangutan orangutan = new Orangutan();
         ScarablePanda panda = new ScarablePanda(orangutan);
         Tile tile1 = new Tile();
@@ -90,11 +96,15 @@ public class SkeletonMenu{
 
         tile3.receive(orangutan);
     }
+
     /**
      * Az Orangutan steps on broken tile esemenyt szimulalo fuggveny.
      */
-    public void orangutanStepsOnBrokenTile(){
+    public void orangutanStepsOnBrokenTile() {
         Orangutan orangutan = new Orangutan();
+        GameLogic gl = new GameLogic();
+        //TODO gl-t ugy inicializalni, hogy az endGame()-ben ne legyenek nullpointerek
+        orangutan.setGameLogic(gl);
         BreakableTile breakableTile = new BreakableTile();
 
         breakableTile.setBroken(true);
@@ -102,13 +112,15 @@ public class SkeletonMenu{
 
         breakableTile.receive(orangutan);
     }
+
     /**
      * A Panda steps on broken tile esemenyt szimulalo fuggveny.
      */
-    public void pandaStepsOnBrokenTile(){
+    public void pandaStepsOnBrokenTile() {
         Orangutan orangutan = new Orangutan();
         ScarablePanda panda = new ScarablePanda(orangutan);
         BreakableTile breakableTile = new BreakableTile();
+        //TODO panda-t ugy inicializalni, hogy a die()-ban ne legyenek nullpointerek
 
         breakableTile.setBroken(true);
         breakableTile.setHealth(0);
@@ -116,10 +128,11 @@ public class SkeletonMenu{
         breakableTile.receive(panda);
 
     }
+
     /**
      * A Panda falls off (in a queue) esemenyt szimulalo fuggveny.
      */
-    public void pandaFallsOff(){
+    public void pandaFallsOff() {
         Orangutan orangutan = new Orangutan();
         ScarablePanda panda = new ScarablePanda(orangutan);
         Tile tile1 = new Tile();
@@ -147,10 +160,11 @@ public class SkeletonMenu{
 
         tile3.receive(orangutan);
     }
+
     /**
      * A Jumping panda jumps near a ChocoAutomat esemenyt szimulalo fuggveny.
      */
-    public void jumpingPandaJumps(){
+    public void jumpingPandaJumps() {
         Orangutan orangutan = new Orangutan();
         JumpingPanda jumpingPanda = new JumpingPanda(orangutan);
         Tile tileOfPanda = new Tile();
@@ -168,14 +182,15 @@ public class SkeletonMenu{
         tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
         tileOfSlotMachine.setNeighbours(neighboursOfTileOfSlotMachine);
 
-        for(int i = 0; i<100;i++){
+        for (int i = 0; i < 100; i++) {
             slotMachine.countDown();
         }
     }
+
     /**
      * A Panda gets scared esemenyt szimulalo fuggveny.
      */
-    public void pandaGetsScared(){
+    public void pandaGetsScared() {
         Orangutan orangutan = new Orangutan();
         ScarablePanda scarablePanda = new ScarablePanda(orangutan);
         Tile tileOfChocoAutomat = new Tile();
@@ -193,31 +208,34 @@ public class SkeletonMenu{
         tileOfChocoAutomat.setNeighbours(neighboursOfTileOfChocoAutomat);
         tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
 
-        for(int i = 0; i<100;i++){
+        for (int i = 0; i < 100; i++) {
             chocoAutomat.countDown();
         }
     }
+
     /**
      * A Panda steps on EntryWardrobe esemenyt szimulalo fuggveny.
      */
-    public void pandaStepsOnEntryWardrobe(){
+    public void pandaStepsOnEntryWardrobe() {
         Orangutan orangutan = new Orangutan();
         ScarablePanda scarablePanda = new ScarablePanda(orangutan);
         EntryWardrobe entryWardrobe = new EntryWardrobe();
         entryWardrobe.receive(scarablePanda);
     }
+
     /**
      * Az Orangutan steps on ExitPoint esemenyt szimulalo fuggveny.
      */
-    public void orangutanStepsOnExitPoint(){
+    public void orangutanStepsOnExitPoint() {
         Orangutan orangutan = new Orangutan();
         ExitPoint exitPoint = new ExitPoint();
         exitPoint.receive(orangutan);
     }
+
     /**
      * A Tired panda takes a rest esemenyt szimulalo fuggveny.
      */
-    public void tiredPandaTakesRest(){
+    public void tiredPandaTakesRest() {
         Orangutan orangutan = new Orangutan();
         TiredPanda tiredPanda = new TiredPanda(orangutan);
         Tile tileOfPanda = new Tile();
@@ -237,17 +255,19 @@ public class SkeletonMenu{
 
         tileOfCouch.tire(tileOfCouch);
     }
+
     /**
      * Az exit esemenyt szimulalo fuggveny.
      */
-    public void exit(){
+    public void exit() {
         GameLogic gameLogic = new GameLogic();
         gameLogic.endGame();
     }
+
     /**
      * A szkeleton felhasznaloi menujet inicializalo fuggveny.
      */
-    public void menuInit(){
+    public void menuInit() {
         System.out.println("Valasszon a kovetkezo lehetosegek kozul:");
         System.out.println("1: Panda steps on empty tile");
         System.out.println("2: Orangutan steps on entry wardrobe");
@@ -265,44 +285,58 @@ public class SkeletonMenu{
         System.out.println("14: Exit");
 
         boolean run = true;
-        while(run){
+        while (run) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 String code = reader.readLine();
-                switch (code){
-                    case "1": pandaStepsOnEmptyTile();
+                switch (code) {
+                    case "1":
+                        pandaStepsOnEmptyTile();
                         break;
-                    case "2": orangutanStepsOnEntryWardrobe();
+                    case "2":
+                        orangutanStepsOnEntryWardrobe();
                         break;
-                    case "3": orangutanStepsOnEmptyTile();
+                    case "3":
+                        orangutanStepsOnEmptyTile();
                         break;
-                    case "4": orangutanCatchesPanda();
+                    case "4":
+                        orangutanCatchesPanda();
                         break;
-                    case "5": orangutanGuidesPanda();
+                    case "5":
+                        orangutanGuidesPanda();
                         break;
-                    case "6": orangutanStepsOnBrokenTile();
+                    case "6":
+                        orangutanStepsOnBrokenTile();
                         break;
-                    case "7": pandaStepsOnBrokenTile();
+                    case "7":
+                        pandaStepsOnBrokenTile();
                         break;
-                    case "8": pandaFallsOff();
+                    case "8":
+                        pandaFallsOff();
                         break;
-                    case "9": jumpingPandaJumps();
+                    case "9":
+                        jumpingPandaJumps();
                         break;
-                    case "10": pandaGetsScared();
+                    case "10":
+                        pandaGetsScared();
                         break;
-                    case "11": pandaStepsOnEntryWardrobe();
+                    case "11":
+                        pandaStepsOnEntryWardrobe();
                         break;
-                    case "12": orangutanStepsOnExitPoint();
+                    case "12":
+                        orangutanStepsOnExitPoint();
                         break;
-                    case "13": tiredPandaTakesRest();
+                    case "13":
+                        tiredPandaTakesRest();
                         break;
-                    case "14": exit();
+                    case "14":
+                        exit();
                         break;
-                    default: run = false;
+                    default:
+                        run = false;
                         break;
                 }
-            }
-            catch(IOException e){
+            } catch (IOException e) {
 
             }
         }

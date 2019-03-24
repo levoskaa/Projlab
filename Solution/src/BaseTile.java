@@ -48,6 +48,7 @@ public abstract class BaseTile {
 		System.out.println(">   receive(Animal a)");
         if (localAnimal == null) {
             localAnimal = a;
+            localAnimal.setTile(this);
         }
         else{
             a.collision(localAnimal);

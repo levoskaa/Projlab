@@ -27,10 +27,8 @@ public abstract class Panda extends Animal {
      * Konstruktor.
      */
     public Panda(Orangutan orangutan) {
-		System.out.println(">   Panda(Orangutan orangutan)");
         caught = false;
         this.orangutan = orangutan;
-        System.out.println("<   Panda(Orangutan orangutan)");
     }
 
     /**
@@ -39,9 +37,9 @@ public abstract class Panda extends Animal {
      * @param value A caught valtozo uj erteke.
      */
     public void setCaught(boolean value) {
-		System.out.println(">   setCaught(boolean value)");
+		System.out.println(">   Panda::setCaught(boolean value)");
         caught = value;
-        System.out.println("<   setCaught(boolean value)");
+        System.out.println("<   Panda::setCaught(boolean value)");
 		return;
     }
 
@@ -52,12 +50,12 @@ public abstract class Panda extends Animal {
      */
     @Override
     public int checkPoints() {
-		System.out.println(">   checkPoints()");
+		System.out.println(">   Panda::checkPoints()");
         if (caught) {
-			System.out.println("<   checkPoints()");
+			System.out.println("<   Panda::checkPoints()");
             return 50;
 		}
-        System.out.println("<   checkPoints()");
+        System.out.println("<   Panda::checkPoints()");
         return 0;
     }
 
@@ -66,13 +64,13 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void die() {
-		System.out.println(">   die()");
+		System.out.println(">   Panda::die()");
         if (caught) {
             orangutan.release(this);
 		}
         currentTile.remove();
         gameLogic.remove(this);
-		System.out.println("<   die()");
+		System.out.println("<   Panda::die()");
 		return;
     }
 
@@ -83,12 +81,12 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void move() {
-		System.out.println(">   move()");
+		System.out.println(">   Panda::move()");
         ArrayList<BaseTile> neighbours = currentTile.getNeighbours();
         // A szomszedos csempek kozul veletlenszeruen valaszt egyet, amire megprobal ralepni.
         // (Lehetseges, hogy egy helyben marad, ha foglalt csempere akar lepni.)
         neighbours.get((int) (Math.random() * neighbours.size())).receive(this);
-		System.out.println("<   move()");
+		System.out.println("<   Panda::move()");
 		return;
     }
 
@@ -97,14 +95,14 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void catchPanda() {
-		System.out.println(">   catchPanda()");
+		System.out.println(">   Panda::catchPanda()");
         orangutan.add(this);
-		System.out.println("<   catchPanda()");
+		System.out.println("<   Panda::catchPanda()");
     }
 
     @Override
     public void collision(Animal a) {
-		System.out.println(">   collision(Animal a)");
-		System.out.println("<   collision(Animal a)");
+		System.out.println(">   Panda::collision(Animal a)");
+		System.out.println("<   Panda::collision(Animal a)");
     }
 }

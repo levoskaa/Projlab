@@ -95,7 +95,7 @@ public class GameLogic{
             // System.out.println("You Lost!");
         }
         System.out.println("<   GameLogic::endGame()");
-        System.exit(0);
+        // System.exit(0);
     }
 
     /**

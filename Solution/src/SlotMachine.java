@@ -26,9 +26,11 @@ public class SlotMachine extends Item {
         System.out.println(">   countDown()");
         --Counter;
         if (Counter <= 0) {
-            onTile.ring();
-            // TODO ezt randomizalni, csak atirtam 1-re debug miatt
-            Counter = 1;
+            for (BaseTile tile : onTile.getNeighbours()) {
+                tile.ring();
+            }
+            // TODO ezt randomizalni
+            Counter = 100;
         }
         System.out.println("<   countDown()");
     }
@@ -41,7 +43,8 @@ public class SlotMachine extends Item {
     public SlotMachine(Tile t) {
         System.out.println(">   SlotMachine(Tile t)");
         onTile = t;
-        Counter = 100;
+        // TODO ezt randomizalni, csak atirtam 1-re debug miatt
+        Counter = 1;
         System.out.println("<   SlotMachine(Tile t)");
     }
 }

@@ -76,6 +76,12 @@ public abstract class BaseTile {
     public void decraseHealth() {
     }
 
+    public void ring() {}
+
+    public void beep() {}
+
+    public void tire(Tile t) {}
+
     /**
      * Setter fuggveny a neighbours valtozo megvaltoztatasara.
      *

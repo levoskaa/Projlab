@@ -182,7 +182,7 @@ public class SkeletonMenu {
         tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
         tileOfSlotMachine.setNeighbours(neighboursOfTileOfSlotMachine);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
             slotMachine.countDown();
         }
     }
@@ -208,7 +208,7 @@ public class SkeletonMenu {
         tileOfChocoAutomat.setNeighbours(neighboursOfTileOfChocoAutomat);
         tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
             chocoAutomat.countDown();
         }
     }
@@ -220,6 +220,7 @@ public class SkeletonMenu {
         Orangutan orangutan = new Orangutan();
         ScarablePanda scarablePanda = new ScarablePanda(orangutan);
         EntryWardrobe entryWardrobe = new EntryWardrobe();
+        entryWardrobe.setDestination(new Tile());
         entryWardrobe.receive(scarablePanda);
     }
 
@@ -229,6 +230,8 @@ public class SkeletonMenu {
     public void orangutanStepsOnExitPoint() {
         Orangutan orangutan = new Orangutan();
         ExitPoint exitPoint = new ExitPoint();
+        exitPoint.setStartingTile(new Tile());
+        exitPoint.setGameLogic(new GameLogic());
         exitPoint.receive(orangutan);
     }
 
@@ -253,7 +256,10 @@ public class SkeletonMenu {
         tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
         tileOfCouch.setNeighbours(neighboursOfTileOfCouch);
 
-        tileOfCouch.tire(tileOfCouch);
+        for (BaseTile tile : tileOfCouch.getNeighbours()) {
+            tile.tire(tileOfCouch);
+        }
+
     }
 
     /**
@@ -261,6 +267,8 @@ public class SkeletonMenu {
      */
     public void exit() {
         GameLogic gameLogic = new GameLogic();
+        // TODO gameLogic-ot ugy inicializalni, hogy az endGame lefusson
+        // (semmi sem lehet null amire ertelmes hivatkozas van az endGame fv-ben)
         gameLogic.endGame();
     }
 

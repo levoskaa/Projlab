@@ -26,7 +26,10 @@ public class ChocoAutomat extends Item {
         System.out.println(">   countDown()");
         --Counter;
         if (Counter <= 0) {
-            onTile.beep();
+            for (BaseTile tile : onTile.getNeighbours()) {
+                tile.beep();
+            }
+            // TODO ugyanaz mint SlotMachineban
             Counter = 100;
         }
         System.out.println("<   countDown()");
@@ -40,7 +43,8 @@ public class ChocoAutomat extends Item {
     public ChocoAutomat(Tile t) {
         System.out.println(">   ChocoAutomat(Tile t)");
         onTile = t;
-        Counter = 100;
+        // TODO ugyanaz mint SlotMachineban
+        Counter = 1;
         System.out.println("<   ChocoAutomat(Tile t)");
     }
 

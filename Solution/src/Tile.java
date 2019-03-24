@@ -59,7 +59,7 @@ public class Tile extends BaseTile {
         for(int i = 0; i != neighbours.size(); ++i) {
             if (neighbours.get(i).localAnimal != null){
                 localAnimal.sit(t);
-            }else{}
+            }
         }
         System.out.println("<   tire(Tile t)");
     }

@@ -38,6 +38,10 @@ public class ExitPoint extends EntryWardrobe {
 		return;
     }
 
+    public void setGameLogic(GameLogic gameLogic) {
+        this.gameLogic = gameLogic;
+    }
+
     /**
      * Az ide lepo allatot a bejaratra teszi, levalasztja a pandakat, es
      * pontot oszt ertuk.
@@ -46,9 +50,10 @@ public class ExitPoint extends EntryWardrobe {
      */
     public void receive(Animal a) {
         System.out.println(">   receive(Animal a)");
-        localAnimal.setTile(startingTile);
+        // TODO itt ezt átgondolni
+        startingTile.receive(a);
         int i = 0;
-        for (Panda p: localAnimal.getCaughtPandas()) {
+        for (Panda p: a.getCaughtPandas()) {
             gameLogic.remove(p);
             ++i;
         }

@@ -126,6 +126,7 @@ public class SkeletonMenu {
         GameLogic gl = new GameLogic();
         panda.setGameLogic(gl);
         gl.addAnimal(panda);
+        panda.setTile(breakableTile);
 
         breakableTile.setBroken(true);
         breakableTile.setHealth(0);

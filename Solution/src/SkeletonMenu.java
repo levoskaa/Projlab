@@ -105,6 +105,7 @@ public class SkeletonMenu {
         GameLogic gl = new GameLogic();
         //TODO gl-t ugy inicializalni, hogy az endGame()-ben ne legyenek nullpointerek
         orangutan.setGameLogic(gl);
+        gl.addAnimal(orangutan);
         BreakableTile breakableTile = new BreakableTile();
 
         breakableTile.setBroken(true);
@@ -121,6 +122,10 @@ public class SkeletonMenu {
         ScarablePanda panda = new ScarablePanda(orangutan);
         BreakableTile breakableTile = new BreakableTile();
         //TODO panda-t ugy inicializalni, hogy a die()-ban ne legyenek nullpointerek
+
+        GameLogic gl = new GameLogic();
+        panda.setGameLogic(gl);
+        gl.addAnimal(panda);
 
         breakableTile.setBroken(true);
         breakableTile.setHealth(0);

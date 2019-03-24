@@ -118,8 +118,22 @@ public class GameLogic{
      */
     public void remove(Animal a){
         System.out.println(">   remove(Animal a)");
+        AnimalsOnTheMap.remove(a);
         a = null;
         System.out.println("<   remove(Animal a)");
+    }
+
+    public void addAnimal(Animal a) {
+        System.out.println(">   addAnimal(Animal a)");
+        AnimalsOnTheMap.add(a);
+        System.out.println("<   addAnimal(Animal a)");
+    }
+
+    public GameLogic() {
+        Points = 0;
+        AnimalsOnTheMap = new ArrayList<>();
+        TilesOnMap = new ArrayList<>();
+        ItemsOnTheMap = new ArrayList<>();
     }
 
 }

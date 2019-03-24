@@ -45,8 +45,8 @@ public class GameLogic{
      * A fuggveny a jatek inicializalasat vegzi.
      */
     public void initGame(){
-        System.out.println(">   initGame()");
-        System.out.println("<   initGame()");
+        System.out.println(">   GameLogic::initGame()");
+        System.out.println("<   GameLogic::initGame()");
         running = true;
     }
 
@@ -54,7 +54,7 @@ public class GameLogic{
      * A jatek idoziteset elvegzo fuggveny.
      */
     public void game() {
-        System.out.println(">   game()");
+        System.out.println(">   GameLogic::game()");
         long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
         final double amountOfTicks = 2D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
         double nanoSec = 1000000000 / amountOfTicks; //hány nanoszekudumonként kell tickelni
@@ -70,7 +70,7 @@ public class GameLogic{
             }
 
         }
-        System.out.println("<   game()");
+        System.out.println("<   GameLogic::game()");
     }
 
     /**
@@ -78,23 +78,23 @@ public class GameLogic{
      * es ez alapjan noveli a pontszamlalot.
      */
     public void addPoints(int p) {
-        System.out.println(">   addPoints(int p)");
+        System.out.println(">   GameLogic::addPoints(int p)");
         Points += (p * 50);
-        System.out.println("<   addPoints(int p)");
+        System.out.println("<   GameLogic::addPoints(int p)");
     }
 
     /**
      * A fuggveny befejezi a jatekot es kilep belole.
      */
     public void endGame() {
-        System.out.println(">   endGame()");
+        System.out.println(">   GameLogic::endGame()");
         if(AnimalsOnTheMap.isEmpty()) {
             System.out.println("You caugth all pandas!");
-            System.out.println("You caugt:" + Points + "pandas!");
+            System.out.println("You caugt:" + Points + " pandas!");
         }else{
             System.out.println("You Lost!");
         }
-        System.out.println("<   endGame()");
+        System.out.println("<   GameLogic::endGame()");
         System.exit(0);
     }
 
@@ -102,7 +102,7 @@ public class GameLogic{
      * A fuggveny az allatok lepteteset es targyak üzemeltetest latja el.
      */
     public void tick() {
-        System.out.println(">   tick()");
+        System.out.println(">   GameLogic::tick()");
         for(int i = 0; i != AnimalsOnTheMap.size(); ++i){
         AnimalsOnTheMap.get(i).move();
         }
@@ -110,23 +110,23 @@ public class GameLogic{
         for(int j = 0; j != ItemsOnTheMap.size(); ++j){
         ItemsOnTheMap.get(j).countDown();
         }
-        System.out.println("<   tick()");
+        System.out.println("<   GameLogic::tick()");
     }
 
     /**
      * Eltavolitja a halott allatot.
      */
     public void remove(Animal a){
-        System.out.println(">   remove(Animal a)");
+        System.out.println(">   GameLogic::remove(Animal a)");
         AnimalsOnTheMap.remove(a);
         a = null;
-        System.out.println("<   remove(Animal a)");
+        System.out.println("<   GameLogic::remove(Animal a)");
     }
 
     public void addAnimal(Animal a) {
-        System.out.println(">   addAnimal(Animal a)");
+        System.out.println(">   GameLogic::addAnimal(Animal a)");
         AnimalsOnTheMap.add(a);
-        System.out.println("<   addAnimal(Animal a)");
+        System.out.println("<   GameLogic::addAnimal(Animal a)");
     }
 
     public GameLogic() {

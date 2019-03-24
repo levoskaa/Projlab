@@ -32,9 +32,9 @@ public class ExitPoint extends EntryWardrobe {
      * @param sT a kezdo csempere vonatkozo referencia.
      */
     void setStartingTile(Tile sT){
-        System.out.println(">   setStartingTile(Tile sT)");
+        System.out.println(">   ExitPoint::setStartingTile(Tile sT)");
         startingTile = sT;
-        System.out.println("<   setStartingTile(Tile sT)");
+        System.out.println("<   ExitPoint::setStartingTile(Tile sT)");
 		return;
     }
 
@@ -49,7 +49,7 @@ public class ExitPoint extends EntryWardrobe {
      * @param a Az allat (orangutan) amely a kijaratra lepett.
      */
     public void receive(Animal a) {
-        System.out.println(">   receive(Animal a)");
+        System.out.println(">   ExitPoint::receive(Animal a)");
         // TODO itt ezt átgondolni
         startingTile.receive(a);
         int i = 0;
@@ -58,7 +58,7 @@ public class ExitPoint extends EntryWardrobe {
             ++i;
         }
         gameLogic.addPoints(i);
-        System.out.println("<   receive(Animal a)");
+        System.out.println("<   ExitPoint::receive(Animal a)");
         return;
     }
 }

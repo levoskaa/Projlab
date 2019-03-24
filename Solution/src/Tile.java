@@ -26,13 +26,13 @@ public class Tile extends BaseTile {
      * A fuggveny a csokiautomata sipolasan keresztul ugrasra keszteti az ugro pandakat.
      */
     public void beep() {
-        System.out.println(">   beep()");
+        System.out.println(">   Tile::beep()");
         for(int i = 0; i != neighbours.size(); ++i) {
             if (neighbours.get(i).localAnimal != null){
                 localAnimal.jump();
             }else{}
         }
-        System.out.println("<   beep()");
+        System.out.println("<   Tile::beep()");
 
     }
 
@@ -41,13 +41,13 @@ public class Tile extends BaseTile {
      * kezenek elengedesere keszteti az ijedos pandakat.
      */
     public void ring() {
-        System.out.println(">   ring()");
+        System.out.println(">   Tile::ring()");
         for(int i = 0; i != neighbours.size(); ++i) {
             if (neighbours.get(i).localAnimal != null){
                 localAnimal.scare();
             }else{}
         }
-        System.out.println("<   ring()");
+        System.out.println("<   Tile::ring()");
     }
 
     /**
@@ -55,13 +55,13 @@ public class Tile extends BaseTile {
      * @param t A kanape helye amelyre a faradekony panda leulhet.
      */
     public void tire(Tile t) {
-        System.out.println(">   tire(Tile t)");
+        System.out.println(">   Tile::tire(Tile t)");
         for(int i = 0; i != neighbours.size(); ++i) {
             if (neighbours.get(i).localAnimal != null){
                 localAnimal.sit(t);
             }
         }
-        System.out.println("<   tire(Tile t)");
+        System.out.println("<   Tile::tire(Tile t)");
     }
 
     /**
@@ -69,9 +69,9 @@ public class Tile extends BaseTile {
      * @param i A targy amelyet a csempere helyezunk.
      */
     public void setItem(Item i) {
-        System.out.println(">   setItem(Item i)");
+        System.out.println(">   Tile::setItem(Item i)");
         localItem = i;
-        System.out.println("<   setItem(Item i)");
+        System.out.println("<   Tile::setItem(Item i)");
     }
 
 
@@ -80,8 +80,8 @@ public class Tile extends BaseTile {
      * @return A targy ami a csempen van.
      */
     public Item getItem() {
-        System.out.println(">   getItem()");
-        System.out.println("<   getItem()");
+        System.out.println(">   Tile::getItem()");
+        System.out.println("<   Tile::getItem()");
         return localItem;
     }
 
@@ -90,8 +90,8 @@ public class Tile extends BaseTile {
      * @param a Az allat amelyet a csempere helyezunk.
      */
     public void setAnimal(Animal a) {
-        System.out.println(">   setAnimal(Animal a)");
-        System.out.println("<   setAnimal(Animal a)");
+        System.out.println(">   Tile::setAnimal(Animal a)");
+        System.out.println("<   Tile::setAnimal(Animal a)");
         localAnimal = a;
     }
 

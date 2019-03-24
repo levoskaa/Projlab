@@ -20,12 +20,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ChocoAutomat extends Item {
 
     /**
-     * A countDown függvény csökkenti a Counter attribútumát az osztálynak, amint az eléri a 0-t,
-     * akkor sípol és reszetelődik a Counter.
+     * A countDown függvény csökkenti a Counter attributumst az osztálynak, amint az elrri a 0-t,
+     * akkor sipol és reszetelodik a Counter.
      */
     @Override
     public void countDown() {
-        System.out.println(">   countDown()");
+        System.out.println(">   ChocoAutomat::countDown()");
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
@@ -34,21 +34,22 @@ public class ChocoAutomat extends Item {
             int rn = ThreadLocalRandom.current().nextInt(75,125+1);
             Counter = rn;
         }
-        System.out.println("<   countDown()");
+        System.out.println("<   ChocoAutomat::countDown()");
     }
 
     /**
-     * A konstruktor, amelyikben meg kell adni, melyik csempére kerül az automata, és kezdőállapotba állítjuk a Counter attribútumot.
+     * A konstruktor, amelyikben meg kell adni, melyik csempere kerül az automata,
+     * és kezdoallapotba allitjuk a Counter attributumot.
      *
-     * @param t A csempe amelyiken a Csokiautomata áll.
+     * @param t A csempe amelyiken a Csokiautomata all.
      */
     public ChocoAutomat(Tile t) {
-        System.out.println(">   ChocoAutomat(Tile t)");
+        System.out.println(">   ChocoAutomat::ChocoAutomat(Tile t)");
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
         //Counter = rn;
         Counter = 1;
-        System.out.println("<   ChocoAutomat(Tile t)");
+        System.out.println("<   ChocoAutomat::ChocoAutomat(Tile t)");
     }
 
 }

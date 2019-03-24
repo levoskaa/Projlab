@@ -34,8 +34,8 @@ public abstract class BaseTile {
      * @return A csempe szomszedai.
      */
     public ArrayList<BaseTile> getNeighbours() {
-		System.out.println(">   getNeighbours()");
-        System.out.println("<   getNeighbours()");
+		System.out.println(">   BaseTile::getNeighbours()");
+        System.out.println("<   BaseTile::getNeighbours()");
         return neighbours;
     }
 
@@ -45,7 +45,7 @@ public abstract class BaseTile {
      * @param a Az allat, amely a csempere akar lepni.
      */
     public void receive(Animal a) {
-		System.out.println(">   receive(Animal a)");
+		System.out.println(">   BaseTile::receive(Animal a)");
         if (localAnimal == null) {
             localAnimal = a;
             localAnimal.setTile(this);
@@ -53,7 +53,7 @@ public abstract class BaseTile {
         else{
             a.collision(localAnimal);
         }
-        System.out.println("<   receive(Animal a)");
+        System.out.println("<   BaseTile::receive(Animal a)");
         return;
     }
 
@@ -61,9 +61,9 @@ public abstract class BaseTile {
      * Ha egy allat ellep a csemperol, ez a fuggveny tavolitja el.
      */
     public void remove() {
-		System.out.println(">   remove()");
+		System.out.println(">   BaseTile::remove()");
         localAnimal = null;
-        System.out.println("<   remove()");
+        System.out.println("<   BaseTile::remove()");
         return;
     }
 
@@ -88,9 +88,9 @@ public abstract class BaseTile {
      * @param nb A szomszedos csempek listaja.
      */
     public void setNeighbours(ArrayList<BaseTile> nb) {
-		System.out.println(">   setNeighbours(ArrayList<BaseTile> nb)");
+		System.out.println(">   BaseTile::setNeighbours(ArrayList<BaseTile> nb)");
         neighbours = nb;
-        System.out.println("<   setNeighbours(ArrayList<BaseTile> nb)");
+        System.out.println("<   BaseTile::setNeighbours(ArrayList<BaseTile> nb)");
         return;
     }
 

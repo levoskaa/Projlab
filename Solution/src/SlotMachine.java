@@ -24,7 +24,7 @@ public class SlotMachine extends Item {
      */
     @Override
     public void countDown() {
-        System.out.println(">   countDown()");
+        System.out.println(">   SlotMachine::countDown()");
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
@@ -33,7 +33,7 @@ public class SlotMachine extends Item {
             int rn = ThreadLocalRandom.current().nextInt(75,125+1);
             Counter = rn;
         }
-        System.out.println("<   countDown()");
+        System.out.println("<   SlotMachine::countDown()");
     }
 
     /**
@@ -42,11 +42,11 @@ public class SlotMachine extends Item {
      * @param t A csempe, amelyiken a játékgép található.
      */
     public SlotMachine(Tile t) {
-        System.out.println(">   SlotMachine(Tile t)");
+        System.out.println(">   SlotMachine::SlotMachine(Tile t)");
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
         //Counter = rn;
         Counter = 1;
-        System.out.println("<   SlotMachine(Tile t)");
+        System.out.println("<   SlotMachine::SlotMachine(Tile t)");
     }
 }

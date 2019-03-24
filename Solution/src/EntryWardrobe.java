@@ -27,9 +27,9 @@ public class EntryWardrobe extends BaseTile {
      * @param t A kimeneti szekreny.
      */
     public void setDestination(Tile t){
-        System.out.println(">   setDestination(Tile t)");
+        System.out.println(">   EntryWardrobe::setDestination(Tile t)");
         destination = t;
-        System.out.println("<   setDestination(Tile t)");
+        System.out.println("<   EntryWardrobe::setDestination(Tile t)");
         return;
     }
 
@@ -39,8 +39,8 @@ public class EntryWardrobe extends BaseTile {
      * @return A kimeneti szekreny.
      */
     public BaseTile getDestination() {
-        System.out.println(">   getDestination()");
-        System.out.println("<   getDestination()");
+        System.out.println(">   EntryWardrobe::getDestination()");
+        System.out.println("<   EntryWardrobe::getDestination()");
         return destination;
     }
 
@@ -50,9 +50,9 @@ public class EntryWardrobe extends BaseTile {
      * @param a Az allat, amely a szekrenyre akar lepni.
      */
     public void receive(Animal a) {
-        System.out.println(">   receive(Animal a)");
+        System.out.println(">   EntryWardrobe::receive(Animal a)");
         destination.receive(a);
-        System.out.println("<   receive(Animal a)");
+        System.out.println("<   EntryWardrobe::receive(Animal a)");
         return;
     }
 }

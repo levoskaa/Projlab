@@ -27,9 +27,9 @@ public class Couch extends Item {
      */
     @Override
     public void countDown() {
-        System.out.println(">   countDown()");
+        System.out.println(">   Couch::countDown()");
         onTile.tire(onTile);
-        System.out.println("<   countDown()");
+        System.out.println("<   Couch::countDown()");
     }
 
     /**
@@ -39,11 +39,11 @@ public class Couch extends Item {
      */
     @Override
     public void receive(Panda p) {
-        System.out.println(">   receive(Panda p)");
+        System.out.println(">   Couch::receive(Panda p)");
         if (RestingPanda == null) {
             RestingPanda = p;
         }
-        System.out.println("<   receive(Panda p)");
+        System.out.println("<   Couch::receive(Panda p)");
     }
 
     /**
@@ -52,9 +52,9 @@ public class Couch extends Item {
      * @param t A csempe, amelyiken a kanapé található.
      */
     public Couch(Tile t) {
-        System.out.println(">   Couch(Tile t)");
+        System.out.println(">   Couch::Couch(Tile t)");
         onTile = t;
         RestingPanda = null;
-        System.out.println("<   Couch(Tile t)");
+        System.out.println("<   Couch::Couch(Tile t)");
     }
 }

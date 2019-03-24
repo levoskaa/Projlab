@@ -10,6 +10,8 @@
 //
 
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * A csokiautomatát megvalósító osztály.
  *

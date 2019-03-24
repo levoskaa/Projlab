@@ -12,15 +12,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 /**
- * A játékgépet megvalósító osztály.
+ * A jatekgepet megvalosito osztaly.
  *
  * @author Cynolter
  */
 public class SlotMachine extends Item {
 
     /**
-     * A countDown függvény csökkenti a Counter attribútumát az osztálynak, amint az eléri a 0-t,
-     * akkor csörög és reszetelődik a Counter.
+     * A countDown fuggveny csokkenti a Counter attributumat az osztalynak, amint az eleri a 0-t,
+     * akkor csorog és reszetelodik a Counter.
      */
     @Override
     public void countDown() {
@@ -37,9 +37,9 @@ public class SlotMachine extends Item {
     }
 
     /**
-     * A konstruktor, amelyikben meg kell adni, melyik csempére kerül a gép, és kezdőállapotba állítjuk a Counter attribútumot.
+     * A konstruktor, amelyikben meg kell adni, melyik csempere kerul a gep, és kezdoallapotba allitjuk a Counter attributumot.
      *
-     * @param t A csempe, amelyiken a játékgép található.
+     * @param t A csempe, amelyiken a jatekgep talalhato.
      */
     public SlotMachine(Tile t) {
         System.out.println(">   SlotMachine::SlotMachine(Tile t)");

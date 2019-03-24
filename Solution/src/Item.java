@@ -11,22 +11,22 @@
 
 
 /**
- * A poliformizmust támogató ősosztály a játékban megtalálható tárgyakhoz.
+ * A poliformizmust tamogato ososztaly a jatekban megtalalhato targyakhoz.
  * @author Cynolter
  */
 public abstract class Item {
 
     /**
-     * A számláló, amely ha lejár akkor a csokiautómata sípolhat és a játékgép csöröghet.
+     * A szamlalo, amely ha lejar akkor a csokiautomata sipolhat és a jatekgep csoroghet.
      */
     protected int Counter;
     /**
-     * A csempe, amelyiken a tárgy áll.
+     * A csempe, amelyiken a targy all.
      */
     protected Tile onTile;
 
     /**
-     * Leszármazott specifikus, hogy mit kell csinálnia countDown-ra, a leszármazottaknál van implementálva.
+     * Leszarmazott specifikus, hogy mit kell csinalnia countDown-ra, a leszarmazottaknal van implementalva.
      */
     public void countDown() {
     }

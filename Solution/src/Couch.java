@@ -11,19 +11,19 @@
 
 
 /**
- * A kanapét megvalósító osztály.
+ * A kanapet megvalosito osztaly.
  *
  * @author Cynolter
  */
 public class Couch extends Item {
 
     /**
-     * A kanapén éppen ülő pandát reprezentáló attribútum.
+     * A kanapen eppen ulo pandat reprezentalo attributum.
      */
     private Panda RestingPanda;
 
     /**
-     * A countDown metódus segítségével tudják majd a szomszédos mezőn állók, hogy itt kanapé van.
+     * A countDown metodus segítségével tudjak majd a szomszedos mezon allok, hogy itt kanape van.
      */
     @Override
     public void countDown() {
@@ -33,9 +33,9 @@ public class Couch extends Item {
     }
 
     /**
-     * Ha egy panda le akar ülni, a kanapé megnézi, hogy üres-e (azaz le tud-e ülni a panda), ha üres, akkor leülteti.
+     * Ha egy panda le akar ulni, a kanape megnezi, hogy ures-e (azaz le tud-e ulni a panda), ha ures, akkor leulteti.
      *
-     * @param p A panda amelyet leültetünk a kanapére.
+     * @param p A panda amelyet leultetunk a kanapera.
      */
     @Override
     public void receive(Panda p) {
@@ -47,9 +47,9 @@ public class Couch extends Item {
     }
 
     /**
-     * A konstruktor, amelyben beállítjuk, hogy alapból nincs panda a kanapén.
+     * A konstruktor, amelyben beallitjuk, hogy alapbol nincs panda a kanapen.
      *
-     * @param t A csempe, amelyiken a kanapé található.
+     * @param t A csempe, amelyiken a kanape talalhato.
      */
     public Couch(Tile t) {
         System.out.println(">   Couch::Couch(Tile t)");

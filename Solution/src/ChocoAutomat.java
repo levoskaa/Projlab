@@ -13,14 +13,14 @@
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * A csokiautomatát megvalósító osztály.
+ * A csokiautomatat megvalosito osztaly.
  *
  * @author Cynolter
  */
 public class ChocoAutomat extends Item {
 
     /**
-     * A countDown függvény csökkenti a Counter attributumst az osztálynak, amint az elrri a 0-t,
+     * A countDown fuggveny csokkenti a Counter attributumat az osztalynak, amint az eleri a 0-t,
      * akkor sipol és reszetelodik a Counter.
      */
     @Override
@@ -38,7 +38,7 @@ public class ChocoAutomat extends Item {
     }
 
     /**
-     * A konstruktor, amelyikben meg kell adni, melyik csempere kerül az automata,
+     * A konstruktor, amelyikben meg kell adni, melyik csempere kerul az automata,
      * és kezdoallapotba allitjuk a Counter attributumot.
      *
      * @param t A csempe amelyiken a Csokiautomata all.

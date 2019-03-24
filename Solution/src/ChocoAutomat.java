@@ -29,8 +29,8 @@ public class ChocoAutomat extends Item {
             for (BaseTile tile : onTile.getNeighbours()) {
                 tile.beep();
             }
-            // TODO ugyanaz mint SlotMachineban
-            Counter = 100;
+            int rn = ThreadLocalRandom.current().nextInt(75,125+1);
+            Counter = rn;
         }
         System.out.println("<   countDown()");
     }
@@ -43,7 +43,8 @@ public class ChocoAutomat extends Item {
     public ChocoAutomat(Tile t) {
         System.out.println(">   ChocoAutomat(Tile t)");
         onTile = t;
-        // TODO ugyanaz mint SlotMachineban
+        //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
+        //Counter = rn;
         Counter = 1;
         System.out.println("<   ChocoAutomat(Tile t)");
     }

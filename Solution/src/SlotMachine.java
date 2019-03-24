@@ -8,6 +8,7 @@
 //  @ Author : 
 //
 //
+import java.util.concurrent.ThreadLocalRandom;
 
 
 /**
@@ -29,8 +30,8 @@ public class SlotMachine extends Item {
             for (BaseTile tile : onTile.getNeighbours()) {
                 tile.ring();
             }
-            // TODO ezt randomizalni
-            Counter = 100;
+            int rn = ThreadLocalRandom.current().nextInt(75,125+1);
+            Counter = rn;
         }
         System.out.println("<   countDown()");
     }
@@ -43,7 +44,8 @@ public class SlotMachine extends Item {
     public SlotMachine(Tile t) {
         System.out.println(">   SlotMachine(Tile t)");
         onTile = t;
-        // TODO ezt randomizalni, csak atirtam 1-re debug miatt
+        //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
+        //Counter = rn;
         Counter = 1;
         System.out.println("<   SlotMachine(Tile t)");
     }

@@ -95,6 +95,8 @@ public class BreakableTile extends Tile {
         }
         else{
             localAnimal = a;
+            //KK20190327.0422: szerintem ez a sor innen hianyzik.
+            //localAnimal.setTile(this);
             decreaseHealth();
         }
         System.out.println("<   BreakableTile::receive (Animal a)");

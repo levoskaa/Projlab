@@ -73,7 +73,7 @@ public abstract class BaseTile {
     public void setItem(Item i) {
     }
 
-    public void decraseHealth() {
+    public void decreaseHealth() {
     }
 
     public void ring() {}

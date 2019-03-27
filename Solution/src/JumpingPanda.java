@@ -22,7 +22,7 @@ public class JumpingPanda extends Panda {
     @Override
     public void jump() {
 		System.out.println(">   JumpingPanda::jump()");
-        currentTile.decraseHealth();
+        currentTile.decreaseHealth();
         System.out.println("<   JumpingPanda::jump()");
 		return;
     }

@@ -70,6 +70,7 @@ public class BreakableTile extends Tile {
     /**
      * A fuggveny egyel csökkenti a törékeny csempe elettartamat.
      */
+    @Override
     public void decreaseHealth() {
         System.out.println(">   BreakableTile::decreaseHealth()");
 
@@ -90,15 +91,17 @@ public class BreakableTile extends Tile {
     public void receive (Animal a){
         System.out.println(">   BreakableTile::receive (Animal a)");
 
+        a.currentTile.remove();
+
         if(broken) {
             a.die();
         }
         else{
             localAnimal = a;
-            //KK20190327.0422: szerintem ez a sor innen hianyzik.
-            //localAnimal.setTile(this);
+            localAnimal.setTile(this);
             decreaseHealth();
         }
+
         System.out.println("<   BreakableTile::receive (Animal a)");
 
     }

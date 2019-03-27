@@ -27,11 +27,7 @@ public class Tile extends BaseTile {
      */
     public void beep() {
         System.out.println(">   Tile::beep()");
-        for(int i = 0; i != neighbours.size(); ++i) {
-            if (neighbours.get(i).localAnimal != null){
-                localAnimal.jump();
-            }else{}
-        }
+        localAnimal.jump();
         System.out.println("<   Tile::beep()");
 
     }
@@ -42,11 +38,7 @@ public class Tile extends BaseTile {
      */
     public void ring() {
         System.out.println(">   Tile::ring()");
-        for(int i = 0; i != neighbours.size(); ++i) {
-            if (neighbours.get(i).localAnimal != null){
-                localAnimal.scare();
-            }else{}
-        }
+        localAnimal.scare();
         System.out.println("<   Tile::ring()");
     }
 
@@ -56,11 +48,7 @@ public class Tile extends BaseTile {
      */
     public void tire(Tile t) {
         System.out.println(">   Tile::tire(Tile t)");
-        for(int i = 0; i != neighbours.size(); ++i) {
-            if (neighbours.get(i).localAnimal != null){
-                localAnimal.sit(t);
-            }
-        }
+        localAnimal.sit(t);
         System.out.println("<   Tile::tire(Tile t)");
     }
 

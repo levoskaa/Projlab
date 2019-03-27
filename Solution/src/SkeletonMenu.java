@@ -169,25 +169,33 @@ public class SkeletonMenu {
      * A Jumping panda jumps near a ChocoAutomat esemenyt szimulalo fuggveny.
      */
     public void jumpingPandaJumps() {
+        GameLogic gl = new GameLogic();
         Orangutan orangutan = new Orangutan();
         JumpingPanda jumpingPanda = new JumpingPanda(orangutan);
+        BreakableTile breakableTile = new BreakableTile();
         Tile tileOfPanda = new Tile();
-        Tile tileOfSlotMachine = new Tile();
-        SlotMachine slotMachine = new SlotMachine(tileOfSlotMachine);
+        breakableTile.setHealth(2);
+        Tile tileOfChocoAutomat = new Tile();
+        ChocoAutomat chocoAutomat = new ChocoAutomat(tileOfChocoAutomat);
+        jumpingPanda.setGameLogic(gl);
+        gl.addAnimal(jumpingPanda);
 
         ArrayList<BaseTile> neighboursOfTileOfPanda = new ArrayList<>();
-        neighboursOfTileOfPanda.add(tileOfSlotMachine);
+        neighboursOfTileOfPanda.add(tileOfChocoAutomat);
 
         ArrayList<BaseTile> neighboursOfTileOfSlotMachine = new ArrayList<>();
-        neighboursOfTileOfSlotMachine.add(tileOfPanda);
+        neighboursOfTileOfSlotMachine.add(breakableTile);
 
         tileOfPanda.receive(jumpingPanda);
-        tileOfSlotMachine.setItem(slotMachine);
-        tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
-        tileOfSlotMachine.setNeighbours(neighboursOfTileOfSlotMachine);
+        breakableTile.receive(jumpingPanda);
+        tileOfChocoAutomat.setItem(chocoAutomat);
+        breakableTile.setNeighbours(neighboursOfTileOfPanda);
+        tileOfChocoAutomat.setNeighbours(neighboursOfTileOfSlotMachine);
+       // breakableTile.receive(jumpingPanda);
+
 
         for (int i = 0; i < 1; i++) {
-            slotMachine.countDown();
+            chocoAutomat.countDown();
         }
     }
 
@@ -197,23 +205,23 @@ public class SkeletonMenu {
     public void pandaGetsScared() {
         Orangutan orangutan = new Orangutan();
         ScarablePanda scarablePanda = new ScarablePanda(orangutan);
-        Tile tileOfChocoAutomat = new Tile();
+        Tile tileOfSlotMachine = new Tile();
         Tile tileOfPanda = new Tile();
-        ChocoAutomat chocoAutomat = new ChocoAutomat(tileOfChocoAutomat);
+        SlotMachine slotMachine = new SlotMachine(tileOfSlotMachine);
 
         ArrayList<BaseTile> neighboursOfTileOfPanda = new ArrayList<>();
-        neighboursOfTileOfPanda.add(tileOfChocoAutomat);
+        neighboursOfTileOfPanda.add(tileOfSlotMachine);
 
         ArrayList<BaseTile> neighboursOfTileOfChocoAutomat = new ArrayList<>();
         neighboursOfTileOfChocoAutomat.add(tileOfPanda);
 
         tileOfPanda.receive(scarablePanda);
-        tileOfChocoAutomat.setItem(chocoAutomat);
-        tileOfChocoAutomat.setNeighbours(neighboursOfTileOfChocoAutomat);
+        tileOfSlotMachine.setItem(slotMachine);
+        tileOfSlotMachine.setNeighbours(neighboursOfTileOfChocoAutomat);
         tileOfPanda.setNeighbours(neighboursOfTileOfPanda);
 
         for (int i = 0; i < 1; i++) {
-            chocoAutomat.countDown();
+            slotMachine.countDown();
         }
     }
 
@@ -271,8 +279,6 @@ public class SkeletonMenu {
      */
     public void exit() {
         GameLogic gameLogic = new GameLogic();
-        // TODO gameLogic-ot ugy inicializalni, hogy az endGame lefusson
-        // (semmi sem lehet null amire ertelmes hivatkozas van az endGame fv-ben)
         gameLogic.endGame();
     }
 

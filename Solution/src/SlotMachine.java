@@ -20,7 +20,7 @@ public class SlotMachine extends Item {
 
     /**
      * A countDown fuggveny csokkenti a Counter attributumat az osztalynak, amint az eleri a 0-t,
-     * akkor csorog és reszetelodik a Counter.
+     * akkor csorog es reszetelodik a Counter.
      */
     @Override
     public void countDown() {
@@ -28,7 +28,9 @@ public class SlotMachine extends Item {
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
-                tile.ring();
+                if(tile.localAnimal != null) {
+                    tile.ring();
+                }
             }
             int rn = ThreadLocalRandom.current().nextInt(75,125+1);
             Counter = rn;
@@ -37,7 +39,8 @@ public class SlotMachine extends Item {
     }
 
     /**
-     * A konstruktor, amelyikben meg kell adni, melyik csempere kerul a gep, és kezdoallapotba allitjuk a Counter attributumot.
+     * A konstruktor, amelyikben meg kell adni, melyik csempere kerul a gep,
+     * es kezdoallapotba allitjuk a Counter attributumot.
      *
      * @param t A csempe, amelyiken a jatekgep talalhato.
      */

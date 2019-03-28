@@ -10,23 +10,19 @@
  */
 public class ScarablePanda extends Panda {
     /**
-     * Konstruktor.
-     */
-    public ScarablePanda(Orangutan orangutan) {
-        super(orangutan);
-    }
-
-    /**
      * Megijesztett panda elengedi a mogotte jovo panda kezet.
      */
     @Override
     public void scare() {
+        GameLogic.indent(true);
 		System.out.println(">   ScarablePanda::scare()");
         if (!caught){
+            GameLogic.indent(false);
 			System.out.println("<   ScarablePanda::scare()");
             return;
 		}
         orangutan.releaseBehind(this);
+        GameLogic.indent(false);
         System.out.println("<   ScarablePanda::scare()");
 		return;
     }

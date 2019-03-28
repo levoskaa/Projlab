@@ -10,22 +10,17 @@
  */
 public class TiredPanda extends Panda {
     /**
-     * Konstruktor.
-     */
-    public TiredPanda(Orangutan orangutan) {
-        super(orangutan);
-    }
-
-    /**
      * Ha nincs elfogva a panda, akkor ennek a fuggvenyne a hatasara leul a kanapera.
      * @param t Az a csempe, amelyiken a kanape talalhato.
      */
     @Override
     public void sit(Tile t) {
+        GameLogic.indent(true);
         System.out.println(">   TiredPanda::sit(Tile t)");
         if (!caught) {
             t.getItem().receive(this);
 		}
+        GameLogic.indent(false);
         System.out.println("<   TiredPanda::sit(Tile t)");
 		return;
     }

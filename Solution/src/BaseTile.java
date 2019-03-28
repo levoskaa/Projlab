@@ -45,14 +45,16 @@ public abstract class BaseTile {
      * @param a Az allat, amely a csempere akar lepni.
      */
     public void receive(Animal a) {
+        GameLogic.indent(true);
 		System.out.println(">   BaseTile::receive(Animal a)");
         if (localAnimal == null) {
             localAnimal = a;
             localAnimal.setTile(this);
         }
         else{
-            a.collision(localAnimal);
+            localAnimal.collideWith(a);
         }
+        GameLogic.indent(false);
         System.out.println("<   BaseTile::receive(Animal a)");
         return;
     }

@@ -18,7 +18,8 @@ public class SkeletonMenu {
     public void pandaStepsOnEmptyTile() {
         GameLogic gameLogic = new GameLogic();
         Orangutan orangutan = new Orangutan();
-        ScarablePanda panda = new ScarablePanda(orangutan);
+        ScarablePanda panda = new ScarablePanda();
+        panda.setOrangutan(orangutan);
         Tile tile = new Tile();
         tile.receive(panda);
     }
@@ -48,7 +49,8 @@ public class SkeletonMenu {
     public void orangutanCatchesPanda() {
         //Valtozok inicializalasa
         Orangutan orangutan = new Orangutan();
-        ScarablePanda panda = new ScarablePanda(orangutan);
+        ScarablePanda panda = new ScarablePanda();
+        panda.setOrangutan(orangutan);
         Tile tileOfPanda = new Tile();
         Tile tileOfOrangutan = new Tile();
 
@@ -73,7 +75,8 @@ public class SkeletonMenu {
      */
     public void orangutanGuidesPanda() {
         Orangutan orangutan = new Orangutan();
-        ScarablePanda panda = new ScarablePanda(orangutan);
+        ScarablePanda panda = new ScarablePanda();
+        panda.setOrangutan(orangutan);
         Tile tile1 = new Tile();
         Tile tile2 = new Tile();
         Tile tile3 = new Tile();
@@ -104,6 +107,7 @@ public class SkeletonMenu {
         Orangutan orangutan = new Orangutan();
         GameLogic gl = new GameLogic();
         orangutan.setGameLogic(gl);
+        orangutan.setTile(new Tile());
         gl.addAnimal(orangutan);
         BreakableTile breakableTile = new BreakableTile();
 
@@ -118,7 +122,8 @@ public class SkeletonMenu {
      */
     public void pandaStepsOnBrokenTile() {
         Orangutan orangutan = new Orangutan();
-        ScarablePanda panda = new ScarablePanda(orangutan);
+        ScarablePanda panda = new ScarablePanda();
+        panda.setOrangutan(orangutan);
         BreakableTile breakableTile = new BreakableTile();
 
         GameLogic gl = new GameLogic();
@@ -138,7 +143,9 @@ public class SkeletonMenu {
      */
     public void pandaFallsOff() {
         Orangutan orangutan = new Orangutan();
-        ScarablePanda panda = new ScarablePanda(orangutan);
+        orangutan.setTile(new Tile());
+        ScarablePanda panda = new ScarablePanda();
+        panda.setOrangutan(orangutan);
         Tile tile1 = new Tile();
         BreakableTile tile2 = new BreakableTile();
         Tile tile3 = new Tile();
@@ -171,7 +178,8 @@ public class SkeletonMenu {
     public void jumpingPandaJumps() {
         GameLogic gl = new GameLogic();
         Orangutan orangutan = new Orangutan();
-        JumpingPanda jumpingPanda = new JumpingPanda(orangutan);
+        JumpingPanda jumpingPanda = new JumpingPanda();
+        jumpingPanda.setOrangutan(orangutan);
         BreakableTile breakableTile = new BreakableTile();
         Tile tileOfPanda = new Tile();
         breakableTile.setHealth(2);
@@ -204,7 +212,8 @@ public class SkeletonMenu {
      */
     public void pandaGetsScared() {
         Orangutan orangutan = new Orangutan();
-        ScarablePanda scarablePanda = new ScarablePanda(orangutan);
+        ScarablePanda scarablePanda = new ScarablePanda();
+        scarablePanda.setOrangutan(orangutan);
         Tile tileOfSlotMachine = new Tile();
         Tile tileOfPanda = new Tile();
         SlotMachine slotMachine = new SlotMachine(tileOfSlotMachine);
@@ -230,7 +239,8 @@ public class SkeletonMenu {
      */
     public void pandaStepsOnEntryWardrobe() {
         Orangutan orangutan = new Orangutan();
-        ScarablePanda scarablePanda = new ScarablePanda(orangutan);
+        ScarablePanda scarablePanda = new ScarablePanda();
+        scarablePanda.setOrangutan(orangutan);
         EntryWardrobe entryWardrobe = new EntryWardrobe();
         entryWardrobe.setDestination(new Tile());
         entryWardrobe.receive(scarablePanda);
@@ -252,7 +262,8 @@ public class SkeletonMenu {
      */
     public void tiredPandaTakesRest() {
         Orangutan orangutan = new Orangutan();
-        TiredPanda tiredPanda = new TiredPanda(orangutan);
+        TiredPanda tiredPanda = new TiredPanda();
+        tiredPanda.setOrangutan(orangutan);
         Tile tileOfPanda = new Tile();
         Tile tileOfCouch = new Tile();
         Couch couch = new Couch(tileOfCouch);

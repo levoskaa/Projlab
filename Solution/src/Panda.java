@@ -3,7 +3,7 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
-import java.util.ArrayList;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 /**
  * Osztaly a Pandak viselkedesenek es tulajdonsagaiknak osszegyujtesere,
@@ -26,8 +26,17 @@ public abstract class Panda extends Animal {
     /**
      * Konstruktor.
      */
-    public Panda(Orangutan orangutan) {
+    public Panda() {
         caught = false;
+        this.orangutan = null;
+    }
+
+    /**
+     * Setter fuggveny az 'orangutan' mezo beallitasara.
+     *
+     * @param orangutan Az 'orangutan' mezo uj erteke.
+     */
+    public void setOrangutan(Orangutan orangutan) {
         this.orangutan = orangutan;
     }
 
@@ -37,8 +46,10 @@ public abstract class Panda extends Animal {
      * @param value A caught valtozo uj erteke.
      */
     public void setCaught(boolean value) {
+        GameLogic.indent(true);
 		System.out.println(">   Panda::setCaught(boolean value)");
         caught = value;
+        GameLogic.indent(false);
         System.out.println("<   Panda::setCaught(boolean value)");
 		return;
     }
@@ -50,11 +61,14 @@ public abstract class Panda extends Animal {
      */
     @Override
     public int checkPoints() {
+        GameLogic.indent(true);
 		System.out.println(">   Panda::checkPoints()");
         if (caught) {
+            GameLogic.indent(false);
 			System.out.println("<   Panda::checkPoints()");
             return 50;
 		}
+        GameLogic.indent(false);
         System.out.println("<   Panda::checkPoints()");
         return 0;
     }
@@ -64,12 +78,16 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void die() {
+        GameLogic.indent(true);
 		System.out.println(">   Panda::die()");
+
         if (caught) {
             orangutan.release(this);
 		}
         currentTile.remove();
         gameLogic.remove(this);
+        GameLogic.indent(false);
+
 		System.out.println("<   Panda::die()");
 		return;
     }
@@ -81,28 +99,62 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void move() {
-		System.out.println(">   Panda::move()");
-        ArrayList<BaseTile> neighbours = currentTile.getNeighbours();
-        // A szomszedos csempek kozul veletlenszeruen valaszt egyet, amire megprobal ralepni.
-        // (Lehetseges, hogy egy helyben marad, ha foglalt csempere akar lepni.)
-        neighbours.get((int) (Math.random() * neighbours.size())).receive(this);
-		System.out.println("<   Panda::move()");
-		return;
+        GameLogic.indent(true);
+        System.out.println(">   Panda::move()");
+        super.move();
+        GameLogic.indent(false);
+        System.out.println("<   Panda::move()");
     }
 
     /**
      * A panda elfogasakor hivodik meg.
      */
     @Override
-    public void catchPanda() {
+    public void catchPanda(Orangutan orangutan) {
+        GameLogic.indent(true);
 		System.out.println(">   Panda::catchPanda()");
-        orangutan.add(this);
+
+        // Csak akkor kapja el a pandat, ha az meg nem vezetett
+		if (!caught) {
+            orangutan.add(this);
+            this.orangutan = orangutan;
+        }
+
+        GameLogic.indent(false);
 		System.out.println("<   Panda::catchPanda()");
     }
 
+    /**
+     * A csempe ezzel a fuggvennyel tud jelezni a rajta allo allatnak,
+     * hogy egy masik allat nekiutkozott.
+     * @param a Az allat, amivel az utkozes tortent.
+     */
     @Override
-    public void collision(Animal a) {
-		System.out.println(">   Panda::collision(Animal a)");
-		System.out.println("<   Panda::collision(Animal a)");
+    public void collideWith(Animal a) {
+        a.collisionWithPanda(this);
+    }
+
+    /**
+     * A pandanak utkozes eseten nincs specifikus mukodese.
+     * @param p A panda, amivel az utkozes tortent.
+     */
+    @Override
+    public void collisionWithPanda(Panda p) {
+        GameLogic.indent(true);
+		System.out.println(">   Panda::collisionWithPanda(Animal a)");
+        GameLogic.indent(false);
+		System.out.println("<   Panda::collisionWithPanda(Animal a)");
+    }
+
+    /**
+     * A pandanak utkozes eseten nincs specifikus mukodese.
+     * @param o Az orangutan, amivel az utkozes tortent.
+     */
+    @Override
+    public void collisionWithOrangutan(Orangutan o) {
+        GameLogic.indent(true);
+        System.out.println(">   Panda::collisionWithOrangutan(Animal a)");
+        GameLogic.indent(false);
+        System.out.println("<   Panda::collisionWithOrangutan(Animal a)");
     }
 }

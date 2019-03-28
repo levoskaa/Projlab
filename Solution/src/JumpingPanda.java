@@ -10,19 +10,16 @@
  */
 public class JumpingPanda extends Panda {
     /**
-     * Konstruktor.
-     */
-    public JumpingPanda(Orangutan orangutan) {
-        super(orangutan);
-    }
-
-    /**
      * Ugras eseten csokkenti a csempe elettartamat.
      */
     @Override
     public void jump() {
+        GameLogic.indent(true);
 		System.out.println(">   JumpingPanda::jump()");
+
         currentTile.decreaseHealth();
+
+        GameLogic.indent(false);
         System.out.println("<   JumpingPanda::jump()");
 		return;
     }

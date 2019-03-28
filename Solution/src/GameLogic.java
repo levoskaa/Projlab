@@ -23,7 +23,7 @@ public class GameLogic{
     /**
      * A jatekos megszerzett pointjait tarolo int.
      */
-    private int Points;
+    private int points;
     /**
      * A program futasat jelzo boolean.
      */
@@ -31,15 +31,15 @@ public class GameLogic{
     /**
      * A mapen levo pandakat tarolo lista.
      */
-    private ArrayList<Animal> AnimalsOnTheMap;
+    private ArrayList<Animal> animalsOnTheMap;
     /**
      * A mapen levo speciális funkcioalitassal ellatott targyakat tarolo lista.
      */
-    private ArrayList<Item> ItemsOnTheMap;
+    private ArrayList<Item> itemsOnTheMap;
     /**
      * A mapen levo szekrenyeket tarolo lista.
      */
-    private ArrayList<EntryWardrobe> TilesOnMap;
+    private ArrayList<EntryWardrobe> tilesOnMap;
 
     /**
      * A fuggveny a jatek inicializalasat vegzi.
@@ -79,7 +79,7 @@ public class GameLogic{
      */
     public void addPoints(int p) {
         System.out.println(">   GameLogic::addPoints(int p)");
-        Points += (p * 50);
+        points += (p * 50);
         System.out.println("<   GameLogic::addPoints(int p)");
     }
 
@@ -88,9 +88,9 @@ public class GameLogic{
      */
     public void endGame() {
         System.out.println(">   GameLogic::endGame()");
-        if(AnimalsOnTheMap.isEmpty()) {
+        if(animalsOnTheMap.isEmpty()) {
           //  System.out.println("You caugth all pandas!");
-          //  System.out.println("You caugt:" + Points + " pandas!");
+          //  System.out.println("You caugt:" + points + " pandas!");
         }else{
             // System.out.println("You Lost!");
         }
@@ -103,12 +103,12 @@ public class GameLogic{
      */
     public void tick() {
         System.out.println(">   GameLogic::tick()");
-        for(int i = 0; i != AnimalsOnTheMap.size(); ++i){
-        AnimalsOnTheMap.get(i).move();
+        for(int i = 0; i != animalsOnTheMap.size(); ++i){
+        animalsOnTheMap.get(i).move();
         }
 
-        for(int j = 0; j != ItemsOnTheMap.size(); ++j){
-        ItemsOnTheMap.get(j).countDown();
+        for(int j = 0; j != itemsOnTheMap.size(); ++j){
+        itemsOnTheMap.get(j).countDown();
         }
         System.out.println("<   GameLogic::tick()");
     }
@@ -118,22 +118,38 @@ public class GameLogic{
      */
     public void remove(Animal a){
         System.out.println(">   GameLogic::remove(Animal a)");
-        AnimalsOnTheMap.remove(a);
+        animalsOnTheMap.remove(a);
         a = null;
         System.out.println("<   GameLogic::remove(Animal a)");
     }
 
     public void addAnimal(Animal a) {
         System.out.println(">   GameLogic::addAnimal(Animal a)");
-        AnimalsOnTheMap.add(a);
+        animalsOnTheMap.add(a);
         System.out.println("<   GameLogic::addAnimal(Animal a)");
     }
 
     public GameLogic() {
-        Points = 0;
-        AnimalsOnTheMap = new ArrayList<>();
-        TilesOnMap = new ArrayList<>();
-        ItemsOnTheMap = new ArrayList<>();
+        points = 0;
+        animalsOnTheMap = new ArrayList<>();
+        tilesOnMap = new ArrayList<>();
+        itemsOnTheMap = new ArrayList<>();
+    }
+
+    private static int tabCounter = 0;
+    private static void writeTabs() {
+        for (int i = 0; i < tabCounter; i++) {
+            System.out.print("\t");
+        }
+    }
+    public static void indent(boolean deeper) {
+        if (!deeper)
+            tabCounter--;
+
+        writeTabs();
+
+        if (deeper)
+            tabCounter++;
     }
 
 }

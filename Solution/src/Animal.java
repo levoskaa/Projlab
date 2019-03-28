@@ -22,26 +22,23 @@ public abstract class Animal {
      */
     protected GameLogic gameLogic;
 
-    public abstract void move();
-
     public abstract int checkPoints();
 
-    public abstract void collision(Animal a);
+    public abstract void collisionWithPanda(Panda p);
 
-    public void catchPanda() {
-    }
+    public abstract void collisionWithOrangutan(Orangutan o);
 
-    public void die() {
-    }
+    public abstract void collideWith(Animal a);
 
-    public void sit(Tile t) {
-    }
+    public void catchPanda(Orangutan orangutan) {}
 
-    public void scare() {
-    }
+    public void die() {}
 
-    public void jump() {
-    }
+    public void sit(Tile t) {}
+
+    public void scare() {}
+
+    public void jump() {}
 
     public void setCaughtPandas(ArrayList<Panda> caughtPandas) {
     }
@@ -63,7 +60,9 @@ public abstract class Animal {
      * @return Csempe(BaseTile objektum) amelyiken az allat eppen all.
      */
     public BaseTile getTile() {
+        gameLogic.indent(true);
         System.out.println(">   Animal::getTile()");
+        gameLogic.indent(false);
         System.out.println("<   Animal::getTile()");
         return currentTile;
     }
@@ -74,8 +73,10 @@ public abstract class Animal {
      * @param t Az uj csempe, amelyikre athelyezzuk az allatot.
      */
     public void setTile(BaseTile t) {
+        GameLogic.indent(true);
         System.out.println(">   Animal::setTile(BaseTile t)");
         currentTile = t;
+        GameLogic.indent(false);
         System.out.println("<   Animal::setTile(BaseTile t)");
     }
 
@@ -85,5 +86,12 @@ public abstract class Animal {
      */
     public void setGameLogic(GameLogic gameLogic) {
         this.gameLogic = gameLogic;
+    }
+
+    public void move() {
+        ArrayList<BaseTile> neighbours = currentTile.getNeighbours();
+        // A szomszedos csempek kozul veletlenszeruen valaszt egyet, amire megprobal ralepni.
+        // (Lehetseges, hogy egy helyben marad, ha foglalt csempere akar lepni.)
+        neighbours.get((int) (Math.random() * neighbours.size())).receive(this);
     }
 }

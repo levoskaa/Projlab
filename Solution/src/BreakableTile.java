@@ -103,13 +103,13 @@ public class BreakableTile extends Tile {
         System.out.println(">   BreakableTile::receive (Animal a)");
 
         //ez a sor az else agba kene legyen
-        //a.currentTile.remove();
+        //a.getTile().remove();
 
         if(broken) {
             a.die();
         }
         else{
-            a.currentTile.remove();
+            a.getTile().remove();
             localAnimal = a;
             localAnimal.setTile(this);
             decreaseHealth();

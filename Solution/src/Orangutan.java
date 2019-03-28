@@ -61,6 +61,14 @@ public class Orangutan extends Animal {
     }
 
     /**
+     * Setter fuggveny a 'cantCatchPandasUntil' mezo beallitasara.
+     * @param value A 'cantCatchPandasUntil' mezo uj erteke.
+     */
+    public void setCantCatchPandasUntil(int value) {
+        cantCatchPandasUntil = value;
+    }
+
+    /**
      * Pandaval valo utkozes eseten elfogja azt.
      *
      * @param p A panda, amivel az utkozes tortent.
@@ -84,15 +92,32 @@ public class Orangutan extends Animal {
         GameLogic.indent(true);
         System.out.println(">   Orangutan::collisionWithOrangutan(Animal a)");
 
-        ArrayList<Panda> pandasOfOther = o.getCaughtPandas();
-        // Az eredetileg vezetett pandaknak egy helyben kell allniuk, amig az ellopott
-        // pandak be nem csatlakoznak a sorba.
-        for (Panda panda: caughtPandas) {
-            panda.setCantMoveUntil(pandasOfOther.size());
+        // Ha vezet pandat, akkor nem rabolhat egy masik orangutantol.
+        if (caughtPandas.size() > 0) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::collisionWithOrangutan(Animal a)");
+            return;
         }
-        // Az ellopott pandakat kozvetlen az orangutan utan fuzzuk fel a sorba.
-        for (int i = pandasOfOther.size() - 1; i >= 0; i--) {
-            caughtPandas.add(0, pandasOfOther.get(i));
+
+        // Orangutanok felcserelese kozben hasznalt segedvaltozo.
+        BaseTile tileOfOther = o.getTile();
+
+        // Orangutanok felcserelese 1.
+        tileOfOther.setAnimal(this);
+        currentTile.setAnimal(o);
+
+        // Orangutanok felcserelese 2.
+        o.setTile(currentTile);
+        setTile(tileOfOther);
+
+        // Pandak atadasa a rablo orangutannak.
+        caughtPandas = o.getCaughtPandas();
+        o.setCaughtPandas(null);
+        // A feladat szerint 3 korig nem foghat/rabolhat pandat ez az orangutan.
+        o.setCantCatchPandasUntil(3);
+        // Az elrabolt pandaknak az oket vezeto orangutan atallitasa a rablo orangutanra.
+        for (int i = 0; i < caughtPandas.size(); i++) {
+            caughtPandas.get(i).setOrangutan(this);
         }
 
         GameLogic.indent(false);

@@ -19,14 +19,14 @@ public class EntryWardrobe extends BaseTile {
     /**
      * Referencia a kimeneti szekrenyre, vagyis egy specialis csempere.
      */
-    protected Tile destination;
+    protected BaseTile destination;
 
     /**
      * Setter fuggveny a destination valtozo megvaltoztatasara.
      *
      * @param t A kimeneti szekreny.
      */
-    public void setDestination(Tile t){
+    public void setDestination(BaseTile t){
         System.out.println(">   EntryWardrobe::setDestination(Tile t)");
         destination = t;
         System.out.println("<   EntryWardrobe::setDestination(Tile t)");

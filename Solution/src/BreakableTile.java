@@ -60,7 +60,7 @@ public class BreakableTile extends Tile {
      * Setter fuggveny a broken valtozohoz.
      * @param newBroken A broken valtozo uj erteke.
      */
-    public void  setBroken(boolean newBroken){
+    public void setBroken(boolean newBroken){
         System.out.println(">   BreakableTile::setBroken(boolean newBroken)");
         broken = newBroken;
         System.out.println("<   BreakableTile::setBroken(boolean newBroken)");

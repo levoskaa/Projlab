@@ -19,16 +19,40 @@ public abstract class Panda extends Animal {
     protected boolean caught;
 
     /**
-     * Referencia az orangutanra.
+     * Referencia az orangutanra, amelyik vezeti a pandat.
      */
     protected Orangutan orangutan;
+
+    /**
+     * A pandak ellopasanal hasznalando az ellopott pandak sorba torteno becsatlakoztatasara.
+     * <p>
+     * 0 az alapeset, ilyenkor mozoghat.
+     */
+    protected int cantMoveUntil;
 
     /**
      * Konstruktor.
      */
     public Panda() {
         caught = false;
+        cantMoveUntil = 0;
         this.orangutan = null;
+    }
+
+    /**
+     * Setter fuggveny a 'cantMoveUntil' mezo beallitasara.
+     * @param value A 'cantMoveUntil' mezo uj erteke.
+     */
+    public void setCantMoveUntil(int value) {
+        cantMoveUntil = value;
+    }
+
+    /**
+     * Getter fuggveny a 'cantMoveUntil' mezo lekerdezesere.
+     * @return A 'cantMoveUntil' mezo erteke.
+     */
+    public int getCantMoveUntil() {
+        return cantMoveUntil;
     }
 
     /**
@@ -101,7 +125,14 @@ public abstract class Panda extends Animal {
     public void move() {
         GameLogic.indent(true);
         System.out.println(">   Panda::move()");
-        super.move();
+
+        // 0 eseten lephet, mas szam (pl. 5) eseten meg annyi kort kell varnia egy helyben,
+        // mielott ujra lephetne
+        if (cantMoveUntil == 0)
+            super.move();
+        else
+            cantMoveUntil--;
+
         GameLogic.indent(false);
         System.out.println("<   Panda::move()");
     }

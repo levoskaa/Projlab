@@ -18,10 +18,18 @@ public class Orangutan extends Animal {
     private ArrayList<Panda> caughtPandas;
 
     /**
+     * Pandalopas utan 3 lepesig nem foghat pandat ez az orangutan.
+     * <p>
+     * 0 az alapertelmezett ertek, ilyenkor foghat pandat.
+     */
+    protected int cantCatchPandasUntil;
+
+    /**
      * Konstruktor.
      */
     public Orangutan() {
         caughtPandas = new ArrayList<Panda>();
+        cantCatchPandasUntil = 0;
     }
 
     /**
@@ -61,7 +69,8 @@ public class Orangutan extends Animal {
         GameLogic.indent(true);
         System.out.println(">   Orangutan::collisionWitPanda(Animal a)");
 
-        p.catchPanda(this);
+        if (cantCatchPandasUntil == 0)
+            p.catchPanda(this);
 
         GameLogic.indent(false);
         System.out.println("<   Orangutan::collisionWithPanda(Animal a)");
@@ -75,10 +84,15 @@ public class Orangutan extends Animal {
         GameLogic.indent(true);
         System.out.println(">   Orangutan::collisionWithOrangutan(Animal a)");
 
-        // TODO pandak ellopasa ???
-        ArrayList<Panda> pandasOfO = o.getCaughtPandas();
-        while (pandasOfO.size() > 0) {
-
+        ArrayList<Panda> pandasOfOther = o.getCaughtPandas();
+        // Az eredetileg vezetett pandaknak egy helyben kell allniuk, amig az ellopott
+        // pandak be nem csatlakoznak a sorba.
+        for (Panda panda: caughtPandas) {
+            panda.setCantMoveUntil(pandasOfOther.size());
+        }
+        // Az ellopott pandakat kozvetlen az orangutan utan fuzzuk fel a sorba.
+        for (int i = pandasOfOther.size() - 1; i >= 0; i--) {
+            caughtPandas.add(0, pandasOfOther.get(i));
         }
 
         GameLogic.indent(false);
@@ -155,6 +169,8 @@ public class Orangutan extends Animal {
         GameLogic.indent(true);
         System.out.println(">   Orangutan::move()");
         super.move();
+        if (cantCatchPandasUntil > 0)
+            cantCatchPandasUntil--;
         GameLogic.indent(false);
         System.out.println("<   Orangutan::move()");
     }

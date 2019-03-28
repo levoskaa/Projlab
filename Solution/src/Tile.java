@@ -26,8 +26,10 @@ public class Tile extends BaseTile {
      * A fuggveny a csokiautomata sipolasan keresztul ugrasra keszteti az ugro pandakat.
      */
     public void beep() {
+        GameLogic.indent(true);
         System.out.println(">   Tile::beep()");
         localAnimal.jump();
+        GameLogic.indent(false);
         System.out.println("<   Tile::beep()");
 
     }
@@ -37,8 +39,10 @@ public class Tile extends BaseTile {
      * kezenek elengedesere keszteti az ijedos pandakat.
      */
     public void ring() {
+        GameLogic.indent(true);
         System.out.println(">   Tile::ring()");
         localAnimal.scare();
+        GameLogic.indent(false);
         System.out.println("<   Tile::ring()");
     }
 
@@ -47,8 +51,10 @@ public class Tile extends BaseTile {
      * @param t A kanape helye amelyre a faradekony panda leulhet.
      */
     public void tire(Tile t) {
+        GameLogic.indent(true);
         System.out.println(">   Tile::tire(Tile t)");
         localAnimal.sit(t);
+        GameLogic.indent(false);
         System.out.println("<   Tile::tire(Tile t)");
     }
 
@@ -57,8 +63,10 @@ public class Tile extends BaseTile {
      * @param i A targy amelyet a csempere helyezunk.
      */
     public void setItem(Item i) {
+        GameLogic.indent(true);
         System.out.println(">   Tile::setItem(Item i)");
         localItem = i;
+        GameLogic.indent(false);
         System.out.println("<   Tile::setItem(Item i)");
     }
 
@@ -68,7 +76,9 @@ public class Tile extends BaseTile {
      * @return A targy ami a csempen van.
      */
     public Item getItem() {
+        GameLogic.indent(true);
         System.out.println(">   Tile::getItem()");
+        GameLogic.indent(false);
         System.out.println("<   Tile::getItem()");
         return localItem;
     }
@@ -78,7 +88,9 @@ public class Tile extends BaseTile {
      * @param a Az allat amelyet a csempere helyezunk.
      */
     public void setAnimal(Animal a) {
+        GameLogic.indent(true);
         System.out.println(">   Tile::setAnimal(Animal a)");
+        GameLogic.indent(false);
         System.out.println("<   Tile::setAnimal(Animal a)");
         localAnimal = a;
     }

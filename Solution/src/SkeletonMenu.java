@@ -194,7 +194,8 @@ public class SkeletonMenu {
         ArrayList<BaseTile> neighboursOfTileOfSlotMachine = new ArrayList<>();
         neighboursOfTileOfSlotMachine.add(breakableTile);
 
-        tileOfPanda.receive(jumpingPanda);
+        jumpingPanda.setTile(tileOfPanda);
+        tileOfPanda.setAnimal(jumpingPanda);
         breakableTile.receive(jumpingPanda);
         tileOfChocoAutomat.setItem(chocoAutomat);
         breakableTile.setNeighbours(neighboursOfTileOfPanda);

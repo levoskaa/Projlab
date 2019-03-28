@@ -49,6 +49,9 @@ public abstract class BaseTile {
     public void receive(Animal a) {
         GameLogic.indent(true);
 		System.out.println(">   BaseTile::receive(Animal a)");
+
+		a.getTile().remove();
+
         if (localAnimal == null) {
             localAnimal = a;
             localAnimal.setTile(this);

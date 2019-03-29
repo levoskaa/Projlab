@@ -25,7 +25,9 @@ public class ChocoAutomat extends Item {
      */
     @Override
     public void countDown() {
+        GameLogic.indent(true);
         System.out.println(">   ChocoAutomat::countDown()");
+
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
@@ -36,7 +38,10 @@ public class ChocoAutomat extends Item {
             int rn = ThreadLocalRandom.current().nextInt(75,125+1);
             Counter = rn;
         }
+
+        GameLogic.indent(false);
         System.out.println("<   ChocoAutomat::countDown()");
+        return;
     }
 
     /**
@@ -46,12 +51,10 @@ public class ChocoAutomat extends Item {
      * @param t A csempe amelyiken a Csokiautomata all.
      */
     public ChocoAutomat(Tile t) {
-        System.out.println(">   ChocoAutomat::ChocoAutomat(Tile t)");
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
         //Counter = rn;
         Counter = 1;
-        System.out.println("<   ChocoAutomat::ChocoAutomat(Tile t)");
     }
 
 }

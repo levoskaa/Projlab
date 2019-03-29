@@ -7,7 +7,9 @@ public class PlayerOrangutan extends Orangutan {
     public void move() {
         GameLogic.indent(true);
         System.out.println(">   PlayerOrangutan::move()");
+
         // TODO
+
         GameLogic.indent(false);
         System.out.println("<   PlayerOrangutan::move()");
     }
@@ -19,7 +21,9 @@ public class PlayerOrangutan extends Orangutan {
     public void die() {
         GameLogic.indent(true);
         System.out.println(">   Orangutan::die()");
+
         gameLogic.endGame();
+
         GameLogic.indent(false);
         System.out.println("<   Orangutan::die()");
     }

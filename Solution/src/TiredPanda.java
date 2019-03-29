@@ -31,7 +31,14 @@ public class TiredPanda extends Panda {
      * @param value A 'resting' mezo uj erteke;
      */
     public void setResting(boolean value) {
+        GameLogic.indent(true);
+        System.out.println(">   TiredPanda::setResting(boolean value)");
+
         resting = value;
+
+        GameLogic.indent(false);
+        System.out.println("<   TiredPanda::setResting(boolean value)");
+        return;
     }
 
     /**
@@ -39,7 +46,14 @@ public class TiredPanda extends Panda {
      * @param value A 'setRestingUntil' mezo uj erteke;
      */
     public void setRestingUntil(int value) {
+        GameLogic.indent(true);
+        System.out.println(">   TiredPanda::setRestingUntil(int value)");
+
         restingUntil = value;
+
+        GameLogic.indent(false);
+        System.out.println("<   TiredPanda::setRestingUntil(int value)");
+        return;
     }
 
     /**
@@ -50,9 +64,11 @@ public class TiredPanda extends Panda {
     public void sit(Tile t) {
         GameLogic.indent(true);
         System.out.println(">   TiredPanda::sit(Tile t)");
+
         if (!caught) {
             t.getItem().receive(this);
 		}
+
         GameLogic.indent(false);
         System.out.println("<   TiredPanda::sit(Tile t)");
 		return;
@@ -82,5 +98,6 @@ public class TiredPanda extends Panda {
 
         GameLogic.indent(false);
         System.out.println("<   TiredPanda::move()");
+        return;
     }
 }

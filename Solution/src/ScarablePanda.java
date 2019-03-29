@@ -16,12 +16,14 @@ public class ScarablePanda extends Panda {
     public void scare() {
         GameLogic.indent(true);
 		System.out.println(">   ScarablePanda::scare()");
+
         if (!caught){
             GameLogic.indent(false);
 			System.out.println("<   ScarablePanda::scare()");
             return;
 		}
         orangutan.releaseBehind(this);
+
         GameLogic.indent(false);
         System.out.println("<   ScarablePanda::scare()");
 		return;

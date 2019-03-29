@@ -34,7 +34,9 @@ public class ExitPoint extends EntryWardrobe {
     void setStartingTile(Tile sT){
         GameLogic.indent(true);
         System.out.println(">   ExitPoint::setStartingTile(Tile sT)");
+
         startingTile = sT;
+
         GameLogic.indent(false);
         System.out.println("<   ExitPoint::setStartingTile(Tile sT)");
 		return;
@@ -53,7 +55,9 @@ public class ExitPoint extends EntryWardrobe {
     public void receive(Animal a) {
         GameLogic.indent(true);
         System.out.println(">   ExitPoint::receive(Animal a)");
+
         // TODO itt ezt átgondolni
+
         startingTile.receive(a);
         int i = 0;
         for (Panda p: a.getCaughtPandas()) {
@@ -61,6 +65,7 @@ public class ExitPoint extends EntryWardrobe {
             ++i;
         }
         gameLogic.addPoints(i);
+
         GameLogic.indent(false);
         System.out.println("<   ExitPoint::receive(Animal a)");
         return;

@@ -37,7 +37,14 @@ public abstract class Panda extends Animal {
      * @param orangutan Az 'orangutan' mezo uj erteke.
      */
     public void setOrangutan(Orangutan orangutan) {
+        GameLogic.indent(true);
+        System.out.println(">   Panda::setOrangutan(Orangutan orangutan)");
+
         this.orangutan = orangutan;
+
+        GameLogic.indent(false);
+        System.out.println("<   Panda::setOrangutan(Orangutan orangutan)");
+        return;
     }
 
     /**
@@ -48,7 +55,9 @@ public abstract class Panda extends Animal {
     public void setCaught(boolean value) {
         GameLogic.indent(true);
 		System.out.println(">   Panda::setCaught(boolean value)");
+
         caught = value;
+
         GameLogic.indent(false);
         System.out.println("<   Panda::setCaught(boolean value)");
 		return;
@@ -63,11 +72,13 @@ public abstract class Panda extends Animal {
     public int checkPoints() {
         GameLogic.indent(true);
 		System.out.println(">   Panda::checkPoints()");
+
         if (caught) {
             GameLogic.indent(false);
 			System.out.println("<   Panda::checkPoints()");
             return 50;
 		}
+
         GameLogic.indent(false);
         System.out.println("<   Panda::checkPoints()");
         return 0;
@@ -86,8 +97,8 @@ public abstract class Panda extends Animal {
 		}
         currentTile.remove();
         gameLogic.remove(this);
-        GameLogic.indent(false);
 
+        GameLogic.indent(false);
 		System.out.println("<   Panda::die()");
 		return;
     }
@@ -101,9 +112,12 @@ public abstract class Panda extends Animal {
     public void move() {
         GameLogic.indent(true);
         System.out.println(">   Panda::move()");
+
         super.move();
+
         GameLogic.indent(false);
         System.out.println("<   Panda::move()");
+        return;
     }
 
     /**
@@ -122,6 +136,7 @@ public abstract class Panda extends Animal {
 
         GameLogic.indent(false);
 		System.out.println("<   Panda::catchPanda()");
+		return;
     }
 
     /**
@@ -131,7 +146,14 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void collideWith(Animal a) {
+        GameLogic.indent(true);
+        System.out.println(">   Panda::collideWith(Animal a)");
+
         a.collisionWithPanda(this);
+
+        GameLogic.indent(false);
+        System.out.println("<   Panda::collideWith(Animal a)");
+        return;
     }
 
     /**
@@ -142,8 +164,10 @@ public abstract class Panda extends Animal {
     public void collisionWithPanda(Panda p) {
         GameLogic.indent(true);
 		System.out.println(">   Panda::collisionWithPanda(Animal a)");
+
         GameLogic.indent(false);
 		System.out.println("<   Panda::collisionWithPanda(Animal a)");
+		return;
     }
 
     /**
@@ -154,7 +178,9 @@ public abstract class Panda extends Animal {
     public void collisionWithOrangutan(Orangutan o) {
         GameLogic.indent(true);
         System.out.println(">   Panda::collisionWithOrangutan(Animal a)");
+
         GameLogic.indent(false);
         System.out.println("<   Panda::collisionWithOrangutan(Animal a)");
+        return;
     }
 }

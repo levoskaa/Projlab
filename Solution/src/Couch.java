@@ -27,9 +27,14 @@ public class Couch extends Item {
      */
     @Override
     public void countDown() {
+        GameLogic.indent(true);
         System.out.println(">   Couch::countDown()");
+
         onTile.tire(onTile);
+
+        GameLogic.indent(false);
         System.out.println("<   Couch::countDown()");
+        return;
     }
 
     /**
@@ -39,7 +44,9 @@ public class Couch extends Item {
      */
     @Override
     public void receive(TiredPanda p) {
+        GameLogic.indent(true);
         System.out.println(">   Couch::receive(Panda p)");
+
         if (restingPanda == null) {
             restingPanda = p;
             restingPanda.setResting(true);
@@ -49,7 +56,10 @@ public class Couch extends Item {
             restingPanda.setTile(onTile);
             onTile.setAnimal(restingPanda);
         }
+
+        GameLogic.indent(false);
         System.out.println("<   Couch::receive(Panda p)");
+        return;
     }
 
     /**
@@ -58,10 +68,8 @@ public class Couch extends Item {
      * @param t A csempe, amelyiken a kanape talalhato.
      */
     public Couch(Tile t) {
-        System.out.println(">   Couch::Couch(Tile t)");
         onTile = t;
         restingPanda = null;
-        System.out.println("<   Couch::Couch(Tile t)");
     }
 
     /**
@@ -69,7 +77,14 @@ public class Couch extends Item {
      */
     @Override
     public void standUp() {
+        GameLogic.indent(true);
+        System.out.println(">   Couch::standUp()");
+
         restingPanda = null;
         restingPanda.setResting(false);
+
+        GameLogic.indent(false);
+        System.out.println("<   Couch::standUp()");
+        return;
     }
 }

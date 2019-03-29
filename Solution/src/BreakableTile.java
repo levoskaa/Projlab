@@ -32,6 +32,7 @@ public class BreakableTile extends Tile {
     public int getHealth() {
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::getHealth()");
+
         GameLogic.indent(false);
         System.out.println("<   BreakableTile::getHealth()");
         return health;
@@ -44,6 +45,7 @@ public class BreakableTile extends Tile {
     public boolean isBroken() {
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::isBroken()");
+
         GameLogic.indent(false);
         System.out.println("<   BreakableTile::isBroken()");
         return broken;
@@ -56,7 +58,9 @@ public class BreakableTile extends Tile {
     public void setHealth(int newHealth){
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::setHealth(int newHealth)");
+
         health = newHealth;
+
         GameLogic.indent(false);
         System.out.println("<   BreakableTile::setHealth(int newHealth)");
 
@@ -69,9 +73,12 @@ public class BreakableTile extends Tile {
     public void setBroken(boolean newBroken){
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::setBroken(boolean newBroken)");
+
         broken = newBroken;
+
         GameLogic.indent(false);
         System.out.println("<   BreakableTile::setBroken(boolean newBroken)");
+        return;
 
     }
 
@@ -90,7 +97,7 @@ public class BreakableTile extends Tile {
         }
         GameLogic.indent(false);
         System.out.println("<   BreakableTile::decreaseHealth()");
-
+        return;
     }
 
     /**
@@ -114,8 +121,9 @@ public class BreakableTile extends Tile {
             localAnimal.setTile(this);
             decreaseHealth();
         }
+
         GameLogic.indent(false);
         System.out.println("<   BreakableTile::receive (Animal a)");
-
+        return;
     }
 }

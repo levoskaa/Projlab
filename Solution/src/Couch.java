@@ -20,7 +20,7 @@ public class Couch extends Item {
     /**
      * A kanapen eppen ulo pandat reprezentalo attributum.
      */
-    private Panda RestingPanda;
+    private TiredPanda restingPanda;
 
     /**
      * A countDown metodus segítségével tudjak majd a szomszedos mezon allok, hogy itt kanape van.
@@ -38,10 +38,16 @@ public class Couch extends Item {
      * @param p A panda amelyet leultetunk a kanapera.
      */
     @Override
-    public void receive(Panda p) {
+    public void receive(TiredPanda p) {
         System.out.println(">   Couch::receive(Panda p)");
-        if (RestingPanda == null) {
-            RestingPanda = p;
+        if (restingPanda == null) {
+            restingPanda = p;
+            restingPanda.setResting(true);
+            restingPanda.setRestingUntil(5);
+
+            restingPanda.getTile().remove();
+            restingPanda.setTile(onTile);
+            onTile.setAnimal(restingPanda);
         }
         System.out.println("<   Couch::receive(Panda p)");
     }
@@ -54,7 +60,16 @@ public class Couch extends Item {
     public Couch(Tile t) {
         System.out.println(">   Couch::Couch(Tile t)");
         onTile = t;
-        RestingPanda = null;
+        restingPanda = null;
         System.out.println("<   Couch::Couch(Tile t)");
+    }
+
+    /**
+     * Amikora felall a panda, eltavolitja azt a kanaperol.
+     */
+    @Override
+    public void standUp() {
+        restingPanda = null;
+        restingPanda.setResting(false);
     }
 }

@@ -28,9 +28,9 @@ public abstract class Item {
     /**
      * Leszarmazott specifikus, hogy mit kell csinalnia countDown-ra, a leszarmazottaknal van implementalva.
      */
-    public void countDown() {
-    }
-	
-	public void receive(Panda p){
-	}
+    public void countDown() {}
+
+    public abstract void receive(TiredPanda p);
+
+    public void standUp() {}
 }

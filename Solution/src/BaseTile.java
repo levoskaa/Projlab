@@ -76,14 +76,13 @@ public abstract class BaseTile {
         return;
     }
 
-    public void setAnimal(Animal a) {
-    }
+    public void setAnimal(Animal a) {}
 
-    public void setItem(Item i) {
-    }
+    public void setItem(Item i) {}
 
-    public void decreaseHealth() {
-    }
+    public abstract Item getItem();
+
+    public void decreaseHealth() {}
 
     public void ring() {}
 

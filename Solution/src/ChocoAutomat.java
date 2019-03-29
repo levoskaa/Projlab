@@ -27,6 +27,7 @@ public class ChocoAutomat extends Item {
     public void countDown() {
         GameLogic.indent(true);
         System.out.println(">   ChocoAutomat::countDown()");
+
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
@@ -39,6 +40,7 @@ public class ChocoAutomat extends Item {
         }
         GameLogic.indent(false);
         System.out.println("<   ChocoAutomat::countDown()");
+        return;
     }
 
     /**

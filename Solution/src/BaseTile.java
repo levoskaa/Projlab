@@ -36,6 +36,7 @@ public abstract class BaseTile {
     public ArrayList<BaseTile> getNeighbours() {
         GameLogic.indent(true);
 		System.out.println(">   BaseTile::getNeighbours()");
+
         GameLogic.indent(false);
         System.out.println("<   BaseTile::getNeighbours()");
         return neighbours;
@@ -59,6 +60,7 @@ public abstract class BaseTile {
         else{
             localAnimal.collideWith(a);
         }
+
         GameLogic.indent(false);
         System.out.println("<   BaseTile::receive(Animal a)");
         return;
@@ -70,20 +72,21 @@ public abstract class BaseTile {
     public void remove() {
         GameLogic.indent(true);
 		System.out.println(">   BaseTile::remove()");
+
         localAnimal = null;
+
         GameLogic.indent(false);
         System.out.println("<   BaseTile::remove()");
         return;
     }
 
-    public void setAnimal(Animal a) {
-    }
+    public void setAnimal(Animal a) {}
 
-    public void setItem(Item i) {
-    }
+    public void setItem(Item i) {}
 
-    public void decreaseHealth() {
-    }
+    public Item getItem() {return null;}
+
+    public void decreaseHealth() {}
 
     public void ring() {}
 
@@ -99,7 +102,9 @@ public abstract class BaseTile {
     public void setNeighbours(ArrayList<BaseTile> nb) {
         GameLogic.indent(true);
 		System.out.println(">   BaseTile::setNeighbours(ArrayList<BaseTile> nb)");
+
         neighbours = nb;
+
         GameLogic.indent(false);
         System.out.println("<   BaseTile::setNeighbours(ArrayList<BaseTile> nb)");
         return;

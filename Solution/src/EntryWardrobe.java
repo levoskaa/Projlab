@@ -29,7 +29,9 @@ public class EntryWardrobe extends BaseTile {
     public void setDestination(BaseTile t){
         GameLogic.indent(true);
         System.out.println(">   EntryWardrobe::setDestination(Tile t)");
+
         destination = t;
+
         GameLogic.indent(false);
         System.out.println("<   EntryWardrobe::setDestination(Tile t)");
         return;
@@ -43,6 +45,7 @@ public class EntryWardrobe extends BaseTile {
     public BaseTile getDestination() {
         GameLogic.indent(true);
         System.out.println(">   EntryWardrobe::getDestination()");
+
         GameLogic.indent(false);
         System.out.println("<   EntryWardrobe::getDestination()");
         return destination;
@@ -56,7 +59,9 @@ public class EntryWardrobe extends BaseTile {
     public void receive(Animal a) {
         GameLogic.indent(true);
         System.out.println(">   EntryWardrobe::receive(Animal a)");
+
         destination.receive(a);
+
         GameLogic.indent(false);
         System.out.println("<   EntryWardrobe::receive(Animal a)");
         return;

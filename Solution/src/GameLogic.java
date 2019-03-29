@@ -47,9 +47,11 @@ public class GameLogic{
     public void initGame(){
         GameLogic.indent(true);
         System.out.println(">   GameLogic::initGame()");
+
         GameLogic.indent(false);
         System.out.println("<   GameLogic::initGame()");
         running = true;
+        return;
     }
 
     /**
@@ -58,6 +60,7 @@ public class GameLogic{
     public void game() {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::game()");
+
         long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
         final double amountOfTicks = 2D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
         double nanoSec = 1000000000 / amountOfTicks; //hány nanoszekudumonként kell tickelni
@@ -73,8 +76,10 @@ public class GameLogic{
             }
 
         }
+
         GameLogic.indent(false);
         System.out.println("<   GameLogic::game()");
+        return;
     }
 
     /**
@@ -84,9 +89,12 @@ public class GameLogic{
     public void addPoints(int p) {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::addPoints(int p)");
+
         points += (p * 50);
+
         GameLogic.indent(false);
         System.out.println("<   GameLogic::addPoints(int p)");
+        return;
     }
 
     /**
@@ -95,6 +103,7 @@ public class GameLogic{
     public void endGame() {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::endGame()");
+
         if(animalsOnTheMap.isEmpty()) {
           //  System.out.println("You caugth all pandas!");
           //  System.out.println("You caugt:" + points + " pandas!");
@@ -105,6 +114,7 @@ public class GameLogic{
         GameLogic.indent(false);
         System.out.println("<   GameLogic::endGame()");
         // System.exit(0);
+        return;
     }
 
     /**
@@ -113,15 +123,18 @@ public class GameLogic{
     public void tick() {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::tick()");
+
         for(int i = 0; i != animalsOnTheMap.size(); ++i){
-        animalsOnTheMap.get(i).move();
+            animalsOnTheMap.get(i).move();
         }
 
         for(int j = 0; j != itemsOnTheMap.size(); ++j){
-        itemsOnTheMap.get(j).countDown();
+            itemsOnTheMap.get(j).countDown();
         }
+
         GameLogic.indent(false);
         System.out.println("<   GameLogic::tick()");
+        return;
     }
 
     /**
@@ -130,18 +143,24 @@ public class GameLogic{
     public void remove(Animal a){
         GameLogic.indent(true);
         System.out.println(">   GameLogic::remove(Animal a)");
+
         animalsOnTheMap.remove(a);
         a = null;
+
         GameLogic.indent(false);
         System.out.println("<   GameLogic::remove(Animal a)");
+        return;
     }
 
     public void addAnimal(Animal a) {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::addAnimal(Animal a)");
+
         animalsOnTheMap.add(a);
+
         GameLogic.indent(false);
         System.out.println("<   GameLogic::addAnimal(Animal a)");
+        return;
     }
 
     public GameLogic() {
@@ -156,6 +175,7 @@ public class GameLogic{
         for (int i = 0; i < tabCounter; i++) {
             System.out.print("\t");
         }
+        return;
     }
     public static void indent(boolean deeper) {
         if (!deeper)
@@ -165,6 +185,8 @@ public class GameLogic{
 
         if (deeper)
             tabCounter++;
+
+        return;
     }
 
 }

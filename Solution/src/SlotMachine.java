@@ -26,6 +26,7 @@ public class SlotMachine extends Item {
     public void countDown() {
         GameLogic.indent(true);
         System.out.println(">   SlotMachine::countDown()");
+
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
@@ -38,6 +39,7 @@ public class SlotMachine extends Item {
         }
         GameLogic.indent(false);
         System.out.println("<   SlotMachine::countDown()");
+        return;
     }
 
     /**
@@ -49,6 +51,7 @@ public class SlotMachine extends Item {
     public SlotMachine(Tile t) {
         GameLogic.indent(true);
         System.out.println(">   SlotMachine::SlotMachine(Tile t)");
+
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
         //Counter = rn;

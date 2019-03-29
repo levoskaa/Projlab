@@ -28,10 +28,12 @@ public class Tile extends BaseTile {
     public void beep() {
         GameLogic.indent(true);
         System.out.println(">   Tile::beep()");
+
         localAnimal.jump();
+
         GameLogic.indent(false);
         System.out.println("<   Tile::beep()");
-
+        return;
     }
 
     /**
@@ -41,9 +43,12 @@ public class Tile extends BaseTile {
     public void ring() {
         GameLogic.indent(true);
         System.out.println(">   Tile::ring()");
+
         localAnimal.scare();
+
         GameLogic.indent(false);
         System.out.println("<   Tile::ring()");
+        return;
     }
 
     /**
@@ -53,9 +58,12 @@ public class Tile extends BaseTile {
     public void tire(Tile t) {
         GameLogic.indent(true);
         System.out.println(">   Tile::tire(Tile t)");
+
         localAnimal.sit(t);
+
         GameLogic.indent(false);
         System.out.println("<   Tile::tire(Tile t)");
+        return;
     }
 
     /**
@@ -65,9 +73,12 @@ public class Tile extends BaseTile {
     public void setItem(Item i) {
         GameLogic.indent(true);
         System.out.println(">   Tile::setItem(Item i)");
+
         localItem = i;
+
         GameLogic.indent(false);
         System.out.println("<   Tile::setItem(Item i)");
+        return;
     }
 
 
@@ -78,6 +89,7 @@ public class Tile extends BaseTile {
     public Item getItem() {
         GameLogic.indent(true);
         System.out.println(">   Tile::getItem()");
+
         GameLogic.indent(false);
         System.out.println("<   Tile::getItem()");
         return localItem;
@@ -90,9 +102,11 @@ public class Tile extends BaseTile {
     public void setAnimal(Animal a) {
         GameLogic.indent(true);
         System.out.println(">   Tile::setAnimal(Animal a)");
+
+        localAnimal = a;
+
         GameLogic.indent(false);
         System.out.println("<   Tile::setAnimal(Animal a)");
-        localAnimal = a;
+        return;
     }
-
 }

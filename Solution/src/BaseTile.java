@@ -80,7 +80,7 @@ public abstract class BaseTile {
 
     public void setItem(Item i) {}
 
-    public abstract Item getItem();
+    public Item getItem() {return null;}
 
     public void decreaseHealth() {}
 

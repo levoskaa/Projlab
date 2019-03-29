@@ -30,7 +30,7 @@ public abstract class Item {
      */
     public void countDown() {}
 
-    public abstract void receive(TiredPanda p);
+    public void receive(TiredPanda p) {}
 
     public void standUp() {}
 }

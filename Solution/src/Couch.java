@@ -27,8 +27,10 @@ public class Couch extends Item {
      */
     @Override
     public void countDown() {
+        GameLogic.indent(true);
         System.out.println(">   Couch::countDown()");
         onTile.tire(onTile);
+        GameLogic.indent(false);
         System.out.println("<   Couch::countDown()");
     }
 
@@ -39,10 +41,12 @@ public class Couch extends Item {
      */
     @Override
     public void receive(Panda p) {
+        GameLogic.indent(true);
         System.out.println(">   Couch::receive(Panda p)");
         if (RestingPanda == null) {
             RestingPanda = p;
         }
+        GameLogic.indent(false);
         System.out.println("<   Couch::receive(Panda p)");
     }
 
@@ -52,9 +56,11 @@ public class Couch extends Item {
      * @param t A csempe, amelyiken a kanape talalhato.
      */
     public Couch(Tile t) {
+        GameLogic.indent(true);
         System.out.println(">   Couch::Couch(Tile t)");
         onTile = t;
         RestingPanda = null;
+        GameLogic.indent(false);
         System.out.println("<   Couch::Couch(Tile t)");
     }
 }

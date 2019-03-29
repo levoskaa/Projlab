@@ -55,7 +55,7 @@ public class SlotMachine extends Item {
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
         //Counter = rn;
-        Counter = 1;
+        Counter = 1; 
         GameLogic.indent(false);
         System.out.println("<   SlotMachine::SlotMachine(Tile t)");
     }

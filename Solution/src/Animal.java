@@ -22,7 +22,7 @@ public abstract class Animal {
      */
     protected GameLogic gameLogic;
 
-    public abstract int checkPoints();
+    //public abstract int checkPoints();
 
     public abstract void collisionWithPanda(Panda p);
 
@@ -40,8 +40,7 @@ public abstract class Animal {
 
     public void jump() {}
 
-    public void setCaughtPandas(ArrayList<Panda> caughtPandas) {
-    }
+    public void setCaughtPandas(ArrayList<Panda> caughtPandas) { }
 
     public ArrayList<Panda> getCaughtPandas() {
         gameLogic.indent(true);

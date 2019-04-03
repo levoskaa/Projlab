@@ -270,7 +270,7 @@ public class Orangutan extends Animal {
     //------------------------------------------
     // A polimorfikus viselkedes miatt szukseges fuggvenyek, az oragutan eseten
     // nincs szukseg rajuk.
-    @Override
+    /*@Override
     public int checkPoints() {
         GameLogic.indent(true);
         System.out.println(">   Orangutan::checkPoints()");
@@ -278,6 +278,6 @@ public class Orangutan extends Animal {
         GameLogic.indent(false);
         System.out.println("<   Orangutan::checkPoints()");
         return 0;
-    }
+    }*/
     //------------------------------------------
 }

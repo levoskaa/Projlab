@@ -32,6 +32,12 @@ public class GameLogic{
      * A mapen levo pandakat tarolo lista.
      */
     private ArrayList<Animal> animalsOnTheMap;
+
+    /**
+     * A gep altal vezerelt orangutan referenciaja
+     */
+    private Orangutan secondOrangutan;
+
     /**
      * A mapen levo speciális funkcioalitassal ellatott targyakat tarolo lista.
      */
@@ -123,6 +129,8 @@ public class GameLogic{
     public void tick() {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::tick()");
+
+        secondOrangutan.move();
 
         for(int i = 0; i != animalsOnTheMap.size(); ++i){
             animalsOnTheMap.get(i).move();

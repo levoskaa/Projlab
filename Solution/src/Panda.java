@@ -68,7 +68,7 @@ public abstract class Panda extends Animal {
      *
      * @return Mennyi pontot er a panda a kijaratra lepeskor.
      */
-    @Override
+    /*@Override
     public int checkPoints() {
         GameLogic.indent(true);
 		System.out.println(">   Panda::checkPoints()");
@@ -82,7 +82,7 @@ public abstract class Panda extends Animal {
         GameLogic.indent(false);
         System.out.println("<   Panda::checkPoints()");
         return 0;
-    }
+    }*/
 
     /**
      * A panda halalakor eltavolitja azt a jatekterbol.

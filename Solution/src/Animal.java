@@ -30,17 +30,23 @@ public abstract class Animal {
 
     public abstract void collideWith(Animal a);
 
-    public void catchPanda(Orangutan orangutan) {}
+    public void catchPanda(Orangutan orangutan) {
+    }
 
-    public void die() {}
+    public void die() {
+    }
 
-    public void sit(Tile t) {}
+    public void sit(Tile t) {
+    }
 
-    public void scare() {}
+    public void scare() {
+    }
 
-    public void jump() {}
+    public void jump() {
+    }
 
-    public void setCaughtPandas(ArrayList<Panda> caughtPandas) { }
+    public void setCaughtPandas(ArrayList<Panda> caughtPandas) {
+    }
 
     public ArrayList<Panda> getCaughtPandas() {
         gameLogic.indent(true);
@@ -90,6 +96,7 @@ public abstract class Animal {
 
     /**
      * Setter fuggveny a gameLogic beallitasara.
+     *
      * @param gameLogic A jatek logikaert felelos objektum referenciaja.
      */
     public void setGameLogic(GameLogic gameLogic) {

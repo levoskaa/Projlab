@@ -11,6 +11,7 @@
 
 /**
  * A torekeny csempe viselkedeset megvalosito osztaly.
+ *
  * @author Konczos
  */
 
@@ -27,6 +28,7 @@ public class BreakableTile extends Tile {
 
     /**
      * Getter fuggveny a health valtozohoz.
+     *
      * @return A health valtozo, azaz a csempe elete.
      */
     public int getHealth() {
@@ -40,6 +42,7 @@ public class BreakableTile extends Tile {
 
     /**
      * Getter fuggveny a broken valtozohoz.
+     *
      * @return A broken valtozo, azaz, hogy torott e a csempe.
      */
     public boolean isBroken() {
@@ -53,9 +56,10 @@ public class BreakableTile extends Tile {
 
     /**
      * Setter fuggveny a health valtozohoz.
+     *
      * @param newHealth Az health valtozo uj erteke.
      */
-    public void setHealth(int newHealth){
+    public void setHealth(int newHealth) {
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::setHealth(int newHealth)");
 
@@ -68,9 +72,10 @@ public class BreakableTile extends Tile {
 
     /**
      * Setter fuggveny a broken valtozohoz.
+     *
      * @param newBroken A broken valtozo uj erteke.
      */
-    public void setBroken(boolean newBroken){
+    public void setBroken(boolean newBroken) {
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::setBroken(boolean newBroken)");
 
@@ -91,7 +96,7 @@ public class BreakableTile extends Tile {
         System.out.println(">   BreakableTile::decreaseHealth()");
 
         health--;
-        if(health == 0){
+        if (health == 0) {
             broken = true;
             localAnimal.die();
         }
@@ -105,17 +110,16 @@ public class BreakableTile extends Tile {
      *
      * @param a Az allat, amely a csempere akar lepni.
      */
-    public void receive (Animal a){
+    public void receive(Animal a) {
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::receive (Animal a)");
 
         //ez a sor az else agba kene legyen
         //a.getTile().remove();
 
-        if(broken) {
+        if (broken) {
             a.die();
-        }
-        else{
+        } else {
             a.getTile().remove();
             localAnimal = a;
             localAnimal.setTile(this);

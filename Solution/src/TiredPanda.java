@@ -5,6 +5,7 @@
 
 /**
  * Faradt panda specifikus viselkedeset megvalosito osztaly.
+ *
  * @author Laurinyecz
  * @see Panda
  */
@@ -28,6 +29,7 @@ public class TiredPanda extends Panda {
 
     /**
      * Setter fuggveny a 'resting' mezo beallitasara.
+     *
      * @param value A 'resting' mezo uj erteke;
      */
     public void setResting(boolean value) {
@@ -43,6 +45,7 @@ public class TiredPanda extends Panda {
 
     /**
      * Setter fuggveny a 'setRestingUntil' mezo beallitasara.
+     *
      * @param value A 'setRestingUntil' mezo uj erteke;
      */
     public void setRestingUntil(int value) {
@@ -58,6 +61,7 @@ public class TiredPanda extends Panda {
 
     /**
      * Ha nincs elfogva a panda, akkor ennek a fuggvenyne a hatasara leul a kanapera.
+     *
      * @param t Az a csempe, amelyiken a kanape talalhato.
      */
     @Override
@@ -67,11 +71,11 @@ public class TiredPanda extends Panda {
 
         if (!caught) {
             t.getItem().receive(this);
-		}
+        }
 
         GameLogic.indent(false);
         System.out.println("<   TiredPanda::sit(Tile t)");
-		return;
+        return;
     }
 
     /**

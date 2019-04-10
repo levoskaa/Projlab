@@ -12,6 +12,7 @@
 /**
  * Osztaly a bemeneti szekrenyek viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * az ExitPoint osztaly ebbol az osztalybol szarmazik.
+ *
  * @author Kalai
  * @see BaseTile
  */
@@ -26,7 +27,7 @@ public class EntryWardrobe extends BaseTile {
      *
      * @param t A kimeneti szekreny.
      */
-    public void setDestination(BaseTile t){
+    public void setDestination(BaseTile t) {
         GameLogic.indent(true);
         System.out.println(">   EntryWardrobe::setDestination(Tile t)");
 

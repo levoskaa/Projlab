@@ -12,6 +12,7 @@
 
 /**
  * A poliformizmust tamogato ososztaly a jatekban megtalalhato targyakhoz.
+ *
  * @author Cynolter
  */
 public abstract class Item {
@@ -28,9 +29,12 @@ public abstract class Item {
     /**
      * Leszarmazott specifikus, hogy mit kell csinalnia countDown-ra, a leszarmazottaknal van implementalva.
      */
-    public void countDown() {}
+    public void countDown() {
+    }
 
-    public void receive(TiredPanda p) {}
+    public void receive(TiredPanda p) {
+    }
 
-    public void standUp() {}
+    public void standUp() {
+    }
 }

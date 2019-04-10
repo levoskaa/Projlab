@@ -11,6 +11,7 @@
 
 /**
  * Osztaly a kijarat viselkedesenek es tulajdonsagaiknak osszegyujtesere.
+ *
  * @author Kalai
  * @see EntryWardrobe
  */
@@ -25,13 +26,14 @@ public class ExitPoint extends EntryWardrobe {
      * Csempe amelyre az orangutan visszater, miutan kivezette a pandakat
      * a kijaraton keresztul.
      */
-    private Tile startingTile ;
+    private Tile startingTile;
 
     /**
      * Beallitja a kezdo csempet.
+     *
      * @param sT a kezdo csempere vonatkozo referencia.
      */
-    void setStartingTile(Tile sT){
+    void setStartingTile(Tile sT) {
         GameLogic.indent(true);
         System.out.println(">   ExitPoint::setStartingTile(Tile sT)");
 
@@ -39,7 +41,7 @@ public class ExitPoint extends EntryWardrobe {
 
         GameLogic.indent(false);
         System.out.println("<   ExitPoint::setStartingTile(Tile sT)");
-		return;
+        return;
     }
 
     public void setGameLogic(GameLogic gameLogic) {
@@ -60,7 +62,7 @@ public class ExitPoint extends EntryWardrobe {
 
         startingTile.receive(a);
         int i = 0;
-        for (Panda p: a.getCaughtPandas()) {
+        for (Panda p : a.getCaughtPandas()) {
             gameLogic.remove(p);
             ++i;
         }

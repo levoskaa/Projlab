@@ -8,6 +8,7 @@
 //  @ Author : 
 //
 //
+
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -30,11 +31,11 @@ public class SlotMachine extends Item {
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
-                if(tile.localAnimal != null) {
+                if (tile.localAnimal != null) {
                     tile.ring();
                 }
             }
-            int rn = ThreadLocalRandom.current().nextInt(75,125+1);
+            int rn = ThreadLocalRandom.current().nextInt(75, 125 + 1);
             Counter = rn;
         }
         GameLogic.indent(false);
@@ -55,7 +56,7 @@ public class SlotMachine extends Item {
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
         //Counter = rn;
-        Counter = 1; 
+        Counter = 1;
         GameLogic.indent(false);
         System.out.println("<   SlotMachine::SlotMachine(Tile t)");
     }

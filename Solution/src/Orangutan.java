@@ -64,6 +64,7 @@ public class Orangutan extends Animal {
 
     /**
      * Setter fuggveny a 'cantCatchPandasUntil' mezo beallitasara.
+     *
      * @param value A 'cantCatchPandasUntil' mezo uj erteke.
      */
     public void setCantCatchPandasUntil(int value) {
@@ -96,6 +97,7 @@ public class Orangutan extends Animal {
 
     /**
      * Orangutannal valo utkozes eseten ellopja a masik orangutan pandait.
+     *
      * @param o Az orangutan, amivel az utkozes tortent.
      */
     public void collisionWithOrangutan(Orangutan o) {
@@ -138,6 +140,7 @@ public class Orangutan extends Animal {
     /**
      * A csempe ezzel a fuggvennyel tud jelezni a rajta allo allatnak,
      * hogy egy masik allat nekiutkozott.
+     *
      * @param a Az allat, amivel az utkozes tortent.
      */
     @Override
@@ -220,6 +223,7 @@ public class Orangutan extends Animal {
     /**
      * A GameLogic altal periodikusan meghivott fuggveny, ami hatasara a gep altal vezerelt
      * orangutan mozog.
+     *
      * @see GameLogic
      */
     @Override

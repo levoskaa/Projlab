@@ -11,6 +11,7 @@
 
 /**
  * Egy csempe viselkedeset megvalosito osztaly.
+ *
  * @author Konczos
  */
 
@@ -53,6 +54,7 @@ public class Tile extends BaseTile {
 
     /**
      * A fuggveny teszi lehetove a faradt pandak leulteteset egy fotelre.
+     *
      * @param t A kanape helye amelyre a faradekony panda leulhet.
      */
     public void tire(Tile t) {
@@ -68,6 +70,7 @@ public class Tile extends BaseTile {
 
     /**
      * A fuggvennyel egy targyat helyezunk a csempere.
+     *
      * @param i A targy amelyet a csempere helyezunk.
      */
     public void setItem(Item i) {
@@ -84,6 +87,7 @@ public class Tile extends BaseTile {
 
     /**
      * A fuggvennyel lekerdezzuk, milyen targy van a csempen.
+     *
      * @return A targy ami a csempen van.
      */
     public Item getItem() {
@@ -97,6 +101,7 @@ public class Tile extends BaseTile {
 
     /**
      * A fuggvennyel egy allatot helyezunk a csempere.
+     *
      * @param a Az allat amelyet a csempere helyezunk.
      */
     public void setAnimal(Animal a) {

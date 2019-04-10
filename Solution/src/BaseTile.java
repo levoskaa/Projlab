@@ -35,7 +35,7 @@ public abstract class BaseTile {
      */
     public ArrayList<BaseTile> getNeighbours() {
         GameLogic.indent(true);
-		System.out.println(">   BaseTile::getNeighbours()");
+        System.out.println(">   BaseTile::getNeighbours()");
 
         GameLogic.indent(false);
         System.out.println("<   BaseTile::getNeighbours()");
@@ -49,15 +49,14 @@ public abstract class BaseTile {
      */
     public void receive(Animal a) {
         GameLogic.indent(true);
-		System.out.println(">   BaseTile::receive(Animal a)");
+        System.out.println(">   BaseTile::receive(Animal a)");
 
-		a.getTile().remove();
+        a.getTile().remove();
 
         if (localAnimal == null) {
             localAnimal = a;
             localAnimal.setTile(this);
-        }
-        else{
+        } else {
             localAnimal.collideWith(a);
         }
 
@@ -71,7 +70,7 @@ public abstract class BaseTile {
      */
     public void remove() {
         GameLogic.indent(true);
-		System.out.println(">   BaseTile::remove()");
+        System.out.println(">   BaseTile::remove()");
 
         localAnimal = null;
 
@@ -80,19 +79,27 @@ public abstract class BaseTile {
         return;
     }
 
-    public void setAnimal(Animal a) {}
+    public void setAnimal(Animal a) {
+    }
 
-    public void setItem(Item i) {}
+    public void setItem(Item i) {
+    }
 
-    public Item getItem() {return null;}
+    public Item getItem() {
+        return null;
+    }
 
-    public void decreaseHealth() {}
+    public void decreaseHealth() {
+    }
 
-    public void ring() {}
+    public void ring() {
+    }
 
-    public void beep() {}
+    public void beep() {
+    }
 
-    public void tire(Tile t) {}
+    public void tire(Tile t) {
+    }
 
     /**
      * Setter fuggveny a neighbours valtozo megvaltoztatasara.
@@ -101,7 +108,7 @@ public abstract class BaseTile {
      */
     public void setNeighbours(ArrayList<BaseTile> nb) {
         GameLogic.indent(true);
-		System.out.println(">   BaseTile::setNeighbours(ArrayList<BaseTile> nb)");
+        System.out.println(">   BaseTile::setNeighbours(ArrayList<BaseTile> nb)");
 
         neighbours = nb;
 

@@ -15,11 +15,12 @@ import java.util.ArrayList;
 /**
  * Az osztaly amely a jatek motorjat kepezi, inicializalja a jatekot,
  * illetve az allatok lepteteset es a targyak uzemelteteset vegzi.
+ *
  * @author Konczos
  */
 
 
-public class GameLogic{
+public class GameLogic {
     /**
      * A jatekos megszerzett pointjait tarolo int.
      */
@@ -50,7 +51,7 @@ public class GameLogic{
     /**
      * A fuggveny a jatek inicializalasat vegzi.
      */
-    public void initGame(){
+    public void initGame() {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::initGame()");
 
@@ -72,11 +73,11 @@ public class GameLogic{
         double nanoSec = 1000000000 / amountOfTicks; //hány nanoszekudumonként kell tickelni
         double delta = 0;
 
-        while(running){
-            long now =  System.nanoTime(); //aktuális rendszeridő nanoszekundumban
+        while (running) {
+            long now = System.nanoTime(); //aktuális rendszeridő nanoszekundumban
             delta += (now - lastTime) / nanoSec;
             lastTime = now;
-            if (delta >= 1){
+            if (delta >= 1) {
                 tick(); //az állatok és tárgyak léptetése/üzemeltetése
                 delta--;
             }
@@ -110,10 +111,10 @@ public class GameLogic{
         GameLogic.indent(true);
         System.out.println(">   GameLogic::endGame()");
 
-        if(animalsOnTheMap.isEmpty()) {
-          //  System.out.println("You caugth all pandas!");
-          //  System.out.println("You caugt:" + points + " pandas!");
-        }else{
+        if (animalsOnTheMap.isEmpty()) {
+            //  System.out.println("You caugth all pandas!");
+            //  System.out.println("You caugt:" + points + " pandas!");
+        } else {
             // System.out.println("You Lost!");
         }
 
@@ -132,11 +133,11 @@ public class GameLogic{
 
         secondOrangutan.move();
 
-        for(int i = 0; i != animalsOnTheMap.size(); ++i){
+        for (int i = 0; i != animalsOnTheMap.size(); ++i) {
             animalsOnTheMap.get(i).move();
         }
 
-        for(int j = 0; j != itemsOnTheMap.size(); ++j){
+        for (int j = 0; j != itemsOnTheMap.size(); ++j) {
             itemsOnTheMap.get(j).countDown();
         }
 
@@ -148,7 +149,7 @@ public class GameLogic{
     /**
      * Eltavolitja a halott allatot.
      */
-    public void remove(Animal a){
+    public void remove(Animal a) {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::remove(Animal a)");
 
@@ -179,12 +180,14 @@ public class GameLogic{
     }
 
     private static int tabCounter = 0;
+
     private static void writeTabs() {
         for (int i = 0; i < tabCounter; i++) {
             System.out.print("\t");
         }
         return;
     }
+
     public static void indent(boolean deeper) {
         if (!deeper)
             tabCounter--;

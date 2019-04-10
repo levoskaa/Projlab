@@ -31,11 +31,11 @@ public class ChocoAutomat extends Item {
         --Counter;
         if (Counter <= 0) {
             for (BaseTile tile : onTile.getNeighbours()) {
-               if(tile.localAnimal != null){
-                   tile.beep();
+                if (tile.localAnimal != null) {
+                    tile.beep();
                 }
             }
-            int rn = ThreadLocalRandom.current().nextInt(75,125+1);
+            int rn = ThreadLocalRandom.current().nextInt(75, 125 + 1);
             Counter = rn;
         }
         GameLogic.indent(false);

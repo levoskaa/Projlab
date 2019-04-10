@@ -1,6 +1,7 @@
 public class PlayerOrangutan extends Orangutan {
     /**
      * A GameLogic altal periodikusan meghivott fuggveny ...
+     *
      * @see GameLogic
      */
     @Override

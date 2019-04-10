@@ -207,7 +207,7 @@ public class SkeletonMenu {
         tileOfChocoAutomat.setItem(chocoAutomat);
         breakableTile.setNeighbours(neighboursOfTileOfPanda);
         tileOfChocoAutomat.setNeighbours(neighboursOfTileOfSlotMachine);
-       // breakableTile.receive(jumpingPanda);
+        // breakableTile.receive(jumpingPanda);
 
 
         for (int i = 0; i < 1; i++) {
@@ -309,7 +309,7 @@ public class SkeletonMenu {
      * A szkeleton felhasznaloi menujet inicializalo fuggveny.
      */
     public void menuInit() {
-        System.out.println("Valasszon a kovetkezo lehetosegek kozul:");
+        System.out.println("Valassz a kovetkezo lehetosegek kozul:");
         System.out.println("1: Panda steps on empty tile");
         System.out.println("2: Orangutan steps on entry wardrobe");
         System.out.println("3: Orangutan steps on empty tile");

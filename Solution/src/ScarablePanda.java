@@ -5,6 +5,7 @@
 
 /**
  * Ijedos panda specifikus viselkedeset megvalosito osztaly.
+ *
  * @author Laurinyecz
  * @see Panda
  */
@@ -15,17 +16,17 @@ public class ScarablePanda extends Panda {
     @Override
     public void scare() {
         GameLogic.indent(true);
-		System.out.println(">   ScarablePanda::scare()");
+        System.out.println(">   ScarablePanda::scare()");
 
-        if (!caught){
+        if (!caught) {
             GameLogic.indent(false);
-			System.out.println("<   ScarablePanda::scare()");
+            System.out.println("<   ScarablePanda::scare()");
             return;
-		}
+        }
         orangutan.releaseBehind(this);
 
         GameLogic.indent(false);
         System.out.println("<   ScarablePanda::scare()");
-		return;
+        return;
     }
 }

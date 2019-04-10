@@ -5,6 +5,7 @@
 
 /**
  * Ugros panda specifikus viselkedeset megvalosito osztaly.
+ *
  * @author Laurinyecz
  * @see Panda
  */
@@ -15,12 +16,12 @@ public class JumpingPanda extends Panda {
     @Override
     public void jump() {
         GameLogic.indent(true);
-		System.out.println(">   JumpingPanda::jump()");
+        System.out.println(">   JumpingPanda::jump()");
 
         currentTile.decreaseHealth();
 
         GameLogic.indent(false);
         System.out.println("<   JumpingPanda::jump()");
-		return;
+        return;
     }
 }

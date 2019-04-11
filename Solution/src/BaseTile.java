@@ -19,6 +19,11 @@ import java.util.*;
  */
 public abstract class BaseTile {
     /**
+     * Nev, amivel a teszteles soran azonositani lehet az objektumot.
+     */
+    private String name;
+
+    /**
      * Tarolja, hogy egy csempen van-e allat, es ha van, akkor melyik.
      */
     protected Animal localAnimal;
@@ -83,6 +88,14 @@ public abstract class BaseTile {
     }
 
     public void setItem(Item i) {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String n) {
+        name = n;
     }
 
     public Item getItem() {

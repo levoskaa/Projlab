@@ -13,6 +13,11 @@ import java.util.ArrayList;
  */
 public abstract class Animal {
     /**
+     * Nev, amivel a teszteles soran azonositani lehet az objektumot.
+     */
+    private String name;
+
+    /**
      * Arra a csempere mutat, amelyiken az allat eppen all.
      */
     protected BaseTile currentTile;
@@ -108,6 +113,14 @@ public abstract class Animal {
         GameLogic.indent(false);
         System.out.println("<   Animal::setGameLogic(GameLogic gameLogic)");
         return;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String n) {
+        name = n;
     }
 
     public void move() {

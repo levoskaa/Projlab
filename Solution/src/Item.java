@@ -16,6 +16,10 @@
  * @author Cynolter
  */
 public abstract class Item {
+    /**
+     * Nev, amivel a teszteles soran azonositani lehet az objektumot.
+     */
+    private String name;
 
     /**
      * A szamlalo, amely ha lejar akkor a csokiautomata sipolhat és a jatekgep csoroghet.
@@ -36,5 +40,14 @@ public abstract class Item {
     }
 
     public void standUp() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String n)
+    {
+        name = n;
     }
 }

@@ -20,6 +20,16 @@ public class ProtoMenu {
     private String words[];
 
     /**
+     * A terkepet tarolo objektum.
+     */
+    private Map map = new Map();
+
+    /**
+     * Eltarolja, hogy a terkepet ujra kell-e inicializalni (uj teszt).
+     */
+    boolean clearMap = false;
+
+    /**
      * Az orangutan parancsot szimulalo fuggveny.
      */
     private void orangutan() {
@@ -263,6 +273,10 @@ public class ProtoMenu {
                 }
             } catch (IOException e) {
 
+            }
+            if (clearMap){
+                map = new Map();
+                clearMap = false;
             }
         }
 

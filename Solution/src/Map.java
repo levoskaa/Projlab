@@ -17,7 +17,6 @@ public class Map {
     protected GameLogic gL;
 
     /**
-     *
      * Letrehozza a csempeket es feltolti a map-ot veluk
      */
     public void fillMap(){
@@ -401,6 +400,15 @@ public class Map {
      */
     public BaseTile getTile(String name){
         return map.get(name);
+    }
+
+    /**
+     * A fuggveny visszaadja az osztalyban tarolt GameLogic objektumot.
+     *
+     * @return Visszaadja a GameLogic objektumot.
+     */
+    public GameLogic getGameLogic(){
+        return gL;
     }
 
     /**

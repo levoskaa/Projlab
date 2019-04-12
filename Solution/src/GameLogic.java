@@ -21,14 +21,17 @@ import java.util.ArrayList;
 
 
 public class GameLogic {
+
     /**
      * A jatekos megszerzett pointjait tarolo int.
      */
     private int points;
+
     /**
      * A program futasat jelzo boolean.
      */
     private boolean running = false;
+
     /**
      * A mapen levo pandakat tarolo lista.
      */
@@ -43,6 +46,7 @@ public class GameLogic {
      * A mapen levo speciális funkcioalitassal ellatott targyakat tarolo lista.
      */
     private ArrayList<Item> itemsOnTheMap;
+
     /**
      * A mapen levo szekrenyeket tarolo lista.
      */
@@ -59,6 +63,20 @@ public class GameLogic {
         System.out.println("<   GameLogic::initGame()");
         running = true;
         return;
+    }
+
+    /**
+     * A fuggveny visszaadja a pandakat a terkeprol.
+     *
+     * @return A pandakat tartalmazo lista.
+     */
+    public ArrayList<Animal> getAnimalsOnTheMap() {
+        GameLogic.indent(true);
+        System.out.println(">   GameLogic::getAnimalsOnTheMap()");
+
+        GameLogic.indent(false);
+        System.out.println("<   GameLogic::getAnimalsOnTheMap()");
+        return animalsOnTheMap;
     }
 
     /**

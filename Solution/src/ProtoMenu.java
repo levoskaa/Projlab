@@ -116,6 +116,18 @@ public class ProtoMenu {
          * words[2] celmezo, pl t10
          *
          * */
+        String animalName = words[1];
+        String targetTile = words[2];
+
+        boolean found = false;
+        int i;
+        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; i++){
+            if (animalName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())){
+                found = true;
+            }
+        }
+        Panda myPanda = (Panda)map.getGameLogic().getAnimalsOnTheMap().get(i);
+        map.getTile(targetTile).receive(myPanda);
     }
 
     /**

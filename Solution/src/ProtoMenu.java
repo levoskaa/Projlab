@@ -20,23 +20,6 @@ public class ProtoMenu {
     private String words[];
 
     /**
-     * A panda parancsot szimulalo fuggveny.
-     */
-    private void panda() {
-        if (words.length != 4) {
-            System.out.println("Error");
-            return;
-        }
-        /*
-         * words[0] erdektelen
-         * words[1] panda neve, pl p2
-         * words[2] celmezo, pl t10
-         * words[3] tulajdonsag, pl tired
-         *
-         * */
-    }
-
-    /**
      * Az orangutan parancsot szimulalo fuggveny.
      */
     private void orangutan() {
@@ -55,6 +38,56 @@ public class ProtoMenu {
          * words[3] ki vezeti, pl ai
          * words[4] pandak szama, pl 3
          * words[>4] pandak neve, pl p2 p3 p4
+         *
+         * */
+    }
+
+    /**
+     * A panda parancsot szimulalo fuggveny.
+     */
+    private void panda() {
+        if (words.length != 4) {
+            System.out.println("Error");
+            return;
+        }
+        /*
+         * words[0] erdektelen
+         * words[1] panda neve, pl p2
+         * words[2] celmezo, pl t10
+         * words[3] tulajdonsag, pl tired
+         *
+         * */
+    }
+
+    /**
+     * Az action parancsot szimulalo fuggveny.
+     */
+    private void action() {
+        if (words.length != 2) {
+            System.out.println("Error");
+            return;
+        }
+        /*
+         * words[0] erdektelen
+         * words[1] item neve, pl s1
+         *
+         * */
+    }
+
+    /**
+     * A configure parancsot szimulalo fuggveny.
+     */
+    private void configure() {
+        if (words.length != 5) {
+            System.out.println("Error");
+            return;
+        }
+        /*
+         * words[0] erdektelen
+         * words[1] csempe/szekreny tipusa, pl Tile
+         * words[2] csempe/szekreny neve, pl t2
+         * words[3] csempe/szekreny tulajdonsaga, pl isBroken
+         * words[3] csempe/szekreny tulajdonsaganak erteke, pl true
          *
          * */
     }
@@ -91,6 +124,36 @@ public class ProtoMenu {
     }
 
     /**
+     * A release parancsot szimulalo fuggveny.
+     */
+    private void release() {
+        if (words.length != 2) {
+            System.out.println("Error");
+            return;
+        }
+        /*
+         * words[0] erdektelen
+         * words[1] allat neve, pl o2
+         *
+         * */
+    }
+
+    /**
+     * A script parancsot szimulalo fuggveny.
+     */
+    private void script() {
+        if (words.length != 2) {
+            System.out.println("Error");
+            return;
+        }
+        /*
+         * words[0] erdektelen
+         * words[1] a fajl neve, pl script.txt
+         *
+         * */
+    }
+
+    /**
      * A stat parancsot szimulalo fuggveny.
      */
     private void stat() {
@@ -108,6 +171,35 @@ public class ProtoMenu {
     }
 
     /**
+     * A save parancsot szimulalo fuggveny.
+     */
+    private void save() {
+        if (words.length != 2) {
+            System.out.println("Error");
+            return;
+        }
+        /*
+         * words[0] erdektelen
+         * words[1] a fajl neve, pl script.txt
+         *
+         * */
+    }
+
+    /**
+     * A mapstat parancsot szimulalo fuggveny.
+     */
+    private void mapstat() {
+        if (words.length != 1) {
+            System.out.println("Error");
+            return;
+        }
+        /*
+         * words[0] erdektelen
+         *
+         * */
+    }
+
+    /**
      * Az endtest parancsot szimulalo fuggveny.
      */
     private void endtest() {
@@ -115,62 +207,6 @@ public class ProtoMenu {
          * words[0] erdektelen
          *
          * */
-    }
-
-    /**
-     * A selectmap parancsot szimulalo fuggveny.
-     */
-    private void selectmap() {
-        if (words.length != 2) {
-            System.out.println("Error");
-            return;
-        }
-        /*
-         * words[0] erdektelen
-         * words[1] terkep neve (1)
-         *
-         * */
-    }
-
-    /**
-     * A release parancsot szimulalo fuggveny.
-     */
-    private void release() {
-        if (words.length != 2) {
-            System.out.println("Error");
-            return;
-        }
-        /*
-         * words[0] erdektelen
-         * words[1] allat neve, pl o2
-         *
-         * */
-    }
-
-    /**
-     * A sit parancsot szimulalo fuggveny.
-     */
-    private void sit() {
-        /*
-         *
-         * ???
-         * nincs leirva a bemeneti nyelvnel
-         *
-         *
-         */
-    }
-
-    /**
-     * A ring parancsot szimulalo fuggveny.
-     */
-    private void ring() {
-        /*
-         *
-         * ???
-         * nincs leirva a bemeneti nyelvnel
-         *
-         *
-         */
     }
 
     /**
@@ -185,11 +221,17 @@ public class ProtoMenu {
             try {
                 words = reader.readLine().split(" ");
                 switch (words[0]) {
+                    case "orangutan":
+                        orangutan();
+                        break;
                     case "panda":
                         panda();
                         break;
-                    case "orangutan":
-                        orangutan();
+                    case "action":
+                        action();
+                        break;
+                    case "configure":
+                        configure();
                         break;
                     case "step":
                         step();
@@ -197,23 +239,23 @@ public class ProtoMenu {
                     case "random":
                         random();
                         break;
-                    case "stat":
-                        stat();
-                        break;
-                    case "endtest":
-                        endtest();
-                        break;
-                    case "selectmap":
-                        selectmap();
-                        break;
                     case "release":
                         release();
                         break;
-                    case "sit":
-                        sit();
+                    case "script":
+                        script();
                         break;
-                    case "ring":
-                        ring();
+                    case "stat":
+                        stat();
+                        break;
+                    case "save":
+                        save();
+                        break;
+                    case "mapstat":
+                        mapstat();
+                        break;
+                    case "endtest":
+                        endtest();
                         break;
                     default:
                         run = false;

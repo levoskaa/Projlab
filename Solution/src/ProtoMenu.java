@@ -67,6 +67,26 @@ public class ProtoMenu {
          * words[3] tulajdonsag, pl tired
          *
          * */
+        Panda myPanda;
+        switch (words[3]) {
+            case "tired":
+                myPanda = new TiredPanda();
+                break;
+            case "jumping":
+                myPanda = new JumpingPanda();
+                break;
+            case "scarable":
+                myPanda = new ScarablePanda();
+                break;
+            default:
+                System.out.println("Error");
+                return;
+        }
+        myPanda.setCaught(false);
+        myPanda.setName(words[1]);
+        myPanda.setTile(map.getTile(words[2]));
+        map.getGameLogic().addAnimal(myPanda);
+        return;
     }
 
     /**
@@ -128,6 +148,7 @@ public class ProtoMenu {
         }
         Panda myPanda = (Panda)map.getGameLogic().getAnimalsOnTheMap().get(i);
         map.getTile(targetTile).receive(myPanda);
+        return;
     }
 
     /**

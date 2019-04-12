@@ -205,6 +205,8 @@ public class Map {
 
         //set tile c1
         map.get("c1").setName("c1");
+        map.get("c1").setItem(new Couch((Tile)map.get("c1")));
+
         ArrayList<BaseTile> c1Neighbours = new ArrayList<>();
         c1Neighbours.add(map.get("st"));
         c1Neighbours.add(map.get("t1"));
@@ -214,6 +216,8 @@ public class Map {
 
         //set tile c2
         map.get("c2").setName("c2");
+        map.get("c2").setItem(new Couch((Tile)map.get("c2")));
+
         ArrayList<BaseTile> c2Neighbours = new ArrayList<>();
         c2Neighbours.add(map.get("t3"));
         c2Neighbours.add(map.get("t2"));
@@ -223,6 +227,8 @@ public class Map {
 
         //set tile c3
         map.get("c3").setName("c3");
+        map.get("c3").setItem(new Couch((Tile)map.get("c3")));
+
         ArrayList<BaseTile> c3Neighbours = new ArrayList<>();
         c3Neighbours.add(map.get("t8"));
         c3Neighbours.add(map.get("t11"));
@@ -231,6 +237,8 @@ public class Map {
 
         //set tile a1
         map.get("a1").setName("a1");
+        map.get("a1").setItem(new ChocoAutomat((Tile)map.get("a1")));
+
         ArrayList<BaseTile> a1Neighbours = new ArrayList<>();
         a1Neighbours.add(map.get("t6"));
         a1Neighbours.add(map.get("b1"));
@@ -241,6 +249,8 @@ public class Map {
 
         //set tile a2
         map.get("a2").setName("a2");
+        map.get("a2").setItem(new ChocoAutomat((Tile)map.get("a2")));
+
         ArrayList<BaseTile> a2Neighbours = new ArrayList<>();
         a2Neighbours.add(map.get("t7"));
         a2Neighbours.add(map.get("t2"));
@@ -248,6 +258,8 @@ public class Map {
 
         //set tile a3
         map.get("a3").setName("a3");
+        map.get("a3").setItem(new ChocoAutomat((Tile)map.get("a3")));
+
         ArrayList<BaseTile> a3Neighbours = new ArrayList<>();
         a3Neighbours.add(map.get("t7"));
         a3Neighbours.add(map.get("w1"));
@@ -257,6 +269,8 @@ public class Map {
 
         //set tile a4
         map.get("a4").setName("a4");
+        map.get("a4").setItem(new ChocoAutomat((Tile)map.get("a4")));
+
         ArrayList<BaseTile> a4Neighbours = new ArrayList<>();
         a4Neighbours.add(map.get("b3"));
         a4Neighbours.add(map.get("t13"));
@@ -266,6 +280,8 @@ public class Map {
 
         //set tile s1
         map.get("s1").setName("s1");
+        map.get("s1").setItem(new SlotMachine((Tile)map.get("s1")));
+
         ArrayList<BaseTile> s1Neighbours = new ArrayList<>();
         s1Neighbours.add(map.get("t1"));
         s1Neighbours.add(map.get("t4"));
@@ -273,6 +289,8 @@ public class Map {
 
         //set tile s2
         map.get("s2").setName("s2");
+        map.get("s2").setItem(new SlotMachine((Tile)map.get("s2")));
+
         ArrayList<BaseTile> s2Neighbours = new ArrayList<>();
         s2Neighbours.add(map.get("t11"));
         s2Neighbours.add(map.get("t14"));
@@ -282,6 +300,8 @@ public class Map {
 
         //set tile s3
         map.get("s3").setName("s3");
+        map.get("s3").setItem(new SlotMachine((Tile)map.get("s3")));
+
         ArrayList<BaseTile> s3Neighbours = new ArrayList<>();
         s3Neighbours.add(map.get("t13"));
         s3Neighbours.add(map.get("c2"));
@@ -290,6 +310,8 @@ public class Map {
 
         //set breakabletile b1
         map.get("b1").setName("b1");
+        map.get("b1").setHealth(20);
+
         ArrayList<BaseTile> b1Neighbours = new ArrayList<>();
         b1Neighbours.add(map.get("w1"));
         b1Neighbours.add(map.get("t6"));
@@ -299,6 +321,8 @@ public class Map {
 
         //set breakabletile b2
         map.get("b2").setName("b2");
+        map.get("b2").setHealth(20);
+
         ArrayList<BaseTile> b2Neighbours = new ArrayList<>();
         b2Neighbours.add(map.get("t10"));
         b2Neighbours.add(map.get("a1"));
@@ -308,6 +332,8 @@ public class Map {
 
         //set breakabletile b3
         map.get("b3").setName("b3");
+        map.get("b3").setHealth(20);
+
         ArrayList<BaseTile> b3Neighbours = new ArrayList<>();
         b3Neighbours.add(map.get("t3"));
         b3Neighbours.add(map.get("t13"));
@@ -315,6 +341,7 @@ public class Map {
         map.get("b3").setNeighbours(b3Neighbours);
 
         //set entryWardrobe w1
+        //TODO: BE KELL ALLITANI A KIJARATI PONTIT!!!!!!!!!!!!!
         map.get("w1").setName("w1");
         ArrayList<BaseTile> w1Neighbours = new ArrayList<>();
         w1Neighbours.add(map.get("t5"));
@@ -323,6 +350,7 @@ public class Map {
         map.get("w1").setNeighbours(w1Neighbours);
 
         //set entryWardrobe w2
+        //TODO: BE KELL ALLITANI A KIJARATI PONTIT!!!!!!!!!!!!!
         map.get("w2").setName("w2");
         ArrayList<BaseTile> w2Neighbours = new ArrayList<>();
         w2Neighbours.add(map.get("t8"));
@@ -331,6 +359,8 @@ public class Map {
 
         //set exitPoint
         map.get("e").setName("e");
+        map.get("e").setDestination(map.get("st"));
+
         ArrayList<BaseTile> eNeighbours = new ArrayList<>();
         eNeighbours.add(map.get("t15"));
         eNeighbours.add(map.get("t14"));
@@ -338,6 +368,10 @@ public class Map {
         eNeighbours.add(map.get("b2"));
         eNeighbours.add(map.get("a1"));
         map.get("e").setNeighbours(eNeighbours);
+    }
+
+    public BaseTile getTile(String name){
+        return map.get(name);
     }
 
     public Map(){

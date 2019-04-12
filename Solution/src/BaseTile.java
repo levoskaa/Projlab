@@ -105,6 +105,11 @@ public abstract class BaseTile {
     public void decreaseHealth() {
     }
 
+    public void setHealth(int newHealth){
+    }
+
+    public void setDestination(BaseTile t) {
+    }
     public void ring() {
     }
 

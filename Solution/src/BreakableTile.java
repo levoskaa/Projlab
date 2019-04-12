@@ -59,6 +59,7 @@ public class BreakableTile extends Tile {
      *
      * @param newHealth Az health valtozo uj erteke.
      */
+    @Override
     public void setHealth(int newHealth) {
         GameLogic.indent(true);
         System.out.println(">   BreakableTile::setHealth(int newHealth)");

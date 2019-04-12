@@ -1,11 +1,25 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * A terkepet megvalosito osztaly.
+ *
+ * @author Konczos
+ */
 public class Map {
+    /**
+     * Itt taroljuk a csempeket.
+     */
     protected HashMap<String,BaseTile> map = new HashMap<>();
+    /**
+     *
+     * Referencia a gameLogicra.
+     */
     protected GameLogic gL;
 
-
+    /**
+     *
+     * Letrehozza a csempeket es feltolti a map-ot veluk
+     */
     public void fillMap(){
 
         //entry tile
@@ -57,6 +71,12 @@ public class Map {
         map.put("e", new ExitPoint());
     }
 
+    /**
+     * Beallitja az egyes csempek szomszedait es
+     * ha all rajtuk valamilyen item azt is, illetve
+     * beallitja a csempeket amelyre az egyes szekrenyek
+     * teleportalnak.
+     */
     public void setElementsOfMap(){
 
         //set tile st
@@ -341,8 +361,9 @@ public class Map {
         map.get("b3").setNeighbours(b3Neighbours);
 
         //set entryWardrobe w1
-        //TODO: BE KELL ALLITANI A KIJARATI PONTIT!!!!!!!!!!!!!
         map.get("w1").setName("w1");
+        map.get("w1").setDestination(map.get("t6"));
+
         ArrayList<BaseTile> w1Neighbours = new ArrayList<>();
         w1Neighbours.add(map.get("t5"));
         w1Neighbours.add(map.get("b1"));
@@ -350,8 +371,9 @@ public class Map {
         map.get("w1").setNeighbours(w1Neighbours);
 
         //set entryWardrobe w2
-        //TODO: BE KELL ALLITANI A KIJARATI PONTIT!!!!!!!!!!!!!
         map.get("w2").setName("w2");
+        map.get("w2").setDestination(map.get("t15"));
+
         ArrayList<BaseTile> w2Neighbours = new ArrayList<>();
         w2Neighbours.add(map.get("t8"));
         w2Neighbours.add(map.get("s2"));
@@ -370,10 +392,20 @@ public class Map {
         map.get("e").setNeighbours(eNeighbours);
     }
 
+    /**
+     * A fuggveny visszaadja a hash kodja alapjan azonositott
+     * csempe nevet.
+     *
+     * @param name Annak csempenek a hash kodja amely nevet szeretnenk tudni.
+     * @return Visszaadja a csempe nevet.
+     */
     public BaseTile getTile(String name){
         return map.get(name);
     }
 
+    /**
+     * Incializalja az egesz palyat.
+     */
     public Map(){
         fillMap();
         setElementsOfMap();

@@ -186,4 +186,13 @@ public abstract class Panda extends Animal {
         System.out.println("<   Panda::collisionWithOrangutan(Animal a)");
         return;
     }
+
+    /**
+     * A panda tipusanak lekerdezese.
+     *
+     * @return A panda tipusa.
+     */
+    public String getType(){
+        return "";
+    }
 }

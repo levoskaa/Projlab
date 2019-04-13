@@ -412,6 +412,16 @@ public class Map {
     }
 
     /**
+     * A fuggveny beallitja az osztalyban tarolt GameLogic objektumot.
+     *
+     * @return Beallitja a GameLogic objektumot.
+     */
+    public void setGameLogic(GameLogic gl){
+        gL = gl;
+        return;
+    }
+
+    /**
      * Incializalja az egesz palyat.
      */
     public Map(){

@@ -66,6 +66,15 @@ public class GameLogic {
     }
 
     /**
+     * A fuggveny visszaadja az orangutant.
+     *
+     * @return Az orangutan.
+     */
+    public Orangutan getOrangutan() {
+        return secondOrangutan;
+    }
+
+    /**
      * A fuggveny visszaadja a pandakat a terkeprol.
      *
      * @return A pandakat tartalmazo lista.
@@ -120,6 +129,13 @@ public class GameLogic {
         GameLogic.indent(false);
         System.out.println("<   GameLogic::addPoints(int p)");
         return;
+    }
+
+    /**
+     * A fuggveny visszaadja a megszerzett pontokat.
+     */
+    public int getPoints() {
+        return points;
     }
 
     /**

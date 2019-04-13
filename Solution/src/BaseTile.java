@@ -102,6 +102,10 @@ public abstract class BaseTile {
         return null;
     }
 
+    public Animal getAnimal() {
+        return localAnimal;
+    }
+
     public void decreaseHealth() {
     }
 
@@ -135,4 +139,12 @@ public abstract class BaseTile {
         return;
     }
 
+    /**
+     * Megadja, hogy az adott Item szekreny-e vagy sem.
+     * @return Ha az Item szekreny, true (leszarmazottban override), amugy false;
+     */
+    public boolean isWardrobe()
+    {
+        return false;
+    }
 }

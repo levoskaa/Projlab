@@ -104,4 +104,14 @@ public class TiredPanda extends Panda {
         System.out.println("<   TiredPanda::move()");
         return;
     }
+
+    /**
+     * A panda tipusanak lekerdezese.
+     *
+     * @return A panda tipusa.
+     */
+    @Override
+    public String getType(){
+        return "tiredpanda";
+    }
 }

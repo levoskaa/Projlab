@@ -29,4 +29,14 @@ public class ScarablePanda extends Panda {
         System.out.println("<   ScarablePanda::scare()");
         return;
     }
+
+    /**
+     * A panda tipusanak lekerdezese.
+     *
+     * @return A panda tipusa.
+     */
+    @Override
+    public String getType(){
+        return "scarablepanda";
+    }
 }

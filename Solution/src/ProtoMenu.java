@@ -1,3 +1,4 @@
+import javax.swing.text.AbstractDocument;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -67,8 +68,13 @@ public class ProtoMenu {
          * words[3] tulajdonsag, pl tired
          *
          * */
+
+        String pandaName = words[1];
+        String targetTile = words[2].toLowerCase();
+        String attribute = words[3].toLowerCase();
+
         Panda myPanda;
-        switch (words[3]) {
+        switch (attribute) {
             case "tired":
                 myPanda = new TiredPanda();
                 break;
@@ -83,8 +89,10 @@ public class ProtoMenu {
                 return;
         }
         myPanda.setCaught(false);
-        myPanda.setName(words[1]);
-        myPanda.setTile(map.getTile(words[2]));
+        myPanda.setOrangutan(null);
+        myPanda.setName(pandaName);
+        myPanda.setTile(map.getTile(targetTile));
+        myPanda.setGameLogic(map.getGameLogic());
         map.getGameLogic().addAnimal(myPanda);
         return;
     }
@@ -137,14 +145,19 @@ public class ProtoMenu {
          *
          * */
         String animalName = words[1];
-        String targetTile = words[2];
+        String targetTile = words[2].toLowerCase();
 
         boolean found = false;
         int i;
-        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; i++){
+        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i){
             if (animalName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())){
                 found = true;
             }
+        }
+        --i;
+        if (!found){
+            System.out.println("Error");
+            return;
         }
         Panda myPanda = (Panda)map.getGameLogic().getAnimalsOnTheMap().get(i);
         map.getTile(targetTile).receive(myPanda);
@@ -211,6 +224,119 @@ public class ProtoMenu {
          * words[3] egyed tulajdonsaga (field), pl onTile
          *
          * */
+        String name = words[1];
+        String type = words[2].toLowerCase();
+        String attribute = words[3].toLowerCase();
+
+        switch (type) {
+            case "tile":
+                BaseTile myTile = map.getTile(name);
+                switch (attribute) {
+                    case "neighbours":
+                        for (BaseTile bt : myTile.getNeighbours()) {
+                            System.out.println(bt.getName());
+                        }
+                        break;
+                    case "hasitem":
+                        System.out.println(myTile.getItem() == null ? "false" : "true");
+                        break;
+                    case "haswardrobe":
+                        System.out.println(myTile.isWardrobe() ? "false" : "true");
+                        break;
+                    case "currentanimal":
+                        System.out.println(myTile.getAnimal().getName());
+                        break;
+                    default:
+                        System.out.println("Error");
+                        break;
+                }
+                break;
+            case "breakableTile":
+                BreakableTile myTile2 = (BreakableTile)map.getTile(name);
+                switch (attribute) {
+                    case "neighbours":
+                        for (BaseTile bt : myTile2.getNeighbours()) {
+                            System.out.println(bt.getName());
+                        }
+                        break;
+                    case "isbroken":
+                        System.out.println(myTile2.isBroken());
+                        break;
+                    case "currentanimal":
+                        System.out.println(myTile2.getAnimal().getName());
+                        break;
+                    case "currenthealth":
+                        System.out.println(myTile2.getHealth());
+                        break;
+                    default:
+                        System.out.println("Error");
+                        break;
+                }
+                break;
+            case "orangutan":
+                Orangutan o = map.getGameLogic().getOrangutan();
+                if (!o.getName().equals(name)){
+                    System.out.println("Error");
+                    return;
+                }
+                switch (attribute) {
+                    case "ontile":
+                        System.out.println(o.getTile().getName());
+                        break;
+                    case "followingpandas":
+                        for (Panda p : o.getCaughtPandas()) {
+                            System.out.println(p.getName());
+                        }
+                        break;
+                    case "controlledby":
+                        // TODO ????
+                        break;
+                    case "points":
+                        System.out.println(map.getGameLogic().getPoints());
+                        break;
+                    default:
+                        System.out.println("Error");
+                        break;
+                }
+                break;
+            case "panda":
+                boolean found = false;
+                int i;
+                for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i){
+                    if (name.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())){
+                        found = true;
+                    }
+                }
+                --i;
+                if (!found){
+                    System.out.println("Error");
+                    return;
+                }
+                Panda myPanda = (Panda)map.getGameLogic().getAnimalsOnTheMap().get(i);
+                switch (attribute) {
+                    case "ontile":
+                        System.out.println(myPanda.getTile().getName());
+                        break;
+                    case "iscaught":
+                        System.out.println(myPanda.caught);
+                        break;
+                    case "attribute":
+                        System.out.println(myPanda.getType());
+                        break;
+                    default:
+                        System.out.println("Error");
+                        break;
+                }
+                break;
+            case "item":
+                // TODO ????
+                break;
+            case "wardrobe":
+                // TODO ????
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -257,13 +383,22 @@ public class ProtoMenu {
      */
     public void menuInit() {
         System.out.println("Add meg a parancsot:");
-
+        map.setGameLogic(new GameLogic());
         boolean run = true;
+
         while (run) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 words = reader.readLine().split(" ");
-                switch (words[0]) {
+                /*
+                az utasitas minden szava nem teheto lowercase-be, mert
+                az egyedek nevei egyedinek kell lenniuk -> a P2 es a p2 NEM AZONOS!
+                mindenki a sajat fuggvenyebe kezelje le, hogy pl a StEp, a step, és a STEP
+                ugyanazt jelentse.
+                for (int i = 0; i < words.length; ++i) {
+                    words[i] = words[i].toLowerCase();
+                }*/
+                switch (words[0].toLowerCase()) {
                     case "orangutan":
                         orangutan();
                         break;
@@ -301,6 +436,7 @@ public class ProtoMenu {
                         endtest();
                         break;
                     default:
+                        System.out.println("Error");
                         run = false;
                         break;
                 }
@@ -312,6 +448,6 @@ public class ProtoMenu {
                 clearMap = false;
             }
         }
-
+        return;
     }
 }

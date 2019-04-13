@@ -24,4 +24,14 @@ public class JumpingPanda extends Panda {
         System.out.println("<   JumpingPanda::jump()");
         return;
     }
+
+    /**
+     * A panda tipusanak lekerdezese.
+     *
+     * @return A panda tipusa.
+     */
+    @Override
+    public String getType(){
+        return "jumpingpanda";
+    }
 }

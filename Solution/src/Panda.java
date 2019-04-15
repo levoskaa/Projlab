@@ -192,7 +192,7 @@ public abstract class Panda extends Animal {
      *
      * @return A panda tipusa.
      */
-    public String getType(){
+    public String getType() {
         return "";
     }
 }

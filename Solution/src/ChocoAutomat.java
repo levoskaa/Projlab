@@ -60,4 +60,13 @@ public class ChocoAutomat extends Item {
         System.out.println("<   ChocoAutomat::ChocoAutomat(Tile t)");
     }
 
+    /**
+     * Az item tipusanak lekerdezese.
+     *
+     * @return Az item tipusa.
+     */
+    @Override
+    public String getType() {
+        return "chocoautomat";
+    }
 }

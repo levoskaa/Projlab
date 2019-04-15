@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+
 /**
  * A terkepet megvalosito osztaly.
  *
@@ -9,9 +10,8 @@ public class Map {
     /**
      * Itt taroljuk a csempeket.
      */
-    protected HashMap<String,BaseTile> map = new HashMap<>();
+    protected HashMap<String, BaseTile> map = new HashMap<>();
     /**
-     *
      * Referencia a gameLogicra.
      */
     protected GameLogic gL;
@@ -19,7 +19,7 @@ public class Map {
     /**
      * Letrehozza a csempeket es feltolti a map-ot veluk
      */
-    public void fillMap(){
+    public void fillMap() {
 
         //entry tile
         map.put("st", new Tile());
@@ -42,20 +42,20 @@ public class Map {
         map.put("t15", new Tile());
 
         //tiles for couch
-        map.put("c1",new Tile());
-        map.put("c2",new Tile());
-        map.put("c3",new Tile());
+        map.put("c1", new Tile());
+        map.put("c2", new Tile());
+        map.put("c3", new Tile());
 
         //tiles for chocoautomat
-        map.put("a1",new Tile());
-        map.put("a2",new Tile());
-        map.put("a3",new Tile());
-        map.put("a4",new Tile());
+        map.put("a1", new Tile());
+        map.put("a2", new Tile());
+        map.put("a3", new Tile());
+        map.put("a4", new Tile());
 
         //tiles for slotmachines
-        map.put("s1",new Tile());
-        map.put("s2",new Tile());
-        map.put("s3",new Tile());
+        map.put("s1", new Tile());
+        map.put("s2", new Tile());
+        map.put("s3", new Tile());
 
         //breakableTiles
         map.put("b1", new BreakableTile());
@@ -63,8 +63,8 @@ public class Map {
         map.put("b3", new BreakableTile());
 
         //entry wardrobes
-        map.put("w1",new EntryWardrobe());
-        map.put("w2",new EntryWardrobe());
+        map.put("w1", new EntryWardrobe());
+        map.put("w2", new EntryWardrobe());
 
         //exit point
         map.put("e", new ExitPoint());
@@ -76,7 +76,7 @@ public class Map {
      * beallitja a csempeket amelyre az egyes szekrenyek
      * teleportalnak.
      */
-    public void setElementsOfMap(){
+    public void setElementsOfMap() {
 
         //set tile st
         map.get("st").setName("st");
@@ -224,7 +224,7 @@ public class Map {
 
         //set tile c1
         map.get("c1").setName("c1");
-        map.get("c1").setItem(new Couch((Tile)map.get("c1")));
+        map.get("c1").setItem(new Couch((Tile) map.get("c1")));
 
         ArrayList<BaseTile> c1Neighbours = new ArrayList<>();
         c1Neighbours.add(map.get("st"));
@@ -235,7 +235,7 @@ public class Map {
 
         //set tile c2
         map.get("c2").setName("c2");
-        map.get("c2").setItem(new Couch((Tile)map.get("c2")));
+        map.get("c2").setItem(new Couch((Tile) map.get("c2")));
 
         ArrayList<BaseTile> c2Neighbours = new ArrayList<>();
         c2Neighbours.add(map.get("t3"));
@@ -246,7 +246,7 @@ public class Map {
 
         //set tile c3
         map.get("c3").setName("c3");
-        map.get("c3").setItem(new Couch((Tile)map.get("c3")));
+        map.get("c3").setItem(new Couch((Tile) map.get("c3")));
 
         ArrayList<BaseTile> c3Neighbours = new ArrayList<>();
         c3Neighbours.add(map.get("t8"));
@@ -256,7 +256,7 @@ public class Map {
 
         //set tile a1
         map.get("a1").setName("a1");
-        map.get("a1").setItem(new ChocoAutomat((Tile)map.get("a1")));
+        map.get("a1").setItem(new ChocoAutomat((Tile) map.get("a1")));
 
         ArrayList<BaseTile> a1Neighbours = new ArrayList<>();
         a1Neighbours.add(map.get("t6"));
@@ -268,7 +268,7 @@ public class Map {
 
         //set tile a2
         map.get("a2").setName("a2");
-        map.get("a2").setItem(new ChocoAutomat((Tile)map.get("a2")));
+        map.get("a2").setItem(new ChocoAutomat((Tile) map.get("a2")));
 
         ArrayList<BaseTile> a2Neighbours = new ArrayList<>();
         a2Neighbours.add(map.get("t7"));
@@ -277,7 +277,7 @@ public class Map {
 
         //set tile a3
         map.get("a3").setName("a3");
-        map.get("a3").setItem(new ChocoAutomat((Tile)map.get("a3")));
+        map.get("a3").setItem(new ChocoAutomat((Tile) map.get("a3")));
 
         ArrayList<BaseTile> a3Neighbours = new ArrayList<>();
         a3Neighbours.add(map.get("t7"));
@@ -288,7 +288,7 @@ public class Map {
 
         //set tile a4
         map.get("a4").setName("a4");
-        map.get("a4").setItem(new ChocoAutomat((Tile)map.get("a4")));
+        map.get("a4").setItem(new ChocoAutomat((Tile) map.get("a4")));
 
         ArrayList<BaseTile> a4Neighbours = new ArrayList<>();
         a4Neighbours.add(map.get("b3"));
@@ -299,7 +299,7 @@ public class Map {
 
         //set tile s1
         map.get("s1").setName("s1");
-        map.get("s1").setItem(new SlotMachine((Tile)map.get("s1")));
+        map.get("s1").setItem(new SlotMachine((Tile) map.get("s1")));
 
         ArrayList<BaseTile> s1Neighbours = new ArrayList<>();
         s1Neighbours.add(map.get("t1"));
@@ -308,7 +308,7 @@ public class Map {
 
         //set tile s2
         map.get("s2").setName("s2");
-        map.get("s2").setItem(new SlotMachine((Tile)map.get("s2")));
+        map.get("s2").setItem(new SlotMachine((Tile) map.get("s2")));
 
         ArrayList<BaseTile> s2Neighbours = new ArrayList<>();
         s2Neighbours.add(map.get("t11"));
@@ -319,7 +319,7 @@ public class Map {
 
         //set tile s3
         map.get("s3").setName("s3");
-        map.get("s3").setItem(new SlotMachine((Tile)map.get("s3")));
+        map.get("s3").setItem(new SlotMachine((Tile) map.get("s3")));
 
         ArrayList<BaseTile> s3Neighbours = new ArrayList<>();
         s3Neighbours.add(map.get("t13"));
@@ -398,7 +398,7 @@ public class Map {
      * @param name Annak csempenek a hash kodja amely nevet szeretnenk tudni.
      * @return Visszaadja a csempe nevet.
      */
-    public BaseTile getTile(String name){
+    public BaseTile getTile(String name) {
         return map.get(name);
     }
 
@@ -407,7 +407,7 @@ public class Map {
      *
      * @return Visszaadja a GameLogic objektumot.
      */
-    public GameLogic getGameLogic(){
+    public GameLogic getGameLogic() {
         return gL;
     }
 
@@ -416,7 +416,7 @@ public class Map {
      *
      * @return Beallitja a GameLogic objektumot.
      */
-    public void setGameLogic(GameLogic gl){
+    public void setGameLogic(GameLogic gl) {
         gL = gl;
         return;
     }
@@ -424,7 +424,7 @@ public class Map {
     /**
      * Incializalja az egesz palyat.
      */
-    public Map(){
+    public Map() {
         fillMap();
         setElementsOfMap();
     }

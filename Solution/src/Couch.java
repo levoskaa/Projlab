@@ -93,4 +93,23 @@ public class Couch extends Item {
         System.out.println("<   Couch::standUp()");
         return;
     }
+
+    /**
+     * Az item tipusanak lekerdezese.
+     *
+     * @return Az item tipusa.
+     */
+    @Override
+    public String getType() {
+        return "couch";
+    }
+
+    /**
+     * Az aktualis allat lekerdezese.
+     *
+     * @return Az aktualis allat.
+     */
+    public TiredPanda getActualAnimal() {
+        return restingPanda;
+    }
 }

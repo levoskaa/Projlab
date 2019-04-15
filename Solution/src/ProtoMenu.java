@@ -73,6 +73,18 @@ public class ProtoMenu {
         String targetTile = words[2].toLowerCase();
         String attribute = words[3].toLowerCase();
 
+        boolean found = false;
+        int i;
+        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
+            if (pandaName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+                found = true;
+            }
+        }
+        if (found) {
+            System.out.println("Error");
+            return;
+        }
+
         Panda myPanda;
         switch (attribute) {
             case "tired":
@@ -149,18 +161,17 @@ public class ProtoMenu {
 
         boolean found = false;
         int i;
-        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i){
-            if (animalName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())){
+        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
+            if (animalName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
                 found = true;
             }
         }
         --i;
-        if (!found){
+        if (!found) {
             System.out.println("Error");
             return;
         }
-        Panda myPanda = (Panda)map.getGameLogic().getAnimalsOnTheMap().get(i);
-        map.getTile(targetTile).receive(myPanda);
+        map.getTile(targetTile).receive(map.getGameLogic().getAnimalsOnTheMap().get(i));
         return;
     }
 
@@ -252,7 +263,7 @@ public class ProtoMenu {
                 }
                 break;
             case "breakableTile":
-                BreakableTile myTile2 = (BreakableTile)map.getTile(name);
+                BreakableTile myTile2 = (BreakableTile) map.getTile(name);
                 switch (attribute) {
                     case "neighbours":
                         for (BaseTile bt : myTile2.getNeighbours()) {
@@ -275,9 +286,22 @@ public class ProtoMenu {
                 break;
             case "orangutan":
                 Orangutan o = map.getGameLogic().getOrangutan();
-                if (!o.getName().equals(name)){
+                boolean controlledby = true; // ai, gep vezerli
+                boolean found = false;
+                int i;
+                for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
+                    if (name.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+                        found = true;
+                    }
+                }
+                --i;
+                if ((!found && o == null) || (!found && !o.getName().equals(name))) {
                     System.out.println("Error");
                     return;
+                }
+                if (found) {
+                    o = (Orangutan) map.getGameLogic().getAnimalsOnTheMap().get(i);
+                    controlledby = false;
                 }
                 switch (attribute) {
                     case "ontile":
@@ -289,7 +313,7 @@ public class ProtoMenu {
                         }
                         break;
                     case "controlledby":
-                        // TODO ????
+                        System.out.println(controlledby ? "ai" : "player");
                         break;
                     case "points":
                         System.out.println(map.getGameLogic().getPoints());
@@ -300,19 +324,18 @@ public class ProtoMenu {
                 }
                 break;
             case "panda":
-                boolean found = false;
-                int i;
-                for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i){
-                    if (name.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())){
+                found = false;
+                for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
+                    if (name.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
                         found = true;
                     }
                 }
                 --i;
-                if (!found){
+                if (!found) {
                     System.out.println("Error");
                     return;
                 }
-                Panda myPanda = (Panda)map.getGameLogic().getAnimalsOnTheMap().get(i);
+                Panda myPanda = (Panda) map.getGameLogic().getAnimalsOnTheMap().get(i);
                 switch (attribute) {
                     case "ontile":
                         System.out.println(myPanda.getTile().getName());
@@ -329,10 +352,41 @@ public class ProtoMenu {
                 }
                 break;
             case "item":
-                // TODO ????
+                Item myItem = map.getTile(name).getItem();
+                switch (attribute) {
+                    case "ontile":
+                        System.out.println(map.getTile(name).getName());
+                        break;
+                    case "type":
+                        System.out.println(myItem.getType());
+                        break;
+                    case "istaken":
+                        if (myItem.getType().equals("couch")) {
+                            Couch myCouch = (Couch) myItem;
+                            System.out.println(myCouch.getActualAnimal().getName());
+                        }
+                        break;
+                    case "valueofcountdown":
+                        System.out.println(myItem.Counter);
+                        break;
+                    default:
+                        System.out.println("Error");
+                        break;
+                }
                 break;
             case "wardrobe":
-                // TODO ????
+                EntryWardrobe myEntryWardrobe = (EntryWardrobe) map.getTile(name);
+                switch (attribute) {
+                    case "ontile":
+                        System.out.println(map.getTile(name).getName());
+                        break;
+                    case "destinationTile":
+                        System.out.println(myEntryWardrobe.getDestination().getName());
+                        break;
+                    default:
+                        System.out.println("Error");
+                        break;
+                }
                 break;
             default:
                 break;
@@ -443,7 +497,7 @@ public class ProtoMenu {
             } catch (IOException e) {
 
             }
-            if (clearMap){
+            if (clearMap) {
                 map = new Map();
                 clearMap = false;
             }

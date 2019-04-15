@@ -109,11 +109,12 @@ public abstract class BaseTile {
     public void decreaseHealth() {
     }
 
-    public void setHealth(int newHealth){
+    public void setHealth(int newHealth) {
     }
 
     public void setDestination(BaseTile t) {
     }
+
     public void ring() {
     }
 
@@ -141,10 +142,10 @@ public abstract class BaseTile {
 
     /**
      * Megadja, hogy az adott Item szekreny-e vagy sem.
+     *
      * @return Ha az Item szekreny, true (leszarmazottban override), amugy false;
      */
-    public boolean isWardrobe()
-    {
+    public boolean isWardrobe() {
         return false;
     }
 }

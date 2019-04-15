@@ -60,4 +60,14 @@ public class SlotMachine extends Item {
         GameLogic.indent(false);
         System.out.println("<   SlotMachine::SlotMachine(Tile t)");
     }
+
+    /**
+     * Az item tipusanak lekerdezese.
+     *
+     * @return Az item tipusa.
+     */
+    @Override
+    public String getType() {
+        return "slotmachine";
+    }
 }

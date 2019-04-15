@@ -46,8 +46,16 @@ public abstract class Item {
         return name;
     }
 
-    public void setName(String n)
-    {
+    public void setName(String n) {
         name = n;
+    }
+
+    /**
+     * Az item tipusanak lekerdezese.
+     *
+     * @return Az item tipusa.
+     */
+    public String getType() {
+        return "";
     }
 }

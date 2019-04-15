@@ -70,10 +70,10 @@ public class EntryWardrobe extends BaseTile {
 
     /**
      * Megadja, hogy az adott Item szekreny-e vagy sem.
+     *
      * @return Ha az Item szekreny, true (leszarmazottban override), amugy false;
      */
-    public boolean isWardrobe()
-    {
+    public boolean isWardrobe() {
         return true;
     }
 }

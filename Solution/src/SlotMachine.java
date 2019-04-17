@@ -30,17 +30,23 @@ public class SlotMachine extends Item {
 
         --Counter;
         if (Counter <= 0) {
-            for (BaseTile tile : onTile.getNeighbours()) {
-                if (tile.localAnimal != null) {
-                    tile.ring();
-                }
-            }
+            doAction();
+
             int rn = ThreadLocalRandom.current().nextInt(75, 125 + 1);
             Counter = rn;
         }
         GameLogic.indent(false);
         System.out.println("<   SlotMachine::countDown()");
         return;
+    }
+
+    @Override
+    public void doAction() {
+        for (BaseTile tile : onTile.getNeighbours()) {
+            if (tile.localAnimal != null) {
+                tile.ring();
+            }
+        }
     }
 
     /**

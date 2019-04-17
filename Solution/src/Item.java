@@ -42,6 +42,8 @@ public abstract class Item {
     public void standUp() {
     }
 
+    public abstract void doAction();
+
     public String getName() {
         return name;
     }

@@ -37,6 +37,11 @@ public class Couch extends Item {
         return;
     }
 
+    @Override
+    public void doAction() {
+        countDown();
+    }
+
     /**
      * Ha egy panda le akar ulni, a kanape megnezi, hogy ures-e (azaz le tud-e ulni a panda), ha ures, akkor leulteti.
      *

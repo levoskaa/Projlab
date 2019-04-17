@@ -123,9 +123,23 @@ public class ProtoMenu {
         }
         /*
          * words[0] erdektelen
-         * words[1] item neve, pl s1
-         *
-         * */
+         * words[1] csempe neve, pl s1
+         */
+
+        String tileName = words[1].toLowerCase();
+
+        if (!map.checkTileName(tileName)) {
+            System.out.println("Error, nem letezik ilyen nevu csempe.");
+            return;
+        }
+
+        Item i = map.getTile(tileName).getItem();
+        if (i == null) {
+            System.out.println("Error, ezen a csempen nincsen item.");
+            return;
+        }
+
+        i.doAction();
     }
 
     /**
@@ -142,8 +156,60 @@ public class ProtoMenu {
          * words[2] csempe/szekreny neve, pl t2
          * words[3] csempe/szekreny tulajdonsaga, pl isBroken
          * words[3] csempe/szekreny tulajdonsaganak erteke, pl true
-         *
-         * */
+         */
+        String type = words[1].toLowerCase();
+        String name = words[2].toLowerCase();
+        String attribute = words[3].toLowerCase();
+        String newValue = words[4].toLowerCase();
+
+        if (!type.equals("tile") && !type.equals("wardrobe")) {
+            System.out.println("Error, nincs ilyen tipus.");
+            return;
+        }
+
+        if (!map.checkTileName(name)) {
+            System.out.println("Error, nincs ilyen nevu csempe.");
+            return;
+        }
+
+        if (type.equals("tile")) {
+            BreakableTile t = null;
+
+            if (map.getTile(name) instanceof BreakableTile) {
+                t = (BreakableTile) map.getTile(name);
+            } else {
+                System.out.println("Error, a megadott csempe nem torekeny.");
+                return;
+            }
+
+            switch (attribute) {
+                case "health":
+                    t.setHealth(Integer.parseInt(newValue));
+                    break;
+                case "isbroken":
+                    t.setBroken(newValue.equals("true"));
+                    break;
+                default:
+                    System.out.println("Error, ennek a tipusnak nincs ilyen tulajdonsaga.");
+                    return;
+            }
+        } else if (type.equals("wardrobe")) {
+            EntryWardrobe w = null;
+
+            if (map.getTile(name) instanceof EntryWardrobe) {
+                w = (EntryWardrobe) map.getTile(name);
+            } else {
+                System.out.println("Error, a megadott csempe nem szekreny.");
+                return;
+            }
+
+            if (!attribute.equals("destinationtile")) {
+                System.out.println("Error, ennek a tipusnak nincs ilyen tulajdonsaga.");
+                return;
+            }
+
+            w.setDestination(map.getTile(newValue));
+        }
     }
 
     /**

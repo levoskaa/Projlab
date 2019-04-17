@@ -17,6 +17,17 @@ public class Map {
     protected GameLogic gL;
 
     /**
+     * Egy nevrol eldontheto, hogy tartozik-e hozza csempe.
+     * @param name A csempe neve amelyet keresunk.
+     * @return A map tartalmaz-e name nevu csempet.
+     */
+    public boolean checkTileName(String name) {
+        if (map.containsKey(name))
+            return true;
+        return false;
+    }
+
+    /**
      * Letrehozza a csempeket es feltolti a map-ot veluk
      */
     public void fillMap() {

@@ -32,6 +32,6 @@ public class JumpingPanda extends Panda {
      */
     @Override
     public String getType() {
-        return "jumpingpanda";
+        return "jumping";
     }
 }

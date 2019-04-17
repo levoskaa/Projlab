@@ -112,6 +112,6 @@ public class TiredPanda extends Panda {
      */
     @Override
     public String getType() {
-        return "tiredpanda";
+        return "tired";
     }
 }

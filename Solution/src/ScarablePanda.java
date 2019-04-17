@@ -37,6 +37,6 @@ public class ScarablePanda extends Panda {
      */
     @Override
     public String getType() {
-        return "scarablepanda";
+        return "scarable";
     }
 }

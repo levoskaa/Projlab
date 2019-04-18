@@ -51,6 +51,19 @@ public class ProtoMenu {
          * words[>4] pandak neve, pl p2 p3 p4
          *
          * */
+
+        String orangutanName = words[1];
+        String targetTile = words[2].toLowerCase();
+        String controlledBy = words[3].toLowerCase();
+        int numberOfFollowingPandas = Integer.parseInt(words[4]);
+
+
+        for (int i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size(); ++i) {
+            if (orangutanName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+                System.out.println("Error, ezzel a nevvel mar letezik allat.");
+                return;
+            }
+        }
     }
 
     /**
@@ -287,6 +300,23 @@ public class ProtoMenu {
          * words[1] allat neve, pl o2
          *
          * */
+
+        String animalName = words[1];
+
+        boolean found = false;
+        int i;
+        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
+            if (animalName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+                found = true;
+            }
+        }
+        --i;
+        if (!found) {
+            System.out.println("Error, ilyen nevu allat nem letezik.");
+            return;
+        }
+        Orangutan orangutan = (Orangutan) map.getGameLogic().getAnimalsOnTheMap().get(i);
+
     }
 
     /**
@@ -547,6 +577,51 @@ public class ProtoMenu {
          * words[0] erdektelen
          *
          * */
+
+        for(String i : map.map.keySet()){
+            System.out.println("Attributes of "+ i +":");
+            if(i.charAt(0) == 's' || i.charAt(0) == 't' || i.charAt(0) == 'c' || i.charAt(0) == 'a' || i.charAt(0) == 'e' || i.charAt(0) == 'w'){
+                BaseTile baseTile = map.getTile(i);
+                System.out.println("neighbours:");
+                for (BaseTile bt : baseTile.getNeighbours()) {
+                    System.out.println(bt.getName());
+                }
+                System.out.println("hasitem:");
+                System.out.println(baseTile.getItem() == null ? "false" : "true");
+                System.out.println("haswardrobe:");
+                System.out.println(baseTile.isWardrobe() ? "true" : "false");
+                System.out.println("currentanimal:");
+                if(baseTile.getAnimal() == null){
+                    System.out.println("No animal on this tile.");
+                }
+                else {
+                    System.out.println(baseTile.getAnimal().getName());
+                }
+
+            }
+            else if(i.charAt(0) == 'b'){
+                BreakableTile breakableTile = (BreakableTile) map.getTile(i);
+                System.out.println("neighbours:");
+                for (BaseTile bt : breakableTile.getNeighbours()) {
+                    System.out.println(bt.getName());
+                }
+                System.out.println("isbroken:");
+                System.out.println(breakableTile.isBroken());
+                System.out.println("currentanimal:");
+                if(breakableTile.getAnimal() == null){
+                    System.out.println("No animal on this tile.");
+                }
+                else {
+                    System.out.println(breakableTile.getAnimal().getName());
+                }
+                System.out.println("currenthealth:");
+                System.out.println(breakableTile.getHealth());
+            }
+
+            else{
+                System.out.println("Unknown type of tile");
+            }
+        }
     }
 
     /**

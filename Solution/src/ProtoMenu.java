@@ -254,13 +254,22 @@ public class ProtoMenu {
             System.out.println("Error, ilyen nevu csempe nem letezik.");
             return;
         }
+        Animal myAnimal = map.getGameLogic().getAnimalsOnTheMap().get(i);
         if (!found) {
-            System.out.println("Error, ilyen nevu allat nem letezik.");
-            return;
+            if (map.getGameLogic().getPlayerOrangutan().getName().equals(animalName)){
+                myAnimal = map.getGameLogic().getPlayerOrangutan();
+            }
+            else if (map.getGameLogic().getSecondOrangutan().getName().equals(animalName)){
+                myAnimal = map.getGameLogic().getSecondOrangutan();
+            }
+            else {
+                System.out.println("Error, ilyen nevu allat nem letezik.");
+                return;
+            }
         }
         boolean isNeighbour = false;
         for (int j = 0; j < map.getTile(targetTile).getNeighbours().size() && !isNeighbour; j++){
-            if (map.getTile(targetTile).getNeighbours().get(j).getName().equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getTile().getName())){
+            if (map.getTile(targetTile).getNeighbours().get(j).getName().equals(myAnimal.getTile().getName())){
                 isNeighbour = true;
             }
         }
@@ -268,7 +277,7 @@ public class ProtoMenu {
             System.out.println("Error, az allat jelenlegi csempeje es celcsempeje nem szomszedos.");
             return;
         }
-        map.getTile(targetTile).receive(map.getGameLogic().getAnimalsOnTheMap().get(i));
+        map.getTile(targetTile).receive(myAnimal);
         return;
     }
 
@@ -415,24 +424,21 @@ public class ProtoMenu {
                 }
                 break;
             case "orangutan":
-                Orangutan o = map.getGameLogic().getOrangutan();
-                boolean controlledby = true; // ai, gep vezerli
-                boolean found = false;
-                int i;
-                for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
-                    if (name.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
-                        found = true;
-                    }
+                Orangutan o;
+                boolean controlledbyAI;
+                if (map.getGameLogic().getSecondOrangutan().getName().equals(name)){
+                    o = map.getGameLogic().getSecondOrangutan();
+                    controlledbyAI = true;
                 }
-                --i;
-                if ((!found && o == null) || (!found && !o.getName().equals(name))) {
-                    System.out.println("Error, ilyen nevu allat nem letezik.");
+                else if (map.getGameLogic().getPlayerOrangutan().getName().equals(name)){
+                    o = map.getGameLogic().getPlayerOrangutan();
+                    controlledbyAI = false;
+                }
+                else {
+                    System.out.println("Error: ilyen nevu orangutan nem letezik.");
                     return;
                 }
-                if (found) {
-                    o = (Orangutan) map.getGameLogic().getAnimalsOnTheMap().get(i);
-                    controlledby = false;
-                }
+
                 switch (attribute) {
                     case "ontile":
                         System.out.println(o.getTile().getName());
@@ -443,7 +449,7 @@ public class ProtoMenu {
                         }
                         break;
                     case "controlledby":
-                        System.out.println(controlledby ? "ai" : "player");
+                        System.out.println(controlledbyAI ? "ai" : "player");
                         break;
                     case "points":
                         System.out.println(map.getGameLogic().getPoints());
@@ -454,7 +460,8 @@ public class ProtoMenu {
                 }
                 break;
             case "panda":
-                found = false;
+                boolean found = false;
+                int i;
                 for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
                     if (name.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
                         found = true;

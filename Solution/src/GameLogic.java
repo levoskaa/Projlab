@@ -43,6 +43,11 @@ public class GameLogic {
     private Orangutan secondOrangutan;
 
     /**
+     * A jatekos altal vezerelt orangutan referenciaja
+     */
+    private PlayerOrangutan playerOrangutan;
+
+    /**
      * A mapen levo speciális funkcioalitassal ellatott targyakat tarolo lista.
      */
     private ArrayList<Item> itemsOnTheMap;
@@ -66,12 +71,21 @@ public class GameLogic {
     }
 
     /**
-     * A fuggveny visszaadja az orangutant.
+     * A fuggveny visszaadja a gep altal vezetett orangutant.
      *
      * @return Az orangutan.
      */
-    public Orangutan getOrangutan() {
+    public Orangutan getSecondOrangutan() {
         return secondOrangutan;
+    }
+
+    /**
+     * A fuggveny visszaadja a jatekos altal vezetett orangutant.
+     *
+     * @return Az orangutan.
+     */
+    public Orangutan getPlayerOrangutan() {
+        return playerOrangutan;
     }
 
     /**

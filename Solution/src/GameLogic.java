@@ -35,7 +35,7 @@ public class GameLogic {
     /**
      * A mapen levo pandakat tarolo lista.
      */
-    private ArrayList<Animal> animalsOnTheMap;
+    private ArrayList<Panda> pandasOnTheMap;
 
     /**
      * A gep altal vezerelt orangutan referenciaja
@@ -80,6 +80,14 @@ public class GameLogic {
     }
 
     /**
+     * A fuggveny beallitja a gep altal vezetett orangutant.
+     *
+     */
+    public void setSecondOrangutan(Orangutan o){
+        secondOrangutan = o;
+    }
+
+    /**
      * A fuggveny visszaadja a jatekos altal vezetett orangutant.
      *
      * @return Az orangutan.
@@ -89,17 +97,25 @@ public class GameLogic {
     }
 
     /**
+     * A fuggveny beallitja a jatekos altal vezetett orangutant.
+     *
+     */
+    public void setPlayerOrangutan(PlayerOrangutan o){
+        playerOrangutan = o;
+    }
+
+    /**
      * A fuggveny visszaadja a pandakat a terkeprol.
      *
      * @return A pandakat tartalmazo lista.
      */
-    public ArrayList<Animal> getAnimalsOnTheMap() {
+    public ArrayList<Panda> getPandasOnTheMap() {
         GameLogic.indent(true);
-        System.out.println(">   GameLogic::getAnimalsOnTheMap()");
+        System.out.println(">   GameLogic::getPandasOnTheMap()");
 
         GameLogic.indent(false);
-        System.out.println("<   GameLogic::getAnimalsOnTheMap()");
-        return animalsOnTheMap;
+        System.out.println("<   GameLogic::getPandasOnTheMap()");
+        return pandasOnTheMap;
     }
 
     /**
@@ -159,7 +175,7 @@ public class GameLogic {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::endGame()");
 
-        if (animalsOnTheMap.isEmpty()) {
+        if (pandasOnTheMap.isEmpty()) {
             //  System.out.println("You caugth all pandas!");
             //  System.out.println("You caugt:" + points + " pandas!");
         } else {
@@ -181,8 +197,8 @@ public class GameLogic {
 
         secondOrangutan.move();
 
-        for (int i = 0; i != animalsOnTheMap.size(); ++i) {
-            animalsOnTheMap.get(i).move();
+        for (int i = 0; i != pandasOnTheMap.size(); ++i) {
+            pandasOnTheMap.get(i).move();
         }
 
         for (int j = 0; j != itemsOnTheMap.size(); ++j) {
@@ -201,7 +217,7 @@ public class GameLogic {
         GameLogic.indent(true);
         System.out.println(">   GameLogic::remove(Animal a)");
 
-        animalsOnTheMap.remove(a);
+        pandasOnTheMap.remove(a);
         a = null;
 
         GameLogic.indent(false);
@@ -209,20 +225,20 @@ public class GameLogic {
         return;
     }
 
-    public void addAnimal(Animal a) {
+    public void addPanda(Panda p) {
         GameLogic.indent(true);
-        System.out.println(">   GameLogic::addAnimal(Animal a)");
+        System.out.println(">   GameLogic::addPanda(Animal a)");
 
-        animalsOnTheMap.add(a);
+        pandasOnTheMap.add(p);
 
         GameLogic.indent(false);
-        System.out.println("<   GameLogic::addAnimal(Animal a)");
+        System.out.println("<   GameLogic::addPanda(Animal a)");
         return;
     }
 
     public GameLogic() {
         points = 0;
-        animalsOnTheMap = new ArrayList<>();
+        pandasOnTheMap = new ArrayList<>();
         tilesOnMap = new ArrayList<>();
         itemsOnTheMap = new ArrayList<>();
     }

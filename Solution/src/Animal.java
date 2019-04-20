@@ -54,11 +54,16 @@ public abstract class Animal {
     }
 
     public ArrayList<Panda> getCaughtPandas() {
-        gameLogic.indent(true);
-        System.out.println(">   Animal::getCaughtPandas()");
+        if (SkeletonMenu.indent) {
+            gameLogic.indent(true);
+            System.out.println(">   Animal::getCaughtPandas()");
+        }
 
-        gameLogic.indent(false);
-        System.out.println("<   Animal::getCaughtPandas()");
+        if (SkeletonMenu.indent) {
+            gameLogic.indent(false);
+            System.out.println("<   Animal::getCaughtPandas()");
+        }
+
         return null;
     }
 
@@ -75,11 +80,16 @@ public abstract class Animal {
      * @return Csempe(BaseTile objektum) amelyiken az allat eppen all.
      */
     public BaseTile getTile() {
-        gameLogic.indent(true);
-        System.out.println(">   Animal::getTile()");
+        if (SkeletonMenu.indent) {
+            gameLogic.indent(true);
+            System.out.println(">   Animal::getTile()");
+        }
 
-        gameLogic.indent(false);
-        System.out.println("<   Animal::getTile()");
+        if (SkeletonMenu.indent) {
+            gameLogic.indent(false);
+            System.out.println("<   Animal::getTile()");
+        }
+
         return currentTile;
     }
 
@@ -89,13 +99,19 @@ public abstract class Animal {
      * @param t Az uj csempe, amelyikre athelyezzuk az allatot.
      */
     public void setTile(BaseTile t) {
-        GameLogic.indent(true);
-        System.out.println(">   Animal::setTile(BaseTile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Animal::setTile(BaseTile t)");
+        }
+
 
         currentTile = t;
 
-        GameLogic.indent(false);
-        System.out.println("<   Animal::setTile(BaseTile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Animal::setTile(BaseTile t)");
+        }
+
         return;
     }
 
@@ -105,13 +121,19 @@ public abstract class Animal {
      * @param gameLogic A jatek logikaert felelos objektum referenciaja.
      */
     public void setGameLogic(GameLogic gameLogic) {
-        GameLogic.indent(true);
-        System.out.println(">   Animal::setGameLogic(GameLogic gameLogic)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Animal::setGameLogic(GameLogic gameLogic)");
+        }
+
 
         this.gameLogic = gameLogic;
 
-        GameLogic.indent(false);
-        System.out.println("<   Animal::setGameLogic(GameLogic gameLogic)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Animal::setGameLogic(GameLogic gameLogic)");
+        }
+
         return;
     }
 
@@ -124,16 +146,22 @@ public abstract class Animal {
     }
 
     public void move() {
-        GameLogic.indent(true);
-        System.out.println(">   Animal::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Animal::move()");
+        }
+
 
         ArrayList<BaseTile> neighbours = currentTile.getNeighbours();
         // A szomszedos csempek kozul veletlenszeruen valaszt egyet, amire megprobal ralepni.
         // (Lehetseges, hogy egy helyben marad, ha foglalt csempere akar lepni.)
         neighbours.get((int) (Math.random() * neighbours.size())).receive(this);
 
-        GameLogic.indent(false);
-        System.out.println("<   Animal::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Animal::move()");
+        }
+
         return;
     }
 }

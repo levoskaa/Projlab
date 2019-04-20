@@ -15,8 +15,10 @@ public class ScarablePanda extends Panda {
      */
     @Override
     public void scare() {
-        GameLogic.indent(true);
-        System.out.println(">   ScarablePanda::scare()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   ScarablePanda::scare()");
+        }
 
         if (!caught) {
             GameLogic.indent(false);
@@ -25,8 +27,11 @@ public class ScarablePanda extends Panda {
         }
         orangutan.releaseBehind(this);
 
-        GameLogic.indent(false);
-        System.out.println("<   ScarablePanda::scare()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   ScarablePanda::scare()");
+        }
+
         return;
     }
 

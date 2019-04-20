@@ -33,13 +33,18 @@ public class TiredPanda extends Panda {
      * @param value A 'resting' mezo uj erteke;
      */
     public void setResting(boolean value) {
-        GameLogic.indent(true);
-        System.out.println(">   TiredPanda::setResting(boolean value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   TiredPanda::setResting(boolean value)");
+        }
 
         resting = value;
 
-        GameLogic.indent(false);
-        System.out.println("<   TiredPanda::setResting(boolean value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   TiredPanda::setResting(boolean value)");
+        }
+
         return;
     }
 
@@ -49,13 +54,18 @@ public class TiredPanda extends Panda {
      * @param value A 'setRestingUntil' mezo uj erteke;
      */
     public void setRestingUntil(int value) {
-        GameLogic.indent(true);
-        System.out.println(">   TiredPanda::setRestingUntil(int value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   TiredPanda::setRestingUntil(int value)");
+        }
 
         restingUntil = value;
 
-        GameLogic.indent(false);
-        System.out.println("<   TiredPanda::setRestingUntil(int value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   TiredPanda::setRestingUntil(int value)");
+        }
+
         return;
     }
 
@@ -66,16 +76,21 @@ public class TiredPanda extends Panda {
      */
     @Override
     public void sit(Tile t) {
-        GameLogic.indent(true);
-        System.out.println(">   TiredPanda::sit(Tile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   TiredPanda::sit(Tile t)");
+        }
 
         if (!caught) {
             if (!ProtoMenu.isRandom() || (ProtoMenu.isRandom() && Math.random() > 0.5))
                 t.getItem().receive(this);
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   TiredPanda::sit(Tile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   TiredPanda::sit(Tile t)");
+        }
+
         return;
     }
 
@@ -86,8 +101,10 @@ public class TiredPanda extends Panda {
      */
     @Override
     public void move() {
-        GameLogic.indent(true);
-        System.out.println(">   TiredPanda::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   TiredPanda::move()");
+        }
 
         // A panda pihen.
         if (resting && restingUntil > 0)
@@ -101,8 +118,11 @@ public class TiredPanda extends Panda {
             super.move();
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   TiredPanda::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   TiredPanda::move()");
+        }
+
         return;
     }
 

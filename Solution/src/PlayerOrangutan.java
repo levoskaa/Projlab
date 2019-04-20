@@ -6,13 +6,18 @@ public class PlayerOrangutan extends Orangutan {
      */
     @Override
     public void move() {
-        GameLogic.indent(true);
-        System.out.println(">   PlayerOrangutan::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   PlayerOrangutan::move()");
+        }
+
 
         // TODO
 
-        GameLogic.indent(false);
-        System.out.println("<   PlayerOrangutan::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   PlayerOrangutan::move()");
+        }
     }
 
     /**
@@ -20,12 +25,17 @@ public class PlayerOrangutan extends Orangutan {
      */
     @Override
     public void die() {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::die()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::die()");
+        }
+
 
         gameLogic.endGame();
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::die()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::die()");
+        }
     }
 }

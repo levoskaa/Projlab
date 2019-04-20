@@ -15,13 +15,18 @@ public class JumpingPanda extends Panda {
      */
     @Override
     public void jump() {
-        GameLogic.indent(true);
-        System.out.println(">   JumpingPanda::jump()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   JumpingPanda::jump()");
+        }
 
         currentTile.decreaseHealth();
 
-        GameLogic.indent(false);
-        System.out.println("<   JumpingPanda::jump()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   JumpingPanda::jump()");
+        }
+
         return;
     }
 

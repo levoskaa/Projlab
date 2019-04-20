@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 
 public class SkeletonMenu {
+    public static boolean indent = false;
+
     /**
      * A Panda steps on empty tile esemenyt szimulalo fuggveny.
      */

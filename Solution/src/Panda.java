@@ -37,13 +37,18 @@ public abstract class Panda extends Animal {
      * @param orangutan Az 'orangutan' mezo uj erteke.
      */
     public void setOrangutan(Orangutan orangutan) {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::setOrangutan(Orangutan orangutan)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::setOrangutan(Orangutan orangutan)");
+        }
 
         this.orangutan = orangutan;
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::setOrangutan(Orangutan orangutan)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::setOrangutan(Orangutan orangutan)");
+        }
+
         return;
     }
 
@@ -53,13 +58,18 @@ public abstract class Panda extends Animal {
      * @param value A caught valtozo uj erteke.
      */
     public void setCaught(boolean value) {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::setCaught(boolean value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::setCaught(boolean value)");
+        }
 
         caught = value;
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::setCaught(boolean value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::setCaught(boolean value)");
+        }
+
         return;
     }
 
@@ -89,8 +99,10 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void die() {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::die()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::die()");
+        }
 
         if (caught) {
             orangutan.release(this);
@@ -98,8 +110,11 @@ public abstract class Panda extends Animal {
         currentTile.remove();
         gameLogic.remove(this);
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::die()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::die()");
+        }
+
         return;
     }
 
@@ -110,13 +125,18 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void move() {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::move()");
+        }
 
         super.move();
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::move()");
+        }
+
         return;
     }
 
@@ -125,8 +145,10 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void catchPanda(Orangutan orangutan) {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::catchPanda()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::catchPanda()");
+        }
 
         // Csak akkor kapja el a pandat, ha az meg nem vezetett
         if (!caught) {
@@ -134,8 +156,11 @@ public abstract class Panda extends Animal {
             this.orangutan = orangutan;
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::catchPanda()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::catchPanda()");
+        }
+
         return;
     }
 
@@ -147,13 +172,18 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void collideWith(Animal a) {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::collideWith(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::collideWith(Animal a)");
+        }
 
         a.collisionWithPanda(this);
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::collideWith(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::collideWith(Animal a)");
+        }
+
         return;
     }
 
@@ -164,11 +194,16 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void collisionWithPanda(Panda p) {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::collisionWithPanda(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::collisionWithPanda(Animal a)");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::collisionWithPanda(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::collisionWithPanda(Animal a)");
+        }
+
         return;
     }
 
@@ -179,11 +214,16 @@ public abstract class Panda extends Animal {
      */
     @Override
     public void collisionWithOrangutan(Orangutan o) {
-        GameLogic.indent(true);
-        System.out.println(">   Panda::collisionWithOrangutan(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Panda::collisionWithOrangutan(Animal a)");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   Panda::collisionWithOrangutan(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Panda::collisionWithOrangutan(Animal a)");
+        }
+
         return;
     }
 

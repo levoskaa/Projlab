@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Scanner;
 
 /**
  * Az osztaly a prototipus menujeert felelos,

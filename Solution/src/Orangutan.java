@@ -38,13 +38,19 @@ public class Orangutan extends Animal {
      * @param caughtPandas Az uj lista, amely tartalmazza a pandakat.
      */
     public void setCaughtPandas(ArrayList<Panda> caughtPandas) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::setCaughtPandas(ArrayList<Panda> caughtPandas)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::setCaughtPandas(ArrayList<Panda> caughtPandas)");
+        }
+
 
         this.caughtPandas = caughtPandas;
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::setCaughtPandas(ArrayList<Panda> caughtPandas)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::setCaughtPandas(ArrayList<Panda> caughtPandas)");
+        }
+
         return;
     }
 
@@ -54,11 +60,16 @@ public class Orangutan extends Animal {
      * @return Az orangutant koveto pandak listaja.
      */
     public ArrayList<Panda> getCaughtPandas() {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::getCaughtPandas()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::getCaughtPandas()");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::getCaughtPandas()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::getCaughtPandas()");
+        }
+
         return caughtPandas;
     }
 
@@ -68,13 +79,19 @@ public class Orangutan extends Animal {
      * @param value A 'cantCatchPandasUntil' mezo uj erteke.
      */
     public void setCantCatchPandasUntil(int value) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::setCantCatchPandasUntil(int value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::setCantCatchPandasUntil(int value)");
+        }
+
 
         cantCatchPandasUntil = value;
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::setCantCatchPandasUntil(int value)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::setCantCatchPandasUntil(int value)");
+        }
+
         return;
     }
 
@@ -84,14 +101,20 @@ public class Orangutan extends Animal {
      * @param p A panda, amivel az utkozes tortent.
      */
     public void collisionWithPanda(Panda p) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::collisionWitPanda(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::collisionWitPanda(Animal a)");
+        }
+
 
         if (cantCatchPandasUntil == 0)
             p.catchPanda(this);
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::collisionWithPanda(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::collisionWithPanda(Animal a)");
+        }
+
         return;
     }
 
@@ -101,8 +124,11 @@ public class Orangutan extends Animal {
      * @param o Az orangutan, amivel az utkozes tortent.
      */
     public void collisionWithOrangutan(Orangutan o) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::collisionWithOrangutan(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::collisionWithOrangutan(Animal a)");
+        }
+
 
         // Ha vezet pandat, akkor nem rabolhat egy masik orangutantol.
         if (caughtPandas.size() > 0) {
@@ -132,8 +158,11 @@ public class Orangutan extends Animal {
             caughtPandas.get(i).setOrangutan(this);
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::collisionWithOrangutan(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::collisionWithOrangutan(Animal a)");
+        }
+
         return;
     }
 
@@ -145,13 +174,19 @@ public class Orangutan extends Animal {
      */
     @Override
     public void collideWith(Animal a) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::collideWith(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::collideWith(Animal a)");
+        }
+
 
         a.collisionWithOrangutan(this);
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::collideWith(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::collideWith(Animal a)");
+        }
+
         return;
     }
 
@@ -163,16 +198,22 @@ public class Orangutan extends Animal {
      * @param p A panda amelyik az elngedest kezdemenyezte.
      */
     public void release(Panda p) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::release(Panda p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::release(Panda p)");
+        }
+
 
         releaseBehind(p);
         p.setCaught(false);
         p.setOrangutan(null);
         caughtPandas.remove(p);
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::release(Panda p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::release(Panda p)");
+        }
+
         return;
     }
 
@@ -184,8 +225,11 @@ public class Orangutan extends Animal {
      * @param p A panda amelyik az elengedest kezdemenyezte.
      */
     public void releaseBehind(Panda p) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::releaseBehind(Panda p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::releaseBehind(Panda p)");
+        }
+
 
         for (int i = caughtPandas.indexOf(p) + 1; i < caughtPandas.size(); i++) {
             Panda panda = caughtPandas.get(i);
@@ -194,8 +238,11 @@ public class Orangutan extends Animal {
             caughtPandas.remove(panda);
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::releaseBehind(Panda p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::releaseBehind(Panda p)");
+        }
+
         return;
     }
 
@@ -204,8 +251,11 @@ public class Orangutan extends Animal {
      */
     @Override
     public void die() {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::die()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::die()");
+        }
+
 
         // A vezetett pandak elengedese
         if (caughtPandas.size() > 0)
@@ -215,8 +265,11 @@ public class Orangutan extends Animal {
         // Orangutan eltavolitasa a GameLogicbol
         gameLogic.remove(this);
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::die()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::die()");
+        }
+
         return;
     }
 
@@ -228,15 +281,21 @@ public class Orangutan extends Animal {
      */
     @Override
     public void move() {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::move()");
+        }
+
 
         super.move();
         if (cantCatchPandasUntil > 0)
             cantCatchPandasUntil--;
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::move()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::move()");
+        }
+
         return;
     }
 
@@ -246,8 +305,11 @@ public class Orangutan extends Animal {
      * @param p A panda akit elfogott az orangutan.
      */
     public void add(Panda p) {
-        GameLogic.indent(true);
-        System.out.println(">   Orangutan::add(Panda p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Orangutan::add(Panda p)");
+        }
+
 
         // Panda csempeje az elfogas pillanataban.
         BaseTile pandaTile = p.getTile();
@@ -266,8 +328,11 @@ public class Orangutan extends Animal {
         p.setCaught(true);
         caughtPandas.add(0, p);
 
-        GameLogic.indent(false);
-        System.out.println("<   Orangutan::add(Panda p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Orangutan::add(Panda p)");
+        }
+
         return;
     }
 

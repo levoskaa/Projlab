@@ -3,3 +3,222 @@ step o1 t2
 stat t1 Tile currentAnimal
 stat t2 Tile currentAnimal
 stat o1 Orangutan onTile
+endtest
+configure Tile b2 health 0
+configure Tile b2 broken true
+orangutan o1 t11 player 0
+step o1 b2
+stat t11 Tile currentAnimal
+stat b2 BreakableTile currentAnimal
+stat o1 Orangutan onTile
+endtest
+orangutan o1 t1 ai 0
+panda p1 t2 jumping
+step o1 t2
+stat t1 Tile currentAnimal
+stat t2 Tile currentAnimal
+stat o1 Orangutan onTile
+stat p1 Panda onTile
+stat o1 Orangutan followingPandas
+stat p1 Panda isCaught
+endtest
+panda p1 t1 scareable
+panda p2 t2 jumping
+orangutan o1 t3 player 2 p1 p2
+release o1
+stat o1 Orangutan followingPandas
+stat p1 Panda isCaught
+stat p2 Panda isCaught
+endtest
+panda p1 t1 jumping
+orangutan o1 t2 ai 1 p1
+orangutan o2 t3 player 0
+step o2 t2
+stat t2 Tile currentAnimal
+stat t3 Tile currentAnimal
+stat p1 Panda isCaught
+stat o1 Orangutan followingPandas
+stat o2 Orangutan followingPandas
+endtest
+orangutan o1 t10 ai 0
+configure Tile b1 health 1
+configure Tile b1 isBroken false
+step o1 b1
+stat o1 Orangutan onTile
+stat t10 tile currentAnimal
+stat b1 BreakableTile isBroken
+stat b1 BreakableTile currentAnimal
+endtest
+panda p1 t10 tired
+configure Tile b2 health 0
+configure Tile b2 isBroken true
+step p1 b2
+stat p1 Panda onTile
+stat t10 Tile currentAnimal
+stat b2 BreakableTile isBroken
+stat b2 BreakableTile currentAnimal
+endtest
+panda p1 t10 tired
+configure Tile b1 health 1
+configure Tile b1 isBroken false
+step p1 b2
+stat p1 Panda onTile
+stat t10 Tile currentAnimal
+stat b1 BreakableTile isBroken
+stat b1 BreakableTile currentAnimal
+endtest
+panda p1 t10 tired
+orangutan o1 b1 ai 1 p1
+configure Tile b1 health 1
+configure Tile b1 isBroken false
+step o1 t6
+stat p1 Panda onTile
+stat o1 Orangutan followingPandas
+stat b1 BreakableTile isBroken
+stat t10 Tile currentAnimal
+stat b1 BreakableTile currentAnimal
+stat t6 Tile currentAnimal
+endtest
+panda p2 t15 tired
+orangutan o1 t7 player 0
+step p2 e
+step p2 t14
+stat o1 Orangutan points
+stat p2 Panda onTile
+stat t15 Tile currentAnimal
+stat e Tile currentAnimal
+stat t14 Tile currentAnimal
+endtest
+panda p1 t13 jumping
+panda p2 t12 tired
+panda p3 t15 tired
+orangutan o1 t14 player 3 p3 p2 p1
+step o1 e
+stat o1 Orangutan points
+stat o1 Orangutan followingPandas
+stat o1 Orangutan onTile
+stat p1 Panda onTile
+stat p2 Panda onTile
+stat p3 Panda onTile
+endtest
+panda p1 t5 jumping
+step p1 w1
+stat p1 Panda onTile
+stat t5 Tile currentAnimal
+stat w1 Tile currentAnimal
+stat t6 Tile currentAnimal
+endtest
+orangutan o1 t8 player 0
+step o1 w2
+stat o1 Orangutan onTile
+stat t8 Tile currentAnimal
+stat w2 Tile currentAnimal
+stat t15 Tile currentAnimal
+endtest
+panda p1 t1 tired
+panda p2 t2 jumping
+orangutan o1 t8 player 2 p2 p1
+step o1 w2
+step o1 t14
+stat t1 Tile currentAnimal
+stat t2 Tile currentAnimal
+stat t8 Tile currentAnimal
+stat w2 Tile currentAnimal
+stat t15 Tile currentAnimal
+stat t14 Tile currentAnimal
+stat o1 Orangutan followingPandas
+stat p1 Panda isCaught
+stat p2 Panda isCaught
+endtest
+panda p1 b1 jumping
+configure Tile b1 health 20
+action a1
+stat p1 Panda onTile
+stat b1 BreakableTile currentHealth
+stat b1 BreakableTile isBroken
+endtest
+panda p1 b1 jumping
+configure Tile b1 health 1
+action a1
+stat p1 Panda onTile
+stat b1 BreakableTile isBroken
+stat b1 BreakableTile currentAnimal
+stat b1 BreakableTile currentHealth
+endtest
+random off
+panda p1 t4 tired
+action c1
+stat p1 Panda onTile
+stat c1 Couch isTaken
+stat c1 Couch currentAnimal
+stat t1 Tile currentAnimal
+endtest
+panda p1 t11 scareable
+panda p2 t15 jumping
+orangutan o1 b2 player 2 p1 p2
+ring s2
+stat o1 Orangutan followingPandas
+stat p1 Panda isCaught
+stat p2 Panda isCaught
+endtest
+panda p1 t11 jumping
+panda p2 t15 jumping
+orangutan o1 b2 player 2 p2 p2
+ring s2
+stat o1 Orangutan followingPandas
+stat p1 Panda isCaught
+stat p2 Panda isCaught
+endtest
+panda p1 t4 scareable
+sit c1
+stat p1 Panda onTile
+stat c1 Couch isTaken
+endtest
+panda p1 t11 tired
+step p1 t15
+action a4
+stat p1 Panda onTile
+stat t15 Tile currentAnimal
+endtest
+panda p2 t11 scareable
+step p2 t15
+action a4
+stat panda onTile
+stat 15 Tile currentAnimal
+endtest
+orangutan o1 t11 tired
+step o1 t15
+action a4
+stat o1 Orangutan onTile
+stat t15 tile currentAnimal
+endtest
+panda p1 t1 tired
+step p1 s1
+stat p1 Panda onTile
+stat t1 currentAnimal
+endtest
+orangutan o1 t1 player 0
+step o1 s1
+stat o1 Orangutan onTile
+stat t1 currentAnimal
+endtest
+random off
+panda p1 t4 tired
+action c1
+panda p2 t4 tired
+action c1
+stat p2 Panda onTile
+stat c1 Couch isTaken
+stat c1 Couch currentAnimal
+stat t4 Tile currentAnimal
+endtest
+orangutan o1 t3 player 0
+configure Tile b3 health 0
+configure Tile b3 isBroken true
+step o1 b3
+endtest
+panda p1 t3 jumping
+configure Tile b3 health 0
+configure Tile b3 isBroken true
+step p1 b3
+endtest

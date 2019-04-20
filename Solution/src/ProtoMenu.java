@@ -338,7 +338,6 @@ public class ProtoMenu {
             try {
                 BufferedReader br = new BufferedReader(new FileReader(words[1]));
                 while((words = br.readLine().split(" ")).length != 0){
-                    System.out.println(words[0]);
                     switch(words[0].toLowerCase()){
                         case "orangutan":
                             orangutan();
@@ -701,6 +700,7 @@ public class ProtoMenu {
          *
          * */
         clearMap = true;
+        System.out.println("A teszt véget ért.");
     }
 
     /**

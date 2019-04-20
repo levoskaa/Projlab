@@ -241,6 +241,8 @@ public class GameLogic {
         pandasOnTheMap = new ArrayList<>();
         tilesOnMap = new ArrayList<>();
         itemsOnTheMap = new ArrayList<>();
+        playerOrangutan = new PlayerOrangutan();
+        secondOrangutan = new Orangutan();
     }
 
     private static int tabCounter = 0;

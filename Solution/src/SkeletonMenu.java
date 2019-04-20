@@ -114,7 +114,7 @@ public class SkeletonMenu {
         GameLogic gl = new GameLogic();
         orangutan.setGameLogic(gl);
         orangutan.setTile(new Tile());
-        gl.addPanda(orangutan);
+        gl.setSecondOrangutan(orangutan);
         BreakableTile breakableTile = new BreakableTile();
 
         breakableTile.setBroken(true);

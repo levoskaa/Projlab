@@ -565,6 +565,9 @@ public class ProtoMenu {
             System.out.println("Error");
             return;
         }
+        else{
+            
+        }
         /*
          * words[0] erdektelen
          * words[1] a fajl neve, pl script.txt
@@ -639,6 +642,7 @@ public class ProtoMenu {
          * words[0] erdektelen
          *
          * */
+        clearMap = true;
     }
 
     /**

@@ -3,7 +3,7 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
-import com.sun.org.apache.xpath.internal.operations.Or;
+
 
 /**
  * Osztaly a Pandak viselkedesenek es tulajdonsagaiknak osszegyujtesere,

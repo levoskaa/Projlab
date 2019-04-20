@@ -1,4 +1,3 @@
-import javax.swing.text.AbstractDocument;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -56,13 +55,94 @@ public class ProtoMenu {
         String targetTile = words[2].toLowerCase();
         String controlledBy = words[3].toLowerCase();
         int numberOfFollowingPandas = Integer.parseInt(words[4]);
+        ArrayList<String> pandaNames = new ArrayList<>();
 
 
-        for (int i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size(); ++i) {
-            if (orangutanName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+        for(int i = 5; i < 5 + numberOfFollowingPandas; i++){
+            pandaNames.add(words[i]);
+        }
+
+
+        for (int i = 0; i < map.getGameLogic().getPandasOnTheMap().size(); ++i) {
+            if (orangutanName.equals(map.getGameLogic().getPandasOnTheMap().get(i).getName())) {
                 System.out.println("Error, ezzel a nevvel mar letezik allat.");
                 return;
             }
+        }
+
+        boolean found = false;
+        for(int j = 0; j < numberOfFollowingPandas; j++){
+            for(int k = 0; k < map.getGameLogic().getPandasOnTheMap().size() && !found; k++){
+                if(pandaNames.get(j).equals(map.getGameLogic().getPandasOnTheMap().get(k).getName())){
+                    found = true;
+                }
+            }
+            if(!found){
+                System.out.println("Error, nincs a mapon " + pandaNames.get(j) + " nevu panda.");
+                return;
+            }
+            found = false;
+        }
+
+
+        if (!map.checkTileName(targetTile)) {
+            System.out.println("Error, nem letezik ilyen nevu csempe.");
+            return;
+        }
+        if (map.getTile(targetTile).getAnimal() != null){
+            System.out.println("Error, ez a csempe jelenleg foglalt.");
+            return;
+        }
+        if(controlledBy.equals("player")){
+            PlayerOrangutan playerOrangutan = new PlayerOrangutan();
+            playerOrangutan.setName(orangutanName);
+            playerOrangutan.setTile(map.getTile(targetTile));
+            playerOrangutan.setGameLogic(map.getGameLogic());
+            map.getTile(targetTile).setAnimal(playerOrangutan);
+
+            ArrayList<Panda> pandas = new ArrayList<>();
+
+            found = false;
+            for(int j = 0; j < numberOfFollowingPandas; j++){
+                for(int k = 0; k < map.getGameLogic().getPandasOnTheMap().size() && !found; k++){
+                    if(pandaNames.get(j).equals(map.getGameLogic().getPandasOnTheMap().get(k).getName())){
+                        found = true;
+                        map.getGameLogic().getPandasOnTheMap().get(k).setCaught(true);
+                        map.getGameLogic().getPandasOnTheMap().get(k).setOrangutan(playerOrangutan);
+                        pandas.add(map.getGameLogic().getPandasOnTheMap().get(k));
+                    }
+                }
+                found = false;
+            }
+            playerOrangutan.setCaughtPandas(pandas);
+            map.getGameLogic().setPlayerOrangutan(playerOrangutan);
+        }
+        else if(controlledBy.equals("ai")){
+            Orangutan orangutan = new Orangutan();
+            orangutan.setName(orangutanName);
+            orangutan.setTile(map.getTile(targetTile));
+            orangutan.setGameLogic(map.getGameLogic());
+            map.getTile(targetTile).setAnimal(orangutan);
+
+            ArrayList<Panda> pandas = new ArrayList<>();
+
+            found = false;
+            for(int j = 0; j < numberOfFollowingPandas; j++){
+                for(int k = 0; k < map.getGameLogic().getPandasOnTheMap().size() && !found; k++){
+                    if(pandaNames.get(j).equals(map.getGameLogic().getPandasOnTheMap().get(k).getName())){
+                        found = true;
+                        map.getGameLogic().getPandasOnTheMap().get(k).setCaught(true);
+                        map.getGameLogic().getPandasOnTheMap().get(k).setOrangutan(orangutan);
+                        pandas.add(map.getGameLogic().getPandasOnTheMap().get(k));
+                    }
+                }
+                found = false;
+            }
+            orangutan.setCaughtPandas(pandas);
+            map.getGameLogic().setSecondOrangutan(orangutan);
+        }
+        else{
+            System.out.println("Error, az orangutant csak player vagy ai iranyithatja.");
         }
     }
 
@@ -86,8 +166,8 @@ public class ProtoMenu {
         String targetTile = words[2].toLowerCase();
         String attribute = words[3].toLowerCase();
 
-        for (int i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size(); ++i) {
-            if (pandaName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+        for (int i = 0; i < map.getGameLogic().getPandasOnTheMap().size(); ++i) {
+            if (pandaName.equals(map.getGameLogic().getPandasOnTheMap().get(i).getName())) {
                 System.out.println("Error, ezzel a nevvel mar letezik panda.");
                 return;
             }
@@ -121,7 +201,7 @@ public class ProtoMenu {
         myPanda.setName(pandaName);
         myPanda.setTile(map.getTile(targetTile));
         myPanda.setGameLogic(map.getGameLogic());
-        map.getGameLogic().addAnimal(myPanda);
+        map.getGameLogic().addPanda(myPanda);
         map.getTile(targetTile).setAnimal(myPanda);
         return;
     }
@@ -244,8 +324,8 @@ public class ProtoMenu {
 
         boolean found = false;
         int i;
-        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
-            if (animalName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+        for (i = 0; i < map.getGameLogic().getPandasOnTheMap().size() && !found; ++i) {
+            if (animalName.equals(map.getGameLogic().getPandasOnTheMap().get(i).getName())) {
                 found = true;
             }
         }
@@ -254,7 +334,7 @@ public class ProtoMenu {
             System.out.println("Error, ilyen nevu csempe nem letezik.");
             return;
         }
-        Animal myAnimal = map.getGameLogic().getAnimalsOnTheMap().get(i);
+        Animal myAnimal = map.getGameLogic().getPandasOnTheMap().get(i);
         if (!found) {
             if (map.getGameLogic().getPlayerOrangutan().getName().equals(animalName)){
                 myAnimal = map.getGameLogic().getPlayerOrangutan();
@@ -312,20 +392,15 @@ public class ProtoMenu {
 
         String animalName = words[1];
 
-        boolean found = false;
-        int i;
-        for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
-            if (animalName.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
-                found = true;
-            }
+        if(map.getGameLogic().getPlayerOrangutan().getName().equals(animalName)){
+            map.getGameLogic().getPlayerOrangutan().release(map.getGameLogic().getPlayerOrangutan().getCaughtPandas().get(0));
         }
-        --i;
-        if (!found) {
-            System.out.println("Error, ilyen nevu allat nem letezik.");
-            return;
+        else if(map.getGameLogic().getSecondOrangutan().getName().equals(animalName)){
+            map.getGameLogic().getSecondOrangutan().release(map.getGameLogic().getPlayerOrangutan().getCaughtPandas().get(0));
         }
-        Orangutan orangutan = (Orangutan) map.getGameLogic().getAnimalsOnTheMap().get(i);
-
+        else{
+            System.out.println("Error, no orangutan with the given name exists.");
+        }
     }
 
     /**
@@ -462,8 +537,8 @@ public class ProtoMenu {
             case "panda":
                 boolean found = false;
                 int i;
-                for (i = 0; i < map.getGameLogic().getAnimalsOnTheMap().size() && !found; ++i) {
-                    if (name.equals(map.getGameLogic().getAnimalsOnTheMap().get(i).getName())) {
+                for (i = 0; i < map.getGameLogic().getPandasOnTheMap().size() && !found; ++i) {
+                    if (name.equals(map.getGameLogic().getPandasOnTheMap().get(i).getName())) {
                         found = true;
                     }
                 }
@@ -472,7 +547,7 @@ public class ProtoMenu {
                     System.out.println("Error, ilyen nevu allat nem letezik.");
                     return;
                 }
-                Panda myPanda = (Panda) map.getGameLogic().getAnimalsOnTheMap().get(i);
+                Panda myPanda = (Panda) map.getGameLogic().getPandasOnTheMap().get(i);
                 switch (attribute) {
                     case "ontile":
                         System.out.println(myPanda.getTile().getName());

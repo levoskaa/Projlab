@@ -114,7 +114,7 @@ public class SkeletonMenu {
         GameLogic gl = new GameLogic();
         orangutan.setGameLogic(gl);
         orangutan.setTile(new Tile());
-        gl.addAnimal(orangutan);
+        gl.addPanda(orangutan);
         BreakableTile breakableTile = new BreakableTile();
 
         breakableTile.setBroken(true);
@@ -134,7 +134,7 @@ public class SkeletonMenu {
 
         GameLogic gl = new GameLogic();
         panda.setGameLogic(gl);
-        gl.addAnimal(panda);
+        gl.addPanda(panda);
         panda.setTile(breakableTile);
 
         breakableTile.setBroken(true);
@@ -193,7 +193,7 @@ public class SkeletonMenu {
         Tile tileOfChocoAutomat = new Tile();
         ChocoAutomat chocoAutomat = new ChocoAutomat(tileOfChocoAutomat);
         jumpingPanda.setGameLogic(gl);
-        gl.addAnimal(jumpingPanda);
+        gl.addPanda(jumpingPanda);
 
         ArrayList<BaseTile> neighboursOfTileOfPanda = new ArrayList<>();
         neighboursOfTileOfPanda.add(tileOfChocoAutomat);

@@ -33,9 +33,22 @@ public class ProtoMenu {
     boolean clearMap = false;
 
     /**
+     * A veletlenszeru mukodes allapotat mutatja. Veletlenszeru ha igaz.
+     */
+    private static boolean random = true;
+
+    /**
      * A tesztek kimenetet tarolja, annak erdekeben, hogy ki lehessen irni file-ba is, ne csak a standart outputra.
      */
     private String saveString;
+
+    public static boolean isRandom() {
+        return random;
+    }
+
+    public static void setRandom(boolean value) {
+        random = value;
+    }
 
     /**
      * Az orangutan parancsot szimulalo fuggveny.
@@ -263,7 +276,7 @@ public class ProtoMenu {
         String attribute = words[3].toLowerCase();
         String newValue = words[4].toLowerCase();
 
-        if (!type.equals("tile") && !type.equals("wardrobe")) {
+        if (type.compareTo("tile") != 0 && type.compareTo("wardrobe") != 0) {
             System.out.println("Error, nincs ilyen tipus.");
             return;
         }
@@ -273,7 +286,7 @@ public class ProtoMenu {
             return;
         }
 
-        if (type.equals("tile")) {
+        if (type.compareTo("tile") == 0) {
             BreakableTile t = null;
 
             if (map.getTile(name) instanceof BreakableTile) {
@@ -288,13 +301,13 @@ public class ProtoMenu {
                     t.setHealth(Integer.parseInt(newValue));
                     break;
                 case "isbroken":
-                    t.setBroken(newValue.equals("true"));
+                    t.setBroken(newValue.compareTo("true") == 0);
                     break;
                 default:
                     System.out.println("Error, ennek a tipusnak nincs ilyen tulajdonsaga.");
                     return;
             }
-        } else if (type.equals("wardrobe")) {
+        } else if (type.compareTo("wardrobe") == 0) {
             EntryWardrobe w = null;
 
             if (map.getTile(name) instanceof EntryWardrobe) {
@@ -304,7 +317,7 @@ public class ProtoMenu {
                 return;
             }
 
-            if (!attribute.equals("destinationtile")) {
+            if (attribute.compareTo("destinationtile") != 0) {
                 System.out.println("Error, ennek a tipusnak nincs ilyen tulajdonsaga.");
                 return;
             }
@@ -380,8 +393,17 @@ public class ProtoMenu {
         /*
          * words[0] erdektelen
          * words[1] random allapota, pl on
-         *
-         * */
+         */
+
+        String newValue = words[1].toLowerCase();
+
+        if (newValue.compareTo("on") == 0) {
+            random = true;
+        } else if (newValue.compareTo("off") == 0) {
+            random = false;
+        } else {
+            System.out.println("Error, nem ertelmezheto ertek.");
+        }
     }
 
     /**

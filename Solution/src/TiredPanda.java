@@ -60,7 +60,7 @@ public class TiredPanda extends Panda {
     }
 
     /**
-     * Ha nincs elfogva a panda, akkor ennek a fuggvenyne a hatasara leul a kanapera.
+     * Ha nincs elfogva a panda, akkor ennek a fuggvenyne a hatasara leul(het) a kanapera.
      *
      * @param t Az a csempe, amelyiken a kanape talalhato.
      */
@@ -70,7 +70,8 @@ public class TiredPanda extends Panda {
         System.out.println(">   TiredPanda::sit(Tile t)");
 
         if (!caught) {
-            t.getItem().receive(this);
+            if (!ProtoMenu.isRandom() || (ProtoMenu.isRandom() && Math.random() > 0.5))
+                t.getItem().receive(this);
         }
 
         GameLogic.indent(false);

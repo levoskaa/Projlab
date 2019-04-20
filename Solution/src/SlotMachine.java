@@ -27,12 +27,17 @@ public class SlotMachine extends Item {
     public void countDown() {
         GameLogic.indent(true);
         System.out.println(">   SlotMachine::countDown()");
-
+        int rn;
         --Counter;
         if (Counter <= 0) {
             doAction();
 
-            int rn = ThreadLocalRandom.current().nextInt(75, 125 + 1);
+            if (ProtoMenu.isRandom()) {
+                rn = ThreadLocalRandom.current().nextInt(75, 125 + 1);
+            } else {
+                rn = 75;
+            }
+
             Counter = rn;
         }
         GameLogic.indent(false);

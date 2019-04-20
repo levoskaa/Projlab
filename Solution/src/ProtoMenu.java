@@ -2,7 +2,9 @@ import java.io.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Az osztaly a prototipus menujeert felelos,
@@ -29,6 +31,11 @@ public class ProtoMenu {
      * Eltarolja, hogy a terkepet ujra kell-e inicializalni (uj teszt).
      */
     boolean clearMap = false;
+
+    /**
+     * A tesztek kimenetet tarolja, annak erdekeben, hogy ki lehessen irni file-ba is, ne csak a standart outputra.
+     */
+    private String saveString;
 
     /**
      * Az orangutan parancsot szimulalo fuggveny.
@@ -454,8 +461,8 @@ public class ProtoMenu {
                             endtest();
                             break;
                         default:
-                                System.out.println("Hibás script!");
-                                break;
+                            System.out.println("Hibás script!");
+                            break;
                     }
                 }
             }
@@ -484,6 +491,7 @@ public class ProtoMenu {
     private void stat() {
         if (words.length != 4) {
             System.out.println("Error: tul" + (words.length < 4 ? "keves" : "sok")  + "parametert adtal meg.");
+            saveString += "Error: tul" + (words.length < 4 ? "keves" : "sok")  + "parametert adtal meg. \n";
             return;
         }
         /*
@@ -502,29 +510,36 @@ public class ProtoMenu {
                 BaseTile myTile = map.getTile(name);
                 if (myTile == null){
                     System.out.println("Error, ilyen nevu csempe nem letezik.");
+                    saveString += "Error, ilyen nevu csempe nem letezik. \n";
                     return;
                 }
                 switch (attribute) {
                     case "neighbours":
                         for (BaseTile bt : myTile.getNeighbours()) {
                             System.out.println(bt.getName());
+                            saveString += bt.getName() +"\n";
                         }
                         break;
                     case "hasitem":
                         System.out.println(myTile.getItem() == null ? "false" : "true");
+                        saveString += myTile.getItem() == null ? "false" : "true" + "\n";
                         break;
                     case "haswardrobe":
                         System.out.println(myTile.isWardrobe() ? "true" : "false");
+                        saveString += myTile.isWardrobe() ? "true" : "false" + "\n";
                         break;
                     case "currentanimal":
                         if (myTile.getAnimal() == null){
                             System.out.println("Error, a csempen jelenleg nincsen semmilyen allat.");
+                            saveString += "Error, a csempen jelenleg nincsen semmilyen allat. \n";
                             return;
                         }
                         System.out.println(myTile.getAnimal().getName());
+                        saveString += myTile.getAnimal().getName() + "\n";
                         break;
                     default:
                         System.out.println("Error, ilyen tulajdonsaga nincsen az entitasnak.");
+                        saveString += "Error, ilyen tulajdonsaga nincsen az entitasnak. \n";
                         return;
                 }
                 break;
@@ -532,29 +547,36 @@ public class ProtoMenu {
                 BreakableTile myTile2 = (BreakableTile) map.getTile(name);
                 if (myTile2 == null){
                     System.out.println("Error, ilyen nevu csempe nem letezik.");
+                    saveString += "Error, ilyen nevu csempe nem letezik. \n";
                     return;
                 }
                 switch (attribute) {
                     case "neighbours":
                         for (BaseTile bt : myTile2.getNeighbours()) {
                             System.out.println(bt.getName());
+                            saveString += bt.getName() + "\n";
                         }
                         break;
                     case "isbroken":
                         System.out.println(myTile2.isBroken());
+                        saveString += myTile2.isBroken() + "\n";
                         break;
                     case "currentanimal":
                         if (myTile2.getAnimal() == null){
                             System.out.println("Error, a csempen jelenleg nincsen semmilyen allat.");
+                            saveString += "Error, a csempen jelenleg nincsen semmilyen allat. \n";
                             return;
                         }
                         System.out.println(myTile2.getAnimal().getName());
+                        saveString += myTile2.getAnimal().getName() + "\n";
                         break;
                     case "currenthealth":
                         System.out.println(myTile2.getHealth());
+                        saveString += myTile2.getHealth() + "\n";
                         break;
                     default:
                         System.out.println("Error, ilyen tulajdonsaga nincsen az entitasnak.");
+                        saveString += "Error, ilyen tulajdonsaga nincsen az entitasnak. \n";
                         return;
                 }
                 break;
@@ -571,26 +593,32 @@ public class ProtoMenu {
                 }
                 else {
                     System.out.println("Error: ilyen nevu orangutan nem letezik.");
+                    saveString += "Error: ilyen nevu orangutan nem letezik. \n";
                     return;
                 }
 
                 switch (attribute) {
                     case "ontile":
                         System.out.println(o.getTile().getName());
+                        saveString += o.getTile().getName() + "\n";
                         break;
                     case "followingpandas":
                         for (Panda p : o.getCaughtPandas()) {
                             System.out.println(p.getName());
+                            saveString += p.getName() + "\n";
                         }
                         break;
                     case "controlledby":
                         System.out.println(controlledbyAI ? "ai" : "player");
+                        saveString += controlledbyAI ? "ai" : "player" + "\n";
                         break;
                     case "points":
                         System.out.println(map.getGameLogic().getPoints());
+                        saveString += map.getGameLogic().getPoints() + "\n";
                         break;
                     default:
                         System.out.println("Error, ilyen tulajdonsaga nincsen az entitasnak.");
+                        saveString += "Error, ilyen tulajdonsaga nincsen az entitasnak. \n";
                         return;
                 }
                 break;
@@ -605,21 +633,26 @@ public class ProtoMenu {
                 --i;
                 if (!found) {
                     System.out.println("Error, ilyen nevu allat nem letezik.");
+                    saveString += "Error, ilyen nevu allat nem letezik. \n";
                     return;
                 }
                 Panda myPanda = (Panda) map.getGameLogic().getPandasOnTheMap().get(i);
                 switch (attribute) {
                     case "ontile":
                         System.out.println(myPanda.getTile().getName());
+                        saveString += myPanda.getTile().getName() + "\n";
                         break;
                     case "iscaught":
                         System.out.println(myPanda.caught);
+                        saveString += myPanda.caught + "\n";
                         break;
                     case "attribute":
                         System.out.println(myPanda.getType());
+                        saveString += myPanda.getType() + "\n";
                         break;
                     default:
                         System.out.println("Error, ilyen tulajdonsaga nincsen az entitasnak.");
+                        saveString += "Error, ilyen tulajdonsaga nincsen az entitasnak. \n";
                         return;
                 }
                 break;
@@ -627,39 +660,48 @@ public class ProtoMenu {
                 BaseTile myTile3 = map.getTile(name);
                 if (myTile3 == null){
                     System.out.println("Error, ilyen nevu csempe nem letezik.");
+                    saveString += "Error, ilyen nevu csempe nem letezik. \n";
                     return;
                 }
                 Item myItem = myTile3.getItem();
                 if (myItem == null) {
                     System.out.println("Error, ezen a csempen nincsen semmilyen targy.");
+                    saveString += "Error, ezen a csempen nincsen semmilyen targy. \n";
                     return;
                 }
                 switch (attribute) {
                     case "ontile":
                         System.out.println(map.getTile(name).getName());
+                        saveString += map.getTile(name).getName() + "\n";
                         break;
                     case "type":
                         System.out.println(myItem.getType());
+                        saveString += myItem.getType() + "\n";
                         break;
                     case "istaken":
                         if (myItem.getType().equals("couch")) {
                             Couch myCouch = (Couch) myItem;
                             if (myCouch.getActualAnimal() == null){
                                 System.out.println("Error, a csempen jelenleg nincsen semmilyen allat.");
+                                saveString += "Error, a csempen jelenleg nincsen semmilyen allat. \n";
                                 return;
                             }
                             System.out.println(myCouch.getActualAnimal().getName());
+                            saveString += myCouch.getActualAnimal().getName() + "\n";
                         }
                         else {
                             System.out.println("Error, ezen a csempen nem kanape van.");
+                            saveString += "Error, ezen a csempen nem kanape van. \n";
                             return;
                         }
                         break;
                     case "valueofcountdown":
                         System.out.println(myItem.Counter);
+                        saveString += myItem.Counter + "\n";
                         break;
                     default:
                         System.out.println("Error, ilyen tulajdonsaga nincsen az entitasnak.");
+                        saveString += "Error, ilyen tulajdonsaga nincsen az entitasnak. \n";
                         return;
                 }
                 break;
@@ -667,27 +709,33 @@ public class ProtoMenu {
                 BaseTile myTile4 = map.getTile(name);
                 if (myTile4 == null){
                     System.out.println("Error, ilyen nevu csempe nem letezik.");
+                    saveString += "Error, ilyen nevu csempe nem letezik. \n";
                     return;
                 }
                 EntryWardrobe myEntryWardrobe = (EntryWardrobe) myTile4;
                 if (myEntryWardrobe == null) {
                     System.out.println("Error, ezen a csempen nincsen semmilyen targy.");
+                    saveString += "Error, ezen a csempen nincsen semmilyen targy. \n";
                     return;
                 }
                 switch (attribute) {
                     case "ontile":
                         System.out.println(map.getTile(name).getName());
+                        saveString += map.getTile(name).getName() + "\n";
                         break;
                     case "destinationtile":
                         System.out.println(myEntryWardrobe.getDestination().getName());
+                        saveString += myEntryWardrobe.getDestination().getName() + "\n";
                         break;
                     default:
                         System.out.println("Error, ilyen tulajdonsaga nincsen az entitasnak.");
+                        saveString += "Error, ilyen tulajdonsaga nincsen az entitasnak. \n";
                         return;
                 }
                 break;
             default:
                 System.out.println("Error, ilyen entitastipus nem letezik.");
+                saveString += "Error, ilyen entitastipus nem letezik. \n";
                 return;
         }
     }
@@ -697,12 +745,25 @@ public class ProtoMenu {
      */
     private void save() {
         if (words.length != 2) {
-            System.out.println("Error");
-            return;
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("HH-mm-ss");
+            String newWords[] = new String[2];
+            newWords[0] = words[0];
+            newWords[1] = sdf.format(cal.getTime()) + ".txt";
+            words = newWords;
         }
-        else{
-            
+        try {
+            String out[] = saveString.split("\n");
+            PrintWriter pw = new PrintWriter(new FileWriter(words[1]));
+            for (int i = 0; i < out.length; ++i) {
+                pw.println(out[i]);
+            }
+            pw.close();
+            System.out.println("Sikeres mentés, a file neve: " + words[1]);
         }
+        catch (IOException e){
+        }
+
         /*
          * words[0] erdektelen
          * words[1] a fajl neve, pl script.txt
@@ -725,46 +786,65 @@ public class ProtoMenu {
 
         for(String i : map.map.keySet()){
             System.out.println("Attributes of "+ i +":");
+            saveString += "Attributes of "+ i +": \n";
             if(i.charAt(0) == 's' || i.charAt(0) == 't' || i.charAt(0) == 'c' || i.charAt(0) == 'a' || i.charAt(0) == 'e' || i.charAt(0) == 'w'){
                 BaseTile baseTile = map.getTile(i);
                 System.out.println("neighbours:");
+                saveString += "neighbours: \n";
                 for (BaseTile bt : baseTile.getNeighbours()) {
                     System.out.println(bt.getName());
+                    saveString += bt.getName() + "\n";
                 }
                 System.out.println("hasitem:");
+                saveString += "hasitem: \n";
                 System.out.println(baseTile.getItem() == null ? "false" : "true");
+                saveString += baseTile.getItem() == null ? "false" : "true" + "\n";
                 System.out.println("haswardrobe:");
+                saveString += "haswardrobe: \n";
                 System.out.println(baseTile.isWardrobe() ? "true" : "false");
+                saveString += baseTile.isWardrobe() ? "true" : "false" + "\n";
                 System.out.println("currentanimal:");
                 if(baseTile.getAnimal() == null){
                     System.out.println("No animal on this tile.");
+                    saveString += "No animal on this tile. \n";
                 }
                 else {
                     System.out.println(baseTile.getAnimal().getName());
+                    saveString += baseTile.getAnimal().getName() + "\n";
                 }
 
             }
             else if(i.charAt(0) == 'b'){
                 BreakableTile breakableTile = (BreakableTile) map.getTile(i);
                 System.out.println("neighbours:");
+                saveString += "neighbours: \n";
                 for (BaseTile bt : breakableTile.getNeighbours()) {
                     System.out.println(bt.getName());
+                    saveString += bt.getName() + "\n";
                 }
                 System.out.println("isbroken:");
+                saveString += "isbroken: \n";
                 System.out.println(breakableTile.isBroken());
+                saveString += breakableTile.isBroken() + "\n";
                 System.out.println("currentanimal:");
+                saveString += "currentanimal: \n";
                 if(breakableTile.getAnimal() == null){
                     System.out.println("No animal on this tile.");
+                    saveString += "No animal on this tile. \n";
                 }
                 else {
                     System.out.println(breakableTile.getAnimal().getName());
+                    saveString += breakableTile.getAnimal().getName() + "\n";
                 }
                 System.out.println("currenthealth:");
+                saveString += "currenthealth: \n";
                 System.out.println(breakableTile.getHealth());
+                saveString += breakableTile.getHealth() + "\n";
             }
 
             else{
                 System.out.println("Unknown type of tile");
+                saveString += "Unknown type of tile \n";
             }
         }
     }
@@ -779,6 +859,7 @@ public class ProtoMenu {
          * */
         clearMap = true;
         System.out.println("A teszt véget ért.");
+        saveString = "";
     }
 
     /**
@@ -788,6 +869,7 @@ public class ProtoMenu {
         System.out.println("Add meg a parancsot:");
         map.setGameLogic(new GameLogic());
         boolean run = true;
+        saveString = "";
 
         while (run) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -1,7 +1,5 @@
 import javax.swing.text.AbstractDocument;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -333,8 +331,68 @@ public class ProtoMenu {
      */
     private void script() {
         if (words.length != 2) {
-            System.out.println("Error");
+            System.out.println("Error" + (words.length > 2 ? ", túl sok paraméter!" : ", túl kevés paraméter!"));
             return;
+        }
+        else{
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(words[1]));
+                while((words = br.readLine().split(" ")).length != 0){
+                    System.out.println(words[0]);
+                    switch(words[0].toLowerCase()){
+                        case "orangutan":
+                            orangutan();
+                            break;
+                        case "panda":
+                            panda();
+                            break;
+                        case "action":
+                            action();
+                            break;
+                        case "configure":
+                            configure();
+                            break;
+                        case "step":
+                            step();
+                            break;
+                        case "random":
+                            random();
+                            break;
+                        case "release":
+                            release();
+                            break;
+                        case "script":
+                            script();
+                            break;
+                        case "stat":
+                            stat();
+                            break;
+                        case "save":
+                            save();
+                            break;
+                        case "mapstat":
+                            mapstat();
+                            break;
+                        case "endtest":
+                            endtest();
+                            break;
+                        default:
+                                System.out.println("Hibás script!");
+                                break;
+                    }
+                }
+            }
+            catch(FileNotFoundException e){
+                System.out.println("Hibás file név.");
+                return;
+            }
+            catch(IOException e){
+                System.out.println("Script hiba");
+                return;
+            }
+            catch(NullPointerException e){
+                return;
+            }
         }
         /*
          * words[0] erdektelen

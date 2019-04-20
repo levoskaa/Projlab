@@ -1,0 +1,7 @@
+random off
+panda p t4 tired
+action c1
+stat p Panda onTile
+stat c1 Couch isTaken
+stat c1 Couch currentAnimal
+stat t1 Tile currentAnimal

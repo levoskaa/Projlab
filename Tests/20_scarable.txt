@@ -1,0 +1,4 @@
+panda p t4 scareable
+sit c1
+stat p Panda onTile
+stat c1 Couch isTaken

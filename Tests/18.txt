@@ -1,0 +1,7 @@
+panda p1 t11 scareable
+panda p2 t15 jumping
+orangutan o b2 player 2 p1 p2
+ring s2
+stat o Orangutan followingPandas
+stat p1 Panda isCaught
+stat p2 Panda isCaught

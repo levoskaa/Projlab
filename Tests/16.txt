@@ -1,0 +1,7 @@
+panda p1 b1 jumping
+configure Tile b1 health 1
+action a1
+stat p1 Panda onTile
+stat b1 BreakableTile isBroken
+stat b1 BreakableTile currentAnimal
+stat b1 BreakableTile currentHealth

@@ -27,7 +27,7 @@ public class Tile extends BaseTile {
      * A fuggveny a csokiautomata sipolasan keresztul ugrasra keszteti az ugro pandakat.
      */
     public void beep() {
-        if (SkeletonMenu.indent) {
+            if (SkeletonMenu.indent) {
             GameLogic.indent(true);
             System.out.println(">   Tile::beep()");
         }

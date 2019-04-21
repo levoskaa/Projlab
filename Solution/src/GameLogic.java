@@ -61,11 +61,15 @@ public class GameLogic {
      * A fuggveny a jatek inicializalasat vegzi.
      */
     public void initGame() {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::initGame()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::initGame()");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::initGame()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::initGame()");
+        }
         running = true;
         return;
     }
@@ -110,11 +114,15 @@ public class GameLogic {
      * @return A pandakat tartalmazo lista.
      */
     public ArrayList<Panda> getPandasOnTheMap() {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::getPandasOnTheMap()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::getPandasOnTheMap()");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::getPandasOnTheMap()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::getPandasOnTheMap()");
+        }
         return pandasOnTheMap;
     }
 
@@ -122,8 +130,10 @@ public class GameLogic {
      * A jatek idoziteset elvegzo fuggveny.
      */
     public void game() {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::game()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::game()");
+        }
 
         long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
         final double amountOfTicks = 2D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
@@ -141,8 +151,10 @@ public class GameLogic {
 
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::game()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::game()");
+        }
         return;
     }
 
@@ -151,13 +163,17 @@ public class GameLogic {
      * es ez alapjan noveli a pontszamlalot.
      */
     public void addPoints(int p) {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::addPoints(int p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::addPoints(int p)");
+        }
 
         points += (p * 50);
 
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::addPoints(int p)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::addPoints(int p)");
+        }
         return;
     }
 
@@ -172,8 +188,10 @@ public class GameLogic {
      * A fuggveny befejezi a jatekot es kilep belole.
      */
     public void endGame() {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::endGame()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::endGame()");
+        }
 
         if (pandasOnTheMap.isEmpty()) {
             //  System.out.println("You caugth all pandas!");
@@ -181,9 +199,10 @@ public class GameLogic {
         } else {
             // System.out.println("You Lost!");
         }
-
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::endGame()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::endGame()");
+        }
         // System.exit(0);
         return;
     }
@@ -192,8 +211,10 @@ public class GameLogic {
      * A fuggveny az allatok lepteteset es targyak üzemeltetest latja el.
      */
     public void tick() {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::tick()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::tick()");
+        }
 
         secondOrangutan.move();
 
@@ -205,8 +226,10 @@ public class GameLogic {
             itemsOnTheMap.get(j).countDown();
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::tick()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::tick()");
+        }
         return;
     }
 
@@ -214,28 +237,47 @@ public class GameLogic {
      * Eltavolitja a halott allatot.
      */
     public void remove(Animal a) {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::remove(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::remove(Animal a)");
+        }
 
         pandasOnTheMap.remove(a);
         a = null;
 
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::remove(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::remove(Animal a)");
+        }
+
         return;
     }
 
+    /**
+     *Hozza ad egy pandat a GameLogic listajahoz,
+     * ezaltal mar ez a panda is mozgatva lesz.
+     * @param p a listahoz hozzaadni kivant panda
+     */
     public void addPanda(Panda p) {
-        GameLogic.indent(true);
-        System.out.println(">   GameLogic::addPanda(Animal a)");
+
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::addPanda(Animal a)");
+        }
 
         pandasOnTheMap.add(p);
 
-        GameLogic.indent(false);
-        System.out.println("<   GameLogic::addPanda(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::addPanda(Animal a)");
+        }
+
         return;
     }
 
+    /**
+     *GameLogic konstruktor
+     */
     public GameLogic() {
         points = 0;
         pandasOnTheMap = new ArrayList<>();

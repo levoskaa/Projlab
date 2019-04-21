@@ -451,7 +451,7 @@ public class ProtoMenu {
         }
         else{
             try {
-                BufferedReader br = new BufferedReader(new FileReader(words[1]));
+                BufferedReader br = new BufferedReader(new FileReader("../Tests/" + words[1] + ".txt"));
                 while((words = br.readLine().split(" ")).length != 0){
                     switch(words[0].toLowerCase()){
                         case "orangutan":
@@ -794,9 +794,9 @@ public class ProtoMenu {
         }
         try {
             String out[] = saveString.split("\n");
-            PrintWriter pw = new PrintWriter(new FileWriter(words[1]));
+            PrintWriter pw = new PrintWriter(new FileWriter("../Test results/" + words[1] + ".txt"));
 
-            PrintWriter writer = new PrintWriter(new FileWriter(words[1]));
+            PrintWriter writer = new PrintWriter(new FileWriter("../Test results/" + words[1] + ".txt"));
             writer.print("");
             writer.close();
 
@@ -807,7 +807,7 @@ public class ProtoMenu {
 
             saveString = "";
 
-            System.out.println("Sikeres mentés, a file neve: " + words[1]);
+            System.out.println("Sikeres mentés, a file neve: " + words[1] + ".txt");
         }
         catch (IOException e){
         }

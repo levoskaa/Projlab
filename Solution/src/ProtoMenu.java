@@ -977,6 +977,7 @@ public class ProtoMenu {
             }
             if (clearMap) {
                 map = new Map();
+                map.setGameLogic(new GameLogic());
                 clearMap = false;
             }
         }

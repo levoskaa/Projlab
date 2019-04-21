@@ -1,5 +1,5 @@
+endtest
 panda p t4 jumping
 action c1
 stat p Panda onTile
 stat c1 Item isTaken
-endtest

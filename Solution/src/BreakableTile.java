@@ -97,7 +97,7 @@ public class BreakableTile extends Tile {
         System.out.println(">   BreakableTile::decreaseHealth()");
 
         health--;
-        if (health == 0) {
+        if (health <= 0) {
             broken = true;
             localAnimal.die();
         }
@@ -118,13 +118,16 @@ public class BreakableTile extends Tile {
         //ez a sor az else agba kene legyen
         //a.getTile().remove();
 
+        a.getTile().remove();
+        localAnimal = a;
+        decreaseHealth();
+
         if (broken) {
             a.die();
+            this.remove();
+            a.setTile(null);
         } else {
-            a.getTile().remove();
-            localAnimal = a;
             localAnimal.setTile(this);
-            decreaseHealth();
         }
 
         GameLogic.indent(false);

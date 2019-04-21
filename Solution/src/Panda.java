@@ -228,11 +228,11 @@ public abstract class Panda extends Animal {
     }
 
     /**
-     * A panda tipusanak lekerdezese.
+     * Az allat / panda tipusanak lekerdezese.
      *
-     * @return A panda tipusa.
+     * @return Az allat / panda tipusa.
      */
     public String getType() {
-        return "";
+        return "panda";
     }
 }

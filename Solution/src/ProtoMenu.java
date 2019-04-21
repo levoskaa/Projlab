@@ -356,18 +356,25 @@ public class ProtoMenu {
             System.out.println("Error, ilyen nevu csempe nem letezik.");
             return;
         }
-        Animal myAnimal = map.getGameLogic().getPandasOnTheMap().get(i);
+        Animal myAnimal = null;
         if (!found) {
-            if (map.getGameLogic().getPlayerOrangutan().getName().equals(animalName)){
-                myAnimal = map.getGameLogic().getPlayerOrangutan();
+            if (map.getGameLogic().getPlayerOrangutan() != null && map.getGameLogic().getPlayerOrangutan().getName() != null){
+                if (map.getGameLogic().getPlayerOrangutan().getName().equals(animalName)){
+                    myAnimal = map.getGameLogic().getPlayerOrangutan();
+                }
             }
-            else if (map.getGameLogic().getSecondOrangutan().getName().equals(animalName)){
-                myAnimal = map.getGameLogic().getSecondOrangutan();
+            if (map.getGameLogic().getSecondOrangutan() != null && map.getGameLogic().getSecondOrangutan().getName() != null) {
+                if (map.getGameLogic().getSecondOrangutan().getName().equals(animalName)){
+                    myAnimal = map.getGameLogic().getSecondOrangutan();
+                }
             }
             else {
                 System.out.println("Error, ilyen nevu allat nem letezik.");
                 return;
             }
+        }
+        else {
+            myAnimal = map.getGameLogic().getPandasOnTheMap().get(i);
         }
         boolean isNeighbour = false;
         for (int j = 0; j < map.getTile(targetTile).getNeighbours().size() && !isNeighbour; j++){
@@ -553,8 +560,8 @@ public class ProtoMenu {
                         break;
                     case "currentanimal":
                         if (myTile.getAnimal() == null){
-                            System.out.println("Error, a csempen jelenleg nincsen semmilyen allat.");
-                            saveString += "Error, a csempen jelenleg nincsen semmilyen allat. \n";
+                            System.out.println("null");
+                            saveString += "null \n";
                             return;
                         }
                         System.out.println(myTile.getAnimal().getName());
@@ -586,8 +593,8 @@ public class ProtoMenu {
                         break;
                     case "currentanimal":
                         if (myTile2.getAnimal() == null){
-                            System.out.println("Error, a csempen jelenleg nincsen semmilyen allat.");
-                            saveString += "Error, a csempen jelenleg nincsen semmilyen allat. \n";
+                            System.out.println("null");
+                            saveString += "null \n";
                             return;
                         }
                         System.out.println(myTile2.getAnimal().getName());
@@ -606,11 +613,11 @@ public class ProtoMenu {
             case "orangutan":
                 Orangutan o;
                 boolean controlledbyAI;
-                if (map.getGameLogic().getSecondOrangutan().getName().equals(name)){
-                    o = map.getGameLogic().getSecondOrangutan();
-                    controlledbyAI = true;
+                if (map.getGameLogic().getSecondOrangutan() != null && map.getGameLogic().getSecondOrangutan().getName() != null && map.getGameLogic().getSecondOrangutan().getName().equals(name)) {
+                     o = map.getGameLogic().getSecondOrangutan();
+                     controlledbyAI = true;
                 }
-                else if (map.getGameLogic().getPlayerOrangutan().getName().equals(name)){
+                else if (map.getGameLogic().getPlayerOrangutan() != null && map.getGameLogic().getPlayerOrangutan().getName() != null && map.getGameLogic().getPlayerOrangutan().getName().equals(name)) {
                     o = map.getGameLogic().getPlayerOrangutan();
                     controlledbyAI = false;
                 }
@@ -622,6 +629,11 @@ public class ProtoMenu {
 
                 switch (attribute) {
                     case "ontile":
+                        if (o.getTile() == null) {
+                            System.out.println("null");
+                            saveString += "null \n";
+                            return;
+                        }
                         System.out.println(o.getTile().getName());
                         saveString += o.getTile().getName() + "\n";
                         break;
@@ -629,6 +641,10 @@ public class ProtoMenu {
                         for (Panda p : o.getCaughtPandas()) {
                             System.out.println(p.getName());
                             saveString += p.getName() + "\n";
+                        }
+                        if (o.getCaughtPandas().size() <= 0){
+                            System.out.println("null");
+                            saveString += "null \n";
                         }
                         break;
                     case "controlledby":
@@ -655,8 +671,8 @@ public class ProtoMenu {
                 }
                 --i;
                 if (!found) {
-                    System.out.println("Error, ilyen nevu allat nem letezik.");
-                    saveString += "Error, ilyen nevu allat nem letezik. \n";
+                    System.out.println("null");
+                    saveString += "null \n";
                     return;
                 }
                 Panda myPanda = (Panda) map.getGameLogic().getPandasOnTheMap().get(i);
@@ -778,10 +794,18 @@ public class ProtoMenu {
         try {
             String out[] = saveString.split("\n");
             PrintWriter pw = new PrintWriter(new FileWriter(words[1]));
+
+            PrintWriter writer = new PrintWriter(new FileWriter(words[1]));
+            writer.print("");
+            writer.close();
+
             for (int i = 0; i < out.length; ++i) {
                 pw.println(out[i]);
             }
             pw.close();
+
+            saveString = "";
+
             System.out.println("Sikeres mentés, a file neve: " + words[1]);
         }
         catch (IOException e){

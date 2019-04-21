@@ -56,11 +56,20 @@ public abstract class BaseTile {
         GameLogic.indent(true);
         System.out.println(">   BaseTile::receive(Animal a)");
 
+        BaseTile tempTile = a.getTile();
         a.getTile().remove();
 
         if (localAnimal == null) {
             localAnimal = a;
             localAnimal.setTile(this);
+            ArrayList<Panda> a1 = localAnimal.getCaughtPandas();
+            if (a1 != null) {
+                for (int i = 0; i < a1.size(); i++) {
+                    BaseTile tempTile2 = a1.get(i).getTile();
+                    tempTile.receive(a1.get(i));
+                    tempTile = tempTile2;
+                }
+            }
         } else {
             localAnimal.collideWith(a);
         }

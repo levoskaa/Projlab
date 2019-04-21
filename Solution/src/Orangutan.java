@@ -349,4 +349,13 @@ public class Orangutan extends Animal {
         return 0;
     }*/
     //------------------------------------------
+
+    /**
+     * Az allat / orangutan tipusanak lekerdezese.
+     *
+     * @return Az allat / orangutan tipusa.
+     */
+    public String getType() {
+        return "orangutan";
+    }
 }

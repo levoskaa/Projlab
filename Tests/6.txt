@@ -1,0 +1,8 @@
+orangutan o1 t10 ai 0
+configure Tile b1 health 1
+configure Tile b1 isBroken false
+step o1 b1
+stat o1 orangutan onTile
+stat t10 tile currentAnimal
+stat b1 BreakableTile isBroken
+stat b1 BreakableTile currentAnimal

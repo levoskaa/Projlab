@@ -141,6 +141,10 @@ public abstract class Animal {
         return name;
     }
 
+    public String getType() {
+        return "";
+    }
+
     public void setName(String n) {
         name = n;
     }

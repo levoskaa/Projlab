@@ -60,13 +60,26 @@ public class ExitPoint extends EntryWardrobe {
 
         // TODO itt ezt átgondolni
 
-        startingTile.receive(a);
-        int i = 0;
-        for (Panda p : a.getCaughtPandas()) {
-            gameLogic.remove(p);
-            ++i;
+        if (a.getType().equals("orangutan")){
+            startingTile.receive(a);
+            int i = 0;
+            for (Panda p : a.getCaughtPandas()) {
+                gameLogic.remove(p);
+                ++i;
+            }
+            gameLogic.addPoints(i);
         }
-        gameLogic.addPoints(i);
+        else {
+            a.getTile().remove();
+
+            if (localAnimal == null) {
+                localAnimal = a;
+                localAnimal.setTile(this);
+            } else {
+                localAnimal.collideWith(a);
+            }
+        }
+
 
         GameLogic.indent(false);
         System.out.println("<   ExitPoint::receive(Animal a)");

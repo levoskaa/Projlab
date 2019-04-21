@@ -1,0 +1,8 @@
+panda p1 t10 tired
+configure Tile b2 health 0
+configure Tile b2 isBroken true
+step p1 b2
+stat p1 panda onTile
+stat t10 tile currentAnimal
+stat b2 BreakableTile isBroken
+stat b2 BreakableTile currentAnimal

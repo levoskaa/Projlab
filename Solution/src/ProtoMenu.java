@@ -561,7 +561,7 @@ public class ProtoMenu {
                     case "currentanimal":
                         if (myTile.getAnimal() == null){
                             System.out.println("null");
-                            saveString += "null \n";
+                            saveString += "null\n";
                             return;
                         }
                         System.out.println(myTile.getAnimal().getName());
@@ -594,7 +594,7 @@ public class ProtoMenu {
                     case "currentanimal":
                         if (myTile2.getAnimal() == null){
                             System.out.println("null");
-                            saveString += "null \n";
+                            saveString += "null\n";
                             return;
                         }
                         System.out.println(myTile2.getAnimal().getName());
@@ -631,7 +631,7 @@ public class ProtoMenu {
                     case "ontile":
                         if (o.getTile() == null) {
                             System.out.println("null");
-                            saveString += "null \n";
+                            saveString += "null\n";
                             return;
                         }
                         System.out.println(o.getTile().getName());
@@ -644,7 +644,7 @@ public class ProtoMenu {
                         }
                         if (o.getCaughtPandas().size() <= 0){
                             System.out.println("null");
-                            saveString += "null \n";
+                            saveString += "null\n";
                         }
                         break;
                     case "controlledby":
@@ -672,7 +672,7 @@ public class ProtoMenu {
                 --i;
                 if (!found) {
                     System.out.println("null");
-                    saveString += "null \n";
+                    saveString += "null\n";
                     return;
                 }
                 Panda myPanda = (Panda) map.getGameLogic().getPandasOnTheMap().get(i);

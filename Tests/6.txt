@@ -1,3 +1,4 @@
+endtest
 orangutan o1 t10 ai 0
 configure Tile b1 health 1
 configure Tile b1 isBroken false

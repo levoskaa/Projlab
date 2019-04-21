@@ -1,3 +1,4 @@
+endtest
 panda p2 t15 tired
 orangutan o1 t7 player 0
 step p2 e

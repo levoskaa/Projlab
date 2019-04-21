@@ -1,0 +1,11 @@
+panda p1 t13 jumping
+panda p2 t12 tired
+panda p3 t15 tired
+orangutan o1 t14 player 3 p3 p2 p1
+step o1 e
+stat o1 Orangutan points
+stat o1 Orangutan followingPandas
+stat o1 Orangutan onTile
+stat p1 Panda onTile
+stat p2 Panda onTile
+stat p3 Panda onTile

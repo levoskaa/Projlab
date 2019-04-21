@@ -1,0 +1,14 @@
+panda p1 t1 tired 
+panda p2 t2 jumping
+orangutan o1 t8 player 2 p2 p1
+step o1 w2
+step o1 t14
+stat t1 Tile currentAnimal
+stat t2 Tile currentAnimal
+stat t8 Tile currentAnimal
+stat w2 Tile currentAnimal
+stat t15 Tile currentAnimal
+stat t14 Tile currentAnimal
+stat o1 Orangutan followingPandas
+stat p1 Panda isCaught
+stat p2 Panda isCaught

@@ -1,0 +1,6 @@
+orangutan o1 t8 player 0
+step o1 w2
+stat o1 Orangutan onTile
+stat t8 Tile currentAnimal
+stat w2 Tile currentAnimal
+stat t15 Tile currentAnimal

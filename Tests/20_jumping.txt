@@ -1,4 +1,5 @@
 panda p t4 jumping
-sit c1
+action c1
 stat p Panda onTile
-stat c1 Couch isTaken
+stat c1 Item isTaken
+endtest

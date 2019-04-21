@@ -105,6 +105,11 @@ public abstract class BaseTile {
         return;
     }
 
+    public void sitAnimal(Tile t) {
+        if (localAnimal != null)
+            localAnimal.sit(t);
+    }
+
     public void setAnimal(Animal a) {
     }
 

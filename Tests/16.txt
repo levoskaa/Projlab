@@ -5,3 +5,4 @@ stat p1 Panda onTile
 stat b1 BreakableTile isBroken
 stat b1 BreakableTile currentAnimal
 stat b1 BreakableTile currentHealth
+endtest

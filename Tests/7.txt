@@ -6,3 +6,4 @@ stat p1 panda onTile
 stat t10 tile currentAnimal
 stat b2 BreakableTile isBroken
 stat b2 BreakableTile currentAnimal
+endtest

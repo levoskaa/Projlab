@@ -233,7 +233,7 @@ public class ProtoMenu {
      */
     private void action() {
         if (words.length != 2) {
-            System.out.println("Error");
+            System.out.println("Error, nincs eleg parameter.");
             return;
         }
         /*
@@ -721,12 +721,13 @@ public class ProtoMenu {
                         if (myItem.getType().equals("couch")) {
                             Couch myCouch = (Couch) myItem;
                             if (myCouch.getActualAnimal() == null){
-                                System.out.println("Error, a csempen jelenleg nincsen semmilyen allat.");
-                                saveString += "Error, a csempen jelenleg nincsen semmilyen allat. \n";
+                                System.out.println("A csempen jelenleg nincsen semmilyen allat.");
+                                saveString += "false \n";
                                 return;
+                            } else {
+                                System.out.println(myCouch.getActualAnimal().getName());
+                                saveString += myCouch.getActualAnimal().getName() + "\n";
                             }
-                            System.out.println(myCouch.getActualAnimal().getName());
-                            saveString += myCouch.getActualAnimal().getName() + "\n";
                         }
                         else {
                             System.out.println("Error, ezen a csempen nem kanape van.");

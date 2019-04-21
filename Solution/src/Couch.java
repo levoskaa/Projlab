@@ -30,7 +30,7 @@ public class Couch extends Item {
         GameLogic.indent(true);
         System.out.println(">   Couch::countDown()");
 
-        onTile.tire(onTile);
+        onTile.tire();
 
         GameLogic.indent(false);
         System.out.println("<   Couch::countDown()");

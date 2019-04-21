@@ -62,16 +62,16 @@ public class Tile extends BaseTile {
 
     /**
      * A fuggveny teszi lehetove a faradt pandak leulteteset egy fotelre.
-     *
-     * @param t A kanape helye amelyre a faradekony panda leulhet.
      */
-    public void tire(Tile t) {
+    public void tire() {
         if (SkeletonMenu.indent) {
             GameLogic.indent(true);
             System.out.println(">   Tile::tire(Tile t)");
         }
 
-        localAnimal.sit(t);
+        for (BaseTile bt : neighbours) {
+            bt.sitAnimal(this);
+        }
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);

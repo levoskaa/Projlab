@@ -32,11 +32,15 @@ public class BreakableTile extends Tile {
      * @return A health valtozo, azaz a csempe elete.
      */
     public int getHealth() {
-        GameLogic.indent(true);
-        System.out.println(">   BreakableTile::getHealth()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   BreakableTile::getHealth()");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   BreakableTile::getHealth()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   BreakableTile::getHealth()");
+        }
         return health;
     }
 
@@ -46,11 +50,15 @@ public class BreakableTile extends Tile {
      * @return A broken valtozo, azaz, hogy torott e a csempe.
      */
     public boolean isBroken() {
-        GameLogic.indent(true);
-        System.out.println(">   BreakableTile::isBroken()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   BreakableTile::isBroken()");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   BreakableTile::isBroken()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   BreakableTile::isBroken()");
+        }
         return broken;
     }
 
@@ -61,13 +69,17 @@ public class BreakableTile extends Tile {
      */
     @Override
     public void setHealth(int newHealth) {
-        GameLogic.indent(true);
-        System.out.println(">   BreakableTile::setHealth(int newHealth)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   BreakableTile::setHealth(int newHealth)");
+        }
 
         health = newHealth;
 
-        GameLogic.indent(false);
-        System.out.println("<   BreakableTile::setHealth(int newHealth)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   BreakableTile::setHealth(int newHealth)");
+        }
 
     }
 
@@ -77,13 +89,17 @@ public class BreakableTile extends Tile {
      * @param newBroken A broken valtozo uj erteke.
      */
     public void setBroken(boolean newBroken) {
-        GameLogic.indent(true);
-        System.out.println(">   BreakableTile::setBroken(boolean newBroken)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   BreakableTile::setBroken(boolean newBroken)");
+        }
 
         broken = newBroken;
 
-        GameLogic.indent(false);
-        System.out.println("<   BreakableTile::setBroken(boolean newBroken)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   BreakableTile::setBroken(boolean newBroken)");
+        }
         return;
 
     }
@@ -93,16 +109,21 @@ public class BreakableTile extends Tile {
      */
     @Override
     public void decreaseHealth() {
-        GameLogic.indent(true);
-        System.out.println(">   BreakableTile::decreaseHealth()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   BreakableTile::decreaseHealth()");
+        }
 
         health--;
         if (health <= 0) {
             broken = true;
             localAnimal.die();
         }
-        GameLogic.indent(false);
-        System.out.println("<   BreakableTile::decreaseHealth()");
+
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   BreakableTile::decreaseHealth()");
+        }
         return;
     }
 
@@ -112,8 +133,10 @@ public class BreakableTile extends Tile {
      * @param a Az allat, amely a csempere akar lepni.
      */
     public void receive(Animal a) {
-        GameLogic.indent(true);
-        System.out.println(">   BreakableTile::receive (Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   BreakableTile::receive (Animal a)");
+        }
 
         //ez a sor az else agba kene legyen
         //a.getTile().remove();
@@ -130,8 +153,10 @@ public class BreakableTile extends Tile {
             localAnimal.setTile(this);
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   BreakableTile::receive (Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   BreakableTile::receive (Animal a)");
+        }
         return;
     }
 }

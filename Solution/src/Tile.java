@@ -27,13 +27,17 @@ public class Tile extends BaseTile {
      * A fuggveny a csokiautomata sipolasan keresztul ugrasra keszteti az ugro pandakat.
      */
     public void beep() {
-        GameLogic.indent(true);
-        System.out.println(">   Tile::beep()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Tile::beep()");
+        }
 
         localAnimal.jump();
 
-        GameLogic.indent(false);
-        System.out.println("<   Tile::beep()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Tile::beep()");
+        }
         return;
     }
 
@@ -42,13 +46,17 @@ public class Tile extends BaseTile {
      * kezenek elengedesere keszteti az ijedos pandakat.
      */
     public void ring() {
-        GameLogic.indent(true);
-        System.out.println(">   Tile::ring()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Tile::ring()");
+        }
 
         localAnimal.scare();
 
-        GameLogic.indent(false);
-        System.out.println("<   Tile::ring()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Tile::ring()");
+        }
         return;
     }
 
@@ -58,13 +66,17 @@ public class Tile extends BaseTile {
      * @param t A kanape helye amelyre a faradekony panda leulhet.
      */
     public void tire(Tile t) {
-        GameLogic.indent(true);
-        System.out.println(">   Tile::tire(Tile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Tile::tire(Tile t)");
+        }
 
         localAnimal.sit(t);
 
-        GameLogic.indent(false);
-        System.out.println("<   Tile::tire(Tile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Tile::tire(Tile t)");
+        }
         return;
     }
 
@@ -74,13 +86,17 @@ public class Tile extends BaseTile {
      * @param i A targy amelyet a csempere helyezunk.
      */
     public void setItem(Item i) {
-        GameLogic.indent(true);
-        System.out.println(">   Tile::setItem(Item i)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Tile::setItem(Item i)");
+        }
 
         localItem = i;
 
-        GameLogic.indent(false);
-        System.out.println("<   Tile::setItem(Item i)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Tile::setItem(Item i)");
+        }
         return;
     }
 
@@ -91,11 +107,15 @@ public class Tile extends BaseTile {
      * @return A targy ami a csempen van.
      */
     public Item getItem() {
-        GameLogic.indent(true);
-        System.out.println(">   Tile::getItem()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Tile::getItem()");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   Tile::getItem()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Tile::getItem()");
+        }
         return localItem;
     }
 
@@ -105,13 +125,17 @@ public class Tile extends BaseTile {
      * @param a Az allat amelyet a csempere helyezunk.
      */
     public void setAnimal(Animal a) {
-        GameLogic.indent(true);
-        System.out.println(">   Tile::setAnimal(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   Tile::setAnimal(Animal a)");
+        }
 
         localAnimal = a;
 
-        GameLogic.indent(false);
-        System.out.println("<   Tile::setAnimal(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   Tile::setAnimal(Animal a)");
+        }
         return;
     }
 }

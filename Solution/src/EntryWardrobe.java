@@ -28,13 +28,17 @@ public class EntryWardrobe extends BaseTile {
      * @param t A kimeneti szekreny.
      */
     public void setDestination(BaseTile t) {
-        GameLogic.indent(true);
-        System.out.println(">   EntryWardrobe::setDestination(Tile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   EntryWardrobe::setDestination(Tile t)");
+        }
 
         destination = t;
 
-        GameLogic.indent(false);
-        System.out.println("<   EntryWardrobe::setDestination(Tile t)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   EntryWardrobe::setDestination(Tile t)");
+        }
         return;
     }
 
@@ -44,11 +48,15 @@ public class EntryWardrobe extends BaseTile {
      * @return A kimeneti szekreny.
      */
     public BaseTile getDestination() {
-        GameLogic.indent(true);
-        System.out.println(">   EntryWardrobe::getDestination()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   EntryWardrobe::getDestination()");
+        }
 
-        GameLogic.indent(false);
-        System.out.println("<   EntryWardrobe::getDestination()");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   EntryWardrobe::getDestination()");
+        }
         return destination;
     }
 
@@ -58,13 +66,17 @@ public class EntryWardrobe extends BaseTile {
      * @param a Az allat, amely a szekrenyre akar lepni.
      */
     public void receive(Animal a) {
-        GameLogic.indent(true);
-        System.out.println(">   EntryWardrobe::receive(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   EntryWardrobe::receive(Animal a)");
+        }
 
         destination.receive(a);
 
-        GameLogic.indent(false);
-        System.out.println("<   EntryWardrobe::receive(Animal a)");
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   EntryWardrobe::receive(Animal a)");
+        }
         return;
     }
 

@@ -363,7 +363,7 @@ public class ProtoMenu {
                     myAnimal = map.getGameLogic().getPlayerOrangutan();
                 }
             }
-            if (map.getGameLogic().getSecondOrangutan() != null && map.getGameLogic().getSecondOrangutan().getName() != null) {
+            else if (map.getGameLogic().getSecondOrangutan() != null && map.getGameLogic().getSecondOrangutan().getName() != null) {
                 if (map.getGameLogic().getSecondOrangutan().getName().equals(animalName)){
                     myAnimal = map.getGameLogic().getSecondOrangutan();
                 }

@@ -27,13 +27,13 @@ public class Couch extends Item {
      */
     @Override
     public void countDown() {
-        GameLogic.indent(true);
-        System.out.println(">   Couch::countDown()");
+        //GameLogic.indent(true);
+        //System.out.println(">   Couch::countDown()");
 
         onTile.tire();
 
-        GameLogic.indent(false);
-        System.out.println("<   Couch::countDown()");
+        //GameLogic.indent(false);
+        //System.out.println("<   Couch::countDown()");
         return;
     }
 
@@ -49,8 +49,8 @@ public class Couch extends Item {
      */
 
     public void receive(TiredPanda p) {
-        GameLogic.indent(true);
-        System.out.println(">   Couch::receive(Panda p)");
+        //GameLogic.indent(true);
+        //System.out.println(">   Couch::receive(Panda p)");
 
         if (restingPanda == null) {
             restingPanda = p;
@@ -62,8 +62,8 @@ public class Couch extends Item {
             onTile.setAnimal(restingPanda);
         }
 
-        GameLogic.indent(false);
-        System.out.println("<   Couch::receive(Panda p)");
+        //GameLogic.indent(false);
+        //System.out.println("<   Couch::receive(Panda p)");
         return;
     }
 
@@ -73,12 +73,12 @@ public class Couch extends Item {
      * @param t A csempe, amelyiken a kanape talalhato.
      */
     public Couch(Tile t) {
-        GameLogic.indent(true);
-        System.out.println(">   Couch::Couch(Tile t)");
+        //GameLogic.indent(true);
+        //System.out.println(">   Couch::Couch(Tile t)");
         onTile = t;
         restingPanda = null;
-        GameLogic.indent(false);
-        System.out.println("<   Couch::Couch(Tile t)");
+        //GameLogic.indent(false);
+        //System.out.println("<   Couch::Couch(Tile t)");
         onTile = t;
         restingPanda = null;
     }
@@ -88,14 +88,14 @@ public class Couch extends Item {
      */
     @Override
     public void standUp() {
-        GameLogic.indent(true);
-        System.out.println(">   Couch::standUp()");
+        //GameLogic.indent(true);
+        //System.out.println(">   Couch::standUp()");
 
         restingPanda = null;
         restingPanda.setResting(false);
 
-        GameLogic.indent(false);
-        System.out.println("<   Couch::standUp()");
+        //GameLogic.indent(false);
+        //System.out.println("<   Couch::standUp()");
         return;
     }
 

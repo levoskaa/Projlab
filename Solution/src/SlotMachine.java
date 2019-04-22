@@ -25,8 +25,8 @@ public class SlotMachine extends Item {
      */
     @Override
     public void countDown() {
-        GameLogic.indent(true);
-        System.out.println(">   SlotMachine::countDown()");
+        //GameLogic.indent(true);
+        //System.out.println(">   SlotMachine::countDown()");
         int rn;
         --Counter;
         if (Counter <= 0) {
@@ -40,8 +40,8 @@ public class SlotMachine extends Item {
 
             Counter = rn;
         }
-        GameLogic.indent(false);
-        System.out.println("<   SlotMachine::countDown()");
+        //GameLogic.indent(false);
+        //System.out.println("<   SlotMachine::countDown()");
         return;
     }
 
@@ -61,15 +61,15 @@ public class SlotMachine extends Item {
      * @param t A csempe, amelyiken a jatekgep talalhato.
      */
     public SlotMachine(Tile t) {
-        GameLogic.indent(true);
-        System.out.println(">   SlotMachine::SlotMachine(Tile t)");
+        //GameLogic.indent(true);
+        //System.out.println(">   SlotMachine::SlotMachine(Tile t)");
 
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
         //Counter = rn;
         Counter = 1;
-        GameLogic.indent(false);
-        System.out.println("<   SlotMachine::SlotMachine(Tile t)");
+        //GameLogic.indent(false);
+        //System.out.println("<   SlotMachine::SlotMachine(Tile t)");
     }
 
     /**

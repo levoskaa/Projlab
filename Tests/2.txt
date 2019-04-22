@@ -1,0 +1,8 @@
+endtest
+configure Tile b2 health 0
+configure Tile b2 isBroken true
+orangutan o1 t11 player 0
+step o1 b2
+stat t11 Tile currentAnimal
+stat b2 BreakableTile currentAnimal
+stat o1 Orangutan onTile

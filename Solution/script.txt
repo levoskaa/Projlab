@@ -5,7 +5,7 @@ stat t2 Tile currentAnimal
 stat o1 Orangutan onTile
 endtest
 configure Tile b2 health 0
-configure Tile b2 broken true
+configure Tile b2 isBroken true
 orangutan o1 t11 player 0
 step o1 b2
 stat t11 Tile currentAnimal
@@ -22,7 +22,7 @@ stat p1 Panda onTile
 stat o1 Orangutan followingPandas
 stat p1 Panda isCaught
 endtest
-panda p1 t1 scareable
+panda p1 t1 scarable
 panda p2 t2 jumping
 orangutan o1 t3 player 2 p1 p2
 release o1

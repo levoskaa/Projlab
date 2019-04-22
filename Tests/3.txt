@@ -1,0 +1,10 @@
+endtest
+orangutan o1 t1 ai 0
+panda p1 t2 jumping
+step o1 t2
+stat t1 Tile currentAnimal
+stat t2 Tile currentAnimal
+stat o1 Orangutan onTile
+stat p1 Panda onTile
+stat o1 Orangutan followingPandas
+stat p1 Panda isCaught

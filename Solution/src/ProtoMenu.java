@@ -638,13 +638,15 @@ public class ProtoMenu {
                         saveString += o.getTile().getName() + "\n";
                         break;
                     case "followingpandas":
-                        for (Panda p : o.getCaughtPandas()) {
-                            System.out.println(p.getName());
-                            saveString += p.getName() + "\n";
-                        }
                         if (o.getCaughtPandas().size() <= 0){
                             System.out.println("null");
                             saveString += "null\n";
+                        }
+                        else {
+                            for (Panda p : o.getCaughtPandas()) {
+                                System.out.println(p.getName());
+                                saveString += p.getName() + "\n";
+                            }
                         }
                         break;
                     case "controlledby":

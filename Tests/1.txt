@@ -1,0 +1,6 @@
+endtest
+orangutan o1 t1 player 0
+step o1 t2
+stat t1 Tile currentAnimal
+stat t2 Tile currentAnimal
+stat o1 Orangutan onTile

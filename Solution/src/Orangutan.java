@@ -150,7 +150,8 @@ public class Orangutan extends Animal {
 
         // Pandak atadasa a rablo orangutannak.
         caughtPandas = o.getCaughtPandas();
-        o.setCaughtPandas(null);
+        ArrayList<Panda> nullList = new ArrayList<>();
+        o.setCaughtPandas(nullList);
         // A feladat szerint 3 korig nem foghat/rabolhat pandat ez az orangutan.
         o.setCantCatchPandasUntil(3);
         // Az elrabolt pandaknak az oket vezeto orangutan atallitasa a rablo orangutanra.

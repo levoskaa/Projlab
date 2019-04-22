@@ -1,3 +1,4 @@
+endtest
 panda p1 t5 jumping
 step p1 w1
 stat p1 Panda onTile

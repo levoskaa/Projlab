@@ -1,3 +1,4 @@
+endtest
 panda p1 b1 jumping
 configure Tile b1 health 20
 action a1

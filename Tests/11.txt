@@ -1,3 +1,4 @@
+endtest
 panda p1 t13 jumping
 panda p2 t12 tired
 panda p3 t15 tired

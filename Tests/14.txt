@@ -1,3 +1,4 @@
+endtest
 panda p1 t1 tired 
 panda p2 t2 jumping
 orangutan o1 t8 player 2 p2 p1

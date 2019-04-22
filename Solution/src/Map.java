@@ -391,7 +391,9 @@ public class Map {
 
         //set exitPoint
         map.get("e").setName("e");
-        map.get("e").setDestination(map.get("st"));
+        //map.get("e").setDestination(map.get("st"));
+        map.get("e").setStartingTile((Tile)map.get("st"));
+        map.get("e").setGameLogic(gL);
 
         ArrayList<BaseTile> eNeighbours = new ArrayList<>();
         eNeighbours.add(map.get("t15"));

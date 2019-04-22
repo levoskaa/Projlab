@@ -141,6 +141,8 @@ public abstract class BaseTile {
     public void setDestination(BaseTile t) {
     }
 
+    public void setStartingTile(Tile sT) {}
+
     public void ring() {
     }
 
@@ -177,4 +179,6 @@ public abstract class BaseTile {
     public boolean isWardrobe() {
         return false;
     }
+
+    public void setGameLogic(GameLogic gameLogic){}
 }

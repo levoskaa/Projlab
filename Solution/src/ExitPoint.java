@@ -33,7 +33,7 @@ public class ExitPoint extends EntryWardrobe {
      *
      * @param sT a kezdo csempere vonatkozo referencia.
      */
-    void setStartingTile(Tile sT) {
+    public void setStartingTile(Tile sT) {
         if (SkeletonMenu.indent) {
             GameLogic.indent(true);
             System.out.println(">   ExitPoint::setStartingTile(Tile sT)");

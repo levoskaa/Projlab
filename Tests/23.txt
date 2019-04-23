@@ -1,0 +1,10 @@
+endtest
+random off
+panda p1 t4 tired
+action c1
+panda p2 t4 tired
+action c1
+stat p2 panda onTile
+stat c1 Couch isTaken
+stat c1 Couch currentAnimal
+stat t4 Tile currentAnimal

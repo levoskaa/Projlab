@@ -1,0 +1,6 @@
+endtest
+panda p1 t11 tired 
+step p1 t15
+action a4
+stat p1 panda onTile
+stat t15 tile currentAnimal

@@ -1,0 +1,6 @@
+endtest
+orangutan o1 t11 tired 
+step o1 t15
+action a4
+stat o1 orangutan onTile
+stat t15 tile currentAnimal

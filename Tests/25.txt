@@ -1,0 +1,5 @@
+endtest
+panda p1 t3 jumping
+configure Tile b3 health 0
+configure Tile b3 isBroken true
+step p1 b3

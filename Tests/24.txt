@@ -1,0 +1,5 @@
+endtest
+orangutan o t3 player 0
+configure Tile b3 health 0
+configure Tile b3 isBroken true
+step o b3

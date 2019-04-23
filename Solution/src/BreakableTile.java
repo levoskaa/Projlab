@@ -142,15 +142,14 @@ public class BreakableTile extends Tile {
         //a.getTile().remove();
 
         a.getTile().remove();
-        localAnimal = a;
-        decreaseHealth();
 
-        if (broken) {
-            a.die();
-            this.remove();
-            a.setTile(null);
-        } else {
+        if(!broken){
+            localAnimal = a;
             localAnimal.setTile(this);
+            decreaseHealth();
+        }
+        else{
+            a.die();
         }
 
         if (SkeletonMenu.indent) {

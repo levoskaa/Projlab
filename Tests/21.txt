@@ -1,5 +1,5 @@
 endtest
-orangutan o1 t11 tired 
+orangutan o1 t11 player 0
 step o1 t15
 action a4
 stat o1 orangutan onTile

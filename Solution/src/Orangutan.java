@@ -231,12 +231,16 @@ public class Orangutan extends Animal {
             System.out.println(">   Orangutan::releaseBehind(Panda p)");
         }
 
-
+        ArrayList<Panda> removePandas = new ArrayList<Panda>();
         for (int i = caughtPandas.indexOf(p) + 1; i < caughtPandas.size(); i++) {
             Panda panda = caughtPandas.get(i);
             panda.setCaught(false);
             panda.setOrangutan(null);
-            caughtPandas.remove(panda);
+            removePandas.add(panda);
+        }
+
+        for (int i = 0; i < removePandas.size(); i++) {
+            caughtPandas.remove(removePandas.get(i));
         }
 
         if (SkeletonMenu.indent) {

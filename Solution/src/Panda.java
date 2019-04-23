@@ -3,8 +3,6 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
-
-
 /**
  * Osztaly a Pandak viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * a JumpingPanda, TiredPanda es ScarablePanda osztalyok ebbol az osztalybol szarmaznak.

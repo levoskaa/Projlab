@@ -21,8 +21,10 @@ public class ScarablePanda extends Panda {
         }
 
         if (!caught) {
-            GameLogic.indent(false);
-            System.out.println("<   ScarablePanda::scare()");
+            if (SkeletonMenu.indent) {
+                GameLogic.indent(false);
+                System.out.println("<   ScarablePanda::scare()");
+            }
             return;
         }
         orangutan.releaseBehind(this);

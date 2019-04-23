@@ -29,6 +29,10 @@ public abstract class Animal {
 
     //public abstract int checkPoints();
 
+    /**
+     * 
+     * @param p
+     */
     public abstract void collisionWithPanda(Panda p);
 
     public abstract void collisionWithOrangutan(Orangutan o);

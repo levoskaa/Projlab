@@ -168,4 +168,6 @@ public abstract class Animal {
 
         return;
     }
+
+    public void release(Panda p) {}
 }

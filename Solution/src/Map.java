@@ -437,8 +437,9 @@ public class Map {
     /**
      * Incializalja az egesz palyat.
      */
-    public Map() {
+    public Map(GameLogic gameLogic) {
         fillMap();
+        gL = gameLogic;
         setElementsOfMap();
     }
 }

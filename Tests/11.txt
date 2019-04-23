@@ -2,6 +2,7 @@ endtest
 panda p1 t13 jumping
 panda p2 t12 tired
 panda p3 t15 tired
+panda p4 t1 tired
 orangutan o1 t14 player 3 p3 p2 p1
 step o1 e
 stat o1 Orangutan points

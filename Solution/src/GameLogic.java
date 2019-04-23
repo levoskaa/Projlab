@@ -246,7 +246,7 @@ public class GameLogic {
         }
 
         pandasOnTheMap.remove(a);
-        a = null;
+        //a = null;
         if(pandasOnTheMap.size() == 0){
            endGame();
         }

@@ -26,7 +26,7 @@ public class ProtoMenu {
     /**
      * A terkepet tarolo objektum.
      */
-    private Map map = new Map();
+    private Map map = new Map(new GameLogic());
 
     /**
      * Eltarolja, hogy a terkepet ujra kell-e inicializalni (uj teszt).
@@ -917,7 +917,8 @@ public class ProtoMenu {
      */
     public void menuInit() {
         System.out.println("Add meg a parancsot:");
-        map.setGameLogic(new GameLogic());
+        //map.setGameLogic(new GameLogic());
+        //map.setGamelogicForExitPoint(new GameLogic());
         boolean run = true;
         saveString = "";
 
@@ -978,8 +979,10 @@ public class ProtoMenu {
 
             }
             if (clearMap) {
-                map = new Map();
-                map.setGameLogic(new GameLogic());
+                map = new Map(new GameLogic());
+                //map.setGameLogic(new GameLogic());
+
+                //map.setGamelogicForExitPoint(new GameLogic());
                 clearMap = false;
             }
         }

@@ -71,16 +71,17 @@ public class ExitPoint extends EntryWardrobe {
         if (a.getType().equals("orangutan")){
             startingTile.receive(a);
             int i = 0;
-            for (Panda p : a.getCaughtPandas()) {
-                p.getTile().setAnimal(null);
-                gameLogic.remove(p);
-                ++i;
+            if(a.getCaughtPandas().size() > 0) {
+                for (Panda p : a.getCaughtPandas()) {
+                    p.getTile().setAnimal(null);
+                    gameLogic.remove(p);
+                    ++i;
+                }
+                gameLogic.addPoints(i);
+
+                a.release(a.getCaughtPandas().get(0));
+
             }
-            gameLogic.addPoints(i);
-
-            a.release(a.getCaughtPandas().get(0));
-
-
         }
         else {
             a.getTile().remove();

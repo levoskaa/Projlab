@@ -1,0 +1,10 @@
+endtest
+panda p1 t11 scarable
+panda p2 t15 jumping
+panda p3 t12 jumping
+orangutan o b2 player 3 p1 p2 p3
+action s2
+stat o Orangutan followingPandas
+stat p1 Panda isCaught
+stat p2 Panda isCaught
+stat p3 Panda isCaught

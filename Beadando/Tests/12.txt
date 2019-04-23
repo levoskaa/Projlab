@@ -1,0 +1,7 @@
+endtest
+panda p1 t5 jumping
+step p1 w1
+stat p1 Panda onTile
+stat t5 Tile currentAnimal
+stat w1 Tile currentAnimal
+stat t6 Tile currentAnimal

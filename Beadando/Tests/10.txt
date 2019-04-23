@@ -1,0 +1,10 @@
+endtest
+panda p2 t15 tired
+orangutan o1 t7 player 0
+step p2 e
+step p2 t14
+stat o1 orangutan points
+stat p2 panda onTile
+stat t15 tile currentAnimal
+stat e tile currentAnimal
+stat t14 tile currentAnimal

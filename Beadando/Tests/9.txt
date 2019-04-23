@@ -1,0 +1,12 @@
+endtest
+panda p1 t10 tired
+orangutan o1 b1 ai 1 p1
+configure Tile b1 health 1
+configure Tile b1 isBroken false
+step o1 t6
+stat p1 panda onTile
+stat o1 orangutan followingPandas
+stat b1 BreakableTile isBroken
+stat t10 Tile currentAnimal
+stat b1 BreakableTile currentAnimal
+stat t6 Tile currentAnimal

@@ -63,6 +63,10 @@ public abstract class BaseTile {
         }
 
         BaseTile tempTile = a.getTile();
+        if(this.getItem() != null){
+            return;
+        }
+
         a.getTile().remove();
 
         if (localAnimal == null) {

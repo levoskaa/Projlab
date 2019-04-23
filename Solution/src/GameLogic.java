@@ -199,6 +199,7 @@ public class GameLogic {
         } else {
             // System.out.println("You Lost!");
         }
+        System.out.println("A jatek veget ert.");
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);
             System.out.println("<   GameLogic::endGame()");

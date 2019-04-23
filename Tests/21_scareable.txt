@@ -1,6 +1,0 @@
-endtest
-panda p2 t11 scareable 
-step p2 t15
-action a4
-stat p2 panda onTile
-stat t15 tile currentAnimal

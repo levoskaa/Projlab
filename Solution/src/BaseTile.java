@@ -18,6 +18,7 @@ import java.util.*;
  * @author Kalai
  */
 public abstract class BaseTile {
+	
     /**
      * Nev, amivel a teszteles soran azonositani lehet az objektumot.
      */
@@ -109,9 +110,17 @@ public abstract class BaseTile {
         return;
     }
 
+    /**
+     * Fuggveny a csempen levo allat leultetesere.
+     *
+     * @param t a csempe, amire az allat leulhet.
+     */
+
     public void sitAnimal(Tile t) {
-        if (localAnimal != null)
+        if (localAnimal != null) {
             localAnimal.sit(t);
+		}
+		return;
     }
 
     public void setAnimal(Animal a) {
@@ -120,18 +129,40 @@ public abstract class BaseTile {
     public void setItem(Item i) {
     }
 
+    /**
+     * Getter fuggveny a name valtozo lekerdezesere.
+     *
+     * @return A csempe neve.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter fuggveny a name valtozo beallitasara.
+     *
+     * @param n a csempe neve.
+     */
     public void setName(String n) {
         name = n;
+		return;
     }
 
+    /**
+     * Getter fuggveny az Item valtozo lekerdezesere.
+	 * A BaseTile-on nem lehet allat, ezert null a visszateresi ertek.
+     *
+     * @return A csempen levo Item.
+     */
     public Item getItem() {
         return null;
     }
 
+    /**
+     * Getter fuggveny a localAnimal valtozo lekerdezesere.
+     *
+     * @return A csempen levo allat.
+     */
     public Animal getAnimal() {
         return localAnimal;
     }

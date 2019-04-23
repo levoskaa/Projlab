@@ -15,8 +15,8 @@
  * @author Konczos
  */
 
-
 public class Tile extends BaseTile {
+	
     /**
      * A csempén elhelyezkedo specialis funkcioalitással ellatott tárgy
      * referenciajat tarolo Item.

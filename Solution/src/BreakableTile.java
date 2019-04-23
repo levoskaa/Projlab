@@ -17,10 +17,12 @@
 
 
 public class BreakableTile extends Tile {
+	
     /**
      * A csempe elettartamat tarolo int.
      */
     private int health;
+	
     /**
      * A csempe allapotat(torott/ep) jelzo boolean.
      */
@@ -105,7 +107,7 @@ public class BreakableTile extends Tile {
     }
 
     /**
-     * A fuggveny egyel csökkenti a törékeny csempe elettartamat.
+     * A fuggveny eggyel csökkenti a törékeny csempe elettartamat.
      */
     @Override
     public void decreaseHealth() {
@@ -137,10 +139,6 @@ public class BreakableTile extends Tile {
             GameLogic.indent(true);
             System.out.println(">   BreakableTile::receive (Animal a)");
         }
-
-        //ez a sor az else agba kene legyen
-        //a.getTile().remove();
-
         a.getTile().remove();
 
         if(!broken){

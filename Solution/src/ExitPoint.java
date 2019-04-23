@@ -48,6 +48,11 @@ public class ExitPoint extends EntryWardrobe {
         return;
     }
 
+    /**
+     * Beallitja a GameLogicot.
+     *
+     * @param gameLogic a GameLogicra vonatkozo referencia.
+     */
     public void setGameLogic(GameLogic gameLogic) {
         this.gameLogic = gameLogic;
     }
@@ -63,9 +68,6 @@ public class ExitPoint extends EntryWardrobe {
             GameLogic.indent(true);
             System.out.println(">   ExitPoint::receive(Animal a)");
         }
-
-        // TODO itt ezt átgondolni
-
         if (a.getType().equals("orangutan")){
             startingTile.receive(a);
             int i = 0;

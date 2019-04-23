@@ -45,6 +45,10 @@ public class SlotMachine extends Item {
         return;
     }
 
+    /**
+     * A protomenuhoz szukseges extra metodus, amelynek segitsevel, el tudjuk erni, hogy
+     * akkor, amikor akarjuk tudjon csilingelni.
+     */
     @Override
     public void doAction() {
         for (BaseTile tile : onTile.getNeighbours()) {

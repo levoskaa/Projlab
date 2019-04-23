@@ -30,27 +30,52 @@ public abstract class Animal {
     //public abstract int checkPoints();
 
     /**
-     * 
-     * @param p
+     * Pandaval valo utkozes lekezelesere valo fuggveny.
+     * @param p A panda, amivel az utkozes tortent.
      */
     public abstract void collisionWithPanda(Panda p);
 
+    /**
+     * Orangutanal valo utkozes lekezelesere valo fuggveny.
+     * @param o Az orangutan, amivel az utkozes tortent.
+     */
     public abstract void collisionWithOrangutan(Orangutan o);
 
+    /**
+     * Allattal valo utkozes lekezelesere valo fuggveny.
+     * @param a Az allat, amivel az utkozes tortent.
+     */
     public abstract void collideWith(Animal a);
 
+    /**
+     * Panda elfogasara hasznalando fuggveny.
+     * @param orangutan Az orangutan, ami elkapja a pandat.
+     */
     public void catchPanda(Orangutan orangutan) {
     }
 
+    /**
+     * Az allat halalakor hivodik meg.
+     */
     public void die() {
     }
 
+    /**
+     * Fotel melle erve hivodik meg ez a fuggveny.
+     * @param t A csempe, amin a fotel van.
+     */
     public void sit(Tile t) {
     }
 
+    /**
+     * Jatekgep csilingelesekor hivodik meg.
+     */
     public void scare() {
     }
 
+    /**
+     * Csokiautomata sipolasakor hivodik meg.
+     */
     public void jump() {
     }
 
@@ -141,6 +166,10 @@ public abstract class Animal {
         return;
     }
 
+    /**
+     * Getter fuggveny az allat nevere.
+     * @return Az allat neve.
+     */
     public String getName() {
         return name;
     }
@@ -149,16 +178,22 @@ public abstract class Animal {
         return "";
     }
 
+    /**
+     * Setter fuggveny az allat nevere.
+     * @param n Az allat uj neve.
+     */
     public void setName(String n) {
         name = n;
     }
 
+    /**
+     * Az allat mozgatasara valo fuggveny.
+     */
     public void move() {
         if (SkeletonMenu.indent) {
             GameLogic.indent(true);
             System.out.println(">   Animal::move()");
         }
-
 
         ArrayList<BaseTile> neighbours = currentTile.getNeighbours();
         // A szomszedos csempek kozul veletlenszeruen valaszt egyet, amire megprobal ralepni.

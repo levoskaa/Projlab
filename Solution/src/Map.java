@@ -476,7 +476,7 @@ public class Map {
     * Beallitja az egyes csempek szomszedait es
     * ha all rajtuk valamilyen item azt is, illetve
     * beallitja a csempeket amelyre az egyes szekrenyek
-    * teleportalnak (proto menu).
+    * teleportalnak (tenyleges jatek).
     */
     void setElementsOfPlayingMap(){
 
@@ -737,6 +737,146 @@ public class Map {
         t17Neighbours.add(map.get("a1"));
         t17Neighbours.add(map.get("t24"));
         map.get("t17").setNeighbours(t17Neighbours);
+
+        //set tile t18
+        map.get("t18").setName("t18");
+        ArrayList<BaseTile> t18Neighbours = new ArrayList<>();
+        t18Neighbours.add(map.get("t13"));
+        t18Neighbours.add(map.get("s1"));
+        t18Neighbours.add(map.get("t19"));
+        t18Neighbours.add(map.get("a1"));
+        t18Neighbours.add(map.get("t17"));
+        map.get("t18").setNeighbours(t18Neighbours);
+
+        //set tile t19
+        map.get("t19").setName("t19");
+        ArrayList<BaseTile> t19Neighbours = new ArrayList<>();
+        t19Neighbours.add(map.get("s1"));
+        t19Neighbours.add(map.get("t20"));
+        t19Neighbours.add(map.get("t23"));
+        t19Neighbours.add(map.get("a1"));
+        t19Neighbours.add(map.get("t18"));
+        map.get("t19").setNeighbours(t19Neighbours);
+
+        //set tile t20
+        map.get("t20").setName("t20");
+        ArrayList<BaseTile> t20Neighbours = new ArrayList<>();
+        t20Neighbours.add(map.get("s1"));
+        t20Neighbours.add(map.get("t21"));
+        t20Neighbours.add(map.get("b3"));
+        t20Neighbours.add(map.get("t19"));
+        map.get("t20").setNeighbours(t20Neighbours);
+
+        //set tile t21
+        map.get("t21").setName("t21");
+        ArrayList<BaseTile> t21Neighbours = new ArrayList<>();
+        t21Neighbours.add(map.get("t12"));
+        t21Neighbours.add(map.get("e"));
+        t21Neighbours.add(map.get("t22"));
+        t21Neighbours.add(map.get("t20"));
+        t21Neighbours.add(map.get("s1"));
+        map.get("t21").setNeighbours(t21Neighbours);
+
+        //set tile t22
+        map.get("t22").setName("t22");
+        ArrayList<BaseTile> t22Neighbours = new ArrayList<>();
+        t22Neighbours.add(map.get("t21"));
+        t22Neighbours.add(map.get("e"));
+        t22Neighbours.add(map.get("t33"));
+        t22Neighbours.add(map.get("b3"));
+        map.get("t22").setNeighbours(t22Neighbours);
+
+        //set tile t23
+        map.get("t23").setName("t23");
+        ArrayList<BaseTile> t23Neighbours = new ArrayList<>();
+        t23Neighbours.add(map.get("t19"));
+        t23Neighbours.add(map.get("b3"));
+        t23Neighbours.add(map.get("t30"));
+        t23Neighbours.add(map.get("a1"));
+        map.get("t23").setNeighbours(t23Neighbours);
+
+        //set tile t24
+        map.get("t24").setName("t24");
+        ArrayList<BaseTile> t24Neighbours = new ArrayList<>();
+        t24Neighbours.add(map.get("t17"));
+        t24Neighbours.add(map.get("a1"));
+        t24Neighbours.add(map.get("t29"));
+        t24Neighbours.add(map.get("w1"));
+        t24Neighbours.add(map.get("b1"));
+        map.get("t24").setNeighbours(t24Neighbours);
+
+        //set tile t25
+        map.get("t25").setName("t25");
+        ArrayList<BaseTile> t25Neighbours = new ArrayList<>();
+        t25Neighbours.add(map.get("t15"));
+        t25Neighbours.add(map.get("b1"));
+        t25Neighbours.add(map.get("t27"));
+        t25Neighbours.add(map.get("st"));
+        map.get("t25").setNeighbours(t25Neighbours);
+
+        //set tile t26
+        map.get("t26").setName("t26");
+        ArrayList<BaseTile> t26Neighbours = new ArrayList<>();
+        t26Neighbours.add(map.get("st"));
+        t26Neighbours.add(map.get("t27"));
+        map.get("t26").setNeighbours(t26Neighbours);
+
+        //set tile t27
+        map.get("t27").setName("t27");
+        ArrayList<BaseTile> t27Neighbours = new ArrayList<>();
+        t27Neighbours.add(map.get("t25"));
+        t27Neighbours.add(map.get("t28"));
+        t27Neighbours.add(map.get("t26"));
+        t27Neighbours.add(map.get("st"));
+        map.get("t27").setNeighbours(t27Neighbours);
+
+        //set tile t28
+        map.get("t28").setName("t28");
+        ArrayList<BaseTile> t28Neighbours = new ArrayList<>();
+        t28Neighbours.add(map.get("t27"));
+        t28Neighbours.add(map.get("b1"));
+        map.get("t28").setNeighbours(t28Neighbours);
+
+        //set tile t29
+        map.get("t29").setName("t29");
+        ArrayList<BaseTile> t29Neighbours = new ArrayList<>();
+        t29Neighbours.add(map.get("t24"));
+        t29Neighbours.add(map.get("a1"));
+        t29Neighbours.add(map.get("w1"));
+        map.get("t29").setNeighbours(t29Neighbours);
+
+        //set tile t30
+        map.get("t30").setName("t30");
+        ArrayList<BaseTile> t30Neighbours = new ArrayList<>();
+        t30Neighbours.add(map.get("t23"));
+        t30Neighbours.add(map.get("t31"));
+        t30Neighbours.add(map.get("a1"));
+        map.get("t30").setNeighbours(t30Neighbours);
+
+        //set tile t31
+        map.get("t31").setName("t31");
+        ArrayList<BaseTile> t31Neighbours = new ArrayList<>();
+        t31Neighbours.add(map.get("b3"));
+        t31Neighbours.add(map.get("c1"));
+        t31Neighbours.add(map.get("t30"));
+        map.get("t31").setNeighbours(t31Neighbours);
+
+        //set tile t32
+        map.get("t32").setName("t32");
+        ArrayList<BaseTile> t32Neighbours = new ArrayList<>();
+        t32Neighbours.add(map.get("b3"));
+        t32Neighbours.add(map.get("t33"));
+        t32Neighbours.add(map.get("c1"));
+        map.get("t32").setNeighbours(t32Neighbours);
+
+        //set tile t33
+        map.get("t33").setName("t33");
+        ArrayList<BaseTile> t33Neighbours = new ArrayList<>();
+        t33Neighbours.add(map.get("e"));
+        t33Neighbours.add(map.get("w2"));
+        t33Neighbours.add(map.get("t32"));
+        t33Neighbours.add(map.get("t22"));
+        map.get("t33").setNeighbours(t33Neighbours);
     }
 
     /**
@@ -770,11 +910,13 @@ public class Map {
     }
 
     /**
-     * Incializalja az egesz palyat.
+     * Incializalja az egesz palyat(proto).
      */
     public Map(GameLogic gameLogic) {
-        fillMap();
+        //fillMap();
+        fillPlayingMap();
         gL = gameLogic;
-        setElementsOfMap();
+        //setElementsOfMap();
+        setElementsOfPlayingMap();
     }
 }

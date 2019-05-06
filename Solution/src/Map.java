@@ -11,8 +11,9 @@ public class Map {
      * Itt taroljuk a csempeket.
      */
     protected HashMap<String, BaseTile> map = new HashMap<>();
+
     /**
-     * Referencia a gameLogicra.
+     *      * Referencia a gameLogicra.
      */
     protected GameLogic gL;
 
@@ -28,7 +29,7 @@ public class Map {
     }
 
     /**
-     * Letrehozza a csempeket es feltolti a map-ot veluk
+     * Letrehozza a csempeket es feltolti a protohoz tartozo map-ot veluk
      */
     public void fillMap() {
 
@@ -85,7 +86,7 @@ public class Map {
      * Beallitja az egyes csempek szomszedait es
      * ha all rajtuk valamilyen item azt is, illetve
      * beallitja a csempeket amelyre az egyes szekrenyek
-     * teleportalnak.
+     * teleportalnak (proto menu).
      */
     public void setElementsOfMap() {
 
@@ -402,6 +403,340 @@ public class Map {
         eNeighbours.add(map.get("b2"));
         eNeighbours.add(map.get("a1"));
         map.get("e").setNeighbours(eNeighbours);
+    }
+
+
+    /**
+     * Letrehozza a csempeket es feltolti a a tenyleges jatek map-ot veluk
+     */
+    public void fillPlayingMap(){
+
+        //entry tile
+        map.put("st", new Tile());
+
+        //common tiles
+        map.put("t1", new Tile());
+        map.put("t2", new Tile());
+        map.put("t3", new Tile());
+        map.put("t4", new Tile());
+        map.put("t5", new Tile());
+        map.put("t6", new Tile());
+        map.put("t7", new Tile());
+        map.put("t8", new Tile());
+        map.put("t9", new Tile());
+        map.put("t10", new Tile());
+        map.put("t11", new Tile());
+        map.put("t12", new Tile());
+        map.put("t13", new Tile());
+        map.put("t14", new Tile());
+        map.put("t15", new Tile());
+        map.put("t16", new Tile());
+        map.put("t17", new Tile());
+        map.put("t18", new Tile());
+        map.put("t19", new Tile());
+        map.put("t20", new Tile());
+        map.put("t21", new Tile());
+        map.put("t22", new Tile());
+        map.put("t23", new Tile());
+        map.put("t24", new Tile());
+        map.put("t25", new Tile());
+        map.put("t26", new Tile());
+        map.put("t27", new Tile());
+        map.put("t28", new Tile());
+        map.put("t29", new Tile());
+        map.put("t30", new Tile());
+        map.put("t31", new Tile());
+        map.put("t32", new Tile());
+        map.put("t33", new Tile());
+
+        //tiles for couch
+        map.put("c1", new Tile());
+
+        //tiles for chocoautomat
+        map.put("a1", new Tile());
+
+        //tiles for slotmachines
+        map.put("s1", new Tile());
+
+        //breakableTiles
+        map.put("b1", new BreakableTile());
+        map.put("b3", new BreakableTile());
+
+
+        //entry wardrobes
+        map.put("w1", new EntryWardrobe());
+        map.put("w2", new EntryWardrobe());
+
+        //exit point
+        map.put("e", new ExitPoint());
+
+    }
+
+    /**
+    * Beallitja az egyes csempek szomszedait es
+    * ha all rajtuk valamilyen item azt is, illetve
+    * beallitja a csempeket amelyre az egyes szekrenyek
+    * teleportalnak (proto menu).
+    */
+    void setElementsOfPlayingMap(){
+
+        //set tile st
+        map.get("st").setName("st");
+        ArrayList<BaseTile> stNeighbours = new ArrayList<>();
+        stNeighbours.add(map.get("t1"));
+        stNeighbours.add(map.get("t2"));
+        stNeighbours.add(map.get("t14"));
+        stNeighbours.add(map.get("t15"));
+        stNeighbours.add(map.get("t25"));
+        stNeighbours.add(map.get("t27"));
+        stNeighbours.add(map.get("t26"));
+        map.get("st").setNeighbours(stNeighbours);
+
+        //set tile e
+        map.get("e").setName("e");
+        ArrayList<BaseTile> eNeighbours = new ArrayList<>();
+        eNeighbours.add(map.get("t10"));
+        eNeighbours.add(map.get("t11"));
+        eNeighbours.add(map.get("t12"));
+        eNeighbours.add(map.get("t21"));
+        eNeighbours.add(map.get("t22"));
+        eNeighbours.add(map.get("t33"));
+        eNeighbours.add(map.get("w2"));
+        map.get("e").setNeighbours(eNeighbours);
+
+        //set tile c1
+        map.get("c1").setName("c1");
+        map.get("c1").setItem(new Couch((Tile) map.get("c1")));
+
+        ArrayList<BaseTile> c1Neighbours = new ArrayList<>();
+        c1Neighbours.add(map.get("t31"));
+        c1Neighbours.add(map.get("t32"));
+        map.get("c1").setNeighbours(c1Neighbours);
+
+        //set breakabletile b1
+        map.get("b1").setName("b1");
+        map.get("b1").setHealth(20);
+
+        ArrayList<BaseTile> b1Neighbours = new ArrayList<>();
+        b1Neighbours.add(map.get("t25"));
+        b1Neighbours.add(map.get("t28"));
+        b1Neighbours.add(map.get("w1"));
+        b1Neighbours.add(map.get("t24"));
+        b1Neighbours.add(map.get("t16"));
+        map.get("b1").setNeighbours(b1Neighbours);
+
+        //set breakabletile b3
+        map.get("b3").setName("b3");
+        map.get("b3").setHealth(20);
+
+        ArrayList<BaseTile> b3Neighbours = new ArrayList<>();
+        b3Neighbours.add(map.get("t20"));
+        b3Neighbours.add(map.get("t23"));
+        b3Neighbours.add(map.get("t31"));
+        b3Neighbours.add(map.get("t32"));
+        b3Neighbours.add(map.get("t22"));
+        map.get("b3").setNeighbours(b3Neighbours);
+
+        //set entryWardrobe w1
+        map.get("w1").setName("w1");
+        map.get("w1").setDestination(map.get("t6"));
+
+        ArrayList<BaseTile> w1Neighbours = new ArrayList<>();
+        w1Neighbours.add(map.get("b1"));
+        w1Neighbours.add(map.get("t24"));
+        w1Neighbours.add(map.get("t29"));
+        map.get("w1").setNeighbours(w1Neighbours);
+
+        //set entryWardrobe w2
+        map.get("w2").setName("w2");
+        map.get("w2").setDestination(map.get("t15"));
+
+        ArrayList<BaseTile> w2Neighbours = new ArrayList<>();
+        w2Neighbours.add(map.get("e"));
+        w2Neighbours.add(map.get("t33"));
+        map.get("w2").setNeighbours(w2Neighbours);
+
+        //set tile a1
+        map.get("a1").setName("a1");
+        map.get("a1").setItem(new ChocoAutomat((Tile) map.get("a1")));
+
+        ArrayList<BaseTile> a1Neighbours = new ArrayList<>();
+        a1Neighbours.add(map.get("t29"));
+        a1Neighbours.add(map.get("t24"));
+        a1Neighbours.add(map.get("t17"));
+        a1Neighbours.add(map.get("t18"));
+        a1Neighbours.add(map.get("t19"));
+        a1Neighbours.add(map.get("b23"));
+        a1Neighbours.add(map.get("t30"));
+        map.get("a1").setNeighbours(a1Neighbours);
+
+        //set tile s1
+        map.get("s1").setName("s1");
+        map.get("s1").setItem(new SlotMachine((Tile) map.get("s1")));
+
+        ArrayList<BaseTile> s1Neighbours = new ArrayList<>();
+        s1Neighbours.add(map.get("t13"));
+        s1Neighbours.add(map.get("t5"));
+        s1Neighbours.add(map.get("t6"));
+        s1Neighbours.add(map.get("t7"));
+        s1Neighbours.add(map.get("t12"));
+        s1Neighbours.add(map.get("t21"));
+        s1Neighbours.add(map.get("t20"));
+        s1Neighbours.add(map.get("t19"));
+        s1Neighbours.add(map.get("t18"));
+        map.get("s1").setNeighbours(s1Neighbours);
+
+        //set tile t1
+        map.get("t1").setName("t1");
+        ArrayList<BaseTile> t1Neighbours = new ArrayList<>();
+        t1Neighbours.add(map.get("st"));
+        t1Neighbours.add(map.get("t2"));
+        map.get("t1").setNeighbours(t1Neighbours);
+
+        //set tile t2
+        map.get("t2").setName("t2");
+        ArrayList<BaseTile> t2Neighbours = new ArrayList<>();
+        t2Neighbours.add(map.get("t1"));
+        t2Neighbours.add(map.get("t14"));
+        t2Neighbours.add(map.get("st"));
+        map.get("t2").setNeighbours(t2Neighbours);
+
+        //set tile t3
+        map.get("t3").setName("t3");
+        ArrayList<BaseTile> t3Neighbours = new ArrayList<>();
+        t3Neighbours.add(map.get("t14"));
+        t3Neighbours.add(map.get("t4"));
+        t3Neighbours.add(map.get("t13"));
+        map.get("t3").setNeighbours(t3Neighbours);
+
+        //set tile t4
+        map.get("t4").setName("t4");
+        ArrayList<BaseTile> t4Neighbours = new ArrayList<>();
+        t4Neighbours.add(map.get("t3"));
+        t4Neighbours.add(map.get("t5"));
+        t4Neighbours.add(map.get("t13"));
+        map.get("t4").setNeighbours(t4Neighbours);
+
+        //set tile t5
+        map.get("t5").setName("t5");
+        ArrayList<BaseTile> t5Neighbours = new ArrayList<>();
+        t5Neighbours.add(map.get("t4"));
+        t5Neighbours.add(map.get("t6"));
+        t5Neighbours.add(map.get("t13"));
+        t5Neighbours.add(map.get("s1"));
+        map.get("t5").setNeighbours(t5Neighbours);
+
+        //set tile t6
+        map.get("t6").setName("t6");
+        ArrayList<BaseTile> t6Neighbours = new ArrayList<>();
+        t6Neighbours.add(map.get("t5"));
+        t6Neighbours.add(map.get("t7"));
+        t6Neighbours.add(map.get("s1"));
+        map.get("t6").setNeighbours(t6Neighbours);
+
+        //set tile t7
+        map.get("t7").setName("t7");
+        ArrayList<BaseTile> t7Neighbours = new ArrayList<>();
+        t7Neighbours.add(map.get("t6"));
+        t7Neighbours.add(map.get("s1"));
+        t7Neighbours.add(map.get("t8"));
+        t7Neighbours.add(map.get("t12"));
+        map.get("t7").setNeighbours(t7Neighbours);
+
+        //set tile t8
+        map.get("t8").setName("t8");
+        ArrayList<BaseTile> t8Neighbours = new ArrayList<>();
+        t8Neighbours.add(map.get("t9"));
+        t8Neighbours.add(map.get("t11"));
+        t8Neighbours.add(map.get("t7"));
+        map.get("t8").setNeighbours(t8Neighbours);
+
+        //set tile t9
+        map.get("t9").setName("t9");
+        ArrayList<BaseTile> t9Neighbours = new ArrayList<>();
+        t9Neighbours.add(map.get("t8"));
+        t9Neighbours.add(map.get("t10"));
+        map.get("t9").setNeighbours(t9Neighbours);
+
+        //set tile t10
+        map.get("t10").setName("t10");
+        ArrayList<BaseTile> t10Neighbours = new ArrayList<>();
+        t10Neighbours.add(map.get("t9"));
+        t10Neighbours.add(map.get("t11"));
+        t10Neighbours.add(map.get("e"));
+        map.get("t10").setNeighbours(t10Neighbours);
+
+        //set tile t11
+        map.get("t11").setName("t11");
+        ArrayList<BaseTile> t11Neighbours = new ArrayList<>();
+        t11Neighbours.add(map.get("t8"));
+        t11Neighbours.add(map.get("t10"));
+        t11Neighbours.add(map.get("t12"));
+        t11Neighbours.add(map.get("e"));
+        map.get("t11").setNeighbours(t11Neighbours);
+
+        //set tile t12
+        map.get("t12").setName("t12");
+        ArrayList<BaseTile> t12Neighbours = new ArrayList<>();
+        t12Neighbours.add(map.get("t11"));
+        t12Neighbours.add(map.get("t7"));
+        t12Neighbours.add(map.get("s1"));
+        t12Neighbours.add(map.get("t21"));
+        t12Neighbours.add(map.get("e"));
+        map.get("t12").setNeighbours(t12Neighbours);
+
+        //set tile t13
+        map.get("t13").setName("t13");
+        ArrayList<BaseTile> t13Neighbours = new ArrayList<>();
+        t13Neighbours.add(map.get("t14"));
+        t13Neighbours.add(map.get("t3"));
+        t13Neighbours.add(map.get("t4"));
+        t13Neighbours.add(map.get("t5"));
+        t13Neighbours.add(map.get("s1"));
+        t13Neighbours.add(map.get("t18"));
+        t13Neighbours.add(map.get("t17"));
+        t13Neighbours.add(map.get("t16"));
+        t13Neighbours.add(map.get("t15"));
+        map.get("t13").setNeighbours(t13Neighbours);
+
+        //set tile t14
+        map.get("t14").setName("t14");
+        ArrayList<BaseTile> t14Neighbours = new ArrayList<>();
+        t14Neighbours.add(map.get("t2"));
+        t14Neighbours.add(map.get("t3"));
+        t14Neighbours.add(map.get("t13"));
+        t14Neighbours.add(map.get("t15"));
+        t14Neighbours.add(map.get("st"));
+        map.get("t14").setNeighbours(t14Neighbours);
+
+        //set tile t15
+        map.get("t15").setName("t15");
+        ArrayList<BaseTile> t15Neighbours = new ArrayList<>();
+        t15Neighbours.add(map.get("t14"));
+        t15Neighbours.add(map.get("t13"));
+        t15Neighbours.add(map.get("t16"));
+        t15Neighbours.add(map.get("t25"));
+        t15Neighbours.add(map.get("st"));
+        map.get("t15").setNeighbours(t15Neighbours);
+
+        //set tile t16
+        map.get("t16").setName("t16");
+        ArrayList<BaseTile> t16Neighbours = new ArrayList<>();
+        t16Neighbours.add(map.get("t15"));
+        t16Neighbours.add(map.get("t13"));
+        t16Neighbours.add(map.get("t17"));
+        t16Neighbours.add(map.get("b1"));
+        map.get("t16").setNeighbours(t16Neighbours);
+
+        //set tile t17
+        map.get("t17").setName("t17");
+        ArrayList<BaseTile> t17Neighbours = new ArrayList<>();
+        t17Neighbours.add(map.get("t13"));
+        t17Neighbours.add(map.get("t16"));
+        t17Neighbours.add(map.get("t18"));
+        t17Neighbours.add(map.get("a1"));
+        t17Neighbours.add(map.get("t24"));
+        map.get("t17").setNeighbours(t17Neighbours);
     }
 
     /**

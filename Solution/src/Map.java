@@ -910,13 +910,19 @@ public class Map {
     }
 
     /**
-     * Incializalja az egesz palyat(proto).
+     * Incializalja az egesz palyat(proto, illetve a vegleges jatek).
      */
-    public Map(GameLogic gameLogic) {
-        //fillMap();
-        fillPlayingMap();
+    public Map(GameLogic gameLogic, boolean proto) {
         gL = gameLogic;
-        //setElementsOfMap();
-        setElementsOfPlayingMap();
+        if (proto)
+        {
+            fillMap();
+            setElementsOfMap();
+        }
+        else
+        {
+            fillPlayingMap();
+            setElementsOfPlayingMap();
+        }
     }
 }

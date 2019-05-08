@@ -26,7 +26,7 @@ public class ProtoMenu {
     /**
      * A terkepet tarolo objektum.
      */
-    private Map map = new Map(new GameLogic());
+    private Map map = new Map(new GameLogic(), true);
 
     /**
      * Eltarolja, hogy a terkepet ujra kell-e inicializalni (uj teszt).
@@ -979,7 +979,7 @@ public class ProtoMenu {
 
             }
             if (clearMap) {
-                map = new Map(new GameLogic());
+                map = new Map(new GameLogic(), true);
                 //map.setGameLogic(new GameLogic());
 
                 //map.setGamelogicForExitPoint(new GameLogic());

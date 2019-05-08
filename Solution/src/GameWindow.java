@@ -1,4 +1,6 @@
-package PACKAGE_NAME;
+import javax.swing.*;
 
-public class GameWindow {
+public class GameWindow extends JFrame {
+
+
 }

@@ -6,4 +6,8 @@
 public class BaseTileView implements IDrawable {
 
 
+    @Override
+    public void draw() {
+
+    }
 }

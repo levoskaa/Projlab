@@ -7,6 +7,7 @@ public class Main {
         System.out.println("Valassz az alabbi lehetosegek kozul:");
         System.out.println("skeleton: Skeleton tesztelese");
         System.out.println("proto: Prototipus tesztelese");
+        System.out.println("game: Jatek");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             String code = reader.readLine();
@@ -18,6 +19,10 @@ public class Main {
                 case "proto":
                     ProtoMenu menu2 = new ProtoMenu();
                     menu2.menuInit();
+                    break;
+                case "game":
+                    View view = new View();
+                    view.init();
                     break;
                 default:
                     break;

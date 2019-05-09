@@ -4,13 +4,17 @@
 //  @ Author : Laurinyecz
 
 import javax.swing.*;
+import java.awt.*;
 
 public class View {
 
     private GameWindow mainWindow;
 
-    public void init() {
+    int maxWidth;
+    int maxHeight;
 
+    public void init() {
+        buildFrame();
     }
 
     public void drawAll() {
@@ -29,13 +33,25 @@ public class View {
         return  mainWindow;
     }
 
-    private static JFrame buildFrame() {
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-        pane = new JPanel();
-        frame.add(pane);
-        return frame;
+    private JFrame buildFrame() {
+        mainWindow = new GameWindow("Game");
+        mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        //mainWindow.setSize(600, 600);
+
+        GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        Rectangle bounds = env.getMaximumWindowBounds();
+        int maxWidth = bounds.width;
+        int maxHeight = bounds.height;
+        mainWindow.setSize(new Dimension(maxWidth, maxHeight));
+        mainWindow.setResizable(false);
+
+        mainWindow.setVisible(true);
+
+        JPanel pane = new JPanel();
+        mainWindow.add(pane);
+        mainWindow.setVisible(true);
+
+
+        return mainWindow;
     }
 }

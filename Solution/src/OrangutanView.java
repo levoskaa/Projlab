@@ -33,6 +33,6 @@ public class OrangutanView implements IDrawable {
 
     @Override
     public void draw() {
-        view.getFrame().
+        //view.getFrame().
     }
 }

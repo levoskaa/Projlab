@@ -13,7 +13,7 @@ public class BreakableTileView extends TileView {
     public BreakableTileView(int x, int y, BreakableTile b){
         coordinates = new Point(x, y);
         breakableTile = b;
-        img = new ImageIcon("./src/images/breakabletile(notbroken).png").getImage();
+        img = new ImageIcon("./src/images/breakabletile_notbroken.png").getImage();
         z_order = 0;
     }
     @Override

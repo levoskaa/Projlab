@@ -85,8 +85,9 @@ public class GameLogic {
 
     /**
      * A fuggveny beallitja a gep altal vezetett orangutant.
+     *
      */
-    public void setSecondOrangutan(Orangutan o) {
+    public void setSecondOrangutan(Orangutan o){
         secondOrangutan = o;
     }
 
@@ -101,8 +102,9 @@ public class GameLogic {
 
     /**
      * A fuggveny beallitja a jatekos altal vezetett orangutant.
+     *
      */
-    public void setPlayerOrangutan(PlayerOrangutan o) {
+    public void setPlayerOrangutan(PlayerOrangutan o){
         playerOrangutan = o;
     }
 
@@ -245,8 +247,8 @@ public class GameLogic {
 
         pandasOnTheMap.remove(a);
         //a = null;
-        if (pandasOnTheMap.size() == 0) {
-            endGame();
+        if(pandasOnTheMap.size() == 0){
+           endGame();
         }
 
         if (SkeletonMenu.indent) {
@@ -258,9 +260,8 @@ public class GameLogic {
     }
 
     /**
-     * Hozza ad egy pandat a GameLogic listajahoz,
+     *Hozza ad egy pandat a GameLogic listajahoz,
      * ezaltal mar ez a panda is mozgatva lesz.
-     *
      * @param p a listahoz hozzaadni kivant panda
      */
     public void addPanda(Panda p) {
@@ -281,7 +282,7 @@ public class GameLogic {
     }
 
     /**
-     * GameLogic konstruktor
+     *GameLogic konstruktor
      */
     public GameLogic() {
         points = 0;

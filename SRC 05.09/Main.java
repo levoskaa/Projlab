@@ -10,7 +10,7 @@ public class Main {
         System.out.println("game: Jatek");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            String code = reader.readLine().toLowerCase();
+            String code = reader.readLine();
             switch (code) {
                 case "skeleton":
                     SkeletonMenu menu1 = new SkeletonMenu();

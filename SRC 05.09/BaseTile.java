@@ -18,21 +18,11 @@ import java.util.*;
  * @author Kalai
  */
 public abstract class BaseTile {
-
+	
     /**
      * Nev, amivel a teszteles soran azonositani lehet az objektumot.
      */
     private String name;
-
-    private Point center;
-
-    public Point getCenter() {
-        return center;
-    }
-
-    public void setCenter(Point center) {
-        this.center = center;
-    }
 
     /**
      * Tarolja, hogy egy csempen van-e allat, es ha van, akkor melyik.
@@ -74,7 +64,7 @@ public abstract class BaseTile {
         }
 
         BaseTile tempTile = a.getTile();
-        if (this.getItem() != null) {
+        if(this.getItem() != null){
             return;
         }
 
@@ -129,8 +119,8 @@ public abstract class BaseTile {
     public void sitAnimal(Tile t) {
         if (localAnimal != null) {
             localAnimal.sit(t);
-        }
-        return;
+		}
+		return;
     }
 
     public void setAnimal(Animal a) {
@@ -155,12 +145,12 @@ public abstract class BaseTile {
      */
     public void setName(String n) {
         name = n;
-        return;
+		return;
     }
 
     /**
      * Getter fuggveny az Item valtozo lekerdezesere.
-     * A BaseTile-on nem lehet allat, ezert null a visszateresi ertek.
+	 * A BaseTile-on nem lehet allat, ezert null a visszateresi ertek.
      *
      * @return A csempen levo Item.
      */
@@ -186,8 +176,7 @@ public abstract class BaseTile {
     public void setDestination(BaseTile t) {
     }
 
-    public void setStartingTile(Tile sT) {
-    }
+    public void setStartingTile(Tile sT) {}
 
     public void ring() {
     }
@@ -214,7 +203,7 @@ public abstract class BaseTile {
             GameLogic.indent(false);
             System.out.println("<   BaseTile::setNeighbours(ArrayList<BaseTile> nb)");
         }
-        return;
+            return;
     }
 
     /**
@@ -226,6 +215,5 @@ public abstract class BaseTile {
         return false;
     }
 
-    public void setGameLogic(GameLogic gameLogic) {
-    }
+    public void setGameLogic(GameLogic gameLogic){}
 }

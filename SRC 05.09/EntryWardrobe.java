@@ -17,7 +17,7 @@
  * @see BaseTile
  */
 public class EntryWardrobe extends BaseTile {
-
+	
     /**
      * Referencia a kimeneti szekrenyre, vagyis egy specialis csempere.
      */

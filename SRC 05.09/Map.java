@@ -13,13 +13,12 @@ public class Map {
     protected HashMap<String, BaseTile> map = new HashMap<>();
 
     /**
-     * * Referencia a gameLogicra.
+     *      * Referencia a gameLogicra.
      */
     protected GameLogic gL;
 
     /**
      * Egy nevrol eldontheto, hogy tartozik-e hozza csempe.
-     *
      * @param name A csempe neve amelyet keresunk.
      * @return A map tartalmaz-e name nevu csempet.
      */
@@ -28,9 +27,6 @@ public class Map {
             return true;
         return false;
     }
-
-    // scale
-    double s = 1.0;
 
     /**
      * Letrehozza a csempeket es feltolti a protohoz tartozo map-ot veluk
@@ -397,7 +393,7 @@ public class Map {
         //set exitPoint
         map.get("e").setName("e");
         //map.get("e").setDestination(map.get("st"));
-        map.get("e").setStartingTile((Tile) map.get("st"));
+        map.get("e").setStartingTile((Tile)map.get("st"));
         map.get("e").setGameLogic(gL);
 
         ArrayList<BaseTile> eNeighbours = new ArrayList<>();
@@ -413,7 +409,7 @@ public class Map {
     /**
      * Letrehozza a csempeket es feltolti a a tenyleges jatek map-ot veluk
      */
-    public void fillPlayingMap() {
+    public void fillPlayingMap(){
 
         //entry tile
         map.put("st", new Tile());
@@ -477,16 +473,15 @@ public class Map {
     }
 
     /**
-     * Beallitja az egyes csempek szomszedait es
-     * ha all rajtuk valamilyen item azt is, illetve
-     * beallitja a csempeket amelyre az egyes szekrenyek
-     * teleportalnak (tenyleges jatek).
-     */
-    void setElementsOfPlayingMap() {
+    * Beallitja az egyes csempek szomszedait es
+    * ha all rajtuk valamilyen item azt is, illetve
+    * beallitja a csempeket amelyre az egyes szekrenyek
+    * teleportalnak (tenyleges jatek).
+    */
+    void setElementsOfPlayingMap(){
 
         //set tile st
         map.get("st").setName("st");
-        map.get("st").setCenter(new Point(33 * s, 350 * s));
         ArrayList<BaseTile> stNeighbours = new ArrayList<>();
         stNeighbours.add(map.get("t1"));
         stNeighbours.add(map.get("t2"));
@@ -499,7 +494,6 @@ public class Map {
 
         //set tile e
         map.get("e").setName("e");
-        map.get("e").setCenter(new Point(1200 * s, 350 * s));
         ArrayList<BaseTile> eNeighbours = new ArrayList<>();
         eNeighbours.add(map.get("t10"));
         eNeighbours.add(map.get("t11"));
@@ -512,7 +506,6 @@ public class Map {
 
         //set tile c1
         map.get("c1").setName("c1");
-        map.get("c1").setCenter(new Point(1100 * s, 650 * s));
         map.get("c1").setItem(new Couch((Tile) map.get("c1")));
 
         ArrayList<BaseTile> c1Neighbours = new ArrayList<>();
@@ -522,7 +515,6 @@ public class Map {
 
         //set breakabletile b1
         map.get("b1").setName("b1");
-        map.get("b1").setCenter(new Point(330 * s, 550 * s));
         map.get("b1").setHealth(20);
 
         ArrayList<BaseTile> b1Neighbours = new ArrayList<>();
@@ -535,7 +527,6 @@ public class Map {
 
         //set breakabletile b3
         map.get("b3").setName("b3");
-        map.get("b3").setCenter(new Point(860 * s, 500 * s));
         map.get("b3").setHealth(20);
 
         ArrayList<BaseTile> b3Neighbours = new ArrayList<>();
@@ -548,7 +539,6 @@ public class Map {
 
         //set entryWardrobe w1
         map.get("w1").setName("w1");
-        map.get("w1").setCenter(new Point(420 * s, 650 * s));
         map.get("w1").setDestination(map.get("t6"));
 
         ArrayList<BaseTile> w1Neighbours = new ArrayList<>();
@@ -559,7 +549,6 @@ public class Map {
 
         //set entryWardrobe w2
         map.get("w2").setName("w2");
-        map.get("w2").setCenter(new Point(1230 * s, 550 * s));
         map.get("w2").setDestination(map.get("t15"));
 
         ArrayList<BaseTile> w2Neighbours = new ArrayList<>();
@@ -569,7 +558,6 @@ public class Map {
 
         //set tile a1
         map.get("a1").setName("a1");
-        map.get("a1").setCenter(new Point(630 * s, 580 * s));
         map.get("a1").setItem(new ChocoAutomat((Tile) map.get("a1")));
 
         ArrayList<BaseTile> a1Neighbours = new ArrayList<>();
@@ -584,7 +572,6 @@ public class Map {
 
         //set tile s1
         map.get("s1").setName("s1");
-        map.get("s1").setCenter(new Point(666 * s, 265 * s));
         map.get("s1").setItem(new SlotMachine((Tile) map.get("s1")));
 
         ArrayList<BaseTile> s1Neighbours = new ArrayList<>();
@@ -601,7 +588,6 @@ public class Map {
 
         //set tile t1
         map.get("t1").setName("t1");
-        map.get("t1").setCenter(new Point(45 * s, 45 * s));
         ArrayList<BaseTile> t1Neighbours = new ArrayList<>();
         t1Neighbours.add(map.get("st"));
         t1Neighbours.add(map.get("t2"));
@@ -609,7 +595,6 @@ public class Map {
 
         //set tile t2
         map.get("t2").setName("t2");
-        map.get("t2").setCenter(new Point(135 * s, 135 * s));
         ArrayList<BaseTile> t2Neighbours = new ArrayList<>();
         t2Neighbours.add(map.get("t1"));
         t2Neighbours.add(map.get("t14"));
@@ -618,7 +603,6 @@ public class Map {
 
         //set tile t3
         map.get("t3").setName("t3");
-        map.get("t3").setCenter(new Point(230 * s, 70 * s));
         ArrayList<BaseTile> t3Neighbours = new ArrayList<>();
         t3Neighbours.add(map.get("t14"));
         t3Neighbours.add(map.get("t4"));
@@ -627,7 +611,6 @@ public class Map {
 
         //set tile t4
         map.get("t4").setName("t4");
-        map.get("t4").setCenter(new Point(350 * s, 70 * s));
         ArrayList<BaseTile> t4Neighbours = new ArrayList<>();
         t4Neighbours.add(map.get("t3"));
         t4Neighbours.add(map.get("t5"));
@@ -636,7 +619,6 @@ public class Map {
 
         //set tile t5
         map.get("t5").setName("t5");
-        map.get("t5").setCenter(new Point(470 * s, 120 * s));
         ArrayList<BaseTile> t5Neighbours = new ArrayList<>();
         t5Neighbours.add(map.get("t4"));
         t5Neighbours.add(map.get("t6"));
@@ -646,7 +628,6 @@ public class Map {
 
         //set tile t6
         map.get("t6").setName("t6");
-        map.get("t6").setCenter(new Point(600 * s, 70 * s));
         ArrayList<BaseTile> t6Neighbours = new ArrayList<>();
         t6Neighbours.add(map.get("t5"));
         t6Neighbours.add(map.get("t7"));
@@ -655,7 +636,6 @@ public class Map {
 
         //set tile t7
         map.get("t7").setName("t7");
-        map.get("t7").setCenter(new Point(770 * s, 140 * s));
         ArrayList<BaseTile> t7Neighbours = new ArrayList<>();
         t7Neighbours.add(map.get("t6"));
         t7Neighbours.add(map.get("s1"));
@@ -665,7 +645,6 @@ public class Map {
 
         //set tile t8
         map.get("t8").setName("t8");
-        map.get("t8").setCenter(new Point(890 * s, 50 * s));
         ArrayList<BaseTile> t8Neighbours = new ArrayList<>();
         t8Neighbours.add(map.get("t9"));
         t8Neighbours.add(map.get("t11"));
@@ -674,7 +653,6 @@ public class Map {
 
         //set tile t9
         map.get("t9").setName("t9");
-        map.get("t9").setCenter(new Point(1100 * s, 50 * s));
         ArrayList<BaseTile> t9Neighbours = new ArrayList<>();
         t9Neighbours.add(map.get("t8"));
         t9Neighbours.add(map.get("t10"));
@@ -682,7 +660,6 @@ public class Map {
 
         //set tile t10
         map.get("t10").setName("t10");
-        map.get("t10").setCenter(new Point(1185 * s, 200 * s));
         ArrayList<BaseTile> t10Neighbours = new ArrayList<>();
         t10Neighbours.add(map.get("t9"));
         t10Neighbours.add(map.get("t11"));
@@ -691,7 +668,6 @@ public class Map {
 
         //set tile t11
         map.get("t11").setName("t11");
-        map.get("t11").setCenter(new Point(1015 * s, 200 * s));
         ArrayList<BaseTile> t11Neighbours = new ArrayList<>();
         t11Neighbours.add(map.get("t8"));
         t11Neighbours.add(map.get("t10"));
@@ -701,7 +677,6 @@ public class Map {
 
         //set tile t12
         map.get("t12").setName("t12");
-        map.get("t12").setCenter(new Point(900 * s, 250 * s));
         ArrayList<BaseTile> t12Neighbours = new ArrayList<>();
         t12Neighbours.add(map.get("t11"));
         t12Neighbours.add(map.get("t7"));
@@ -712,7 +687,6 @@ public class Map {
 
         //set tile t13
         map.get("t13").setName("t13");
-        map.get("t13").setCenter(new Point(350 * s, 250 * s));
         ArrayList<BaseTile> t13Neighbours = new ArrayList<>();
         t13Neighbours.add(map.get("t14"));
         t13Neighbours.add(map.get("t3"));
@@ -727,7 +701,6 @@ public class Map {
 
         //set tile t14
         map.get("t14").setName("t14");
-        map.get("t14").setCenter(new Point(150 * s, 250 * s));
         ArrayList<BaseTile> t14Neighbours = new ArrayList<>();
         t14Neighbours.add(map.get("t2"));
         t14Neighbours.add(map.get("t3"));
@@ -738,7 +711,6 @@ public class Map {
 
         //set tile t15
         map.get("t15").setName("t15");
-        map.get("t15").setCenter(new Point(150 * s, 370 * s));
         ArrayList<BaseTile> t15Neighbours = new ArrayList<>();
         t15Neighbours.add(map.get("t14"));
         t15Neighbours.add(map.get("t13"));
@@ -749,7 +721,6 @@ public class Map {
 
         //set tile t16
         map.get("t16").setName("t16");
-        map.get("t16").setCenter(new Point(300 * s, 370 * s));
         ArrayList<BaseTile> t16Neighbours = new ArrayList<>();
         t16Neighbours.add(map.get("t15"));
         t16Neighbours.add(map.get("t13"));
@@ -759,7 +730,6 @@ public class Map {
 
         //set tile t17
         map.get("t17").setName("t17");
-        map.get("t17").setCenter(new Point(470 * s, 420 * s));
         ArrayList<BaseTile> t17Neighbours = new ArrayList<>();
         t17Neighbours.add(map.get("t13"));
         t17Neighbours.add(map.get("t16"));
@@ -770,7 +740,6 @@ public class Map {
 
         //set tile t18
         map.get("t18").setName("t18");
-        map.get("t18").setCenter(new Point(580 * s, 350 * s));
         ArrayList<BaseTile> t18Neighbours = new ArrayList<>();
         t18Neighbours.add(map.get("t13"));
         t18Neighbours.add(map.get("s1"));
@@ -781,7 +750,6 @@ public class Map {
 
         //set tile t19
         map.get("t19").setName("t19");
-        map.get("t19").setCenter(new Point(670 * s, 430 * s));
         ArrayList<BaseTile> t19Neighbours = new ArrayList<>();
         t19Neighbours.add(map.get("s1"));
         t19Neighbours.add(map.get("t20"));
@@ -792,7 +760,6 @@ public class Map {
 
         //set tile t20
         map.get("t20").setName("t20");
-        map.get("t20").setCenter(new Point(770 * s, 400 * s));
         ArrayList<BaseTile> t20Neighbours = new ArrayList<>();
         t20Neighbours.add(map.get("s1"));
         t20Neighbours.add(map.get("t21"));
@@ -802,7 +769,6 @@ public class Map {
 
         //set tile t21
         map.get("t21").setName("t21");
-        map.get("t21").setCenter(new Point(915 * s, 370 * s));
         ArrayList<BaseTile> t21Neighbours = new ArrayList<>();
         t21Neighbours.add(map.get("t12"));
         t21Neighbours.add(map.get("e"));
@@ -813,7 +779,6 @@ public class Map {
 
         //set tile t22
         map.get("t22").setName("t22");
-        map.get("t22").setCenter(new Point(1000 * s, 460 * s));
         ArrayList<BaseTile> t22Neighbours = new ArrayList<>();
         t22Neighbours.add(map.get("t21"));
         t22Neighbours.add(map.get("e"));
@@ -823,7 +788,6 @@ public class Map {
 
         //set tile t23
         map.get("t23").setName("t23");
-        map.get("t23").setCenter(new Point(750 * s, 540 * s));
         ArrayList<BaseTile> t23Neighbours = new ArrayList<>();
         t23Neighbours.add(map.get("t19"));
         t23Neighbours.add(map.get("b3"));
@@ -833,7 +797,6 @@ public class Map {
 
         //set tile t24
         map.get("t24").setName("t24");
-        map.get("t24").setCenter(new Point(470 * s, 540 * s));
         ArrayList<BaseTile> t24Neighbours = new ArrayList<>();
         t24Neighbours.add(map.get("t17"));
         t24Neighbours.add(map.get("a1"));
@@ -844,7 +807,6 @@ public class Map {
 
         //set tile t25
         map.get("t25").setName("t25");
-        map.get("t25").setCenter(new Point(150 * s, 500 * s));
         ArrayList<BaseTile> t25Neighbours = new ArrayList<>();
         t25Neighbours.add(map.get("t15"));
         t25Neighbours.add(map.get("b1"));
@@ -854,7 +816,6 @@ public class Map {
 
         //set tile t26
         map.get("t26").setName("t26");
-        map.get("t26").setCenter(new Point(45 * s, 650 * s));
         ArrayList<BaseTile> t26Neighbours = new ArrayList<>();
         t26Neighbours.add(map.get("st"));
         t26Neighbours.add(map.get("t27"));
@@ -862,7 +823,6 @@ public class Map {
 
         //set tile t27
         map.get("t27").setName("t27");
-        map.get("t27").setCenter(new Point(150 * s, 600 * s));
         ArrayList<BaseTile> t27Neighbours = new ArrayList<>();
         t27Neighbours.add(map.get("t25"));
         t27Neighbours.add(map.get("t28"));
@@ -872,7 +832,6 @@ public class Map {
 
         //set tile t28
         map.get("t28").setName("t28");
-        map.get("t28").setCenter(new Point(280 * s, 650 * s));
         ArrayList<BaseTile> t28Neighbours = new ArrayList<>();
         t28Neighbours.add(map.get("t27"));
         t28Neighbours.add(map.get("b1"));
@@ -880,7 +839,6 @@ public class Map {
 
         //set tile t29
         map.get("t29").setName("t29");
-        map.get("t29").setCenter(new Point(550 * s, 650 * s));
         ArrayList<BaseTile> t29Neighbours = new ArrayList<>();
         t29Neighbours.add(map.get("t24"));
         t29Neighbours.add(map.get("a1"));
@@ -889,7 +847,6 @@ public class Map {
 
         //set tile t30
         map.get("t30").setName("t30");
-        map.get("t30").setCenter(new Point(750 * s, 650 * s));
         ArrayList<BaseTile> t30Neighbours = new ArrayList<>();
         t30Neighbours.add(map.get("t23"));
         t30Neighbours.add(map.get("t31"));
@@ -898,7 +855,6 @@ public class Map {
 
         //set tile t31
         map.get("t31").setName("t31");
-        map.get("t31").setCenter(new Point(890 * s, 650 * s));
         ArrayList<BaseTile> t31Neighbours = new ArrayList<>();
         t31Neighbours.add(map.get("b3"));
         t31Neighbours.add(map.get("c1"));
@@ -907,7 +863,6 @@ public class Map {
 
         //set tile t32
         map.get("t32").setName("t32");
-        map.get("t32").setCenter(new Point(1000 * s, 600 * s));
         ArrayList<BaseTile> t32Neighbours = new ArrayList<>();
         t32Neighbours.add(map.get("b3"));
         t32Neighbours.add(map.get("t33"));
@@ -916,7 +871,6 @@ public class Map {
 
         //set tile t33
         map.get("t33").setName("t33");
-        map.get("t33").setCenter(new Point(1100 * s, 550 * s));
         ArrayList<BaseTile> t33Neighbours = new ArrayList<>();
         t33Neighbours.add(map.get("e"));
         t33Neighbours.add(map.get("w2"));
@@ -958,20 +912,17 @@ public class Map {
     /**
      * Incializalja az egesz palyat(proto, illetve a vegleges jatek).
      */
-    public Map(GameLogic gameLogic, boolean proto, double scale) {
+    public Map(GameLogic gameLogic, boolean proto) {
         gL = gameLogic;
-        s = scale;
-        if (proto) {
+        if (proto)
+        {
             fillMap();
             setElementsOfMap();
-        } else {
+        }
+        else
+        {
             fillPlayingMap();
             setElementsOfPlayingMap();
         }
-    }
-
-
-    public HashMap<String, BaseTile> getTiles() {
-        return map;
     }
 }

@@ -17,12 +17,12 @@
 
 
 public class BreakableTile extends Tile {
-
+	
     /**
      * A csempe elettartamat tarolo int.
      */
     private int health;
-
+	
     /**
      * A csempe allapotat(torott/ep) jelzo boolean.
      */
@@ -141,11 +141,12 @@ public class BreakableTile extends Tile {
         }
         a.getTile().remove();
 
-        if (!broken) {
+        if(!broken){
             localAnimal = a;
             localAnimal.setTile(this);
             decreaseHealth();
-        } else {
+        }
+        else{
             a.die();
         }
 

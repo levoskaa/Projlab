@@ -2,7 +2,6 @@ import java.awt.*;
 
 /**
  * AZ itemekhez tartozo view ososztaly
- *
  * @author Cynolter
  */
 public class ItemView implements IDrawable {
@@ -27,7 +26,7 @@ public class ItemView implements IDrawable {
     /**
      * @param p A pont ahova az itemet el szeretnenk helyezni (x,y).
      */
-    public void setCoordinates(Point p) {
+    public void setCoordinates(Point p){
         coordinates = p;
     }
 

@@ -31,28 +31,24 @@ public abstract class Animal {
 
     /**
      * Pandaval valo utkozes lekezelesere valo fuggveny.
-     *
      * @param p A panda, amivel az utkozes tortent.
      */
     public abstract void collisionWithPanda(Panda p);
 
     /**
      * Orangutanal valo utkozes lekezelesere valo fuggveny.
-     *
      * @param o Az orangutan, amivel az utkozes tortent.
      */
     public abstract void collisionWithOrangutan(Orangutan o);
 
     /**
      * Allattal valo utkozes lekezelesere valo fuggveny.
-     *
      * @param a Az allat, amivel az utkozes tortent.
      */
     public abstract void collideWith(Animal a);
 
     /**
      * Panda elfogasara hasznalando fuggveny.
-     *
      * @param orangutan Az orangutan, ami elkapja a pandat.
      */
     public void catchPanda(Orangutan orangutan) {
@@ -66,7 +62,6 @@ public abstract class Animal {
 
     /**
      * Fotel melle erve hivodik meg ez a fuggveny.
-     *
      * @param t A csempe, amin a fotel van.
      */
     public void sit(Tile t) {
@@ -173,7 +168,6 @@ public abstract class Animal {
 
     /**
      * Getter fuggveny az allat nevere.
-     *
      * @return Az allat neve.
      */
     public String getName() {
@@ -186,7 +180,6 @@ public abstract class Animal {
 
     /**
      * Setter fuggveny az allat nevere.
-     *
      * @param n Az allat uj neve.
      */
     public void setName(String n) {
@@ -215,6 +208,5 @@ public abstract class Animal {
         return;
     }
 
-    public void release(Panda p) {
-    }
+    public void release(Panda p) {}
 }

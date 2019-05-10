@@ -6,9 +6,9 @@ public class Point {
         this(0, 0);
     }
 
-    public Point(double _x, double _y) {
-        x = (int) _x;
-        y = (int) _y;
+    public Point(int _x, int _y) {
+        x = _x;
+        y = _y;
     }
 
     public Point add(Point p) {

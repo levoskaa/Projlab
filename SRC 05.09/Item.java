@@ -15,21 +15,11 @@
  *
  * @author Cynolter
  */
-public abstract class Item extends BaseTile {
+public abstract class Item {
     /**
      * Nev, amivel a teszteles soran azonositani lehet az objektumot.
      */
     private String name;
-
-    private Point center;
-
-    public Point getCenter() {
-        return center;
-    }
-
-    public void setCenter(Point center) {
-        this.center = center;
-    }
 
     /**
      * A szamlalo, amely ha lejar akkor a csokiautomata sipolhat és a jatekgep csoroghet.

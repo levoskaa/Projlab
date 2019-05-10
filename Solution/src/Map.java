@@ -30,7 +30,7 @@ public class Map {
     }
 
     // scale
-    double s = 1.0;
+    int s = 1;
 
     /**
      * Letrehozza a csempeket es feltolti a protohoz tartozo map-ot veluk
@@ -958,7 +958,7 @@ public class Map {
     /**
      * Incializalja az egesz palyat(proto, illetve a vegleges jatek).
      */
-    public Map(GameLogic gameLogic, boolean proto, double scale) {
+    public Map(GameLogic gameLogic, boolean proto, int scale) {
         gL = gameLogic;
         s = scale;
         if (proto) {

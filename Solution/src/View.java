@@ -11,6 +11,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class View {
@@ -38,10 +39,11 @@ public class View {
     private GameLogic gl;
 
     //nalam ez pl "/images/", Levinel asszem "./src/images/"
-    private String path = "./src/images/";
+    private String path = "/images/";
 
     //offset for images
     private int o = 32;
+
 
     public void init() {
         buildFrame();
@@ -110,54 +112,82 @@ public class View {
             g.drawImage(tile, map.getTile("t32").getCenter().x - o, map.getTile("t32").getCenter().y - o, mainWindow);
             g.drawImage(tile, map.getTile("t33").getCenter().x - o, map.getTile("t33").getCenter().y - o, mainWindow);*/
 
-            for (Object value : map.getTiles().values()) {
-                //g.drawImage(tile, ((BaseTile) value).getCenter().x - o, ((BaseTile) value).getCenter().y - o, mainWindow);
-                for (BaseTile bt : ((BaseTile) value).getNeighbours()) {
-                    if (bt != null) {
-                        int a = bt.getCenter().x;
-                        int b = bt.getCenter().y;
-                        int c = ((BaseTile) value).getCenter().x;
-                        int d = ((BaseTile) value).getCenter().y;
-                        g.drawLine(a, b, c, d);
-                    }
-                }
-            }
-
-            for (Object value : map.getTiles().values()) {
-                g.drawImage(tile, ((BaseTile) value).getCenter().x - o, ((BaseTile) value).getCenter().y - o, mainWindow);
-            }
-
-
-            g.drawImage(startingtile, map.getTile("st").getCenter().x - o, map.getTile("st").getCenter().y - o, mainWindow);
-            g.drawImage(exitpoint, map.getTile("e").getCenter().x - o, map.getTile("e").getCenter().y - o, mainWindow);
-            g.drawImage(couch, map.getTile("c1").getCenter().x - o, map.getTile("c1").getCenter().y - o, mainWindow);
-            g.drawImage(wardrobe, map.getTile("w1").getCenter().x - o, map.getTile("w1").getCenter().y - o, mainWindow);
-            g.drawImage(wardrobe, map.getTile("w2").getCenter().x - o, map.getTile("w2").getCenter().y - o, mainWindow);
-            g.drawImage(automat, map.getTile("a1").getCenter().x - o, map.getTile("a1").getCenter().y - o, mainWindow);
-            g.drawImage(slotmachine, map.getTile("s1").getCenter().x - o, map.getTile("s1").getCenter().y - o, mainWindow);
-            g.drawImage(breakabletile_notbroken, map.getTile("b1").getCenter().x - o, map.getTile("b1").getCenter().y - o, mainWindow);
-            g.drawImage(breakabletile_notbroken, map.getTile("b3").getCenter().x - o, map.getTile("b3").getCenter().y - o, mainWindow);
-
-
-            addMouseListener(new MouseAdapter() {
-                public void mousePressed(MouseEvent me) {
-                    //System.out.println(me);
-                    //System.out.println(me.getX() + " " + me.getY());
-                    BaseTile bt = null;
-                    for (Object value : map.getTiles().values()) {
-                        if (Math.pow(me.getX() - ((BaseTile) value).getCenter().x, 2) + Math.pow(me.getY() - ((BaseTile) value).getCenter().y, 2) - 32 * 32 * map.s < 0){
-                            bt = ((BaseTile) value);
+                for (Object value : map.getTiles().values()) {
+                    //g.drawImage(tile, ((BaseTile) value).getCenter().x - o, ((BaseTile) value).getCenter().y - o, mainWindow);
+                    for (BaseTile bt : ((BaseTile) value).getNeighbours()) {
+                        if (bt != null) {
+                            int a = bt.getCenter().x;
+                            int b = bt.getCenter().y;
+                            int c = ((BaseTile) value).getCenter().x;
+                            int d = ((BaseTile) value).getCenter().y;
+                            g.drawLine(a, b, c, d);
                         }
                     }
-                    if (bt != null){
-                        //orangutan uj pozicio: bt csempe
-                        System.out.println(bt.getCenter().x + " " + bt.getCenter().y);
-                    }
                 }
-            });
+
+                for (Object value : map.getTiles().values()) {
+                    g.drawImage(tile, ((BaseTile) value).getCenter().x - o, ((BaseTile) value).getCenter().y - o, mainWindow);
+                }
+
+
+                g.drawImage(startingtile, map.getTile("st").getCenter().x - o, map.getTile("st").getCenter().y - o, mainWindow);
+                g.drawImage(exitpoint, map.getTile("e").getCenter().x - o, map.getTile("e").getCenter().y - o, mainWindow);
+                g.drawImage(couch, map.getTile("c1").getCenter().x - o, map.getTile("c1").getCenter().y - o, mainWindow);
+                g.drawImage(wardrobe, map.getTile("w1").getCenter().x - o, map.getTile("w1").getCenter().y - o, mainWindow);
+                g.drawImage(wardrobe, map.getTile("w2").getCenter().x - o, map.getTile("w2").getCenter().y - o, mainWindow);
+                g.drawImage(automat, map.getTile("a1").getCenter().x - o, map.getTile("a1").getCenter().y - o, mainWindow);
+                g.drawImage(slotmachine, map.getTile("s1").getCenter().x - o, map.getTile("s1").getCenter().y - o, mainWindow);
+                g.drawImage(breakabletile_notbroken, map.getTile("b1").getCenter().x - o, map.getTile("b1").getCenter().y - o, mainWindow);
+                g.drawImage(breakabletile_notbroken, map.getTile("b3").getCenter().x - o, map.getTile("b3").getCenter().y - o, mainWindow);
+
+
+                addMouseListener(new MouseAdapter() {
+                    public void mousePressed(MouseEvent me) {
+                        //System.out.println(me);
+                        //System.out.println(me.getX() + " " + me.getY());
+                        BaseTile bt = null;
+                        for (Object value : map.getTiles().values()) {
+                            if (Math.pow(me.getX() - ((BaseTile) value).getCenter().x, 2) + Math.pow(me.getY() - ((BaseTile) value).getCenter().y, 2) - 32 * 32 < 0) {
+                                bt = ((BaseTile) value);
+                            }
+                        }
+                        if (bt != null) {
+                            //orangutan uj pozicio: bt csempe
+                            boolean neighbour = false;
+                            for (BaseTile bt1 : bt.getNeighbours()) {
+                                //System.out.println(bt1.getName());
+                                int a = bt1.getCenter().x;
+                                int b = gl.getPlayerOrangutan().getCenter().x;
+                                int c = bt1.getCenter().y;
+                                int d = gl.getPlayerOrangutan().getCenter().y;
+                                System.out.println(a + " " + b + " " + c + " " + d);
+                                if (bt1.getCenter().x == gl.getPlayerOrangutan().getCenter().x && bt1.getCenter().y == gl.getPlayerOrangutan().getCenter().y){
+                                    neighbour = true;
+                                    break;
+                                }
+                            }
+                            if (neighbour){
+
+                                System.out.println(bt.getCenter().x + " " + bt.getCenter().y);
+                                gl.getPlayerOrangutan().setCenter(bt.getCenter());
+                                //gl.getPlayerOrangutan().move(bt);
+                                mainWindow.repaint();
+                            }
+                            System.out.println( gl.getPlayerOrangutan().getCenter().x + " " + gl.getPlayerOrangutan().getCenter().y );
+                        }
+                    }
+                });
+
+
+                for (Animal a : map.getGameLogic().getPandasOnTheMap()) {
+                    g.drawImage(panda, a.getCenter().x - o, a.getCenter().y - o, mainWindow);
+                }
+
+                g.drawImage(orangutan_o, map.getGameLogic().getPlayerOrangutan().getCenter().x - o, map.getGameLogic().getPlayerOrangutan().getCenter().y - o, mainWindow);
+                g.drawImage(orangutan_ai, map.getGameLogic().getSecondOrangutan().getCenter().x - o, map.getGameLogic().getSecondOrangutan().getCenter().y - o, mainWindow);
+            }
         }
 
-    }
 
     public void pandaRemoved() {
 
@@ -215,17 +245,33 @@ public class View {
         mainWindow.add(pane);
         mainWindow.setVisible(true);
 
-        mainWindow.addComponentListener(new ComponentAdapter() {
+        /*mainWindow.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent componentEvent) {
                 //szelesseg szerint skalaz
                 //map = new Map(gl, false, mainWindow.getContentPane().getSize().getWidth() / 1280);
 
                 //magassag szerint skalaz
-                map = new Map(gl, false, mainWindow.getContentPane().getSize().getHeight() / 700);
+                //map = new Map(gl, false, mainWindow.getContentPane().getSize().getHeight() / 700);
 
                 //mainWindow.setSize(new Dimension((int)(mainWindow.getContentPane().getSize().getWidth() / 1280), (int)(mainWindow.getContentPane().getSize().getWidth() / 1280 * 720)));
             }
-        });
+        });*/
+
+        Panda p1 = new TiredPanda();
+        p1.setCenter(map.getTile("t9").getCenter());
+
+        gl.addPanda(p1);
+
+        PlayerOrangutan o1 = new PlayerOrangutan();
+        o1.setCenter(map.getTile("t10").getCenter());
+        gl.setPlayerOrangutan(o1);
+        Orangutan o2 = new Orangutan();
+        o2.setCenter(map.getTile("t15").getCenter());
+        gl.setSecondOrangutan(o2);
+
+        ArrayList<Panda> follow = new ArrayList<>();
+        follow.add(p1);
+        o1.setCaughtPandas(follow);
 
 
         return mainWindow;

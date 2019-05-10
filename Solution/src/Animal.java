@@ -72,6 +72,16 @@ public abstract class Animal {
     public void sit(Tile t) {
     }
 
+    private Point center;
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public void setCenter(Point center) {
+        this.center = center;
+    }
+
     /**
      * Jatekgep csilingelesekor hivodik meg.
      */

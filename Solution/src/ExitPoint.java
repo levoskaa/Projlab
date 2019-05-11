@@ -79,24 +79,26 @@ public class ExitPoint extends EntryWardrobe {
             GameLogic.indent(true);
             System.out.println(">   ExitPoint::receive(Animal a)");
         }
-        if (a.getType().equals("orangutan")) {
-            startingTile.receive(a);
-            int i = 0;
+
+        if (a.getType().compareTo("orangutan") == 0) {
+            while (true) {
+                startingTile.receive(a);
+                if (a.getTile().getName().compareTo("st") == 0)
+                    break;
+            }
+            int num = a.getCaughtPandas().size();
             if (a.getCaughtPandas().size() > 0) {
                 for (Panda p : a.getCaughtPandas()) {
-                    p.getTile().setAnimal(null);
+                    p.getTile().remove();
                     gameLogic.remove(p);
-                    ++i;
                 }
-                gameLogic.addPoints(i);
+                gameLogic.addPoints(10 * num);
 
                 a.release(a.getCaughtPandas().get(0));
-
             }
         } else {
-            a.getTile().remove();
-
             if (localAnimal == null) {
+                a.getTile().remove();
                 localAnimal = a;
                 localAnimal.setTile(this);
             } else {

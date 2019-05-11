@@ -23,7 +23,7 @@ public abstract class Item extends BaseTile {
      */
     private String name;
 
-    private Point center;
+    protected Point center;
 
     protected Image image;
 

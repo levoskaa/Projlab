@@ -6,10 +6,7 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -179,6 +176,17 @@ public class View {
                     }
                 });
 
+                addKeyListener(new KeyAdapter() {
+                    @Override
+                    public void keyReleased(KeyEvent e) {
+                        //super.keyReleased(e);
+                        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                            if (gl.getPlayerOrangutan().getCaughtPandas().size() > 0) {
+                                gl.getPlayerOrangutan().release(gl.getPlayerOrangutan().getCaughtPandas().get(0));
+                            }
+                        }
+                    }
+                });
 
                 for (Animal a : map.getGameLogic().getPandasOnTheMap()) {
                     g.drawImage(a.getImage(), a.getCenter().x - o, a.getCenter().y - o, mainWindow);
@@ -229,7 +237,6 @@ public class View {
 
         //mainWindow.setVisible(true);
 
-        //gl = new GameLogic();
         map = new Map(gl, false, 1);
 
         /*

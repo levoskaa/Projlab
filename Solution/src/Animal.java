@@ -78,7 +78,7 @@ public abstract class Animal {
     public void sit(Tile t) {
     }
 
-    private Point center;
+    protected Point center;
 
     public Point getCenter() {
         return center;

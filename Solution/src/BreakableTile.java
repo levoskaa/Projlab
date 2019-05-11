@@ -11,6 +11,7 @@
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * A torekeny csempe viselkedeset megvalosito osztaly.
@@ -156,13 +157,19 @@ public class BreakableTile extends Tile {
             GameLogic.indent(true);
             System.out.println(">   BreakableTile::receive (Animal a)");
         }
-        a.getTile().remove();
 
         if (!broken) {
-            localAnimal = a;
-            localAnimal.setTile(this);
-            decreaseHealth();
+            if (localAnimal == null) {
+                a.getTile().remove();
+                localAnimal = a;
+                localAnimal.setTile(this);
+                localAnimal.setCenter(center);
+                decreaseHealth();
+            } else {
+                localAnimal.collideWith(a);
+            }
         } else {
+            a.getTile().remove();
             a.die();
         }
 

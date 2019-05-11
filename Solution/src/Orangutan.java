@@ -113,8 +113,10 @@ public class Orangutan extends Animal {
             System.out.println(">   Orangutan::collisionWitPanda(Animal a)");
         }
 
-        if (cantCatchPandasUntil == 0)
-            p.catchPanda(this);
+        if (cantCatchPandasUntil == 0) {
+            if (!p.caught)
+                p.catchPanda(this);
+        }
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);
@@ -300,12 +302,8 @@ public class Orangutan extends Animal {
             GameLogic.indent(true);
             System.out.println(">   Orangutan::move()");
         }
-        boolean pandasCanStep = true;
 
-        int pandaNumBefore = caughtPandas.size();
         super.move();
-        if (pandaNumBefore < caughtPandas.size())
-            pandasCanStep = false;
 
         if (cantCatchPandasUntil > 0)
             cantCatchPandasUntil--;

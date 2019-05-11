@@ -146,7 +146,7 @@ public class GameLogic {
         }
 
         long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
-        final double amountOfTicks = 1D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
+        final double amountOfTicks = 1.4D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
         double nanoSec = 1000000000 / amountOfTicks; //hány nanoszekudumonként kell tickelni
         double delta = 0;
 
@@ -248,7 +248,7 @@ public class GameLogic {
                 previousTile = temp;
             }
         }
-
+        /*
         if (secondOrangutan != null) {
             pandasCanMove = true;
             previousTile = secondOrangutan.getTile();
@@ -269,9 +269,7 @@ public class GameLogic {
                 }
             }
         }
-
-        
-
+        */
         for (int i = 0; i < pandasOnTheMap.size(); ++i) {
             if (!pandasOnTheMap.get(i).getCaught()) {
                 //pandasOnTheMap.get(i).move();
@@ -294,14 +292,13 @@ public class GameLogic {
     /**
      * Eltavolitja a halott allatot.
      */
-    public void remove(Animal a) {
+    public void remove(Panda p) {
         if (SkeletonMenu.indent) {
             GameLogic.indent(true);
             System.out.println(">   GameLogic::remove(Animal a)");
         }
 
-        pandasOnTheMap.remove(a);
-        //a = null;
+        pandasOnTheMap.remove(p);
         if (pandasOnTheMap.size() == 0) {
             endGame();
         }

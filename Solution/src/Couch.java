@@ -58,11 +58,12 @@ public class Couch extends Item {
         if (restingPanda == null) {
             restingPanda = p;
             restingPanda.setResting(true);
-            restingPanda.setRestingUntil(5);
+            restingPanda.setRestingUntil(3);
 
             restingPanda.getTile().remove();
             restingPanda.setTile(onTile);
             onTile.setAnimal(restingPanda);
+            restingPanda.setCenter(onTile.getCenter());
         }
 
         //GameLogic.indent(false);

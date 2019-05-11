@@ -25,7 +25,7 @@ public abstract class BaseTile {
      */
     private String name;
 
-    private Point center;
+    protected Point center;
 
     protected Image image;
 
@@ -90,6 +90,7 @@ public abstract class BaseTile {
             localAnimal = a;
             localAnimal.setTile(this);
             localAnimal.setCenter(center);
+            /*
             ArrayList<Panda> a1 = localAnimal.getCaughtPandas();
             if (a1 != null) {
                 for (int i = 0; i < a1.size(); i++) {
@@ -98,6 +99,7 @@ public abstract class BaseTile {
                     tempTile = tempTile2;
                 }
             }
+            */
         } else {
             localAnimal.collideWith(a);
         }

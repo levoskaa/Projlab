@@ -32,8 +32,6 @@ public class Map {
     // scale
     int s = 1;
 
-    private int pandaCounter = 0;
-
     /**
      * Letrehozza a csempeket es feltolti a protohoz tartozo map-ot veluk
      */
@@ -511,7 +509,6 @@ public class Map {
         eNeighbours.add(map.get("t33"));
         eNeighbours.add(map.get("w2"));
         map.get("e").setNeighbours(eNeighbours);
-        map.get("e").setStartingTile((Tile) map.get("st"));
 
         //set tile c1
         map.get("c1").setName("c1");
@@ -958,85 +955,6 @@ public class Map {
         return;
     }
 
-    private void placeAnimalsOnPlayingMap() {
-        int rnd;
-
-        PlayerOrangutan po = gL.getPlayerOrangutan();
-        po.setName("po");
-        po.setTile(map.get("st"));
-        po.setGameLogic(gL);
-        map.get("st").setAnimal(po);
-        po.setCenter(map.get("st").getCenter());
-
-        ArrayList<Panda> following = new ArrayList();
-        Panda p = new JumpingPanda();
-        p.setName("panda" + pandaCounter++);
-        p.setTile(map.get("t1"));
-        p.setGameLogic(gL);
-        p.setOrangutan(gL.getPlayerOrangutan());
-        map.get("t1").setAnimal(p);
-        p.setCenter(map.get("t1").getCenter());
-        gL.addPanda(p);
-        following.add(p);
-        po.setCaughtPandas(following);
-
-
-        Orangutan o = gL.getSecondOrangutan();
-        o.setName("po");
-        o.setTile(map.get("t28"));
-        o.setGameLogic(gL);
-        map.get("t28").setAnimal(o);
-        o.setCenter(map.get("t28").getCenter());
-
-        // t32
-        rnd = (int) (Math.random() * 3.0);
-        createPanda(rnd, "t32");
-
-        // t11
-        rnd = (int) (Math.random() * 3.0);
-        createPanda(rnd, "t11");
-
-        // t10
-        rnd = (int) (Math.random() * 3.0);
-        createPanda(rnd, "t10");
-
-        // t3
-        rnd = (int) (Math.random() * 3.0);
-        createPanda(rnd, "t3");
-
-        // t5
-        rnd = (int) (Math.random() * 3.0);
-        createPanda(rnd, "t5");
-
-        // t17
-        rnd = (int) (Math.random() * 3.0);
-        createPanda(rnd, "t17");
-    }
-
-    private void createPanda(int rnd, String tileName) {
-        Panda p;
-        switch (rnd) {
-            case 0:
-                p = new JumpingPanda();
-                break;
-            case 1:
-                p = new ScarablePanda();
-                break;
-            case 2:
-                p = new TiredPanda();
-                break;
-            default:
-                p = new JumpingPanda();
-        }
-
-        p.setName("panda" + pandaCounter++);
-        p.setTile(map.get(tileName));
-        p.setGameLogic(gL);
-        map.get(tileName).setAnimal(p);
-        p.setCenter(map.get(tileName).getCenter());
-        gL.addPanda(p);
-    }
-
     /**
      * Incializalja az egesz palyat(proto, illetve a vegleges jatek).
      */
@@ -1049,7 +967,6 @@ public class Map {
         } else {
             fillPlayingMap();
             setElementsOfPlayingMap();
-            placeAnimalsOnPlayingMap();
         }
     }
 

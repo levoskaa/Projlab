@@ -9,7 +9,6 @@
 //
 //
 
-import java.awt.*;
 import java.util.*;
 
 /**
@@ -26,12 +25,6 @@ public abstract class BaseTile {
     private String name;
 
     private Point center;
-
-    protected Image image;
-
-    public Image getImage() {
-        return image;
-    }
 
     public Point getCenter() {
         return center;
@@ -90,7 +83,6 @@ public abstract class BaseTile {
         if (localAnimal == null) {
             localAnimal = a;
             localAnimal.setTile(this);
-            localAnimal.setCenter(center);
             ArrayList<Panda> a1 = localAnimal.getCaughtPandas();
             if (a1 != null) {
                 for (int i = 0; i < a1.size(); i++) {

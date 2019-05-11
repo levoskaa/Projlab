@@ -9,9 +9,6 @@
 //
 //
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
-
 /**
  * A torekeny csempe viselkedeset megvalosito osztaly.
  *
@@ -30,14 +27,6 @@ public class BreakableTile extends Tile {
      * A csempe allapotat(torott/ep) jelzo boolean.
      */
     private boolean broken;
-
-    public BreakableTile() {
-        try {
-            image = ImageIO.read(getClass().getResource( "images/breakabletile_notbroken.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Getter fuggveny a health valtozohoz.
@@ -131,12 +120,6 @@ public class BreakableTile extends Tile {
         if (health <= 0) {
             broken = true;
             localAnimal.die();
-
-            try {
-                image = ImageIO.read(getClass().getResource( "images/breakabletile_broken.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
 
         if (SkeletonMenu.indent) {

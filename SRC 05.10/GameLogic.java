@@ -11,8 +11,6 @@
 
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * Az osztaly amely a jatek motorjat kepezi, inicializalja a jatekot,
@@ -23,11 +21,6 @@ import java.util.TimerTask;
 
 
 public class GameLogic {
-
-    private int remainingTime = 180;
-    private Timer timer;
-
-    private View view;
 
     /**
      * A jatekos megszerzett pointjait tarolo int.
@@ -81,10 +74,6 @@ public class GameLogic {
         return;
     }
 
-    public void setView(View v) {
-        view = v;
-    }
-
     /**
      * A fuggveny visszaadja a gep altal vezetett orangutant.
      *
@@ -106,7 +95,7 @@ public class GameLogic {
      *
      * @return Az orangutan.
      */
-    public PlayerOrangutan getPlayerOrangutan() {
+    public Orangutan getPlayerOrangutan() {
         return playerOrangutan;
     }
 
@@ -157,6 +146,7 @@ public class GameLogic {
                 tick(); //az állatok és tárgyak léptetése/üzemeltetése
                 delta--;
             }
+
         }
 
         if (SkeletonMenu.indent) {
@@ -227,17 +217,15 @@ public class GameLogic {
             System.out.println(">   GameLogic::tick()");
         }
 
-        playerOrangutan.move();
         secondOrangutan.move();
 
-        for (int i = 0; i < pandasOnTheMap.size(); ++i) {
+        for (int i = 0; i != pandasOnTheMap.size(); ++i) {
             pandasOnTheMap.get(i).move();
         }
 
         for (int j = 0; j != itemsOnTheMap.size(); ++j) {
             itemsOnTheMap.get(j).countDown();
         }
-        view.repaint();
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);
@@ -302,15 +290,6 @@ public class GameLogic {
         itemsOnTheMap = new ArrayList<>();
         playerOrangutan = new PlayerOrangutan();
         secondOrangutan = new Orangutan();
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                --remainingTime;
-                if (remainingTime == 0)
-                    endGame();
-            }
-        }, 600, 1000);
     }
 
     private static int tabCounter = 0;
@@ -332,10 +311,6 @@ public class GameLogic {
             tabCounter++;
 
         return;
-    }
-
-    public String getTime() {
-        return String.format("%d:%d", remainingTime / 60, remainingTime % 60);
     }
 
 }

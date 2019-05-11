@@ -3,7 +3,6 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
-import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -28,11 +27,6 @@ public abstract class Animal {
      */
     protected GameLogic gameLogic;
 
-    protected Image image;
-
-    public Image getImage() {
-        return image;
-    }
     //public abstract int checkPoints();
 
     /**

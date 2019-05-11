@@ -1,22 +1,4 @@
-import javax.imageio.ImageIO;
-import java.io.IOException;
-
 public class PlayerOrangutan extends Orangutan {
-
-    BaseTile destination;
-
-    public PlayerOrangutan() {
-        try {
-            image = ImageIO.read(getClass().getResource( "images/orangutan_o.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setDestination(BaseTile bt) {
-        destination = bt;
-    }
-
     /**
      * A GameLogic altal periodikusan meghivott fuggveny ...
      *
@@ -29,8 +11,8 @@ public class PlayerOrangutan extends Orangutan {
             System.out.println(">   PlayerOrangutan::move()");
         }
 
-        if (destination != null)
-            destination.receive(this);
+
+        // TODO
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);

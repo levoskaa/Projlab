@@ -3,8 +3,6 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -32,11 +30,6 @@ public class Orangutan extends Animal {
     public Orangutan() {
         caughtPandas = new ArrayList<Panda>();
         cantCatchPandasUntil = 0;
-        try {
-            image = ImageIO.read(getClass().getResource( "images/orangutan_ai.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -298,8 +291,8 @@ public class Orangutan extends Animal {
             System.out.println(">   Orangutan::move()");
         }
 
-        super.move();
 
+        super.move();
         if (cantCatchPandasUntil > 0)
             cantCatchPandasUntil--;
 

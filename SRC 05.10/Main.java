@@ -21,12 +21,8 @@ public class Main {
                     menu2.menuInit();
                     break;
                 case "game":
-                    GameLogic gl = new GameLogic();
-                    gl.initGame();
-                    View view = new View(gl);
-                    gl.setView(view);
+                    View view = new View();
                     view.init();
-                    gl.game();
                     break;
                 default:
                     break;

@@ -3,10 +3,6 @@
 //  @ Date : 2019.03.20.
 //  @ Author : Laurinyecz
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.io.IOException;
-
 /**
  * Osztaly a Pandak viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * a JumpingPanda, TiredPanda es ScarablePanda osztalyok ebbol az osztalybol szarmaznak.
@@ -31,11 +27,6 @@ public abstract class Panda extends Animal {
     public Panda() {
         caught = false;
         this.orangutan = null;
-        try {
-            image = ImageIO.read(getClass().getResource( "images/panda.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -137,11 +128,7 @@ public abstract class Panda extends Animal {
             System.out.println(">   Panda::move()");
         }
 
-        if (!caught)
-            super.move();
-        else {
-
-        }
+        super.move();
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);

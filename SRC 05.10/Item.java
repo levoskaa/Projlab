@@ -10,8 +10,6 @@
 //
 
 
-import java.awt.*;
-
 /**
  * A poliformizmust tamogato ososztaly a jatekban megtalalhato targyakhoz.
  *
@@ -24,12 +22,6 @@ public abstract class Item extends BaseTile {
     private String name;
 
     private Point center;
-
-    protected Image image;
-
-    public Image getImage() {
-        return image;
-    }
 
     public Point getCenter() {
         return center;

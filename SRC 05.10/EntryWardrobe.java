@@ -9,9 +9,6 @@
 //
 //
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
-
 /**
  * Osztaly a bemeneti szekrenyek viselkedesenek es tulajdonsagaiknak osszegyujtesere,
  * az ExitPoint osztaly ebbol az osztalybol szarmazik.
@@ -25,14 +22,6 @@ public class EntryWardrobe extends BaseTile {
      * Referencia a kimeneti szekrenyre, vagyis egy specialis csempere.
      */
     protected BaseTile destination;
-
-    public EntryWardrobe() {
-        try {
-            image = ImageIO.read(getClass().getResource( "images/wardrobe.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Setter fuggveny a destination valtozo megvaltoztatasara.

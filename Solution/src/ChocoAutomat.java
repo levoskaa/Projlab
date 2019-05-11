@@ -10,6 +10,8 @@
 //
 
 
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -66,6 +68,12 @@ public class ChocoAutomat extends Item {
      * @param t A csempe amelyiken a Csokiautomata all.
      */
     public ChocoAutomat(Tile t) {
+        try {
+            image = ImageIO.read(getClass().getResource( "images/automat.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //GameLogic.indent(true);
         //System.out.println(">   ChocoAutomat::ChocoAutomat(Tile t)");
         onTile = t;

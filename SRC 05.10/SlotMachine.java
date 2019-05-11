@@ -9,8 +9,6 @@
 //
 //
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -69,11 +67,6 @@ public class SlotMachine extends Item {
     public SlotMachine(Tile t) {
         //GameLogic.indent(true);
         //System.out.println(">   SlotMachine::SlotMachine(Tile t)");
-        try {
-            image = ImageIO.read(getClass().getResource( "images/slotmachine.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         onTile = t;
         //int rn = ThreadLocalRandom.current().nextInt(75,125+1);

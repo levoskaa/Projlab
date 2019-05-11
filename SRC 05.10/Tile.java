@@ -9,9 +9,6 @@
 //
 //
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
-
 /**
  * Egy csempe viselkedeset megvalosito osztaly.
  *
@@ -25,14 +22,6 @@ public class Tile extends BaseTile {
      * referenciajat tarolo Item.
      */
     private Item localItem;
-
-    public Tile() {
-        try {
-            image = ImageIO.read(getClass().getResource( "images/tile.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * A fuggveny a csokiautomata sipolasan keresztul ugrasra keszteti az ugro pandakat.

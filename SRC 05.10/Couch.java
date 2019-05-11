@@ -10,9 +10,6 @@
 //
 
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
-
 /**
  * A kanapet megvalosito osztaly.
  *
@@ -76,12 +73,6 @@ public class Couch extends Item {
      * @param t A csempe, amelyiken a kanape talalhato.
      */
     public Couch(Tile t) {
-        try {
-            image = ImageIO.read(getClass().getResource( "images/couch.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         //GameLogic.indent(true);
         //System.out.println(">   Couch::Couch(Tile t)");
         onTile = t;

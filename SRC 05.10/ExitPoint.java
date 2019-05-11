@@ -9,9 +9,6 @@
 //
 //
 
-import javax.imageio.ImageIO;
-import java.io.IOException;
-
 /**
  * Osztaly a kijarat viselkedesenek es tulajdonsagaiknak osszegyujtesere.
  *
@@ -30,14 +27,6 @@ public class ExitPoint extends EntryWardrobe {
      * a kijaraton keresztul.
      */
     private Tile startingTile;
-
-    public ExitPoint() {
-        try {
-            image = ImageIO.read(getClass().getResource( "images/exitpoint.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Beallitja a kezdo csempet.

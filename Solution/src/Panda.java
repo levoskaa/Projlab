@@ -147,9 +147,6 @@ public abstract class Panda extends Animal {
 
         if (!caught)
             super.move();
-        else {
-
-        }
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);

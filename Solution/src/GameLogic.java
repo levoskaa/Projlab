@@ -146,7 +146,7 @@ public class GameLogic {
         }
 
         long lastTime = System.nanoTime(); //utolsó mentett rendszeridő nanoszekundumban
-        final double amountOfTicks = 2D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
+        final double amountOfTicks = 1D; //hány ticket akarunk másodpercenként --> 2 tick másodpercenként
         double nanoSec = 1000000000 / amountOfTicks; //hány nanoszekudumonként kell tickelni
         double delta = 0;
 
@@ -230,13 +230,14 @@ public class GameLogic {
 
         BaseTile previousTile = playerOrangutan.getTile();
         BaseTile temp;
-        HashSet<Panda> guidedPandas = new HashSet<>();
-        //ArrayList<Panda> guidedPandas = new ArrayList<>();
-        guidedPandas.addAll(playerOrangutan.getCaughtPandas());
-        guidedPandas.addAll(secondOrangutan.getCaughtPandas());
 
+        boolean pandasCanMove = true;
+        int pandaNumBefore = playerOrangutan.getCaughtPandas().size();
         playerOrangutan.move();
-        if (!previousTile.equals(playerOrangutan.getTile())) {
+        if (pandaNumBefore < playerOrangutan.getCaughtPandas().size())
+            pandasCanMove = false;
+
+        if (!previousTile.equals(playerOrangutan.getTile()) && pandasCanMove) {
             for (Panda p : playerOrangutan.getCaughtPandas()) {
                 temp = p.getTile();
                 p.setTile(previousTile);
@@ -249,9 +250,14 @@ public class GameLogic {
         }
 
         if (secondOrangutan != null) {
+            pandasCanMove = true;
             previousTile = secondOrangutan.getTile();
+            pandaNumBefore = secondOrangutan.getCaughtPandas().size();
             secondOrangutan.move();
-            if (!previousTile.equals(secondOrangutan.getTile())) {
+            if (pandaNumBefore < secondOrangutan.getCaughtPandas().size())
+                pandasCanMove = false;
+
+            if (!previousTile.equals(secondOrangutan.getTile()) && pandasCanMove) {
                 for (Panda p : secondOrangutan.getCaughtPandas()) {
                     temp = p.getTile();
                     p.setTile(previousTile);
@@ -268,7 +274,7 @@ public class GameLogic {
 
         for (int i = 0; i < pandasOnTheMap.size(); ++i) {
             if (!pandasOnTheMap.get(i).getCaught()) {
-                pandasOnTheMap.get(i).move();
+                //pandasOnTheMap.get(i).move();
             }
         }
 

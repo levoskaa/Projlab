@@ -85,9 +85,8 @@ public abstract class BaseTile {
             return;
         }
 
-        a.getTile().remove();
-
         if (localAnimal == null) {
+            a.getTile().remove();
             localAnimal = a;
             localAnimal.setTile(this);
             localAnimal.setCenter(center);

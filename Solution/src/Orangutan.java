@@ -113,7 +113,6 @@ public class Orangutan extends Animal {
             System.out.println(">   Orangutan::collisionWitPanda(Animal a)");
         }
 
-
         if (cantCatchPandasUntil == 0)
             p.catchPanda(this);
 
@@ -153,6 +152,8 @@ public class Orangutan extends Animal {
         // Orangutanok felcserelese 1.
         tileOfOther.setAnimal(this);
         currentTile.setAnimal(o);
+        o.setCenter(currentTile.getCenter());
+        setCenter(tileOfOther.getCenter());
 
         // Orangutanok felcserelese 2.
         o.setTile(currentTile);
@@ -299,8 +300,12 @@ public class Orangutan extends Animal {
             GameLogic.indent(true);
             System.out.println(">   Orangutan::move()");
         }
+        boolean pandasCanStep = true;
 
+        int pandaNumBefore = caughtPandas.size();
         super.move();
+        if (pandaNumBefore < caughtPandas.size())
+            pandasCanStep = false;
 
         if (cantCatchPandasUntil > 0)
             cantCatchPandasUntil--;
@@ -332,11 +337,13 @@ public class Orangutan extends Animal {
         currentTile.remove();
         currentTile.setAnimal(p);
         p.setTile(currentTile);
+        p.setCenter(currentTile.getCenter());
 
         // Az orangutan elhelyezese a panda csempejere.
         pandaTile.remove();
         pandaTile.setAnimal(this);
         setTile(pandaTile);
+        setCenter(pandaTile.getCenter());
 
         // Elfogast jelzo valtozo beallitasa, es felfuzes a sorba.
         p.setCaught(true);

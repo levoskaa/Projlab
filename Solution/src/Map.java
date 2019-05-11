@@ -968,19 +968,6 @@ public class Map {
         map.get("st").setAnimal(po);
         po.setCenter(map.get("st").getCenter());
 
-        ArrayList<Panda> following = new ArrayList();
-        Panda p = new JumpingPanda();
-        p.setName("panda" + pandaCounter++);
-        p.setTile(map.get("t1"));
-        p.setGameLogic(gL);
-        p.setOrangutan(gL.getPlayerOrangutan());
-        map.get("t1").setAnimal(p);
-        p.setCenter(map.get("t1").getCenter());
-        gL.addPanda(p);
-        following.add(p);
-        po.setCaughtPandas(following);
-
-
         Orangutan o = gL.getSecondOrangutan();
         o.setName("po");
         o.setTile(map.get("t28"));

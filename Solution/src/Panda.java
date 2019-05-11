@@ -81,6 +81,14 @@ public abstract class Panda extends Animal {
     }
 
     /**
+     * Getter fuggveny a caught valtozohoz.
+     * @return A caught erteke.
+     */
+    public boolean getCaught(){
+        return caught;
+    }
+
+    /**
      * Visszaadja a panda pontbeli erteket.
      *
      * @return Mennyi pontot er a panda a kijaratra lepeskor.

@@ -230,8 +230,12 @@ public class GameLogic {
         playerOrangutan.move();
         secondOrangutan.move();
 
+        
+
         for (int i = 0; i < pandasOnTheMap.size(); ++i) {
-            pandasOnTheMap.get(i).move();
+            if (!pandasOnTheMap.get(i).getCaught()) {
+                pandasOnTheMap.get(i).move();
+            }
         }
 
         for (int j = 0; j != itemsOnTheMap.size(); ++j) {

@@ -11,6 +11,7 @@
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -227,8 +228,41 @@ public class GameLogic {
             System.out.println(">   GameLogic::tick()");
         }
 
+        BaseTile previousTile = playerOrangutan.getTile();
+        BaseTile temp;
+        HashSet<Panda> guidedPandas = new HashSet<>();
+        //ArrayList<Panda> guidedPandas = new ArrayList<>();
+        guidedPandas.addAll(playerOrangutan.getCaughtPandas());
+        guidedPandas.addAll(secondOrangutan.getCaughtPandas());
+
         playerOrangutan.move();
-        secondOrangutan.move();
+        if (!previousTile.equals(playerOrangutan.getTile())) {
+            for (Panda p : playerOrangutan.getCaughtPandas()) {
+                temp = p.getTile();
+                p.setTile(previousTile);
+
+                temp.remove();
+                previousTile.setAnimal(p);
+                p.setCenter(previousTile.getCenter());
+                previousTile = temp;
+            }
+        }
+
+        if (secondOrangutan != null) {
+            previousTile = secondOrangutan.getTile();
+            secondOrangutan.move();
+            if (!previousTile.equals(secondOrangutan.getTile())) {
+                for (Panda p : secondOrangutan.getCaughtPandas()) {
+                    temp = p.getTile();
+                    p.setTile(previousTile);
+
+                    temp.remove();
+                    previousTile.setAnimal(p);
+                    p.setCenter(previousTile.getCenter());
+                    previousTile = temp;
+                }
+            }
+        }
 
         
 
@@ -241,6 +275,7 @@ public class GameLogic {
         for (int j = 0; j != itemsOnTheMap.size(); ++j) {
             itemsOnTheMap.get(j).countDown();
         }
+
         view.repaint();
 
         if (SkeletonMenu.indent) {
@@ -307,14 +342,6 @@ public class GameLogic {
         playerOrangutan = new PlayerOrangutan();
         secondOrangutan = new Orangutan();
         timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                --remainingTime;
-                if (remainingTime == 0)
-                    endGame();
-            }
-        }, 600, 1000);
     }
 
     private static int tabCounter = 0;
@@ -339,7 +366,18 @@ public class GameLogic {
     }
 
     public String getTime() {
-        return String.format("%d:%d", remainingTime / 60, remainingTime % 60);
+        return String.format("%d:" + ((remainingTime % 60 < 10) ? "0%d" : "%d"), remainingTime / 60, remainingTime % 60);
+    }
+
+    public void start() {
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                --remainingTime;
+                if (remainingTime == 0)
+                    endGame();
+            }
+        }, 600, 1000);
     }
 
 }

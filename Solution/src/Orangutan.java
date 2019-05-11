@@ -144,6 +144,9 @@ public class Orangutan extends Animal {
             return;
         }
 
+        if (o.getCaughtPandas().size() == 0)
+            return;
+
         // Orangutanok felcserelese kozben hasznalt segedvaltozo.
         BaseTile tileOfOther = o.getTile();
 
@@ -273,9 +276,8 @@ public class Orangutan extends Animal {
         if (caughtPandas.size() > 0)
             release(caughtPandas.get(0));
 
-        // TODO itt a listaktol fugg, ha Geza szetszedi akkor at kell irni!
         // Orangutan eltavolitasa a GameLogicbol
-        gameLogic.remove(this);
+        gameLogic.setSecondOrangutan(null);
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);

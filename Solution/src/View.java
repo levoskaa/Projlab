@@ -47,6 +47,7 @@ public class View {
 
     public void init() {
         buildFrame();
+        gl.start();
     }
 
     public void drawAll() {

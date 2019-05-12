@@ -228,10 +228,9 @@ public class GameLogic {
             // System.out.println("You Lost!");
         }
 
-        System.out.println("A jatek veget ert.");
+        //System.out.println("A jatek veget ert.");
 
-        //NEM ALLITJA LE A TIMERT
-        timer.cancel();
+
         end = true;
 
         if (SkeletonMenu.indent) {

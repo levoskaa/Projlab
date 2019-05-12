@@ -26,6 +26,9 @@ public class Tile extends BaseTile {
      */
     private Item localItem;
 
+    /**
+     *A Tile osztaly konstruktora, letrehozaskor betolti a kepet is
+     */
     public Tile() {
         try {
             image = ImageIO.read(getClass().getResource( "images/tile.png"));

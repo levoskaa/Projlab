@@ -24,14 +24,29 @@ import java.util.TimerTask;
 
 
 public class GameLogic {
-
+    /**
+     * Egy jatek hosszat reprezentalja.
+     */
     private int remainingTime = 180;
+
+    /**
+     * A programhoz tartozo timer.
+     */
     private Timer timer;
 
+    /**
+     * A jatek veget jelzo logikai elem.
+     */
     public boolean end = false;
 
+    /**
+     * A gep altal iranyitott orangutan allapotat jelzi.
+     */
     public boolean aiIsDead = false;
 
+    /**
+     * Referencia a view-re ami a jatek grafikus megjeleniteset vegzi.
+     */
     private View view;
 
     /**
@@ -215,6 +230,8 @@ public class GameLogic {
 
         System.out.println("A jatek veget ert.");
 
+        //NEM ALLITJA LE A TIMERT
+        timer.cancel();
         end = true;
 
         if (SkeletonMenu.indent) {
@@ -380,10 +397,17 @@ public class GameLogic {
         return;
     }
 
+    /**
+     * Vissza adja a jatekbol hatralevo idot.
+     * @return A jatebol hatralevo ido.
+     */
     public String getTime() {
         return String.format("%d:" + ((remainingTime % 60 < 10) ? "0%d" : "%d"), remainingTime / 60, remainingTime % 60);
     }
 
+    /**
+     *Elinditja a jatekot.
+     */
     public void start() {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override

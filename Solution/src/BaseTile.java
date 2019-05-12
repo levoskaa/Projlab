@@ -24,19 +24,36 @@ public abstract class BaseTile {
      * Nev, amivel a teszteles soran azonositani lehet az objektumot.
      */
     private String name;
-
+    /**
+     *Megadja a csempe kozeppontjat
+     */
     protected Point center;
 
+    /**
+     *A csempe megjelenitett kepe
+     */
     protected Image image;
 
+    /**
+     * Visszaadja a csempe megjelenitett kepet
+     * @return referencia a csempe megjelenitett kepere
+     */
     public Image getImage() {
         return image;
     }
 
+    /**
+     *Visszaadja a csempe kozeppontjat
+     * @return a csempe kozeppontja
+     */
     public Point getCenter() {
         return center;
     }
 
+    /**
+     *Beallitja a csempe kozeppontjat
+     * @param center Point tiusu parameter, ez lesz a csempe kozeppontja
+     */
     public void setCenter(Point center) {
         this.center = center;
     }

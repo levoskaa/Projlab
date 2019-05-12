@@ -11,26 +11,62 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * View osztaly a jatek grafikus feluletenek megvalositasahoz.
+ */
 public class View {
 
+    /**
+     * A jatek ablaka.
+     */
     private GameWindow mainWindow;
 
+    /**
+     * A jatek ablakanak szelessege.
+     */
     private int maxWidth;
+    /**
+     * A jatek ablakanak magassaga.
+     */
     private int maxHeight;
 
+    /**
+     * A palya, amelyen a jatek tortenik.
+     */
     Map map;
 
+    /**
+     * A jatek logikaja.
+     */
     private GameLogic gl;
 
+    /**
+     * A jatek grafikus felulete altal hasznalt kepek (pl. allatok, csempek kepei) mappajaba mutato String.
+     */
     private String path = "/images/";
 
-    //offset for images
+    /**
+     * Offset a kepekhez.
+     */
     private int o = 32;
 
+    /**
+     * A kezdo csempehez tartozo kep.
+     */
     private Image startingTileImg;
+    /**
+     * A jatekos altal iranyitott orangutanhoz tartozo kep.
+     */
     private Image orangutan_oImg;
+    /**
+     * A gep altal iranyitott orangutanhoz tartozo kep.
+     */
     private Image orangutan_aiImg;
 
+    /**
+     * Konstruktor.
+     * @param gl A View-hoz tartozo GameLogic.
+     */
     public View(GameLogic gl) {
         try {
             startingTileImg = ImageIO.read(getClass().getResource( "images/startingtile.png"));
@@ -42,6 +78,9 @@ public class View {
         this.gl = gl;
     }
 
+    /**
+     * Inicializalo fuggveny a jatek inditasahoz.
+     */
     public void init() {
         buildFrame();
         gl.start();
@@ -50,11 +89,21 @@ public class View {
     public void drawAll() {
     }
 
+    /**
+     * Beagyazott osztaly a jatek ablakan levo panelt valositja meg, JPanel leszarmazott.
+     */
     public class myPanel extends JPanel {
+        /**
+         * Konstruktor.
+         */
         public myPanel() {
             super.setPreferredSize(new Dimension(300, 300));
         }
 
+        /**
+         * Fuggveny a jatek kezdo allapotanak kirajzolasahoz.
+         * @param g
+         */
         @Override
         public void paintComponent(Graphics g) {
             if (!gl.end) {
@@ -139,6 +188,9 @@ public class View {
                     }
                 }
 
+                /**
+                 * MouseListener a jatek iranyitasahoz. A felhasznalo eger kattintassal tudja kivalasztani a mezot, amelyre lepni akar.
+                 */
                 addMouseListener(new MouseAdapter() {
                     public void mousePressed(MouseEvent me) {
                         //System.out.println(me);
@@ -177,6 +229,9 @@ public class View {
                     }
                 });
 
+                /**
+                 * KeyListener a pandak elengedesehez. A felhasznalo a space billentyuvel engedheti el az elkapott pandakat.
+                 */
                 addKeyListener(new KeyAdapter() {
                     @Override
                     public void keyReleased(KeyEvent e) {
@@ -225,10 +280,18 @@ public class View {
 
     }
 
+    /**
+     * Getter fuggveny, amely a jatek ablakat adja vissza.
+     * @return A jatek ablaka.
+     */
     public JFrame getFrame() {
         return mainWindow;
     }
 
+    /**
+     * A jatek ablakat (mainWindow) hozza letre, es rajzolja ki.
+     * @return A letrehozott ablak.
+     */
     private JFrame buildFrame() {
         mainWindow = new GameWindow("Game");
         mainWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -284,6 +347,9 @@ public class View {
         return mainWindow;
     }
 
+    /**
+     * Fuggveny az ujrakirajzolashoz.
+     */
     public void repaint() {
         mainWindow.repaint();
     }

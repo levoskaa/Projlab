@@ -2,7 +2,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * A program Main osztalya, a futtatasi pont.
+ */
 public class Main {
+    /**
+     * A program main fuggvenye.
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("Valassz az alabbi lehetosegek kozul:");
         System.out.println("skeleton: Skeleton tesztelese");

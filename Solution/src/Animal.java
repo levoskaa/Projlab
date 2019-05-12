@@ -28,8 +28,15 @@ public abstract class Animal {
      */
     protected GameLogic gameLogic;
 
+    /**
+     * Az allatot reprezentalo kep a grafikus feluleten.
+     */
     protected Image image;
 
+    /**
+     * Getter fuggveny az image valtozohoz.
+     * @return Az image
+     */
     public Image getImage() {
         return image;
     }
@@ -78,12 +85,23 @@ public abstract class Animal {
     public void sit(Tile t) {
     }
 
+    /**
+     * Az allat kozepenek a koordinatai.
+     */
     protected Point center;
 
+    /**
+     * Getter fuggveny a center valtozohoz.
+     * @return A center
+     */
     public Point getCenter() {
         return center;
     }
 
+    /**
+     * Setter fuggveny a center valtozohoz.
+     * @param center A center valtozo uj erteke.
+     */
     public void setCenter(Point center) {
         this.center = center;
     }
@@ -100,9 +118,17 @@ public abstract class Animal {
     public void jump() {
     }
 
+    /**
+     * Setter fuggveny a caughtPandas valtozohoz.
+     * @param caughtPandas Az uj caughtPanda lista.
+     */
     public void setCaughtPandas(ArrayList<Panda> caughtPandas) {
     }
 
+    /**
+     * Getter fuggveny a caughtPandas listahoz.
+     * @return caughtPandas lista
+     */
     public ArrayList<Panda> getCaughtPandas() {
         if (SkeletonMenu.indent) {
             gameLogic.indent(true);

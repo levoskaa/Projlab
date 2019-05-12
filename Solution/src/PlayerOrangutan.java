@@ -1,8 +1,15 @@
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
+/**
+ * Osztaly a jatekos altal iranyitott orangutan viselkedesenek, es mukodesnek implementalasara.
+ * Az Animal es az Orangutan osztalyokbol szarmazik le.
+ */
 public class PlayerOrangutan extends Orangutan {
 
+    /**
+     * A jatekos altal kijelolt mezo, ahova az orangutannak lepnie kell, azaz a mezo, amelyre a felhasznalo az egerrel kattint.
+     */
     BaseTile destination;
 
     public PlayerOrangutan() {
@@ -13,6 +20,10 @@ public class PlayerOrangutan extends Orangutan {
         }
     }
 
+    /**
+     * Setter fuggveny a destination valtozohoz.
+     * @param bt A destination uj erteke.
+     */
     public void setDestination(BaseTile bt) {
         destination = bt;
     }

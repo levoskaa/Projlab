@@ -31,6 +31,9 @@ public class ExitPoint extends EntryWardrobe {
      */
     private Tile startingTile;
 
+    /**
+     * Konstruktor
+     */
     public ExitPoint() {
         try {
             image = ImageIO.read(getClass().getResource( "images/exitpoint.png"));

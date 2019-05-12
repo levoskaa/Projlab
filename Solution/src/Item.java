@@ -23,6 +23,9 @@ public abstract class Item extends BaseTile {
      */
     private String name;
 
+    /**
+     * Az item kozepenek koordinatai.
+     */
     protected Point center;
 
     /**

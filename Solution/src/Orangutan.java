@@ -140,8 +140,10 @@ public class Orangutan extends Animal {
 
         // Ha vezet pandat, akkor nem rabolhat egy masik orangutantol.
         if (caughtPandas.size() > 0) {
-            GameLogic.indent(false);
-            System.out.println("<   Orangutan::collisionWithOrangutan(Animal a)");
+            if (SkeletonMenu.indent) {
+                GameLogic.indent(false);
+                System.out.println("<   Orangutan::collisionWithOrangutan(Animal a)");
+            }
             return;
         }
 
@@ -281,6 +283,8 @@ public class Orangutan extends Animal {
 
         // Orangutan eltavolitasa a GameLogicbol
         gameLogic.setSecondOrangutan(null);
+
+        gameLogic.aiIsDead = true;
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);

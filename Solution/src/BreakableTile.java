@@ -28,6 +28,22 @@ public class BreakableTile extends Tile {
     private int health;
 
     /**
+     * A kijarati pont egy referencian kereszul eri el a GameLogicot.
+     */
+    private GameLogic gameLogic;
+
+    /**
+     * Beallitja a GameLogicot.
+     *
+     * @param gameLogic a GameLogicra vonatkozo referencia.
+     */
+    public void setGameLogic(GameLogic gameLogic) {
+        this.gameLogic = gameLogic;
+    }
+
+    public GameLogic getGameLogic() { return gameLogic; }
+
+    /**
      * A csempe allapotat(torott/ep) jelzo boolean.
      */
     private boolean broken;
@@ -138,6 +154,8 @@ public class BreakableTile extends Tile {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
         }
 
         if (SkeletonMenu.indent) {

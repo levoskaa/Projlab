@@ -28,6 +28,10 @@ public class GameLogic {
     private int remainingTime = 180;
     private Timer timer;
 
+    public boolean end = false;
+
+    public boolean aiIsDead = false;
+
     private View view;
 
     /**
@@ -211,6 +215,8 @@ public class GameLogic {
 
         System.out.println("A jatek veget ert.");
 
+        end = true;
+
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);
             System.out.println("<   GameLogic::endGame()");
@@ -238,13 +244,13 @@ public class GameLogic {
             pandasCanMove = false;
 
         if (!previousTile.equals(playerOrangutan.getTile()) && pandasCanMove) {
-            for (Panda p : playerOrangutan.getCaughtPandas()) {
-                temp = p.getTile();
-                p.setTile(previousTile);
+
+            for (int i = 0; i < playerOrangutan.getCaughtPandas().size(); i++) {
+                temp = playerOrangutan.getCaughtPandas().get(i).getTile();
+                playerOrangutan.getCaughtPandas().get(i).setTile(previousTile);
+                previousTile.receive(playerOrangutan.getCaughtPandas().get(i));
 
                 temp.remove();
-                previousTile.setAnimal(p);
-                p.setCenter(previousTile.getCenter());
                 previousTile = temp;
             }
         }
@@ -254,10 +260,15 @@ public class GameLogic {
             previousTile = secondOrangutan.getTile();
             pandaNumBefore = secondOrangutan.getCaughtPandas().size();
             secondOrangutan.move();
-            if (pandaNumBefore < secondOrangutan.getCaughtPandas().size())
+            if (secondOrangutan != null && secondOrangutan.getCaughtPandas() != null) {
+                if (pandaNumBefore < secondOrangutan.getCaughtPandas().size())
+                    pandasCanMove = false;
+            }
+            else{
                 pandasCanMove = false;
+            }
 
-            if (!previousTile.equals(secondOrangutan.getTile()) && pandasCanMove) {
+            if (secondOrangutan != null && !previousTile.equals(secondOrangutan.getTile()) && pandasCanMove) {
                 for (Panda p : secondOrangutan.getCaughtPandas()) {
                     temp = p.getTile();
                     p.setTile(previousTile);
@@ -270,6 +281,7 @@ public class GameLogic {
             }
         }
         */
+
         for (int i = 0; i < pandasOnTheMap.size(); ++i) {
             if (!pandasOnTheMap.get(i).getCaught()) {
                 //pandasOnTheMap.get(i).move();

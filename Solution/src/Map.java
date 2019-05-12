@@ -502,6 +502,7 @@ public class Map {
         //set tile e
         map.get("e").setName("e");
         map.get("e").setCenter(new Point(1200 * s, 350 * s));
+        map.get("e").setGameLogic(getGameLogic());
         ArrayList<BaseTile> eNeighbours = new ArrayList<>();
         eNeighbours.add(map.get("t10"));
         eNeighbours.add(map.get("t11"));
@@ -525,8 +526,9 @@ public class Map {
 
         //set breakabletile b1
         map.get("b1").setName("b1");
+        map.get("b1").setGameLogic(getGameLogic());
         map.get("b1").setCenter(new Point(330 * s, 550 * s));
-        map.get("b1").setHealth(20);
+        map.get("b1").setHealth(2);
 
         ArrayList<BaseTile> b1Neighbours = new ArrayList<>();
         b1Neighbours.add(map.get("t25"));
@@ -538,8 +540,9 @@ public class Map {
 
         //set breakabletile b3
         map.get("b3").setName("b3");
+        map.get("b3").setGameLogic(getGameLogic());
         map.get("b3").setCenter(new Point(860 * s, 500 * s));
-        map.get("b3").setHealth(20);
+        map.get("b3").setHealth(2);
 
         ArrayList<BaseTile> b3Neighbours = new ArrayList<>();
         b3Neighbours.add(map.get("t20"));

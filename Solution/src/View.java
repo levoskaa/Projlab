@@ -57,6 +57,7 @@ public class View {
 
         @Override
         public void paintComponent(Graphics g) {
+            if (!gl.end) {
             /*g.drawImage(tile, 45 - o, 45 - o, mainWindow);
             g.drawLine(45,45,130,130);
             g.drawImage(tile, 130 - o, 130 - o, mainWindow);
@@ -157,21 +158,21 @@ public class View {
                                 int b = gl.getPlayerOrangutan().getCenter().x;
                                 int c = bt1.getCenter().y;
                                 int d = gl.getPlayerOrangutan().getCenter().y;
-                                System.out.println(a + " " + b + " " + c + " " + d);
-                                if (bt1.getCenter().x == gl.getPlayerOrangutan().getCenter().x && bt1.getCenter().y == gl.getPlayerOrangutan().getCenter().y){
+                                //System.out.println(a + " " + b + " " + c + " " + d);
+                                if (bt1.getCenter().x == gl.getPlayerOrangutan().getCenter().x && bt1.getCenter().y == gl.getPlayerOrangutan().getCenter().y) {
                                     neighbour = true;
                                     break;
                                 }
                             }
-                            if (neighbour){
-                                System.out.println(bt.getCenter().x + " " + bt.getCenter().y);
+                            if (neighbour) {
+                                //System.out.println(bt.getCenter().x + " " + bt.getCenter().y);
                                 gl.getPlayerOrangutan().setDestination(bt);
                                 //gl.getPlayerOrangutan().move(bt);
                                 mainWindow.repaint();
                             } else {
                                 gl.getPlayerOrangutan().setDestination(null);
                             }
-                            System.out.println( gl.getPlayerOrangutan().getCenter().x + " " + gl.getPlayerOrangutan().getCenter().y );
+                            //System.out.println(gl.getPlayerOrangutan().getCenter().x + " " + gl.getPlayerOrangutan().getCenter().y);
                         }
                     }
                 });
@@ -193,7 +194,8 @@ public class View {
                 }
 
                 g.drawImage(orangutan_oImg, map.getGameLogic().getPlayerOrangutan().getCenter().x - o, map.getGameLogic().getPlayerOrangutan().getCenter().y - o, mainWindow);
-                g.drawImage(orangutan_aiImg, map.getGameLogic().getSecondOrangutan().getCenter().x - o, map.getGameLogic().getSecondOrangutan().getCenter().y - o, mainWindow);
+                if (!gl.aiIsDead)
+                    g.drawImage(orangutan_aiImg, map.getGameLogic().getSecondOrangutan().getCenter().x - o, map.getGameLogic().getSecondOrangutan().getCenter().y - o, mainWindow);
 
                 g.setFont(new Font("TimesRoman", Font.PLAIN, 28));
                 String text = "Score: " + gl.getPoints();
@@ -202,7 +204,11 @@ public class View {
                 text = "Time: " + gl.getTime();
                 g.drawString(text, (mainWindow.getWidth() - width) / 2, 32);
             }
+            else {
+
+            }
         }
+    }
 
 
     public void pandaRemoved() {

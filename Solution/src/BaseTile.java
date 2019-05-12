@@ -81,7 +81,7 @@ public abstract class BaseTile {
         }
 
         BaseTile tempTile = a.getTile();
-        if (this.getItem() != null) {
+        if (this.getItem() != null && !this.getItem().isWardrobe()) {
             return;
         }
 

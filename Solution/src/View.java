@@ -205,6 +205,12 @@ public class View {
                 g.drawString(text, (mainWindow.getWidth() - width) / 2, 32);
             }
             else {
+                if(gl.getPandasOnTheMap().isEmpty() && gl.getPoints()>0){
+                    g.drawString("YOU WON",600,360);
+                }
+                else{
+                    g.drawString("YOU LOST", 600, 360);
+                }
 
             }
         }

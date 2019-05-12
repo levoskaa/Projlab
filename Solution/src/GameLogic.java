@@ -270,7 +270,7 @@ public class GameLogic {
                 previousTile = temp;
             }
         }
-        /*
+
         if (secondOrangutan != null) {
             pandasCanMove = true;
             previousTile = secondOrangutan.getTile();
@@ -296,11 +296,11 @@ public class GameLogic {
                 }
             }
         }
-        */
+
 
         for (int i = 0; i < pandasOnTheMap.size(); ++i) {
             if (!pandasOnTheMap.get(i).getCaught()) {
-                //pandasOnTheMap.get(i).move();
+                pandasOnTheMap.get(i).move();
             }
         }
 

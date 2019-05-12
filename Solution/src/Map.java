@@ -528,7 +528,7 @@ public class Map {
         map.get("b1").setName("b1");
         map.get("b1").setGameLogic(getGameLogic());
         map.get("b1").setCenter(new Point(330 * s, 550 * s));
-        map.get("b1").setHealth(2);
+        map.get("b1").setHealth(20);
 
         ArrayList<BaseTile> b1Neighbours = new ArrayList<>();
         b1Neighbours.add(map.get("t25"));
@@ -542,7 +542,7 @@ public class Map {
         map.get("b3").setName("b3");
         map.get("b3").setGameLogic(getGameLogic());
         map.get("b3").setCenter(new Point(860 * s, 500 * s));
-        map.get("b3").setHealth(2);
+        map.get("b3").setHealth(20);
 
         ArrayList<BaseTile> b3Neighbours = new ArrayList<>();
         b3Neighbours.add(map.get("t20"));

@@ -3,15 +3,15 @@
 //  @ Date : 2019.05.07.
 //  @ Author : Laurinyecz
 
-import com.sun.javafx.binding.StringFormatter;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * View osztaly a jatek grafikus feluletenek megvalositasahoz.

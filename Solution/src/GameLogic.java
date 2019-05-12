@@ -30,6 +30,11 @@ public class GameLogic {
     private int remainingTime = 180;
 
     /**
+     * A jatekter.
+     */
+    private Map map;
+
+    /**
      * A programhoz tartozo timer.
      */
     private Timer timer;
@@ -53,6 +58,11 @@ public class GameLogic {
      * A jatekos megszerzett pointjait tarolo int.
      */
     private int points;
+
+    /**
+     * A masik orangutan megszerzett pointjait tarolo int.
+     */
+    private int pointSecond;
 
     /**
      * A program futasat jelzo boolean.
@@ -101,6 +111,26 @@ public class GameLogic {
         return;
     }
 
+    /**
+     * Setter a map-ra.
+     * @param m Az új map érték.
+     */
+    public void setMap(Map m) {
+        map = m;
+    }
+
+    /**
+     * Getter a map-ra.
+     * @return A map.
+     */
+    public Map getMap() {
+        return map;
+    }
+
+    /**
+     * Setter a view-ra.
+     * @param v Az új view érték.
+     */
     public void setView(View v) {
         view = v;
     }
@@ -206,7 +236,33 @@ public class GameLogic {
     }
 
     /**
-     * A fuggveny visszaadja a megszerzett pontokat.
+     * A fuggveny szamolja a masik orangutan altal a kijaraton atjuttatott pandakat
+     * es ez alapjan noveli a pontszamlalot.
+     */
+    public void addPointsSecond(int p) {
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(true);
+            System.out.println(">   GameLogic::addPoints(int p)");
+        }
+
+        pointSecond += (p * 50);
+
+        if (SkeletonMenu.indent) {
+            GameLogic.indent(false);
+            System.out.println("<   GameLogic::addPoints(int p)");
+        }
+        return;
+    }
+
+    /**
+     * A fuggveny visszaadja a masik orangutan altal megszerzett pontokat.
+     */
+    public int getPointSecond() {
+        return pointSecond;
+    }
+
+    /**
+     * A fuggveny visszaadja a jatekos altal megszerzett pontokat.
      */
     public int getPoints() {
         return points;

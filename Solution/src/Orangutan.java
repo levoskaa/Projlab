@@ -306,8 +306,11 @@ public class Orangutan extends Animal {
             GameLogic.indent(true);
             System.out.println(">   Orangutan::move()");
         }
-
-        super.move();
+        if (currentTile.getName().compareTo("e") == 0) {
+            gameLogic.getMap().getTile("st").receive(this);
+        } else {
+            super.move();
+        }
 
         if (cantCatchPandasUntil > 0)
             cantCatchPandasUntil--;

@@ -3,6 +3,8 @@
 //  @ Date : 2019.05.07.
 //  @ Author : Laurinyecz
 
+import com.sun.javafx.binding.StringFormatter;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -232,10 +234,10 @@ public class View {
                 /**
                  * KeyListener a pandak elengedesehez. A felhasznalo a space billentyuvel engedheti el az elkapott pandakat.
                  */
-                addKeyListener(new KeyAdapter() {
+                mainWindow.addKeyListener(new KeyAdapter() {
                     @Override
-                    public void keyReleased(KeyEvent e) {
-                        //super.keyReleased(e);
+                    public void keyPressed(KeyEvent e) {
+                        super.keyPressed(e);
                         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                             if (gl.getPlayerOrangutan().getCaughtPandas().size() > 0) {
                                 gl.getPlayerOrangutan().release(gl.getPlayerOrangutan().getCaughtPandas().get(0));
@@ -260,11 +262,18 @@ public class View {
                 g.drawString(text, (mainWindow.getWidth() - width) / 2, 32);
             }
             else {
-                if(gl.getPandasOnTheMap().isEmpty() && gl.getPoints()>0){
-                    g.drawString("YOU WON",600,360);
+                g.setFont(new Font("TimesRoman", Font.PLAIN, 28));
+                String text;
+                int width;
+                if(gl.getPandasOnTheMap().isEmpty() && gl.getPoints() >= gl.getPointSecond()) {
+                    text = String.format("YOU WON! YOU HAD " + gl.getPoints() + " POINTS!");
+                    width = g.getFontMetrics().stringWidth(text);
+                    g.drawString(text,(mainWindow.getWidth() - width) / 2,mainWindow.getHeight() / 2);
                 }
                 else{
-                    g.drawString("YOU LOST", 600, 360);
+                    text = String.format("YOU LOST! YOU HAD " + gl.getPoints() + " POINTS!");
+                    width = g.getFontMetrics().stringWidth(text);
+                    g.drawString(text, (mainWindow.getWidth() - width) / 2, mainWindow.getHeight() / 2);
                 }
 
             }
@@ -352,5 +361,9 @@ public class View {
      */
     public void repaint() {
         mainWindow.repaint();
+    }
+
+    public Map getMap() {
+        return map;
     }
 }

@@ -975,7 +975,7 @@ public class Map {
         po.setCenter(map.get("st").getCenter());
 
         Orangutan o = gL.getSecondOrangutan();
-        o.setName("po");
+        o.setName("o");
         o.setTile(map.get("t28"));
         o.setGameLogic(gL);
         map.get("t28").setAnimal(o);

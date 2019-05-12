@@ -40,8 +40,12 @@ public class PlayerOrangutan extends Orangutan {
             System.out.println(">   PlayerOrangutan::move()");
         }
 
-        if (destination != null)
-            destination.receive(this);
+        if (currentTile.getName().compareTo("e") == 0) {
+            gameLogic.getMap().getTile("st").receive(this);
+        } else {
+            if (destination != null)
+                destination.receive(this);
+        }
 
         if (SkeletonMenu.indent) {
             GameLogic.indent(false);

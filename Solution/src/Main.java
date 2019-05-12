@@ -33,6 +33,7 @@ public class Main {
                     View view = new View(gl);
                     gl.setView(view);
                     view.init();
+                    gl.setMap(view.getMap());
                     gl.game();
                     break;
                 default:

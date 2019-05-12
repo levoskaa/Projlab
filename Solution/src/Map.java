@@ -961,6 +961,9 @@ public class Map {
         return;
     }
 
+    /**
+     * Elhelyezi az allatokat a mapen, az elore definialt helyukre.
+     */
     private void placeAnimalsOnPlayingMap() {
         int rnd;
 
@@ -1003,6 +1006,11 @@ public class Map {
         createPanda(rnd, "t17");
     }
 
+    /**
+     * Letrehozza a pandakat.
+     * @param rnd Egy random szam, ez alapjan donti el milyen pandat hozzon letre.
+     * @param tileName A csempe kodja amelyen a pandat letre kell hozni.
+     */
     private void createPanda(int rnd, String tileName) {
         Panda p;
         switch (rnd) {
@@ -1043,7 +1051,10 @@ public class Map {
         }
     }
 
-
+    /**
+     *Visszaadja a palyat kepezo hashmapot
+     * @return A palya.
+     */
     public HashMap<String, BaseTile> getTiles() {
         return map;
     }

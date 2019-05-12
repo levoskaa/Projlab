@@ -26,6 +26,9 @@ public class EntryWardrobe extends BaseTile {
      */
     protected BaseTile destination;
 
+    /**
+     * Az osztaly konstruktora, amely letrehozaskor betolti a kepet is.
+     */
     public EntryWardrobe() {
         try {
             image = ImageIO.read(getClass().getResource( "images/wardrobe.png"));
@@ -94,7 +97,6 @@ public class EntryWardrobe extends BaseTile {
 
     /**
      * Megadja, hogy az adott Item szekreny-e vagy sem.
-     *
      * @return Ha az Item szekreny, true (leszarmazottban override), amugy false;
      */
     public boolean isWardrobe() {

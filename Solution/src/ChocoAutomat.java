@@ -77,9 +77,9 @@ public class ChocoAutomat extends Item {
         //GameLogic.indent(true);
         //System.out.println(">   ChocoAutomat::ChocoAutomat(Tile t)");
         onTile = t;
-        //int rn = ThreadLocalRandom.current().nextInt(75,125+1);
-        //Counter = rn;
-        Counter = 1;
+        int rn = ThreadLocalRandom.current().nextInt(75,125+1);
+        Counter = rn;
+        //Counter = 1;
         //GameLogic.indent(false);
         //System.out.println("<   ChocoAutomat::ChocoAutomat(Tile t)");
     }

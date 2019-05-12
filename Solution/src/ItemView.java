@@ -36,6 +36,6 @@ public class ItemView implements IDrawable {
      */
     @Override
     public void draw() {
-        //toDO
+
     }
 }

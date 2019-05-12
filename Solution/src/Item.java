@@ -25,16 +25,34 @@ public abstract class Item extends BaseTile {
 
     protected Point center;
 
+    /**
+     * A kep ami az adott targyat jeloli a grafikus feluleten
+     */
     protected Image image;
 
+    /**
+     * Visszaadja a targy kinezetet tartalmazo mezot
+     *
+     * @return A kep
+     */
     public Image getImage() {
         return image;
     }
 
+    /**
+     * Visszaadja a targy kozeppontjainak a koordinatait
+     *
+     * @return A koordinatak
+     */
     public Point getCenter() {
         return center;
     }
 
+    /**
+     * Beallitja a targy kozeppontjanak a koordinatait
+     *
+     * @param center A kozeppont koordinatai
+     */
     public void setCenter(Point center) {
         this.center = center;
     }
@@ -54,18 +72,37 @@ public abstract class Item extends BaseTile {
     public void countDown() {
     }
 
+    /**
+     * Lasd a kanapenal.
+     */
     public void receive(TiredPanda p) {
     }
 
+    /**
+     * Lasd a kanapenal
+     */
     public void standUp() {
     }
 
+    /**
+     * Lasd leszarmazottak.
+     */
     public abstract void doAction();
 
+    /**
+     * Visszaadja a targy nevet.
+     *
+     * @return A targy neve.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Beallitja a targy nevet.
+     *
+     * @param n a targy neve.
+     */
     public void setName(String n) {
         name = n;
     }

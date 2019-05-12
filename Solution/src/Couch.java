@@ -40,6 +40,9 @@ public class Couch extends Item {
         return;
     }
 
+    /**
+     * Protomenuhoz szukseges extra metodus.
+     */
     @Override
     public void doAction() {
         countDown();

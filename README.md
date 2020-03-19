@@ -5,5 +5,5 @@
 * Cynolter Márton
 * Kálai István Kristóf
 * Konczos Géza
-* *__Laurinyecz LeventeH__*
+* *__Laurinyecz Levente__*
 * Schütz Máté
